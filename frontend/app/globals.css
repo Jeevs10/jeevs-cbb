@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  background: #e7e8d1;
+  font-family: monospace;
+}
+
+/* remove default button styling */
+button {
+  font-family: monospace;
+  border: 2px solid black;
+  background: #c7d0b8;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #b8c0a8;
+}
+
+/* table consistency */
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 2px solid black;
+  padding: 6px;
+  font-size: 12px;
+}
