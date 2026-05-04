@@ -3,29 +3,99 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 
-import { fetchPlayer } from "../../../lib/api";
+import {
+  fetchPlayer,
+  fetchPlayerMoves,
+  fetchSimilarPlayers,
+  fetchPlayerBadges,
+  fetchPlayerRadar,
+} from "@/lib/api";
 
-import Panel, { PanelDark } from "@/components/ui/Panel";
+import { useYear } from "@/app/context/YearContext";
+
+import Panel from "@/components/ui/Panel";
 import { PanelHeader } from "@/components/ui/Panel";
 import PlayerRadar from "@/components/ui/PlayerRadar";
 
 import Stat from "@/components/ui/Stat";
 import PlayerHeader from "@/components/player/PlayerHeader";
-import PlayerStylePanel from "@/components/player/PlayerStylePanel";
-import { getPlayerBadges } from "../../../lib/badges";
 import Badge from "@/components/ui/Badge";
 import PlayerMovesPanel from "@/components/player/PlayerMovesPanel";
+import PlayerSimilarPanel from "@/components/player/PlayerSimilarPanel";
 
+import YearToggle from "@/components/ui/YearToggle";
 
 export default function PlayerPage() {
   const { id } = useParams();
-  const [player, setPlayer] = useState(null);
-  
+  const { year } = useYear();
 
+  const [player, setPlayer] = useState<any>(null);
+  const [availableYears, setAvailableYears] = useState<number[]>([]);
+  const [radar, setRadar] = useState<any[]>([]);
+  const [badges, setBadges] = useState<any[]>([]);
+  const [moves, setMoves] = useState<any[]>([]);
+  const [similar, setSimilar] = useState<any>(null);
+  const [styleWeight, setStyleWeight] = useState(0.7);
+
+  const playerCode = player?.player_code;
+
+  // -------------------------
+  // PLAYER
+  // -------------------------
   useEffect(() => {
     if (!id) return;
-    fetchPlayer(id).then(setPlayer);
-  }, [id]);
+
+    fetchPlayer(id, year)
+      .then((data) => {
+        setPlayer(data.player);
+        setAvailableYears(data.available_years || []);
+      })
+      .catch(console.error);
+  }, [id, year]);
+
+  // -------------------------
+  // RADAR (🔥 FIXED)
+  // -------------------------
+  useEffect(() => {
+    if (!playerCode) return;
+
+    fetchPlayerRadar(playerCode, year)
+      .then(setRadar)
+      .catch(console.error);
+  }, [playerCode, year]);
+
+  // -------------------------
+  // MOVES
+  // -------------------------
+  useEffect(() => {
+    if (!playerCode) return;
+
+    fetchPlayerMoves(playerCode, year)
+      .then(setMoves)
+      .catch(console.error);
+  }, [playerCode, year]);
+
+  // -------------------------
+  // BADGES
+  // -------------------------
+  useEffect(() => {
+    if (!playerCode) return;
+
+    fetchPlayerBadges(playerCode, year)
+      .then(setBadges)
+      .catch(console.error);
+  }, [playerCode, year]);
+
+  // -------------------------
+  // SIMILAR
+  // -------------------------
+  useEffect(() => {
+    if (!playerCode) return;
+
+    fetchSimilarPlayers(playerCode, styleWeight, year)
+      .then(setSimilar)
+      .catch(console.error);
+  }, [playerCode, styleWeight, year]);
 
   if (!player) {
     return (
@@ -34,20 +104,24 @@ export default function PlayerPage() {
       </div>
     );
   }
-  const badges = getPlayerBadges(player);
 
   return (
     <div className="p-3 space-y-6">
-      {/* CRT overlay (kept as global effect layer) */}
-      <div className="pointer-events-none fixed inset-0 opacity-10 bg-[radial-gradient(circle,rgba(0,0,0,0.15)_1px,transparent_1px)] [background-size:4px_4px]" />
 
-      {/* PLAYER HEADER (already good, leave as-is or later convert to Card) */}
       <PlayerHeader player={player} />
+
+      {/* YEAR TOGGLE */}
+      {availableYears.length > 0 && (
+        <YearToggle availableYears={availableYears} />
+      )}
+
+      <div className="text-xs font-bold">
+        Viewing: {year ?? "Latest Season"}
+      </div>
 
       {/* MAIN GRID */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        
-        {/* BASE STATS PANEL */}
+
         <Panel>
           <PanelHeader>BASE STATS</PanelHeader>
 
@@ -57,36 +131,46 @@ export default function PlayerPage() {
           <Stat label="RAPM" value={player.adj_rapm_margin} max={20} />
         </Panel>
 
-        {/* ADVANCED PROFILE PANEL (now properly systemized) */}
         <Panel>
-  <PanelHeader>ADVANCED PROFILE</PanelHeader>
-    
-  <PlayerRadar player={player} />
-</Panel>
+          <PanelHeader>ADVANCED PROFILE</PanelHeader>
+
+          {/* 🔥 FIXED: use radar API instead of player object */}
+          <PlayerRadar data={radar} />
+        </Panel>
       </div>
-    {/* ✅ ADD THIS HERE */}
-    <Panel>
-  <PanelHeader>PLAYER BADGES</PanelHeader>
 
-  <div className="flex flex-wrap gap-2">
-    {badges.map((b, i) => (
-      <Badge key={i} level={b.level} name={b.name}>
-        {b.name}
-      </Badge>
-    ))}
-  </div>
-</Panel>
-<Panel>
-  <PanelHeader>MOVES</PanelHeader>
-  <PlayerMovesPanel player={player} />
-</Panel>
-
-      {/* STYLE / ARCHETYPE PANEL */}
+      {/* BADGES */}
       <Panel>
-        <PanelHeader>PLAYSTYLE ANALYSIS</PanelHeader>
-        <PlayerStylePanel player={player} />
+        <PanelHeader>PLAYER BADGES</PanelHeader>
+
+        <div className="flex flex-wrap gap-2">
+          {badges.map((b, i) => (
+            <Badge key={i} level={b.level} name={b.name}>
+              {b.name}
+            </Badge>
+          ))}
+        </div>
       </Panel>
+
+      {/* MOVES */}
+      <Panel>
+        <PanelHeader>MOVES</PanelHeader>
+
+        <PlayerMovesPanel moves={moves} />
+      </Panel>
+
+      {/* SIMILAR */}
+      <Panel>
+        <PanelHeader>SIMILAR PLAYERS</PanelHeader>
+
+        <PlayerSimilarPanel
+          player={player}
+          similar={similar}
+          styleWeight={styleWeight}
+          setStyleWeight={setStyleWeight}
+        />
+      </Panel>
+
     </div>
   );
-
 }
