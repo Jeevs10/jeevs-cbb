@@ -15,14 +15,16 @@ import { useYear } from "@/app/context/YearContext";
 
 import Panel from "@/components/ui/Panel";
 import { PanelHeader } from "@/components/ui/Panel";
-import PlayerRadar from "@/components/ui/PlayerRadar";
 
+import PlayerRadar from "@/components/ui/PlayerRadar";
 import Stat from "@/components/ui/Stat";
+
 import PlayerHeader from "@/components/player/PlayerHeader";
+import PlayerStatsPanel from "@/components/player/PlayerStatsPanel";
 import Badge from "@/components/ui/Badge";
+
 import PlayerMovesPanel from "@/components/player/PlayerMovesPanel";
 import PlayerSimilarPanel from "@/components/player/PlayerSimilarPanel";
-
 import YearToggle from "@/components/ui/YearToggle";
 
 export default function PlayerPage() {
@@ -37,7 +39,8 @@ export default function PlayerPage() {
   const [similar, setSimilar] = useState<any>(null);
   const [styleWeight, setStyleWeight] = useState(0.7);
 
-  const playerCode = player?.player_code;
+  const playerCode =
+    player?.player_code || player?.AthleteSourceId || player?.roster?.ncaa_id;
 
   // -------------------------
   // PLAYER
@@ -54,50 +57,30 @@ export default function PlayerPage() {
   }, [id, year]);
 
   // -------------------------
-  // RADAR (🔥 FIXED)
+  // DEPENDENT DATA (RADAR / MOVES / BADGES / SIMILAR)
   // -------------------------
   useEffect(() => {
     if (!playerCode) return;
 
-    fetchPlayerRadar(playerCode, year)
-      .then(setRadar)
+    Promise.all([
+      fetchPlayerRadar(playerCode, year),
+      fetchPlayerMoves(playerCode, year),
+      fetchPlayerBadges(playerCode, year),
+      fetchSimilarPlayers(playerCode, styleWeight, year),
+    ])
+      .then(([radarRes, movesRes, badgesRes, similarRes]) => {
+        setRadar(radarRes);
+        setMoves(movesRes);
+        setBadges(badgesRes);
+        setSimilar(similarRes);
+      })
       .catch(console.error);
-  }, [playerCode, year]);
+  }, [playerCode, year, styleWeight]);
 
   // -------------------------
-  // MOVES
+  // LOADING STATE
   // -------------------------
-  useEffect(() => {
-    if (!playerCode) return;
-
-    fetchPlayerMoves(playerCode, year)
-      .then(setMoves)
-      .catch(console.error);
-  }, [playerCode, year]);
-
-  // -------------------------
-  // BADGES
-  // -------------------------
-  useEffect(() => {
-    if (!playerCode) return;
-
-    fetchPlayerBadges(playerCode, year)
-      .then(setBadges)
-      .catch(console.error);
-  }, [playerCode, year]);
-
-  // -------------------------
-  // SIMILAR
-  // -------------------------
-  useEffect(() => {
-    if (!playerCode) return;
-
-    fetchSimilarPlayers(playerCode, styleWeight, year)
-      .then(setSimilar)
-      .catch(console.error);
-  }, [playerCode, styleWeight, year]);
-
-  if (!player) {
+  if (!player || !radar) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#E7E8D1] text-black font-mono">
         LOADING PLAYER DATA...
@@ -122,21 +105,18 @@ export default function PlayerPage() {
       {/* MAIN GRID */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
+        {/* BASE STATS (FIXED) */}
         <Panel>
           <PanelHeader>BASE STATS</PanelHeader>
-
-          <Stat label="OFF RTG" value={player.off_rtg} max={140} />
-          <Stat label="DEF RTG (inverse)" value={150 - player.def_rtg} max={150} />
-          <Stat label="USAGE" value={player.off_usage * 100} max={50} />
-          <Stat label="RAPM" value={player.adj_rapm_margin} max={20} />
+          <PlayerStatsPanel player={player} />
         </Panel>
 
+        {/* RADAR */}
         <Panel>
           <PanelHeader>ADVANCED PROFILE</PanelHeader>
-
-          {/* 🔥 FIXED: use radar API instead of player object */}
           <PlayerRadar data={radar} />
         </Panel>
+
       </div>
 
       {/* BADGES */}
@@ -155,11 +135,10 @@ export default function PlayerPage() {
       {/* MOVES */}
       <Panel>
         <PanelHeader>MOVES</PanelHeader>
-
         <PlayerMovesPanel moves={moves} />
       </Panel>
 
-      {/* SIMILAR */}
+      {/* SIMILAR PLAYERS */}
       <Panel>
         <PanelHeader>SIMILAR PLAYERS</PanelHeader>
 

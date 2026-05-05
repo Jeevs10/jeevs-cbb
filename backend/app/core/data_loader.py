@@ -5,8 +5,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 
 def load_players():
 
-    csv_2025 = os.path.join(BASE_DIR, "data", "2025_players.csv")
-    csv_2026 = os.path.join(BASE_DIR, "data", "players.csv")
+    csv_2025 = os.path.join(BASE_DIR, "data", "2025-players_enriched.csv")
+    csv_2026 = os.path.join(BASE_DIR, "data", "2026-players_enriched.csv")
 
     df_2025 = pd.read_csv(csv_2025)
     df_2026 = pd.read_csv(csv_2026)
