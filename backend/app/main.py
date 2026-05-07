@@ -9,6 +9,7 @@ from app.api.radar import router as radar_router
 from app.api.similarity import router as sim_router
 from app.api.years import router as years_router
 from app.cache.player_vectors import build_cache
+from app.api.evolution import router as evolution_router
 
 
 # -------------------------
@@ -50,3 +51,4 @@ app.include_router(badges_router)
 app.include_router(radar_router)
 app.include_router(sim_router)
 app.include_router(years_router)
+app.include_router(evolution_router)

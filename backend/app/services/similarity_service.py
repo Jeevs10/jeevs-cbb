@@ -3,6 +3,72 @@ from app.models.similarity import cosine_similarity
 import numpy as np
 
 # -------------------------
+# FEATURE LABELS
+# -------------------------
+
+STYLE_FEATURES = [
+    "3PT Volume",
+    "Rim Pressure",
+    "Midrange",
+    "Playmaking",
+    "Off-Ball",
+    "Turnovers",
+]
+
+IMPACT_FEATURES = [
+    "Scoring Impact",
+    "Assist Impact",
+    "Rebounding Impact",
+    "Defense Impact",
+    "Efficiency",
+]
+
+# -------------------------
+# 🔥 FIXED: RELATIVE DIFFERENCE SCORING
+# -------------------------
+
+def extract_reasons(a, b, labels, top_n=3, similar=True, scale=1.0):
+    """
+    similarity mode → smallest relative gaps
+    difference mode → largest relative gaps
+    """
+
+    a = np.array(a, dtype=float)
+    b = np.array(b, dtype=float)
+
+    diffs = np.abs(a - b)
+
+    n = min(len(diffs), len(labels))
+    if n == 0:
+        return []
+
+    diffs = diffs[:n]
+    labels = labels[:n]
+
+    # -------------------------
+    # 🔥 KEY FIX: normalize per-vector spread
+    # (prevents everything looking "small")
+    # -------------------------
+    spread = np.std(np.concatenate([a[:n], b[:n]])) + 1e-8
+    diffs = diffs / spread
+
+    # rank
+    idxs = np.argsort(diffs)
+
+    if not similar:
+        idxs = idxs[::-1]
+
+    results = []
+    for i in idxs[:top_n]:
+        results.append({
+            "feature": labels[i],
+            "delta": float(diffs[i] * scale)
+        })
+
+    return results
+
+
+# -------------------------
 # SAFE YEAR
 # -------------------------
 
@@ -22,7 +88,7 @@ def get_latest_year(year_map):
 
 
 # -------------------------
-# NORMALIZATION
+# NORMALIZATION (SIMILARITY ONLY)
 # -------------------------
 
 def normalize(v):
@@ -45,7 +111,6 @@ def build_impact(vec):
 # -------------------------
 
 def build_career_vector(year_map):
-    """Aggregate all seasons into one career vector"""
     if not year_map:
         return None, None
 
@@ -66,40 +131,27 @@ def build_career_vector(year_map):
 
 
 # -------------------------
-# VECTOR SELECTOR (CRITICAL FIX)
+# VECTOR SELECTOR
 # -------------------------
 
 def get_vector(year_map, year=None):
-    """
-    Returns:
-    - (vector, label)
-    where label is either:
-      - year (int)
-      - "career"
-    """
 
     if not year_map:
         return None, None
 
-    # -------------------------
-    # CAREER MODE
-    # -------------------------
     if year == "career":
         return build_career_vector(year_map)
 
     latest = get_latest_year(year_map)
 
-    # Latest mode (default)
     if year is None:
         return year_map[latest], latest
 
     year = safe_year(year)
 
-    # Specific season
     if year in year_map:
         return year_map[year], year
 
-    # fallback
     return year_map[latest], latest
 
 
@@ -114,32 +166,33 @@ def get_similar_players(player_code, year=None, top_k=10, style_weight=0.7):
 
     player_data = PLAYER_VECTORS[player_code]
 
-    target, target_label = get_vector(player_data, year)
+    target, _ = get_vector(player_data, year)
     if target is None:
         return {"style": [], "impact": [], "combined": []}
 
-    style_a = normalize(build_style(target))
-    impact_a = normalize(build_impact(target))
+    style_raw_a = build_style(target)
+    impact_raw_a = build_impact(target)
+
+    style_a = normalize(style_raw_a)
+    impact_a = normalize(impact_raw_a)
 
     style_scores = []
     impact_scores = []
     combined_scores = []
-
-    # -------------------------
-    # COMPARE ALL PLAYERS
-    # -------------------------
 
     for code, year_map in PLAYER_VECTORS.items():
         if code == player_code:
             continue
 
         vec, used_label = get_vector(year_map, year)
-
         if vec is None:
             continue
 
-        style_b = normalize(build_style(vec))
-        impact_b = normalize(build_impact(vec))
+        style_raw_b = build_style(vec)
+        impact_raw_b = build_impact(vec)
+
+        style_b = normalize(style_raw_b)
+        impact_b = normalize(impact_raw_b)
 
         style_sim = cosine_similarity(style_a, style_b)
         impact_sim = cosine_similarity(impact_a, impact_b)
@@ -149,31 +202,44 @@ def get_similar_players(player_code, year=None, top_k=10, style_weight=0.7):
             (1 - style_weight) * impact_sim
         )
 
+        # -------------------------
+        # 🔥 SAME STRUCTURE FOR BOTH
+        # -------------------------
+
+        style_reasons = extract_reasons(style_raw_a, style_raw_b, STYLE_FEATURES, similar=True)
+        impact_reasons = extract_reasons(impact_raw_a, impact_raw_b, IMPACT_FEATURES, similar=True)
+
+        style_diffs = extract_reasons(style_raw_a, style_raw_b, STYLE_FEATURES, similar=False, scale=2.0)
+        impact_diffs = extract_reasons(impact_raw_a, impact_raw_b, IMPACT_FEATURES, similar=False, scale=2.0)
+
+        combined_reasons = style_reasons[:2] + impact_reasons[:1]
+        combined_diffs = style_diffs[:3] + impact_diffs[:2]
+
         base = {
             "player_code": code,
-            "year": used_label,   # can be int OR "career"
+            "year": used_label,
         }
 
         style_scores.append({
             **base,
             "similarity": float(style_sim),
-            "reasons": []
+            "reasons": style_reasons,
+            "differences": style_diffs
         })
 
         impact_scores.append({
             **base,
             "similarity": float(impact_sim),
-            "reasons": []
+            "reasons": impact_reasons,
+            "differences": impact_diffs
         })
 
         combined_scores.append({
             **base,
             "similarity": float(combined_sim),
-            "reasons": []
+            "reasons": combined_reasons,
+            "differences": combined_diffs
         })
-
-    if not combined_scores:
-        return {"style": [], "impact": [], "combined": []}
 
     return {
         "style": sorted(style_scores, key=lambda x: -x["similarity"])[:top_k],

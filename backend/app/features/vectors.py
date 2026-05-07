@@ -1,7 +1,7 @@
 import numpy as np
 
 # -------------------------
-# SAFE PARSING (HARDENED)
+# SAFE PARSING
 # -------------------------
 
 def safe(v):
@@ -28,10 +28,8 @@ def build_player_vector(player: dict):
 
 
 # -------------------------
-# STYLE VECTOR (PERCENTILE-BASED)
+# STYLE VECTOR
 # -------------------------
-# NOTE: This MUST match your PLAYER_VECTORS schema expectations
-# Keep consistent ordering ALWAYS
 
 def build_style_vector(player):
     vec = np.array([
@@ -50,13 +48,13 @@ def build_style_vector(player):
         safe(player.get("pctile_off_efg")),
     ], dtype=float)
 
-    # prevent divide-by-zero downstream issues
     return np.nan_to_num(vec, nan=0.0, posinf=0.0, neginf=0.0)
 
 
 # -------------------------
-# IMPACT VECTOR
+# IMPACT VECTOR (FOR SIMILARITY ONLY)
 # -------------------------
+# IMPORTANT: DO NOT MIX WITH RTG OR DUPLICATES
 
 def build_impact_vector(player):
     vec = np.array([
@@ -64,9 +62,10 @@ def build_impact_vector(player):
         safe(player.get("pctile_off_adj_rapm")),
         safe(player.get("pctile_def_adj_rapm")),
 
-        safe(player.get("pctile_adj_rtg_margin")),
-        safe(player.get("pctile_off_rtg")),
-        safe(player.get("pctile_def_rtg")),
+        safe(player.get("pctile_off_efg")),
+        safe(player.get("pctile_off_usage")),
+        safe(player.get("pctile_def_stl")),
+        safe(player.get("pctile_def_blk")),
     ], dtype=float)
 
     return np.nan_to_num(vec, nan=0.0, posinf=0.0, neginf=0.0)

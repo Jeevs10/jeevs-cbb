@@ -31,24 +31,30 @@ export async function fetchAllPlayers({
   limit = 50,
   offset = 0,
   sort = "adj_rapm_margin",
-  order = "desc",   // 🔥 ADD THIS
+  order = "desc",
   year,
+  search,   // 🔥 ADD THIS
 }: {
   limit?: number;
   offset?: number;
   sort?: string;
-  order?: "asc" | "desc";   // 🔥 ADD THIS
-  year?: YearParam;
+  order?: "asc" | "desc";
+  year?: number | null;
+  search?: string;   // 🔥 ADD THIS
 }) {
   const url = new URL(`${BASE_URL}/players`);
 
   url.searchParams.append("limit", String(limit));
   url.searchParams.append("offset", String(offset));
   url.searchParams.append("sort", sort);
-  url.searchParams.append("order", order); // 🔥 CRITICAL FIX
+  url.searchParams.append("order", order);
 
   if (year !== undefined && year !== null) {
     url.searchParams.append("year", String(year));
+  }
+
+  if (search && search.trim()) {
+    url.searchParams.append("search", search.trim());
   }
 
   const res = await fetch(url.toString());
@@ -128,6 +134,27 @@ export async function fetchPlayerRadar(id: string, year?: YearParam) {
   const res = await fetch(url.toString());
 
   if (!res.ok) throw new Error("Failed to fetch radar");
+
+  return res.json();
+}
+
+export async function fetchPlayerEvolution(
+  id: string,
+  year?: YearParam
+) {
+  const url = new URL(`${BASE_URL}/players/${id}/evolution`);
+
+  // 🔥 OPTIONAL: decide behavior
+  // If you want cross-era ALWAYS → comment this out
+  if (year !== undefined && year !== null) {
+    url.searchParams.append("year", String(year));
+  }
+
+  const res = await fetch(url.toString());
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch player evolution");
+  }
 
   return res.json();
 }

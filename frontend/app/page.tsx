@@ -11,7 +11,11 @@ const BASE_URL = "http://localhost:8000";
 // -------------------------
 async function fetchYears() {
   const res = await fetch(`${BASE_URL}/years`);
-  if (!res.ok) throw new Error("Failed to fetch years");
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch years");
+  }
+
   return res.json();
 }
 
@@ -32,7 +36,7 @@ function formatNumber(val: any) {
 
 function formatHeight(val: any) {
   if (!val) return "—";
-  return val; // keep string format intact
+  return val;
 }
 
 // -------------------------
@@ -53,8 +57,7 @@ const SORTABLE = new Set([
   "off_ftr",
   "off_threepr",
   "roster.height",
-"off_team_poss_pct",
-  
+  "off_team_poss_pct",
 ]);
 
 export default function Home() {
@@ -66,6 +69,9 @@ export default function Home() {
   const [order, setOrder] = useState<"asc" | "desc">("desc");
   const [page, setPage] = useState(0);
 
+  const [search, setSearch] = useState("");
+  const [initialized, setInitialized] = useState(false);
+
   const limit = 50;
 
   // -------------------------
@@ -75,28 +81,52 @@ export default function Home() {
     fetchYears()
       .then((data) => {
         setYears(data);
-        if (data?.length) setYear(Math.max(...data));
+
+        const newestYear = Math.max(...data);
+
+        setYear((prev) => prev ?? newestYear);
+
+        setInitialized(true);
       })
       .catch(console.error);
   }, []);
 
   // -------------------------
-  // LOAD PLAYERS
+  // LOAD PLAYERS (SERVER-SIDE SEARCH)
   // -------------------------
   useEffect(() => {
-    fetchAllPlayers({
-      limit,
-      offset: page * limit,
-      sort,
-      order,
-      year: year ?? undefined,
-    })
-      .then(setPlayers)
-      .catch(console.error);
-  }, [sort, order, page, year]);
+    if (!initialized) return;
+
+    let cancelled = false;
+
+    async function loadPlayers() {
+      try {
+        const data = await fetchAllPlayers({
+          limit,
+          offset: page * limit,
+          sort,
+          order,
+          year: year ?? undefined,
+          search: search || undefined, // 🔥 IMPORTANT FIX
+        });
+
+        if (cancelled) return;
+
+        setPlayers(data);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    loadPlayers();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [initialized, sort, order, page, year, search]);
 
   // -------------------------
-  // SORT HANDLER (FIXED)
+  // SORT HANDLER
   // -------------------------
   function handleSort(col: string) {
     if (!SORTABLE.has(col)) return;
@@ -125,16 +155,23 @@ export default function Home() {
 
   return (
     <div className="p-4 font-mono text-xs">
-      <h1 className="text-xl font-bold mb-3">Player Leaderboard</h1>
 
-      {/* YEAR TOGGLE */}
+      {/* HEADER */}
+      <h1 className="text-xl font-bold mb-3">
+        Player Leaderboard
+      </h1>
+
+      {/* YEAR FILTER */}
       <div className="mb-3 flex gap-2 flex-wrap">
+
         <button
           onClick={() => {
             setYear(null);
             setPage(0);
           }}
-          className={`px-2 border ${year === null ? "font-bold underline" : ""}`}
+          className={`px-2 border ${
+            year === null ? "font-bold underline" : ""
+          }`}
         >
           ALL
         </button>
@@ -146,20 +183,54 @@ export default function Home() {
               setYear(y);
               setPage(0);
             }}
-            className={`px-2 border ${year === y ? "font-bold underline" : ""}`}
+            className={`px-2 border ${
+              year === y ? "font-bold underline" : ""
+            }`}
           >
             {y}
           </button>
         ))}
       </div>
 
-      {/* TABLE */}
-      <div className="overflow-x-auto border-4 border-black bg-[#C7D0B8] shadow-[6px_6px_0px_black]">
+      {/* SEARCH */}
+      <div className="mb-3">
+        <input
+          type="text"
+          placeholder="Search players or teams..."
+          value={search}
+          onChange={(e) => {
+            setSearch(e.target.value);
+            setPage(0);
+          }}
+          className="
+            w-full max-w-sm
+            border-2 border-black
+            bg-[#E7E8D1]
+            px-3 py-2
+            text-xs
+            outline-none
+            shadow-[3px_3px_0px_black]
+          "
+        />
+      </div>
 
+      {/* COUNT */}
+      <div className="mb-2 text-[10px] opacity-70">
+        Showing {players.length} players
+      </div>
+
+      {/* TABLE */}
+      <div className="
+        overflow-x-auto
+        border-4 border-black
+        bg-[#C7D0B8]
+        shadow-[6px_6px_0px_black]
+      ">
         <table className="min-w-[1800px] border-collapse">
 
           <thead>
             <tr>
+
               <th className={`${thClass()} sticky left-0 z-30`}>
                 Player
               </th>
@@ -171,12 +242,12 @@ export default function Home() {
               </th>
 
               <th className={thClass("roster.height")} onClick={() => handleSort("roster.height")}>
-            Height{arrow("roster.height")}
-            </th>
+                Height{arrow("roster.height")}
+              </th>
 
-            <th className={thClass("off_team_poss_pct")} onClick={() => handleSort("off_team_poss_pct")}>
-            Poss%{arrow("off_team_poss_pct")}
-            </th>
+              <th className={thClass("off_team_poss_pct")} onClick={() => handleSort("off_team_poss_pct")}>
+                Poss%{arrow("off_team_poss_pct")}
+              </th>
 
               <th className={thClass("adj_rapm_margin")} onClick={() => handleSort("adj_rapm_margin")}>
                 RAPM{arrow("adj_rapm_margin")}
@@ -193,47 +264,48 @@ export default function Home() {
               <th className={thClass("off_usage")} onClick={() => handleSort("off_usage")}>
                 USG{arrow("off_usage")}
               </th>
-              
 
-            <th className={thClass("off_orb")} onClick={() => handleSort("off_orb")}>
-            OR%{arrow("off_orb")}
-            </th>
+              <th className={thClass("off_orb")} onClick={() => handleSort("off_orb")}>
+                OR%{arrow("off_orb")}
+              </th>
 
-            <th className={thClass("def_orb")} onClick={() => handleSort("def_orb")}>
-            DR%{arrow("def_orb")}
-            </th>
+              <th className={thClass("def_orb")} onClick={() => handleSort("def_orb")}>
+                DR%{arrow("def_orb")}
+              </th>
 
-            <th className={thClass("off_assist")} onClick={() => handleSort("off_assist")}>
-            AST%{arrow("off_assist")}
-            </th>
+              <th className={thClass("off_assist")} onClick={() => handleSort("off_assist")}>
+                AST%{arrow("off_assist")}
+              </th>
 
-            <th className={thClass("off_to")} onClick={() => handleSort("off_to")}>
-            TO%{arrow("off_to")}
-            </th>
+              <th className={thClass("off_to")} onClick={() => handleSort("off_to")}>
+                TO%{arrow("off_to")}
+              </th>
 
-            <th className={thClass("def_stl")} onClick={() => handleSort("def_stl")}>
-            STL%{arrow("def_stl")}
-            </th>
+              <th className={thClass("def_stl")} onClick={() => handleSort("def_stl")}>
+                STL%{arrow("def_stl")}
+              </th>
 
-            <th className={thClass("def_blk")} onClick={() => handleSort("def_blk")}>
-            BLK%{arrow("def_blk")}
-            </th>
-
-            
+              <th className={thClass("def_blk")} onClick={() => handleSort("def_blk")}>
+                BLK%{arrow("def_blk")}
+              </th>
 
               <th className={thClass("off_ftr")} onClick={() => handleSort("off_ftr")}>
-            FTR{arrow("off_ftr")}
-            </th>
+                FTR{arrow("off_ftr")}
+              </th>
 
-            <th className={thClass("off_threep")} onClick={() => handleSort("off_threep")}>
-            3P%{arrow("off_threep")}
-            </th>
+              <th className={thClass("off_threep")} onClick={() => handleSort("off_threep")}>
+                3P%{arrow("off_threep")}
+              </th>
+
             </tr>
           </thead>
 
           <tbody>
             {players.map((p, i) => (
-              <tr key={`${p.player_code}-${p.year ?? i}`} className="bg-[#E7E8D1] hover:bg-[#dfe2c6]">
+              <tr
+                key={`${p.player_code}-${p.year ?? i}`}
+                className="bg-[#E7E8D1] hover:bg-[#dfe2c6]"
+              >
 
                 <td className="p-2 border border-black sticky left-0 bg-[#E7E8D1] z-20 whitespace-nowrap">
                   <Link href={`/player/${p.player_code}`} className="underline">
@@ -245,12 +317,10 @@ export default function Home() {
                 <td className={tdClass}>{formatYear(p)}</td>
                 <td className={tdClass}>{formatHeight(p["roster.height"])}</td>
                 <td className={tdClass}>{formatNumber(p.off_team_poss_pct)}</td>
-
                 <td className={tdClass}>{formatNumber(p.adj_rapm_margin)}</td>
                 <td className={tdClass}>{formatNumber(p.off_rtg)}</td>
                 <td className={tdClass}>{formatNumber(p.def_rtg)}</td>
                 <td className={tdClass}>{formatNumber(p.off_usage)}</td>
-
                 <td className={tdClass}>{formatNumber(p.off_orb)}</td>
                 <td className={tdClass}>{formatNumber(p.def_orb)}</td>
                 <td className={tdClass}>{formatNumber(p.off_assist)}</td>
@@ -258,8 +328,8 @@ export default function Home() {
                 <td className={tdClass}>{formatNumber(p.def_stl)}</td>
                 <td className={tdClass}>{formatNumber(p.def_blk)}</td>
                 <td className={tdClass}>{formatNumber(p.off_ftr)}</td>
-
                 <td className={tdClass}>{formatNumber(p.off_threep)}</td>
+
               </tr>
             ))}
           </tbody>
@@ -268,14 +338,17 @@ export default function Home() {
       </div>
 
       {/* PAGINATION */}
-      <div className="mt-4 flex gap-2">
-        <button onClick={() => setPage((p) => Math.max(p - 1, 0))}>
-          Prev
-        </button>
-        <button onClick={() => setPage((p) => p + 1)}>
-          Next
-        </button>
-      </div>
+      {!search.trim() && (
+        <div className="mt-4 flex gap-2">
+          <button onClick={() => setPage((p) => Math.max(p - 1, 0))}>
+            Prev
+          </button>
+          <button onClick={() => setPage((p) => p + 1)}>
+            Next
+          </button>
+        </div>
+      )}
+
     </div>
   );
 }

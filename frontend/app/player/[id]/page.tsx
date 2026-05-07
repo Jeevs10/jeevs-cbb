@@ -9,6 +9,7 @@ import {
   fetchSimilarPlayers,
   fetchPlayerBadges,
   fetchPlayerRadar,
+  fetchPlayerEvolution, // ✅ added
 } from "@/lib/api";
 
 import { useYear } from "@/app/context/YearContext";
@@ -17,7 +18,6 @@ import Panel from "@/components/ui/Panel";
 import { PanelHeader } from "@/components/ui/Panel";
 
 import PlayerRadar from "@/components/ui/PlayerRadar";
-import Stat from "@/components/ui/Stat";
 
 import PlayerHeader from "@/components/player/PlayerHeader";
 import PlayerStatsPanel from "@/components/player/PlayerStatsPanel";
@@ -25,6 +25,8 @@ import Badge from "@/components/ui/Badge";
 
 import PlayerMovesPanel from "@/components/player/PlayerMovesPanel";
 import PlayerSimilarPanel from "@/components/player/PlayerSimilarPanel";
+import PlayerEvolutionPanel from "@/components/player/PlayerEvolutionPanel";
+
 import YearToggle from "@/components/ui/YearToggle";
 
 export default function PlayerPage() {
@@ -38,9 +40,12 @@ export default function PlayerPage() {
   const [moves, setMoves] = useState<any[]>([]);
   const [similar, setSimilar] = useState<any>(null);
   const [styleWeight, setStyleWeight] = useState(0.7);
+  const [evolution, setEvolution] = useState<any>(null); // ✅ added
 
   const playerCode =
-    player?.player_code || player?.AthleteSourceId || player?.roster?.ncaa_id;
+    player?.player_code ||
+    player?.AthleteSourceId ||
+    player?.roster?.ncaa_id;
 
   // -------------------------
   // PLAYER
@@ -57,7 +62,7 @@ export default function PlayerPage() {
   }, [id, year]);
 
   // -------------------------
-  // DEPENDENT DATA (RADAR / MOVES / BADGES / SIMILAR)
+  // DEPENDENT DATA
   // -------------------------
   useEffect(() => {
     if (!playerCode) return;
@@ -67,13 +72,23 @@ export default function PlayerPage() {
       fetchPlayerMoves(playerCode, year),
       fetchPlayerBadges(playerCode, year),
       fetchSimilarPlayers(playerCode, styleWeight, year),
+      fetchPlayerEvolution(playerCode, year), // ✅ added
     ])
-      .then(([radarRes, movesRes, badgesRes, similarRes]) => {
-        setRadar(radarRes);
-        setMoves(movesRes);
-        setBadges(badgesRes);
-        setSimilar(similarRes);
-      })
+      .then(
+        ([
+          radarRes,
+          movesRes,
+          badgesRes,
+          similarRes,
+          evolutionRes,
+        ]) => {
+          setRadar(radarRes || []);
+          setMoves(movesRes || []);
+          setBadges(badgesRes || []);
+          setSimilar(similarRes || null);
+          setEvolution(evolutionRes || null); // ✅ safe
+        }
+      )
       .catch(console.error);
   }, [playerCode, year, styleWeight]);
 
@@ -105,7 +120,7 @@ export default function PlayerPage() {
       {/* MAIN GRID */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-        {/* BASE STATS (FIXED) */}
+        {/* BASE STATS */}
         <Panel>
           <PanelHeader>BASE STATS</PanelHeader>
           <PlayerStatsPanel player={player} />
@@ -149,6 +164,13 @@ export default function PlayerPage() {
           setStyleWeight={setStyleWeight}
         />
       </Panel>
+
+      {/* ✅ EVOLUTION (NEW) */}
+        <PlayerEvolutionPanel
+            data={evolution}
+            player={player}
+            />
+
 
     </div>
   );
