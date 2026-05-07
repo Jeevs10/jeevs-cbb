@@ -45,7 +45,7 @@ export default function PlayerEvolutionPanel({ data, player }) {
   // -------------------------
   const getMeta = (p, isCurrent = false) => {
     const team = isCurrent ? player?.team : p?.team;
-    const pos = isCurrent ? player?.pos : p?.pos;
+    const pos = isCurrent ? player?.posClass : p?.posClass || "—";
 
     if (!team && !pos) return null;
 
@@ -107,7 +107,7 @@ export default function PlayerEvolutionPanel({ data, player }) {
         <div className="text-[10px] font-bold mb-1">{label}</div>
 
         {isCurrent ? (
-          <Card isCurrent />
+          <Card p={player} isCurrent />
         ) : playerObj ? (
           <Link href={`/player/${playerObj.player_code}`} className="w-full">
             <Card p={playerObj} />

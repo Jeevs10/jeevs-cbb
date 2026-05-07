@@ -65,7 +65,7 @@ def build_impact_vector(player):
         safe(player.get("pctile_off_efg")),
         safe(player.get("pctile_off_usage")),
         safe(player.get("pctile_def_stl")),
-        safe(player.get("pctile_def_blk")),
+        safe(1 - player.get("pctile_def_blk")),
     ], dtype=float)
 
     return np.nan_to_num(vec, nan=0.0, posinf=0.0, neginf=0.0)

@@ -1,5 +1,5 @@
-from fastapi import APIRouter
-from app.core.data_loader import df
+from fastapi import APIRouter, Query
+from app.core.data_loader import df, resolve_player_id
 import numpy as np
 import pandas as pd
 from app.core.player_resolver import (
@@ -7,6 +7,7 @@ from app.core.player_resolver import (
     get_player_history,
 )
 from app.core.year_utils import normalize_year
+from app.data.cleaner import prepare_for_display
 
 router = APIRouter()
 
@@ -24,25 +25,21 @@ PCT_COLS = [
     "off_threepr"
 ]
 
-# -------------------------
-# PRE-COMPUTE LOWERCASE COLUMNS (🔥 SPEED FIX)
-# -------------------------
-df["_player_name_lc"] = df["player_name"].fillna("").astype(str).str.lower()
-df["_team_lc"] = df["team"].fillna("").astype(str).str.lower()
-df["_player_code_lc"] = df["player_code"].fillna("").astype(str).str.lower()
-
-
 @router.get("/players")
 def get_players(
-    limit: int = 50,
-    offset: int = 0,
-    sort: str = "adj_rapm_margin",
-    order: str = "desc",
-    year: int | str | None = None,
-    conf: str | None = None,
-    search: str | None = None,
+    limit: int = Query(50, ge=1, le=1000, description="Maximum number of results"),
+    offset: int = Query(0, ge=0, description="Number of results to skip"),
+    sort: str = Query("adj_rapm_margin", description="Sort column"),
+    order: str = Query("desc", regex="^(asc|desc)$", description="Sort order"),
+    year: int | str | None = Query(None, description="Filter by year"),
+    conf: str | None = Query(None, description="Filter by conference")
 ):
-
+    """
+    List players with filtering and pagination.
+    
+    This endpoint provides player listing functionality. For search functionality,
+    use the /search endpoint.
+    """
     year = normalize_year(year)
     data = df.copy()
 
@@ -58,49 +55,29 @@ def get_players(
     if conf:
         data = data[data["conf"] == conf]
 
-    # -------------------------
-    # SEARCH FILTER (IMPROVED)
-    # -------------------------
-    if search and search.strip():
-
-        q = search.strip().lower()
-
-        mask = (
-            data["_player_name_lc"].str.contains(q, na=False) |
-            data["_team_lc"].str.contains(q, na=False) |
-            data["_player_code_lc"].str.contains(q, na=False)
-        )
-
-        data = data[mask]
-
     total_filtered = len(data)
 
     # -------------------------
-    # NUMERIC CLEANING
+    # DATA PREPARATION
     # -------------------------
+    # Numeric cleaning
     for col in data.columns:
-        if col not in ["player_name", "player_code", "team", "conf"]:
+        if col not in ["player_name", "player_code", "player_id", "team", "conf"]:
             data[col] = pd.to_numeric(data[col], errors="ignore")
 
-    # -------------------------
-    # PERCENT CONVERSION
-    # -------------------------
+    # Percentage conversion
     for col in PCT_COLS:
         if col in data.columns:
             data[col] = data[col] * 100
 
-    # -------------------------
-    # SORT
-    # -------------------------
+    # Sorting
     if sort in SORTABLE_COLUMNS:
         data = data.sort_values(
             by=[sort, "player_name"],
             ascending=(order == "asc")
         )
 
-    # -------------------------
-    # PAGINATION
-    # -------------------------
+    # Pagination
     data = data.iloc[offset:offset + limit]
     data = data.replace({np.nan: None})
 
@@ -114,17 +91,26 @@ def get_players(
 # -------------------------
 # PLAYER PAGE
 # -------------------------
-@router.get("/players/{player_code}")
-def get_player(player_code: str, year: int | str | None = None):
-
+@router.get("/players/{player_identifier}")
+def get_player(player_identifier: str, year: int | str | None = None):
+    """
+    Get player data by either player_id or player_code.
+    
+    Args:
+        player_identifier: Either player_id (preferred) or player_code (legacy)
+        year: Year to get data for, or "career" for career stats
+        
+    Returns:
+        Player data with available years
+    """
     year = normalize_year(year)
 
-    record = get_player_snapshot(player_code, year)
+    record = get_player_snapshot(player_identifier, year)
 
     if record is None:
         return {"error": "Player not found"}
 
-    history = get_player_history(player_code)
+    history = get_player_history(player_identifier)
 
     years = sorted(
         history["year"]
@@ -149,5 +135,7 @@ def get_player(player_code: str, year: int | str | None = None):
 
     return {
         "player": nest_player(record),
-        "available_years": years
+        "available_years": years,
+        "player_id": record.get("player_id"),  # Include new player_id for frontend migration
+        "player_code": record.get("player_code")  # Keep legacy player_code for compatibility
     }

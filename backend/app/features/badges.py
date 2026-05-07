@@ -247,7 +247,7 @@ def get_player_badges(player: Dict[str, Any]) -> List[Dict]:
     # -------------------------
     # 🛡 DEFENSE (no usage concept)
     # -------------------------
-    add("Rim Protector", safe(player.get("pctile_def_blk")), "defense")
+    add("Rim Protector", safe(1- player.get("pctile_def_blk")), "defense")
 
     add("Pickpocket", 
         safe(player.get("pctile_def_stl")),"defense")
@@ -294,16 +294,16 @@ def get_player_badges(player: Dict[str, Any]) -> List[Dict]:
 
     add("Interior Anchor", min(
         c_conf,
-        safe(player.get("pctile_def_blk"))
+        safe(1 - player.get("pctile_def_blk"))
     ), "defense")
     add("Unicorn", min(
     safe(player.get("pctile_off_style_pick_pop_ppp")),
-    safe(player.get("pctile_def_blk"))
+    safe(1 - player.get("pctile_def_blk"))
 ), "rare")
 
     # two-way star
     add("Two-Way Star", min(
-        safe(player.get("pctile_def_blk")),
+        safe(1 - player.get("pctile_def_blk")),
         safe(player.get("pctile_off_usage"))
     ), "rare")
 

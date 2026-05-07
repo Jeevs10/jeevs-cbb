@@ -55,11 +55,11 @@ export default function PlayerHeader({ player }) {
         <div className="flex gap-2 flex-wrap mt-2">
 
           <Badge variant="meta">
-            CLASS: {classMap[player.roster?.pos] ?? "—"}
+            CLASS: {yearClassMap[player.roster_year_class] ?? "—"}
           </Badge>
 
           <Badge variant="meta">
-            HT: {formatHeight(player.roster?.height)}
+            HT: {formatHeight(player.roster_height)}
           </Badge>
 
           <Badge variant="meta">
@@ -68,9 +68,7 @@ export default function PlayerHeader({ player }) {
 
           {/* 🔥 NEW: YEAR CLASS */}
           <Badge variant="meta">
-            YEAR: {player.is_career
-              ? "Career"
-              : yearClassMap[player.roster?.year_class] ?? "—"}
+            YEAR: {player.year ?? "—"}
           </Badge>
 
         </div>

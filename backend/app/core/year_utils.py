@@ -1,13 +1,7 @@
 # app/core/year_utils.py
+# Legacy module - use app.core.utils.years instead
 
-def normalize_year(year):
-    if year is None:
-        return None
+from app.core.utils.years import normalize_year
 
-    if isinstance(year, str) and year.lower() == "career":
-        return "career"
-
-    try:
-        return int(year)
-    except:
-        return None
+# Re-export for backward compatibility
+__all__ = ['normalize_year']

@@ -56,11 +56,11 @@ export default function PlayerSimilarPanel({
               <div className="flex-1 pr-2">
 
                 <div className="font-bold">
-                  {p.player_name ?? p.player_code}
+                  {p.player_name || p.player_code || "—"}
                 </div>
 
                 <div className="text-[10px] opacity-70">
-                  {p.team ?? "—"} • {p.pos ?? "—"} • {p.year ?? "—"}
+                  {p.team ?? "—"} • {p.posClass ?? "—"} • {p.year ?? "—"}
                 </div>
 
                 <div className="mt-2 grid grid-cols-2 gap-3 text-[9px]">

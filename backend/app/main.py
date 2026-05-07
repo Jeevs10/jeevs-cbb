@@ -3,6 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 
 from app.api.players import router as players_router
+from app.api.search import router as search_router
+from app.api.stats import router as stats_router
 from app.api.moves import router as moves_router
 from app.api.badges import router as badges_router
 from app.api.radar import router as radar_router
@@ -46,6 +48,8 @@ app.add_middleware(
 # ROUTES
 # -------------------------
 app.include_router(players_router)
+app.include_router(search_router)
+app.include_router(stats_router)
 app.include_router(moves_router)
 app.include_router(badges_router)
 app.include_router(radar_router)

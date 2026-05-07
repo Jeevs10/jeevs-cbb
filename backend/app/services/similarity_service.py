@@ -1,6 +1,9 @@
-from app.cache.player_vectors import PLAYER_VECTORS
-from app.models.similarity import cosine_similarity
 import numpy as np
+import logging
+
+from app.cache.player_vectors import PLAYER_VECTORS, PLAYER_INFO
+from app.models.similarity import cosine_similarity
+from app.core.data_loader import resolve_player_id
 
 # -------------------------
 # FEATURE LABELS
@@ -159,7 +162,30 @@ def get_vector(year_map, year=None):
 # MAIN SIMILARITY
 # -------------------------
 
-def get_similar_players(player_code, year=None, top_k=10, style_weight=0.7):
+def get_similar_players(identifier, year=None, top_k=10, style_weight=0.7):
+    """
+    Get similar players by either player_id or player_code.
+    
+    Args:
+        identifier: Either player_id (preferred) or player_code (legacy)
+        year: Year to get data for, or "career" for career stats
+        top_k: Number of similar players to return
+        style_weight: Weight for style similarity (0-1)
+    """
+    # Resolve identifier to player_code for vector lookup
+    # Note: PLAYER_VECTORS still uses player_code as key, so we need to convert
+    player_code = identifier
+    
+    # If identifier is a player_id, try to find corresponding player_code
+    if identifier not in PLAYER_VECTORS:
+        # Try to resolve player_id to player_code
+        # This is a temporary solution until PLAYER_VECTORS is migrated to player_id
+        for code, data in PLAYER_VECTORS.items():
+            if any(year_data.get('player_id') == identifier for year_data in data.values()):
+                player_code = code
+                break
+        else:
+            return {"style": [], "impact": [], "combined": []}
 
     if player_code not in PLAYER_VECTORS:
         return {"style": [], "impact": [], "combined": []}

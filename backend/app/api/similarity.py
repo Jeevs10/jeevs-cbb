@@ -36,18 +36,27 @@ def enrich(results):
     }
 
 
-@router.get("/players/{player_code}/similar")
+@router.get("/players/{player_identifier}/similar")
 def similar_players(
-    player_code: str,
+    player_identifier: str,
     year: int | str | None = None,
     top_k: int = 10,
     style_weight: float = 0.7
 ):
+    """
+    Get similar players by either player_id or player_code.
+    
+    Args:
+        player_identifier: Either player_id (preferred) or player_code (legacy)
+        year: Year to get data for, or "career" for career stats
+        top_k: Number of similar players to return
+        style_weight: Weight for style similarity (0-1)
+    """
 
     year = normalize_year(year)
 
     results = get_similar_players(
-        player_code,
+        player_identifier,
         year=year,
         top_k=top_k,
         style_weight=style_weight

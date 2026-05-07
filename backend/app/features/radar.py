@@ -25,7 +25,7 @@ def compute_player_radar(player: dict):
     defense = (
         0.4 * safe(player.get("pctile_def_adj_rapm")) +
         0.3 * safe(player.get("pctile_def_stl")) +
-        0.3 * safe(player.get("pctile_def_blk"))
+        0.3 * safe(1 - player.get("pctile_def_blk"))
     )
 
     rebounding = (

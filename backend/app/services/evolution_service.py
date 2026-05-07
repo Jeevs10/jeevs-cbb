@@ -4,6 +4,7 @@ import logging
 from app.cache.player_vectors import PLAYER_VECTORS, PLAYER_INFO
 from app.models.similarity import cosine_similarity
 from app.services.similarity_service import get_vector
+from app.core.data_loader import resolve_player_id
 
 logger = logging.getLogger("evolution")
 
@@ -74,7 +75,29 @@ def assign_tier(p):
 # -------------------------
 # EVOLUTION ENGINE
 # -------------------------
-def get_player_evolution(player_code, year=None, top_k=3):
+def get_player_evolution(identifier, year=None, top_k=3):
+    """
+    Get player evolution by either player_id or player_code.
+    
+    Args:
+        identifier: Either player_id (preferred) or player_code (legacy)
+        year: Year to get data for, or "career" for career stats
+        top_k: Number of similar players to return per tier
+    """
+    # Resolve identifier to player_code for vector lookup
+    # Note: PLAYER_VECTORS still uses player_code as key, so we need to convert
+    player_code = identifier
+    
+    # If identifier is a player_id, try to find the corresponding player_code
+    if identifier not in PLAYER_VECTORS:
+        # Try to resolve player_id to player_code
+        # This is a temporary solution until PLAYER_VECTORS is migrated to player_id
+        for code, data in PLAYER_VECTORS.items():
+            if any(year_data.get('player_id') == identifier for year_data in data.values()):
+                player_code = code
+                break
+        else:
+            return empty()
 
     if player_code not in PLAYER_VECTORS:
         return empty()

@@ -25,7 +25,7 @@ export async function fetchPlayer(id: string, year?: YearParam) {
 }
 
 // -------------------------
-// ALL PLAYERS
+// ALL PLAYERS (LISTING)
 // -------------------------
 export async function fetchAllPlayers({
   limit = 50,
@@ -33,17 +33,53 @@ export async function fetchAllPlayers({
   sort = "adj_rapm_margin",
   order = "desc",
   year,
-  search,   // 🔥 ADD THIS
+  conf,
+  search,
 }: {
   limit?: number;
   offset?: number;
   sort?: string;
   order?: "asc" | "desc";
-  year?: number | null;
-  search?: string;   // 🔥 ADD THIS
-}) {
+  year?: YearParam;
+  conf?: string;
+  search?: string;
+}): Promise<Player[]> {
+  // Use the working test endpoint for now
   const url = new URL(`${BASE_URL}/players`);
 
+  url.searchParams.append("limit", String(limit));
+
+  const res = await fetch(url.toString());
+
+  if (!res.ok) throw new Error("Failed to fetch players");
+
+  const data: any = await res.json();
+  return data.results || [];
+}
+
+// -------------------------
+// SEARCH PLAYERS
+// -------------------------
+export async function searchPlayers({
+  q,
+  limit = 50,
+  offset = 0,
+  sort = "adj_rapm_margin",
+  order = "desc",
+  year,
+  conf,
+}: {
+  q: string;
+  limit?: number;
+  offset?: number;
+  sort?: string;
+  order?: "asc" | "desc";
+  year?: YearParam;
+  conf?: string;
+}): Promise<SearchResponse> {
+  const url = new URL(`${BASE_URL}/search`);
+
+  url.searchParams.append("q", q);
   url.searchParams.append("limit", String(limit));
   url.searchParams.append("offset", String(offset));
   url.searchParams.append("sort", sort);
@@ -53,15 +89,35 @@ export async function fetchAllPlayers({
     url.searchParams.append("year", String(year));
   }
 
-  if (search && search.trim()) {
-    url.searchParams.append("search", search.trim());
+  if (conf) {
+    url.searchParams.append("conf", conf.trim());
   }
 
   const res = await fetch(url.toString());
-  if (!res.ok) throw new Error("Failed to fetch players");
+  if (!res.ok) throw new Error("Failed to search players");
 
-  const data = await res.json();
-  return data.results;
+  return res.json();
+}
+
+// -------------------------
+// SEARCH SUGGESTIONS
+// -------------------------
+export async function fetchSearchSuggestions({
+  q,
+  limit = 10,
+}: {
+  q: string;
+  limit?: number;
+}): Promise<SearchSuggestionsResponse> {
+  const url = new URL(`${BASE_URL}/search/suggestions`);
+
+  url.searchParams.append("q", q);
+  url.searchParams.append("limit", String(limit));
+
+  const res = await fetch(url.toString());
+  if (!res.ok) throw new Error("Failed to fetch search suggestions");
+
+  return res.json();
 }
 
 // -------------------------

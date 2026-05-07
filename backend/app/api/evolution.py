@@ -3,10 +3,17 @@ from app.services.evolution_service import get_player_evolution
 
 router = APIRouter()
 
-@router.get("/players/{player_code}/evolution")
-def player_evolution(player_code: str, year: int | str | None = None):
+@router.get("/players/{player_identifier}/evolution")
+def player_evolution(player_identifier: str, year: int | str | None = None):
+    """
+    Get player evolution data by either player_id or player_code.
+    
+    Args:
+        player_identifier: Either player_id (preferred) or player_code (legacy)
+        year: Year to get data for, or "career" for career stats
+    """
 
-    result = get_player_evolution(player_code, year)
+    result = get_player_evolution(player_identifier, year)
 
     # -------------------------
     # SAFETY NORMALIZATION

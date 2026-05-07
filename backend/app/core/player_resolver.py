@@ -1,4 +1,5 @@
-from app.core.data_loader import df
+from app.core.data_loader import df, resolve_player_id
+from app.data.merger import DataMerger
 import pandas as pd
 import numpy as np
 
@@ -11,15 +12,15 @@ WEIGHT_COLUMN = "off_poss"
 CATEGORICAL_FIELDS = {
     "player_name",
     "player_code",
+    "player_id",  # New primary identifier
     "team",
     "conf",
     "posClass",
-    "roster.ncaa_id",
-    "roster.number",
-    "roster.height",
-    "roster.year_class",
-    "roster.pos",
-    "roster.origin",
+    "roster_number",
+    "roster_height",
+    "roster_year_class",
+    "roster_pos",
+    "roster_origin",
 }
 
 # 🚨 CRITICAL: NEVER AGGREGATE THESE
@@ -31,8 +32,25 @@ EXCLUDE_FROM_CAREER_AGG = {
 # CORE SNAPSHOT
 # -------------------------
 
-def get_player_snapshot(player_code: str, year: int | str | None = None):
-    player = df[df["player_code"] == player_code]
+def get_player_snapshot(identifier: str, year: int | str | None = None):
+    """
+    Get player snapshot by either player_id or player_code.
+    
+    Args:
+        identifier: Either player_id (preferred) or player_code (legacy)
+        year: Year to get data for, or "career" for career stats
+        
+    Returns:
+        Player snapshot as dictionary, or None if not found
+    """
+    # Resolve identifier to player_id
+    player_id = resolve_player_id(identifier)
+    
+    if player_id is None:
+        return None
+    
+    # Get player data using player_id (primary key)
+    player = df[df["player_id"] == player_id]
 
     if player.empty:
         return None
@@ -102,5 +120,21 @@ def build_career_snapshot(player_df: pd.DataFrame):
 # HISTORY
 # -------------------------
 
-def get_player_history(player_code: str):
-    return df[df["player_code"] == player_code].sort_values("year")
+def get_player_history(identifier: str):
+    """
+    Get player history by either player_id or player_code.
+    
+    Args:
+        identifier: Either player_id (preferred) or player_code (legacy)
+        
+    Returns:
+        DataFrame with player's historical data
+    """
+    # Resolve identifier to player_id
+    player_id = resolve_player_id(identifier)
+    
+    if player_id is None:
+        return pd.DataFrame()  # Return empty DataFrame if not found
+    
+    # Get history using player_id (primary key)
+    return df[df["player_id"] == player_id].sort_values("year")
