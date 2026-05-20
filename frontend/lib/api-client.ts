@@ -161,6 +161,27 @@ class ApiClient {
   async getYears(): Promise<number[]> {
     return this.request<number[]>(API_ENDPOINTS.years);
   }
+
+  // Team endpoints
+  async getAllTeams(year?: YearParam): Promise<any> {
+    const url = new URL(API_ENDPOINTS.teams, this.baseUrl);
+    
+    if (year !== undefined && year !== null) {
+      url.searchParams.append("year", String(year));
+    }
+
+    return this.request<any>(url.pathname + url.search);
+  }
+
+  async getTeam(id: string, year?: YearParam): Promise<any> {
+    const url = new URL(API_ENDPOINTS.team(id), this.baseUrl);
+    
+    if (year !== undefined && year !== null) {
+      url.searchParams.append("year", String(year));
+    }
+
+    return this.request<any>(url.pathname + url.search);
+  }
 }
 
 // Export singleton instance
@@ -174,3 +195,5 @@ export const fetchPlayerBadges = apiClient.getPlayerBadges.bind(apiClient);
 export const fetchSimilarPlayers = apiClient.getSimilarPlayers.bind(apiClient);
 export const fetchPlayerRadar = apiClient.getPlayerRadar.bind(apiClient);
 export const fetchPlayerEvolution = apiClient.getPlayerEvolution.bind(apiClient);
+export const fetchTeam = apiClient.getTeam.bind(apiClient);
+export const fetchAllTeams = apiClient.getAllTeams.bind(apiClient);

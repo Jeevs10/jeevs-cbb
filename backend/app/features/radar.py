@@ -45,6 +45,23 @@ def compute_player_radar(player: dict, preset: str = "overview", custom_fields: 
         "ORB%": (0.02, 0.12),
         "DRB%": (0.15, 0.35),
         "TRB%": (0.05, 0.20),
+        # Percentage stats for enriched data
+        "off_assist": (0.1, 0.4),
+        "off_to": (0.08, 0.25),  # Smaller is better
+        "off_usage": (0.15, 0.35),
+        "off_efg": (0.4, 0.7),
+        "off_ftr": (0.2, 0.5),
+        "off_threep": (0.2, 0.5),
+        "off_twop": (0.4, 0.7),
+        "off_twopmid": (0.2, 0.5),
+        "off_twoprim": (0.2, 0.5),
+        "off_orb": (0.02, 0.12),
+        "def_orb": (0.15, 0.35),
+        "off_reb": (0.05, 0.20),
+        "def_reb": (0.15, 0.35),
+        "def_stl": (0.01, 0.05),
+        "def_blk": (0.01, 0.08),
+        "def_fc": (0.02, 0.08),  # Smaller is better
     }
 
     # Get basic stats with fallbacks for different naming conventions
@@ -67,6 +84,24 @@ def compute_player_radar(player: dict, preset: str = "overview", custom_fields: 
     USG = get_stat("off_usage", "Usage", "USG%")
     ORB = get_stat("off_orb", "OffensiveReboundingPct", "ORB%")
     DRB = get_stat("def_orb", "DefensiveReboundingPct", "DRB%")
+    
+    # Percentage stats for enriched data
+    off_assist = get_stat("off_assist")
+    off_to_pct = get_stat("off_to")
+    off_usage_pct = get_stat("off_usage")
+    off_efg_pct = get_stat("off_efg")
+    off_ftr_pct = get_stat("off_ftr")
+    off_threep = get_stat("off_threep")
+    off_twop = get_stat("off_twop")
+    off_twopmid = get_stat("off_twopmid")
+    off_twoprim = get_stat("off_twoprim")
+    off_orb_pct = get_stat("off_orb")
+    def_orb_pct = get_stat("def_orb")
+    off_reb_pct = get_stat("off_reb")
+    def_reb_pct = get_stat("def_reb")
+    def_stl_pct = get_stat("def_stl")
+    def_blk_pct = get_stat("def_blk")
+    def_fc_pct = get_stat("def_fc")
 
     # Map stat names to their computed values
     stat_values = {
@@ -86,42 +121,67 @@ def compute_player_radar(player: dict, preset: str = "overview", custom_fields: 
         "USG%": USG,
         "ORB%": ORB,
         "DRB%": DRB,
+        # Percentage stats for enriched data
+        "off_assist": off_assist,
+        "off_to": off_to_pct,
+        "off_usage": off_usage_pct,
+        "off_efg": off_efg_pct,
+        "off_ftr": off_ftr_pct,
+        "off_threep": off_threep,
+        "off_twop": off_twop,
+        "off_twopmid": off_twopmid,
+        "off_twoprim": off_twoprim,
+        "off_orb": off_orb_pct,
+        "def_orb": def_orb_pct,
+        "off_reb": off_reb_pct,
+        "def_reb": def_reb_pct,
+        "def_stl": def_stl_pct,
+        "def_blk": def_blk_pct,
+        "def_fc": def_fc_pct,
     }
 
     # Define presets with their field sets
     presets = {
         "overview": [
-            {"stat": "PPG", "value": normalize_stat(PPG, *stat_ranges["PPG"])},
-            {"stat": "RPG", "value": normalize_stat(RPG, *stat_ranges["RPG"])},
-            {"stat": "APG", "value": normalize_stat(APG, *stat_ranges["APG"])},
-            {"stat": "SPG", "value": normalize_stat(SPG, *stat_ranges["SPG"])},
-            {"stat": "BPG", "value": normalize_stat(BPG, *stat_ranges["BPG"])},
-            {"stat": "MPG", "value": normalize_stat(MPG, *stat_ranges["MPG"])},
+            {"stat": "off_assist", "value": normalize_stat(off_assist, *stat_ranges["off_assist"]), "raw": off_assist},
+            {"stat": "off_twop", "value": normalize_stat(off_twop, *stat_ranges["off_twop"]), "raw": off_twop},
+            {"stat": "off_threep", "value": normalize_stat(off_threep, *stat_ranges["off_threep"]), "raw": off_threep},
+            {"stat": "off_orb", "value": normalize_stat(off_orb_pct, *stat_ranges["off_orb"]), "raw": off_orb_pct},
+            {"stat": "def_reb", "value": normalize_stat(def_reb_pct, *stat_ranges["def_reb"]), "raw": def_reb_pct},
+            {"stat": "def_stl", "value": normalize_stat(def_stl_pct, *stat_ranges["def_stl"]), "raw": def_stl_pct},
         ],
         "scoring": [
-            {"stat": "PPG", "value": normalize_stat(PPG, *stat_ranges["PPG"])},
-            {"stat": "FG%", "value": normalize_stat(FG, *stat_ranges["FG%"])},
-            {"stat": "3P%", "value": normalize_stat(ThreeP, *stat_ranges["3P%"])},
-            {"stat": "FT%", "value": normalize_stat(FT, *stat_ranges["FT%"])},
-            {"stat": "TS%", "value": normalize_stat(TS, *stat_ranges["TS%"])},
+            {"stat": "off_twop", "value": normalize_stat(off_twop, *stat_ranges["off_twop"]), "raw": off_twop},
+            {"stat": "off_twoprim", "value": normalize_stat(off_twoprim, *stat_ranges["off_twoprim"]), "raw": off_twoprim},
+            {"stat": "off_twopmid", "value": normalize_stat(off_twopmid, *stat_ranges["off_twopmid"]), "raw": off_twopmid},
+            {"stat": "off_threep", "value": normalize_stat(off_threep, *stat_ranges["off_threep"]), "raw": off_threep},
         ],
         "playmaking": [
-            {"stat": "APG", "value": normalize_stat(APG, *stat_ranges["APG"])},
-            {"stat": "AST%", "value": normalize_stat(AST, *stat_ranges["AST%"])},
-            {"stat": "TO%", "value": invert_normalize(TO, *stat_ranges["TO%"])},  # Inverted - smaller is better
-            {"stat": "USG%", "value": normalize_stat(USG, *stat_ranges["USG%"])},
+            {"stat": "off_assist", "value": normalize_stat(off_assist, *stat_ranges["off_assist"]), "raw": off_assist},
+            {"stat": "off_to", "value": invert_normalize(off_to_pct, *stat_ranges["off_to"]), "raw": off_to_pct},  # Inverted - smaller is better
+            {"stat": "off_usage", "value": normalize_stat(off_usage_pct, *stat_ranges["off_usage"]), "raw": off_usage_pct},
         ],
         "defense": [
-            {"stat": "SPG", "value": normalize_stat(SPG, *stat_ranges["SPG"])},
-            {"stat": "BPG", "value": normalize_stat(BPG, *stat_ranges["BPG"])},
-            {"stat": "DRB%", "value": normalize_stat(DRB, *stat_ranges["DRB%"])},
-            {"stat": "RPG", "value": normalize_stat(RPG, *stat_ranges["RPG"])},
+            {"stat": "def_stl", "value": normalize_stat(def_stl_pct, *stat_ranges["def_stl"]), "raw": def_stl_pct},
+            {"stat": "def_blk", "value": normalize_stat(def_blk_pct, *stat_ranges["def_blk"]), "raw": def_blk_pct},
+            {"stat": "def_orb", "value": normalize_stat(def_orb_pct, *stat_ranges["def_orb"]), "raw": def_orb_pct},
+            {"stat": "def_reb", "value": normalize_stat(def_reb_pct, *stat_ranges["def_reb"]), "raw": def_reb_pct},
+            {"stat": "def_fc", "value": invert_normalize(def_fc_pct, *stat_ranges["def_fc"]), "raw": def_fc_pct},  # Inverted - smaller is better
         ],
         "efficiency": [
-            {"stat": "TS%", "value": normalize_stat(TS, *stat_ranges["TS%"])},
-            {"stat": "eFG%", "value": normalize_stat(eFG, *stat_ranges["eFG%"])},
-            {"stat": "TO%", "value": invert_normalize(TO, *stat_ranges["TO%"])},  # Inverted - smaller is better
-            {"stat": "AST%", "value": normalize_stat(AST, *stat_ranges["AST%"])},
+            {"stat": "off_efg", "value": normalize_stat(off_efg_pct, *stat_ranges["off_efg"]), "raw": off_efg_pct},
+            {"stat": "off_ftr", "value": normalize_stat(off_ftr_pct, *stat_ranges["off_ftr"]), "raw": off_ftr_pct},
+            {"stat": "off_to", "value": invert_normalize(off_to_pct, *stat_ranges["off_to"]), "raw": off_to_pct},  # Inverted - smaller is better
+            {"stat": "off_orb", "value": normalize_stat(off_orb_pct, *stat_ranges["off_orb"]), "raw": off_orb_pct},
+            {"stat": "def_reb", "value": normalize_stat(def_reb_pct, *stat_ranges["def_reb"]), "raw": def_reb_pct},
+        ],
+        "perGame": [
+            {"stat": "PPG", "value": normalize_stat(PPG, *stat_ranges["PPG"]), "raw": PPG},
+            {"stat": "RPG", "value": normalize_stat(RPG, *stat_ranges["RPG"]), "raw": RPG},
+            {"stat": "APG", "value": normalize_stat(APG, *stat_ranges["APG"]), "raw": APG},
+            {"stat": "SPG", "value": normalize_stat(SPG, *stat_ranges["SPG"]), "raw": SPG},
+            {"stat": "BPG", "value": normalize_stat(BPG, *stat_ranges["BPG"]), "raw": BPG},
+            {"stat": "MPG", "value": normalize_stat(MPG, *stat_ranges["MPG"]), "raw": MPG},
         ],
     }
 
@@ -130,11 +190,12 @@ def compute_player_radar(player: dict, preset: str = "overview", custom_fields: 
         result = []
         for field in custom_fields:
             if field in stat_values and field in stat_ranges:
-                if field == "TO%":
+                # Stats where smaller is better
+                if field in ["TO%", "off_to", "def_fc"]:
                     value = invert_normalize(stat_values[field], *stat_ranges[field])
                 else:
                     value = normalize_stat(stat_values[field], *stat_ranges[field])
-                result.append({"stat": field, "value": value})
+                result.append({"stat": field, "value": value, "raw": stat_values[field]})
         return result
 
     return presets.get(preset, presets["overview"])

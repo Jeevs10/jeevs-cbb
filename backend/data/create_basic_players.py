@@ -31,6 +31,26 @@ def create_basic_players(year):
     # Create basic players dataset
     basic_players = player_data[basic_columns].copy()
     
+    # Calculate per-game stats
+    basic_players['PPG'] = (basic_players['Points'] / basic_players['Games']).round(1)
+    basic_players['RPG'] = (basic_players['Rebounds Total'] / basic_players['Games']).round(1)
+    basic_players['APG'] = (basic_players['Assists'] / basic_players['Games']).round(1)
+    basic_players['SPG'] = (basic_players['Steals'] / basic_players['Games']).round(1)
+    basic_players['BPG'] = (basic_players['Blocks'] / basic_players['Games']).round(1)
+    basic_players['TOPG'] = (basic_players['Turnovers'] / basic_players['Games']).round(1)
+    basic_players['FPG'] = (basic_players['Fouls'] / basic_players['Games']).round(1)
+    basic_players['MPG'] = (basic_players['Minutes'] / basic_players['Games']).round(1)
+    
+    # Handle division by zero (Games = 0)
+    basic_players['PPG'] = basic_players['PPG'].fillna(0)
+    basic_players['RPG'] = basic_players['RPG'].fillna(0)
+    basic_players['APG'] = basic_players['APG'].fillna(0)
+    basic_players['SPG'] = basic_players['SPG'].fillna(0)
+    basic_players['BPG'] = basic_players['BPG'].fillna(0)
+    basic_players['TOPG'] = basic_players['TOPG'].fillna(0)
+    basic_players['FPG'] = basic_players['FPG'].fillna(0)
+    basic_players['MPG'] = basic_players['MPG'].fillna(0)
+    
     # Add a flag to indicate this is basic data only
     basic_players['data_tier'] = 'basic'
     

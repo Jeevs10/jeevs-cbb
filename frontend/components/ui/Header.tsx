@@ -2,64 +2,86 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
-interface HeaderProps {
-  title?: string;
-}
-
-export function Header({ title = "Player Stats Database" }: HeaderProps) {
+export function Header() {
   const pathname = usePathname();
-  
-  // Debug logging to understand navigation behavior
-  console.log('Header - pathname:', pathname, 'title:', title);
-  
-  // Check if we're on a leaderboard page and if "All Players" is selected
-  const isLeaderboardPage = pathname.startsWith('/leaderboard');
-  const isAllPlayersSelected = pathname === '/leaderboard/basic' || 
-    (pathname === '/' && title === 'Player Stats Database');
-  
-  console.log('Header - isLeaderboardPage:', isLeaderboardPage, 'isAllPlayersSelected:', isAllPlayersSelected);
-  
+  const [playerDropdownOpen, setPlayerDropdownOpen] = useState(false);
+  const [teamDropdownOpen, setTeamDropdownOpen] = useState(false);
+
   return (
-    <header className="border-b border-black bg-[#C7D0B8] shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <header className="border-b border-black bg-[#C7D0B8]">
+      <div className="px-4">
+        <div className="flex justify-between items-center h-12">
           {/* Logo/Title */}
-          <div className="flex items-center">
-            <h1 className="text-xl font-bold text-black">
-              {title}
-            </h1>
-          </div>
+          <Link href="/" className="text-lg font-bold text-black hover:underline">
+            CBB Stats
+          </Link>
 
           {/* Navigation */}
-          <nav className="flex space-x-8">
+          <nav className="flex space-x-6">
             <Link
               href="/"
-              className={`text-sm font-medium transition-colors hover:text-blue-600 ${
+              className={`text-xs font-medium transition-colors hover:underline ${
                 pathname === "/" ? "text-black" : "text-gray-600"
               }`}
             >
               Home
             </Link>
-            <Link
-              href="/leaderboard/basic"
-              className={`text-sm font-medium transition-colors hover:text-blue-600 ${
-                isAllPlayersSelected ? "text-black" : "text-gray-600"
-              }`}
+
+            {/* Player Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setPlayerDropdownOpen(true)}
+              onMouseLeave={() => setPlayerDropdownOpen(false)}
             >
-              Basic Leaderboard
-              {isAllPlayersSelected && (
-                <span className="ml-2 text-xs text-gray-600">(All Players)</span>
+              <button className="text-xs font-medium transition-colors hover:underline text-gray-600">
+                Player
+              </button>
+              {playerDropdownOpen && (
+                <div className="absolute top-full left-0 mt-1 bg-white border-2 border-black shadow-lg z-10">
+                  <Link
+                    href="/leaderboard/basic"
+                    className="block px-4 py-2 text-xs hover:bg-[#E7E8D1]"
+                  >
+                    Basic Leaderboard
+                  </Link>
+                  <Link
+                    href="/leaderboard/advanced"
+                    className="block px-4 py-2 text-xs hover:bg-[#E7E8D1]"
+                  >
+                    Advanced Leaderboard
+                  </Link>
+                </div>
               )}
-            </Link>
-            <Link
-              href="/leaderboard/advanced"
-              className={`text-sm font-medium transition-colors hover:text-blue-600 ${
-                pathname === "/leaderboard/advanced" ? "text-black" : "text-gray-600"
-              }`}
+            </div>
+
+            {/* Team Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setTeamDropdownOpen(true)}
+              onMouseLeave={() => setTeamDropdownOpen(false)}
             >
-              Advanced Leaderboard
-            </Link>
+              <button className="text-xs font-medium transition-colors hover:underline text-gray-600">
+                Team
+              </button>
+              {teamDropdownOpen && (
+                <div className="absolute top-full left-0 mt-1 bg-white border-2 border-black shadow-lg z-10">
+                  <Link
+                    href="/team-rankings"
+                    className="block px-4 py-2 text-xs hover:bg-[#E7E8D1]"
+                  >
+                    Team Rankings
+                  </Link>
+                  <Link
+                    href="/teams"
+                    className="block px-4 py-2 text-xs hover:bg-[#E7E8D1]"
+                  >
+                    Team Catalog
+                  </Link>
+                </div>
+              )}
+            </div>
           </nav>
         </div>
       </div>

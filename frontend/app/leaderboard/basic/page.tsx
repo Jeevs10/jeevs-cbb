@@ -11,7 +11,6 @@ import { usePlayers } from "@/hooks/usePlayers";
 import { useYears } from "@/hooks/useYears";
 import { YearType, SortDirection } from "@/types";
 import { DEFAULT_PAGE_SIZE } from "@/lib/utils";
-import { Header } from "@/components/ui/Header";
 
 export default function BasicLeaderboard() {
   const [sort, setSort] = useState("Points");
@@ -109,8 +108,6 @@ export default function BasicLeaderboard() {
 
   return (
     <ErrorBoundary>
-      <Header title="Basic Player Leaderboard" />
-      
       <div className="p-4 font-mono text-xs">
 
         {/* YEAR FILTER */}

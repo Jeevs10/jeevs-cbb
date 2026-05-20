@@ -8,6 +8,7 @@ import {
   PolarAngleAxis,
   PolarRadiusAxis,
   ResponsiveContainer,
+  Tooltip,
 } from "recharts";
 import { fetchPlayerRadar } from "@/lib/api";
 
@@ -22,6 +23,7 @@ const RADAR_PRESETS = {
   playmaking: "Playmaking",
   defense: "Defense",
   efficiency: "Efficiency",
+  perGame: "Per Game",
   custom: "Custom",
 };
 
@@ -31,9 +33,17 @@ const AVAILABLE_FIELDS = [
   "TO%", "AST%", "USG%", "ORB%", "DRB%"
 ];
 
+const PERCENTAGE_FIELDS = [
+  "off_assist", "off_to", "off_usage", "off_efg", "off_ftr",
+  "off_threep", "off_twop", "off_twopmid", "off_twoprim",
+  "off_orb", "def_orb", "off_reb", "def_reb",
+  "def_stl", "def_blk", "def_fc"
+];
+
 export default function PlayerRadar({ playerId, year }: PlayerRadarProps) {
   const [activePreset, setActivePreset] = useState<string>("overview");
-  const [customFields, setCustomFields] = useState<string[]>(["PPG", "RPG", "APG"]);
+  const [statMode, setStatMode] = useState<"perGame" | "percentage">("percentage");
+  const [customFields, setCustomFields] = useState<string[]>(["off_assist", "off_twop", "off_orb"]);
   const [radarData, setRadarData] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
 
@@ -68,9 +78,21 @@ export default function PlayerRadar({ playerId, year }: PlayerRadarProps) {
     );
   };
 
+  const handlePresetChange = (preset: string) => {
+    setActivePreset(preset);
+    // Set statMode based on preset
+    if (preset === "perGame") {
+      setStatMode("perGame");
+      setCustomFields(["PPG", "RPG", "APG"]);
+    } else {
+      setStatMode("percentage");
+      setCustomFields(["off_assist", "off_twop", "off_orb"]);
+    }
+  };
+
   const TabButton = ({ id, label }: { id: string; label: string }) => (
     <button
-      onClick={() => setActivePreset(id)}
+      onClick={() => handlePresetChange(id)}
       className={`px-2 py-1 text-[10px] border border-black font-mono
         ${activePreset === id ? "bg-black text-white" : "bg-white text-black hover:bg-gray-100"}
       `}
@@ -93,7 +115,7 @@ export default function PlayerRadar({ playerId, year }: PlayerRadarProps) {
         <div className="mb-3 p-2 border border-black bg-gray-50">
           <p className="text-[10px] font-bold mb-2">SELECT FIELDS:</p>
           <div className="flex flex-wrap gap-1">
-            {AVAILABLE_FIELDS.map((field) => (
+            {(statMode === "perGame" ? AVAILABLE_FIELDS : PERCENTAGE_FIELDS).map((field) => (
               <button
                 key={field}
                 onClick={() => toggleCustomField(field)}
@@ -134,6 +156,22 @@ export default function PlayerRadar({ playerId, year }: PlayerRadarProps) {
                 fill="#000"
                 fillOpacity={0.08}
                 dot={{ r: 3, fill: "#000" }}
+              />
+              <Tooltip
+                formatter={(value: any, name: any, props: any) => {
+                  const rawValue = props.payload?.raw || value;
+                  if (typeof rawValue === 'number') {
+                    return [rawValue.toFixed(3), name];
+                  }
+                  return [rawValue, name];
+                }}
+                contentStyle={{
+                  backgroundColor: "white",
+                  border: "1px solid black",
+                  borderRadius: "4px",
+                  fontSize: "12px",
+                  fontFamily: "monospace",
+                }}
               />
             </RadarChart>
           </ResponsiveContainer>

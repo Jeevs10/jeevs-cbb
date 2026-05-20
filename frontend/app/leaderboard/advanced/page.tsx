@@ -10,7 +10,6 @@ import { usePlayers } from "@/hooks/usePlayers";
 import { useYears } from "@/hooks/useYears";
 import { YearType, SortDirection } from "@/types";
 import { DEFAULT_PAGE_SIZE } from "@/lib/utils";
-import { Header } from "@/components/ui/Header";
 
 export default function AdvancedLeaderboard() {
   const [sort, setSort] = useState("adj_rapm_margin");
@@ -84,8 +83,6 @@ export default function AdvancedLeaderboard() {
 
   return (
     <ErrorBoundary>
-      <Header title="Advanced Player Leaderboard" />
-      
       <div className="p-4 font-mono text-xs">
 
         {/* YEAR FILTER */}

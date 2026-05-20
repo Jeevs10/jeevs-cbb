@@ -8,6 +8,7 @@ from app.middleware.error_handler import ErrorHandlerMiddleware, LoggingMiddlewa
 
 # API routers
 from app.api.players import router as players_router
+from app.api.teams import router as teams_router
 from app.api.moves import router as moves_router
 from app.api.badges import router as badges_router
 from app.api.radar import router as radar_router
@@ -71,6 +72,7 @@ app.add_middleware(
 # ROUTES
 # -------------------------
 app.include_router(players_router, prefix="/api/v1", tags=["players"])
+app.include_router(teams_router, prefix="/api/v1", tags=["teams"])
 app.include_router(moves_router, prefix="/api/v1", tags=["moves"])
 app.include_router(badges_router, prefix="/api/v1", tags=["badges"])
 app.include_router(radar_router, prefix="/api/v1", tags=["radar"])

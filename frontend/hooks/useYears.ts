@@ -25,12 +25,14 @@ export function useYears(): UseYearsState & UseYearsActions {
 
     try {
       const years = await apiClient.getYears();
+      console.log("useYears fetched:", years);
       setState({
         years,
         loading: false,
         error: null,
       });
     } catch (error) {
+      console.error("useYears error:", error);
       setState(prev => ({
         ...prev,
         loading: false,

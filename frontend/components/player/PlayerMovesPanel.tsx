@@ -1,13 +1,35 @@
 "use client";
 
-function getGrade(eff: number) {
-  if (eff > 1.1) return "S";
-  if (eff > 1.0) return "A";
-  if (eff > 0.9) return "B";
-  return "C";
+interface Move {
+  name: string;
+  usage: number;
+  frequencyPctile: number;
+  efficiency: number;
+  efficiencyPctile?: number;
 }
 
-export default function PlayerMovesPanel({ moves = [] }) {
+function getGrade(efficiencyPercentile: number, frequencyPercentile: number) {
+  // Combine percentiles to get overall percentile
+  // Weight efficiency more heavily than frequency (70% efficiency, 30% frequency)
+  const overallPercentile = (efficiencyPercentile * 0.7) + (frequencyPercentile * 0.3);
+  
+  if (overallPercentile >= 0.90) return "S";
+  if (overallPercentile >= 0.88) return "A+";
+  if (overallPercentile >= 0.85) return "A";
+  if (overallPercentile >= 0.80) return "A-";
+  if (overallPercentile >= 0.78) return "B+";
+  if (overallPercentile >= 0.75) return "B";
+  if (overallPercentile >= 0.70) return "B-";
+  if (overallPercentile >= 0.68) return "C+";
+  if (overallPercentile >= 0.65) return "C";
+  if (overallPercentile >= 0.60) return "C-";
+  if (overallPercentile >= 0.58) return "D+";
+  if (overallPercentile >= 0.55) return "D";
+  if (overallPercentile >= 0.50) return "D-";
+  return "F";
+}
+
+export default function PlayerMovesPanel({ moves = [] }: { moves: Move[] }) {
   return (
     <div className="border-2 border-black bg-[#C7D0B8] p-3 space-y-2">
       
@@ -46,7 +68,7 @@ export default function PlayerMovesPanel({ moves = [] }) {
           <div className="text-right">
             <div className="font-bold">{m.efficiency.toFixed(2)} PPP</div>
             <div className="text-[10px]">
-              Grade: {getGrade(m.efficiency)}
+              Grade: {getGrade(m.efficiencyPctile || 0, m.frequencyPctile)}
             </div>
           </div>
         </div>

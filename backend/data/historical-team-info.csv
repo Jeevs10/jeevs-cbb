@@ -1,0 +1,366 @@
+﻿Id,SourceId,School,Mascot,Abbreviation,DisplayName,ShortDisplayName,PrimaryColor,SecondaryColor,CurrentVenueId,CurrentVenue,CurrentCity,CurrentState,ConferenceId,Conference
+96,45,George Washington,Revolutionaries,GW,George Washington Revolutionaries,G Washington,002843,e8d2a1,136.0,Charles E. Smith Center,Washington,DC,1.0,A-10
+251,2603,Saint Joseph's,Hawks,JOES,Saint Joseph's Hawks,Saint Joseph's,C2071B,101010,93.0,Michael J. Hagan '85 Arena,Philadelphia,PA,1.0,A-10
+240,227,Rhode Island,Rams,URI,Rhode Island Rams,Rhode Island,091f3f,5ab3e8,135.0,Thomas M. Ryan Center,Kingston,RI,1.0,A-10
+277,179,St. Bonaventure,Bonnies,SBU,St. Bonaventure Bonnies,St Bonaventure,70261D,,73.0,Reilly Center,Saint Bonaventure,NY,1.0,A-10
+64,2168,Dayton,Flyers,DAY,Dayton Flyers,Dayton,004B8D,ffffff,76.0,UD Arena,Dayton,OH,1.0,A-10
+242,257,Richmond,Spiders,RICH,Richmond Spiders,Richmond,9e0712,b90b2e,224.0,Robins Center,Richmond,VA,1.0,A-10
+137,2325,La Salle,Explorers,LAS,La Salle Explorers,La Salle,003356,ffce00,94.0,John Glaser Arena,Philadelphia,PA,1.0,A-10
+252,139,Saint Louis,Billikens,SLU,Saint Louis Billikens,Saint Louis,00539C,ebebeb,321.0,Chaifetz Arena,St. Louis,MO,1.0,A-10
+91,2230,Fordham,Rams,FOR,Fordham Rams,Fordham,830032,909090,340.0,Rose Hill Gym,Bronx,NY,1.0,A-10
+333,2670,VCU,Rams,VCU,VCU Rams,VCU,ffaf00,000000,92.0,Siegel Center,Richmond,VA,1.0,A-10
+63,2166,Davidson,Wildcats,DAV,Davidson Wildcats,Davidson,000000,e51837,59.0,John M. Belk Arena,Davidson,NC,1.0,A-10
+95,2244,George Mason,Patriots,GMU,George Mason Patriots,George Mason,016600,ecb010,77.0,EagleBank Arena,Fairfax,VA,1.0,A-10
+151,2350,Loyola Chicago,Ramblers,LUC,Loyola Chicago Ramblers,Loyola Chicago,9d1244,,160.0,Gentile Arena,Chicago,IL,1.0,A-10
+200,153,North Carolina,Tar Heels,UNC,North Carolina Tar Heels,North Carolina,7bafd4,13294b,7.0,Dean E. Smith Center,Chapel Hill,NC,2.0,ACC
+72,150,Duke,Blue Devils,DUKE,Duke Blue Devils,Duke,013088,ffffff,6.0,Cameron Indoor Stadium,Durham,NC,2.0,ACC
+185,152,NC State,Wolfpack,NCSU,NC State Wolfpack,NC State,cc0000,ffffff,74.0,Lenovo Center,Raleigh,NC,2.0,ACC
+339,258,Virginia,Cavaliers,UVA,Virginia Cavaliers,Virginia,232d4b,f84c1e,227.0,John Paul Jones Arena,Charlottesville,VA,2.0,ACC
+342,154,Wake Forest,Demon Deacons,WAKE,Wake Forest Demon Deacons,Wake Forest,000000,ceb888,153.0,LJVM Coliseum,Winston-Salem,NC,2.0,ACC
+52,228,Clemson,Tigers,CLEM,Clemson Tigers,Clemson,f56600,522d80,91.0,Littlejohn Coliseum,Clemson,SC,2.0,ACC
+101,59,Georgia Tech,Yellow Jackets,GT,Georgia Tech Yellow Jackets,Georgia Tech,003057,b3a369,228.0,McCamish Pavilion,Atlanta,GA,2.0,ACC
+90,52,Florida State,Seminoles,FSU,Florida State Seminoles,Florida St,782f40,ceb888,81.0,Tucker Center,Tallahassee,FL,2.0,ACC
+168,2390,Miami,Hurricanes,MIA,Miami Hurricanes,Miami,005030,f47321,80.0,Watsco Center,Coral Gables,FL,2.0,ACC
+340,259,Virginia Tech,Hokies,VT,Virginia Tech Hokies,Virginia Tech,630031,cf4520,151.0,Cassell Coliseum,Blacksburg,VA,2.0,ACC
+26,103,Boston College,Eagles,BC,Boston College Eagles,Boston College,8c2232,dbcca6,152.0,Conte Forum,Chestnut Hill,MA,2.0,ACC
+286,183,Syracuse,Orange,SYR,Syracuse Orange,Syracuse,ff6500,000e54,88.0,JMA Wireless Dome,Syracuse,NY,2.0,ACC
+213,87,Notre Dame,Fighting Irish,ND,Notre Dame Fighting Irish,Notre Dame,0c2340,c99700,225.0,Purcell Pavilion,South Bend,IN,2.0,ACC
+229,221,Pittsburgh,Panthers,PITT,Pittsburgh Panthers,Pitt,003263,231f20,79.0,Petersen Events Center,Pittsburgh,PA,2.0,ACC
+150,97,Louisville,Cardinals,LOU,Louisville Cardinals,Louisville,c9001f,000000,90.0,KFC Yum! Center,Louisville,KY,2.0,ACC
+248,2567,SMU,Mustangs,SMU,SMU Mustangs,SMU,354ca1,cc0035,162.0,Moody Coliseum,Dallas,TX,2.0,ACC
+281,24,Stanford,Cardinal,STAN,Stanford Cardinal,Stanford,8c1515,ffffff,25.0,Maples Pavilion,Stanford,CA,2.0,ACC
+40,25,California,Golden Bears,CAL,California Golden Bears,California,031522,ffc423,195.0,Haas Pavilion,Berkeley,CA,2.0,ACC
+283,56,Stetson,Hatters,STET,Stetson Hatters,Stetson,0a5640,56854e,83.0,Edmunds Center,DeLand,FL,3.0,ASUN
+127,294,Jacksonville,Dolphins,JAX,Jacksonville Dolphins,Jacksonville,00523e,,58.0,Swisher Gymnasium,Jacksonville,FL,3.0,ASUN
+143,288,Lipscomb,Bisons,LIP,Lipscomb Bisons,Lipscomb,20366C,f6b734,305.0,Allen Arena,Nashville,TN,3.0,ASUN
+88,526,Florida Gulf Coast,Eagles,FGCU,Florida Gulf Coast Eagles,FGCU,00885a,076c3b,346.0,Alico Arena,Fort Myers,FL,3.0,ASUN
+203,2454,North Florida,Ospreys,UNF,North Florida Ospreys,North Florida,004B8D,babcbe,257.0,UNF Arena,Jacksonville,FL,3.0,ASUN
+197,2453,North Alabama,Lions,UNA,North Alabama Lions,North Alabama,663399,,242.0,Flowers Hall,Florence,AL,3.0,ASUN
+78,2198,Eastern Kentucky,Colonels,EKU,Eastern Kentucky Colonels,E Kentucky,660819,f0f0f0,441.0,Baptist Health Arena,Richmond,KY,3.0,ASUN
+21,91,Bellarmine,Knights,BELL,Bellarmine Knights,Bellarmine,000000,,299.0,Knights Hall,Louisville,KY,3.0,ASUN
+362,2511,Queens University,Royals,QUC,Queens University Royals,Queens,192C66,857040,85.0,Curry Arena,Charlotte,NC,3.0,ASUN
+17,2046,Austin Peay,Governors,APSU,Austin Peay Governors,Austin Peay,8e0b0b,,124.0,F&M Bank Arena,Clarksville,TN,3.0,ASUN
+43,2110,Central Arkansas,Bears,CARK,Central Arkansas Bears,C Arkansas,a7a9ac,8e959a,349.0,Farris Center,Conway,AR,3.0,ASUN
+346,2698,West Georgia,Wolves,WGA,West Georgia Wolves,West Georgia,0033a1,db1a21,375.0,The Coliseum,Carrollton,GA,3.0,ASUN
+337,261,Vermont,Catamounts,UVM,Vermont Catamounts,Vermont,154734,ffc72c,376.0,Patrick Gymnasium,Burlington,VT,4.0,Am. East
+154,311,Maine,Black Bears,ME,Maine Black Bears,Maine,127dbe,,214.0,The Pit in Memorial Gymnasium,Orono,ME,4.0,Am. East
+190,160,New Hampshire,Wildcats,UNH,New Hampshire Wildcats,New Hampshire,004990,c3c4c6,219.0,Lundholm Gymnasium,Durham,NH,4.0,Am. East
+306,399,UAlbany,Great Danes,ALB,UAlbany Great Danes,UAlbany,3D2777,ffffff,307.0,Broadview Center,Albany,NY,4.0,Am. East
+317,2378,UMBC,Retrievers,UMBC,UMBC Retrievers,UMBC,000000,ad860a,24.0,Chesapeake Employers Insurance Arena,Baltimore,MD,4.0,Am. East
+24,2066,Binghamton,Bearcats,BING,Binghamton Bearcats,Binghamton,00614A,f0f0f0,244.0,Events Center (Binghamton),Binghamton,NY,4.0,Am. East
+318,2349,UMass Lowell,River Hawks,UML,UMass Lowell River Hawks,UMass Lowell,00529C,cf1f2f,34.0,Costello Athletic Center,Lowell,MA,4.0,Am. East
+31,2803,Bryant,Bulldogs,BRY,Bryant Bulldogs,Bryant,000000,9f8343,123.0,Chace Athletic Center,Smithfield,RI,4.0,Am. East
+186,2885,NJIT,Highlanders,NJIT,NJIT Highlanders,NJIT,EE3024,df3e2e,62.0,Joel & Diane Bloom Wellness and Events Center,Newark,NJ,4.0,Am. East
+163,235,Memphis,Tigers,MEM,Memphis Tigers,Memphis,004991,8e908f,145.0,FedExForum,Memphis,TN,5.0,American
+289,218,Temple,Owls,TEM,Temple Owls,Temple,A80532,a7a9ac,31.0,Liacouras Center,Philadelphia,PA,5.0,American
+304,202,Tulsa,Golden Hurricane,TLSA,Tulsa Golden Hurricane,Tulsa,003595,d0b787,115.0,Reynolds Center,Tulsa,OK,5.0,American
+271,58,South Florida,Bulls,USF,South Florida Bulls,South Florida,004A36,231f20,337.0,Yuengling Center,Tampa,FL,5.0,American
+352,2724,Wichita State,Shockers,WICH,Wichita State Shockers,Wichita St,0d0a03,ffc41e,308.0,Charles Koch Arena,Wichita,KS,5.0,American
+74,151,East Carolina,Pirates,ECU,East Carolina Pirates,East Carolina,4b1869,f0907b,55.0,Minges Coliseum,Greenville,NC,5.0,American
+303,2655,Tulane,Green Wave,TULN,Tulane Green Wave,Tulane,006547,468ac9,102.0,Devlin Fieldhouse,New Orleans,LA,5.0,American
+86,2226,Florida Atlantic,Owls,FAU,Florida Atlantic Owls,FAU,00447c,d31245,276.0,Eleanor R. Baldwin Arena,Boca Raton,FL,5.0,American
+305,5,UAB,Blazers,UAB,UAB Blazers,UAB,054338,ffc845,103.0,Bartow Arena,Birmingham,AL,5.0,American
+204,249,North Texas,Mean Green,UNT,North Texas Mean Green,North Texas,ffffff,000000,200.0,The Super Pit,Denton,TX,5.0,American
+48,2429,Charlotte,49ers,CLT,Charlotte 49ers,Charlotte,ffffff,cfab7a,134.0,Halton Arena,Charlotte,NC,5.0,American
+241,242,Rice,Owls,RICE,Rice Owls,Rice,d1d5d8,ffffff,197.0,Tudor Fieldhouse,Houston,TX,5.0,American
+328,2636,UTSA,Roadrunners,UTSA,UTSA Roadrunners,UTSA,002A5C,f47321,137.0,UTSA Convocation Center,San Antonio,TX,5.0,American
+131,2305,Kansas,Jayhawks,KU,Kansas Jayhawks,Kansas,0051ba,e8000d,1.0,Allen Fieldhouse,Lawrence,KS,6.0,Big 12
+218,197,Oklahoma State,Cowboys,OKST,Oklahoma State Cowboys,Oklahoma St,000000,dddddd,175.0,Gallagher-Iba Arena,Stillwater,OK,6.0,Big 12
+20,239,Baylor,Bears,BAY,Baylor Bears,Baylor,154734,ffb81c,332.0,Foster Pavilion,Waco,TX,6.0,Big 12
+125,66,Iowa State,Cyclones,ISU,Iowa State Cyclones,Iowa State,822433,fdca2f,4.0,Hilton Coliseum,Ames,IA,6.0,Big 12
+132,2306,Kansas State,Wildcats,KSU,Kansas State Wildcats,Kansas St,3c0969,e2e3e4,202.0,Bramlage Coliseum,Manhattan,KS,6.0,Big 12
+298,2641,Texas Tech,Red Raiders,TTU,Texas Tech Red Raiders,Texas Tech,000000,da291c,201.0,United Supermarkets Arena,Lubbock,TX,6.0,Big 12
+347,277,West Virginia,Mountaineers,WVU,West Virginia Mountaineers,West Virginia,002855,eaaa00,87.0,WVU Coliseum,Morgantown,WV,6.0,Big 12
+287,2628,TCU,Horned Frogs,TCU,TCU Horned Frogs,TCU,4d1979,f1f2f3,150.0,Schollmaier Arena,Fort Worth,TX,6.0,Big 12
+113,248,Houston,Cougars,HOU,Houston Cougars,Houston,c92a39,ffffff,3.0,Fertitta Center,Houston,TX,6.0,Big 12
+18,252,BYU,Cougars,BYU,BYU Cougars,BYU,003da5,ffffff,204.0,Marriott Center,Provo,UT,6.0,Big 12
+51,2132,Cincinnati,Bearcats,CIN,Cincinnati Bearcats,Cincinnati,000000,717073,14.0,Fifth Third Arena,Cincinnati,OH,6.0,Big 12
+312,2116,UCF,Knights,UCF,UCF Knights,UCF,000000,b4a269,10.0,Addition Financial Arena,Orlando,FL,6.0,Big 12
+11,12,Arizona,Wildcats,ARIZ,Arizona Wildcats,Arizona,0c234b,ab0520,8.0,McKale Memorial Center,Tucson,AZ,6.0,Big 12
+331,254,Utah,Utes,UTAH,Utah Utes,Utah,ea002a,ffffff,173.0,Jon M. Huntsman Center,Salt Lake City,UT,6.0,Big 12
+10,9,Arizona State,Sun Devils,ASU,Arizona State Sun Devils,Arizona St,8e0c3a,ffc72c,203.0,Desert Financial Arena,Tempe,AZ,6.0,Big 12
+338,222,Villanova,Wildcats,VILL,Villanova Wildcats,Villanova,00205b,13b5ea,140.0,Finneran Pavilion,Villanova,PA,7.0,Big East
+97,46,Georgetown,Hoyas,GTWN,Georgetown Hoyas,Georgetown,110E42,001c58,226.0,Capital One Arena,Washington,DC,7.0,Big East
+279,2599,St. John's,Red Storm,SJU,St. John's Red Storm,St John's,d10000,101010,38.0,Carnesecca Arena,Queens,NY,7.0,Big East
+235,2507,Providence,Friars,PROV,Providence Friars,Providence,000000,a3a19e,82.0,Amica Mutual Pavilion,Providence,RI,7.0,Big East
+263,2550,Seton Hall,Pirates,HALL,Seton Hall Pirates,Seton Hall,0857B1,8a8d8f,107.0,Prudential Center,Newark,NJ,7.0,Big East
+157,269,Marquette,Golden Eagles,MARQ,Marquette Golden Eagles,Marquette,003366,ffcc00,12.0,Fiserv Forum,Milwaukee,WI,7.0,Big East
+61,156,Creighton,Bluejays,CREI,Creighton Bluejays,Creighton,005ca9,6cadde,210.0,CHI Health Center Omaha,Omaha,NE,7.0,Big East
+359,2752,Xavier,Musketeers,XAV,Xavier Musketeers,Xavier,21304e,a5a7a8,106.0,Cintas Center,Cincinnati,OH,7.0,Big East
+65,305,DePaul,Blue Demons,DEP,DePaul Blue Demons,DePaul,2d649c,ce1125,141.0,Wintrust Arena,Chicago,IL,7.0,Big East
+34,2086,Butler,Bulldogs,BUT,Butler Bulldogs,Butler,0d1361,00a3e0,40.0,Hinkle Fieldhouse,Indianapolis,IN,7.0,Big East
+345,2692,Weber State,Wildcats,WEB,Weber State Wildcats,Weber St,18005a,ebebeb,174.0,Dee Events Center,Ogden,UT,8.0,Big Sky
+179,149,Montana,Grizzlies,MONT,Montana Grizzlies,Montana,751D4A,666666,171.0,Dahlberg Arena,Missoula,MT,8.0,Big Sky
+180,147,Montana State,Bobcats,MTST,Montana State Bobcats,Montana St,00205c,bc955c,330.0,Worthington Arena,Bozeman,MT,8.0,Big Sky
+116,304,Idaho State,Bengals,IDST,Idaho State Bengals,Idaho St,ef8c00,e9a126,329.0,ICCU Dome,Pocatello,ID,8.0,Big Sky
+206,2464,Northern Arizona,Lumberjacks,NAU,Northern Arizona Lumberjacks,N Arizona,003976,1b3069,438.0,J. Lawrence Walkup Skydome,Flagstaff,AZ,8.0,Big Sky
+80,331,Eastern Washington,Eagles,EWU,Eastern Washington Eagles,E Washington,a10022,abb4bc,236.0,Reese Court,Cheney,WA,8.0,Big Sky
+231,2502,Portland State,Vikings,PRST,Portland State Vikings,Portland St,00311e,ebebeb,261.0,Viking Pavilion,Portland,OR,8.0,Big Sky
+207,2458,Northern Colorado,Bears,UNCO,Northern Colorado Bears,N Colorado,13558D,ffc533,188.0,Bank of Colorado Arena,Greeley,CO,8.0,Big Sky
+249,16,Sacramento State,Hornets,SAC,Sacramento State Hornets,Sacramento St,00573C,cdb97d,206.0,The Nest,Sacramento,CA,8.0,Big Sky
+354,2737,Winthrop,Eagles,WIN,Winthrop Eagles,Winthrop,9e0b0e,fdb41e,37.0,Winthrop Coliseum,Rock Hill,SC,9.0,Big South
+239,2515,Radford,Highlanders,RAD,Radford Highlanders,Radford,BC1515,c2c3c0,274.0,The Dedmon Center,Radford,VA,9.0,Big South
+319,2427,UNC Asheville,Bulldogs,UNCA,UNC Asheville Bulldogs,UNC Asheville,003da5,ffffff,413.0,Kimmel Arena,Asheville,NC,9.0,Big South
+47,2127,Charleston Southern,Buccaneers,CHSO,Charleston Southern Buccaneers,Charleston So,2e3192,ded090,327.0,Buccaneer Fieldhouse,Charleston,SC,9.0,Big South
+109,2272,High Point,Panthers,HPU,High Point Panthers,High Point,b0b7bc,ebebeb,222.0,Qubein Center,High Point,NC,9.0,Big South
+94,2241,Gardner-Webb,Runnin' Bulldogs,GWEB,Gardner-Webb Runnin' Bulldogs,Gardner-Webb,c12535,909090,363.0,Paul Porter Arena,Boiling Springs,NC,9.0,Big South
+147,2344,Longwood,Lancers,LONG,Longwood Lancers,Longwood,003273,9ea2a3,105.0,Joan Perry Brock Center,Farmville,VA,9.0,Big South
+233,2506,Presbyterian,Blue Hose,PRES,Presbyterian Blue Hose,Presbyterian,194896,990134,221.0,Templeton Center,Clinton,SC,9.0,Big South
+268,2908,South Carolina Upstate,Spartans,UPST,South Carolina Upstate Spartans,SC Upstate,008545,000000,223.0,G.B. Hodge Center,Spartanburg,SC,9.0,Big South
+236,2509,Purdue,Boilermakers,PUR,Purdue Boilermakers,Purdue,000000,cfb991,11.0,Mackey Arena,West Lafayette,IN,10.0,Big Ten
+121,84,Indiana,Hoosiers,IU,Indiana Hoosiers,Indiana,990000,edebeb,212.0,Simon Skjodt Assembly Hall,Bloomington,IN,10.0,Big Ten
+118,356,Illinois,Fighting Illini,ILL,Illinois Fighting Illini,Illinois,ff5f05,13294b,149.0,State Farm Center,Champaign,IL,10.0,Big Ten
+216,194,Ohio State,Buckeyes,OSU,Ohio State Buckeyes,Ohio State,ce1141,505056,324.0,Schottenstein Center,Columbus,OH,10.0,Big Ten
+124,2294,Iowa,Hawkeyes,IOWA,Iowa Hawkeyes,Iowa,000000,fcd116,144.0,Carver-Hawkeye Arena,Iowa City,IA,10.0,Big Ten
+355,275,Wisconsin,Badgers,WIS,Wisconsin Badgers,Wisconsin,c4012f,ffffff,142.0,Kohl Center,Madison,WI,10.0,Big Ten
+173,135,Minnesota,Golden Gophers,MINN,Minnesota Golden Gophers,Minnesota,5e0a2f,fab41c,231.0,Williams Arena,Minneapolis,MN,10.0,Big Ten
+170,130,Michigan,Wolverines,MICH,Michigan Wolverines,Michigan,00274c,ffcb05,148.0,Crisler Center,Ann Arbor,MI,10.0,Big Ten
+169,127,Michigan State,Spartans,MSU,Michigan State Spartans,Michigan St,18453b,ffffff,63.0,Breslin Center,East Lansing,MI,10.0,Big Ten
+212,77,Northwestern,Wildcats,NU,Northwestern Wildcats,Northwestern,582c83,ffffff,143.0,Welsh-Ryan Arena,Evanston,IL,10.0,Big Ten
+226,213,Penn State,Nittany Lions,PSU,Penn State Nittany Lions,Penn State,00265D,002e5c,108.0,Bryce Jordan Center,University Park,PA,10.0,Big Ten
+160,120,Maryland,Terrapins,MD,Maryland Terrapins,Maryland,D5002B,ffcd00,86.0,XFINITY Center,College Park,MD,10.0,Big Ten
+188,158,Nebraska,Cornhuskers,NEB,Nebraska Cornhuskers,Nebraska,d00000,ffffff,147.0,Pinnacle Bank Arena,Lincoln,NE,10.0,Big Ten
+245,164,Rutgers,Scarlet Knights,RUTG,Rutgers Scarlet Knights,Rutgers,d21034,ffffff,213.0,Jersey Mike’s Arena,Piscataway,NJ,10.0,Big Ten
+223,2483,Oregon,Ducks,ORE,Oregon Ducks,Oregon,007030,fee11a,191.0,Matthew Knight Arena,Eugene,OR,10.0,Big Ten
+313,26,UCLA,Bruins,UCLA,UCLA Bruins,UCLA,2774ae,f2a900,16.0,Pauley Pavilion,Los Angeles,CA,10.0,Big Ten
+323,30,USC,Trojans,USC,USC Trojans,USC,9e2237,ffcc00,187.0,Galen Center,Los Angeles,CA,10.0,Big Ten
+343,264,Washington,Huskies,WASH,Washington Huskies,Washington,33006f,e8d3a2,207.0,Alaska Airlines Arena,Seattle,WA,10.0,Big Ten
+145,299,Long Beach State,Beach,LBSU,Long Beach State Beach,Long Beach St,000000,f1f2f3,190.0,Walter Pyramid,Long Beach,CA,11.0,Big West
+308,300,UC Irvine,Anteaters,UCI,UC Irvine Anteaters,UC Irvine,002B5C,fec52e,192.0,Bren Events Center,Irvine,CA,11.0,Big West
+37,2239,Cal State Fullerton,Titans,CSUF,Cal State Fullerton Titans,Fullerton,003767,ff8300,374.0,Titan Gym,Fullerton,CA,11.0,Big West
+35,13,Cal Poly,Mustangs,CP,Cal Poly Mustangs,Cal Poly,1E4D2B,eed897,323.0,Mott Athletics Center,San Luis Obispo,CA,11.0,Big West
+38,2463,Cal State Northridge,Matadors,CSUN,Cal State Northridge Matadors,CSU Northridge,b50000,,351.0,Premier America Credit Union Arena,Northridge,CA,11.0,Big West
+309,27,UC Riverside,Highlanders,UCR,UC Riverside Highlanders,UC Riverside,14234F,,358.0,SRC Arena,Riverside,CA,11.0,Big West
+307,302,UC Davis,Aggies,UCD,UC Davis Aggies,UC Davis,002855,c3c4c6,342.0,University Credit Union Center,Davis,CA,11.0,Big West
+108,62,Hawai'i,Rainbow Warriors,HAW,Hawai'i Rainbow Warriors,Hawai'i,003420,ffffff,288.0,Stan Sheriff Center,Honolulu,HI,11.0,Big West
+310,28,UC San Diego,Tritons,UCSD,UC San Diego Tritons,UC San Diego,182B49,FFCD00,315.0,LionTree Arena,San Diego,CA,11.0,Big West
+36,2934,Cal State Bakersfield,Roadrunners,CSUB,Cal State Bakersfield Roadrunners,Bakersfield,003BAB,,243.0,Icardo Center,Bakersfield,CA,11.0,Big West
+321,350,UNC Wilmington,Seahawks,UNCW,UNC Wilmington Seahawks,UNC Wilmington,00665e,ffda00,51.0,Trask Coliseum,Wilmington,NC,12.0,CAA
+110,2275,Hofstra,Pride,HOF,Hofstra Pride,Hofstra,00337c,f6c934,27.0,David S. Mack Sports and Exhibition Complex,Hempstead,NY,12.0,CAA
+71,2182,Drexel,Dragons,DREX,Drexel Dragons,Drexel,020260,ffd65a,33.0,Daskalakis Athletic Center,Philadelphia,PA,12.0,CAA
+205,111,Northeastern,Huskies,NE,Northeastern Huskies,Northeastern,CC0001,c2c3c0,320.0,Matthews Arena,Boston,MA,12.0,CAA
+46,232,Charleston,Cougars,COFC,Charleston Cougars,Charleston,7a2531,9e8959,275.0,TD Arena,Charleston,SC,12.0,CAA
+81,2210,Elon,Phoenix,ELON,Elon Phoenix,Elon,020303,b59a57,311.0,Schar Center,Elon,NC,12.0,CAA
+285,2619,Stony Brook,Seawolves,STBK,Stony Brook Seawolves,Stony Brook,990000,,370.0,Island FCU Arena,Stony Brook,NY,12.0,CAA
+178,2405,Monmouth,Hawks,MONM,Monmouth Hawks,Monmouth,051844,,433.0,OceanFirst Bank Center,West Long Branch,NJ,12.0,CAA
+106,2261,Hampton,Pirates,HAMP,Hampton Pirates,Hampton,0067AC,,52.0,Convocation Center (VA),Hampton,VA,12.0,CAA
+198,2448,North Carolina A&T,Aggies,NCAT,North Carolina A&T Aggies,NC A&T,0505aa,004684,41.0,Corbett Sports Center,Greensboro,NC,12.0,CAA
+41,2097,Campbell,Fighting Camels,CAM,Campbell Fighting Camels,Campbell,000000,,100.0,John W. Pope Jr. Convocation Center,Buies Creek,NC,12.0,CAA
+327,2638,UTEP,Miners,UTEP,UTEP Miners,UTEP,ff8200,041e42,166.0,Don Haskins Center,El Paso,TX,13.0,CUSA
+149,2348,Louisiana Tech,Bulldogs,LT,Louisiana Tech Bulldogs,Louisiana Tech,002d65,d3313a,96.0,Thomas Assembly Center,Ruston,LA,13.0,CUSA
+171,2393,Middle Tennessee,Blue Raiders,MTSU,Middle Tennessee Blue Raiders,MTSU,006db6,ffffff,20.0,Murphy Center,Murfreesboro,TN,13.0,CUSA
+350,98,Western Kentucky,Hilltoppers,WKU,Western Kentucky Hilltoppers,Western KY,F32026,b3b5b8,122.0,E.A. Diddle Arena,Bowling Green,KY,13.0,CUSA
+89,2229,Florida International,Panthers,FIU,Florida International Panthers,FIU,091731,c5960c,353.0,Ocean Bank Convocation Center,Miami,FL,13.0,CUSA
+142,2335,Liberty,Flames,LIB,Liberty Flames,Liberty,071740,a61f21,339.0,Liberty Arena,Lynchburg,VA,13.0,CUSA
+255,2534,Sam Houston,Bearkats,SHSU,Sam Houston Bearkats,Sam Houston,fe5000,000000,386.0,Bernard G. Johnson Coliseum,Huntsville,TX,13.0,CUSA
+128,55,Jacksonville State,Gamecocks,JVST,Jacksonville State Gamecocks,Jax State,b50500,b5b7ba,23.0,Pete Mathews Coliseum,Jacksonville,AL,13.0,CUSA
+192,166,New Mexico State,Aggies,NMSU,New Mexico State Aggies,New Mexico St,891216,000000,167.0,Pan American Center,Las Cruces,NM,13.0,CUSA
+133,338,Kennesaw State,Owls,KENN,Kennesaw State Owls,Kennesaw St,fdbb30,000000,199.0,KSU Convocation Center,Kennesaw,GA,13.0,CUSA
+69,2174,Detroit Mercy,Titans,DETM,Detroit Mercy Titans,Detroit Mercy,165b9e,d31733,47.0,Calihan Hall,Detroit,MI,14.0,Horizon
+357,2750,Wright State,Raiders,WRST,Wright State Raiders,Wright St,cba052,cba052,215.0,Nutter Center,Dayton,OH,14.0,Horizon
+105,2739,Green Bay,Phoenix,GB,Green Bay Phoenix,Green Bay,006633,ffffff,273.0,Resch Center,Ashwaubenon,WI,14.0,Horizon
+172,270,Milwaukee,Panthers,MILW,Milwaukee Panthers,Milwaukee,000000,ffc20e,391.0,UW-Milwaukee Panther Arena,Milwaukee,WI,14.0,Horizon
+53,325,Cleveland State,Vikings,CLE,Cleveland State Vikings,Cleveland St,006633,231f20,217.0,Wolstein Center,Cleveland,OH,14.0,Horizon
+361,2754,Youngstown State,Penguins,YSU,Youngstown State Penguins,Youngstown St,E51935,690717,196.0,Beeghly Center,Youngstown,OH,14.0,Horizon
+214,2473,Oakland,Golden Grizzlies,OAK,Oakland Golden Grizzlies,Oakland,04091c,bc955c,45.0,OU Credit Union O'rena,Rochester,MI,14.0,Horizon
+210,94,Northern Kentucky,Norse,NKU,Northern Kentucky Norse,N Kentucky,ffc82e,000000,354.0,Truist Arena,Highland Heights,KY,14.0,Horizon
+237,2870,Purdue Fort Wayne,Mastodons,PFW,Purdue Fort Wayne Mastodons,Purdue FW,00378A,f0f0f0,44.0,Memorial Coliseum (IN),Fort Wayne,IN,14.0,Horizon
+115,85,IU Indianapolis,Jaguars,IUIN,IU Indianapolis Jaguars,IU Indy,A81F30,d59f0f,19.0,Corteva Coliseum,Indianapolis,IN,14.0,Horizon
+244,2523,Robert Morris,Colonials,RMU,Robert Morris Colonials,Robert Morris,00214D,a21d2b,317.0,UPMC Events Center,Moon Township,PA,14.0,Horizon
+234,163,Princeton,Tigers,PRIN,Princeton Tigers,Princeton,000000,ff6000,89.0,Jadwin Gymnasium,Princeton,NJ,15.0,Ivy
+227,219,Pennsylvania,Quakers,PENN,Pennsylvania Quakers,Penn,082A74,a6163d,252.0,The Palestra,Philadelphia,PA,15.0,Ivy
+360,43,Yale,Bulldogs,YALE,Yale Bulldogs,Yale,004a81,286dc0,126.0,John J. Lee Amphitheater,New Haven,CT,15.0,Ivy
+58,171,Columbia,Lions,COLU,Columbia Lions,Columbia,174785,004b85,297.0,Levien Gymnasium,New York,NY,15.0,Ivy
+60,172,Cornell,Big Red,COR,Cornell Big Red,Cornell,d60027,101010,60.0,Newman Arena,Ithaca,NY,15.0,Ivy
+62,159,Dartmouth,Big Green,DART,Dartmouth Big Green,Dartmouth,005730,000000,70.0,Leede Arena,Hanover,NH,15.0,Ivy
+107,108,Harvard,Crimson,HARV,Harvard Crimson,Harvard,990000,dbdbdb,29.0,Lavietes Pavilion,Cambridge,MA,15.0,Ivy
+30,225,Brown,Bears,BRWN,Brown Bears,Brown,411e09,949300,319.0,Pizzitola Sports Center,Providence,RI,15.0,Ivy
+123,314,Iona,Gaels,IONA,Iona Gaels,Iona,6f2c3e,f0ab00,341.0,Hynes Athletics Center,New Rochelle,NY,16.0,MAAC
+254,2612,Saint Peter's,Peacocks,SPU,Saint Peter's Peacocks,Saint Peter's,004CC2,,380.0,Yanitelli Center,Jersey City,NJ,16.0,MAAC
+83,2217,Fairfield,Stags,FAIR,Fairfield Stags,Fairfield,000000,ebebeb,362.0,Leo D. Mahoney Arena,Fairfield,CT,16.0,MAAC
+155,2363,Manhattan,Jaspers,MAN,Manhattan Jaspers,Manhattan,4f8537,b5b7ba,335.0,Draddy Gymnasium,Riverdale,NY,16.0,MAAC
+264,2561,Siena,Saints,SIE,Siena Saints,Siena,037961,eea60f,71.0,MVP Arena,Albany,NY,16.0,MAAC
+194,315,Niagara,Purple Eagles,NIA,Niagara Purple Eagles,Niagara,69207E,f0f0f0,39.0,Gallagher Center,Niagara Falls,NY,16.0,MAAC
+42,2099,Canisius,Golden Griffins,CAN,Canisius Golden Griffins,Canisius,004a81,dda50f,302.0,Koessler Athletic Center,Buffalo,NY,16.0,MAAC
+243,2520,Rider,Broncs,RID,Rider Broncs,Rider,a80532,ebebeb,408.0,Alumni Gymnasium (Rider),Lawrenceville,NJ,16.0,MAAC
+156,2368,Marist,Red Foxes,MRST,Marist Red Foxes,Marist,e53730,f0f0f0,364.0,McCann Arena,Poughkeepsie,NY,16.0,MAAC
+238,2514,Quinnipiac,Bobcats,QUIN,Quinnipiac Bobcats,Quinnipiac,041B43,,249.0,M&T Bank Arena,Hamden,CT,16.0,MAAC
+183,116,Mount St. Mary's,Mountaineers,MSM,Mount St. Mary's Mountaineers,Mount St Marys,005596,ebebeb,46.0,Knott Arena,Emmitsburg,MD,16.0,MAAC
+166,2771,Merrimack,Warriors,MRMK,Merrimack Warriors,Merrimack,2f4f93,e8c535,306.0,Hammel Court,North Andover,MA,16.0,MAAC
+250,2529,Sacred Heart,Pioneers,SHU,Sacred Heart Pioneers,Sacred Heart,a40012,c29472,387.0,William H. Pitt Center,Fairfield,CT,16.0,MAAC
+215,195,Ohio,Bobcats,OHIO,Ohio Bobcats,Ohio,295A29,e4bb85,309.0,Convocation Center (OH),Athens,OH,17.0,MAC
+300,2649,Toledo,Rockets,TOL,Toledo Rockets,Toledo,0a2240,ffcd00,345.0,Savage Arena,Toledo,OH,17.0,MAC
+167,193,Miami (OH),RedHawks,M-OH,Miami (OH) RedHawks,Miami OH,a4000c,f0f0f0,295.0,Millett Hall,Oxford,OH,17.0,MAC
+134,2309,Kent State,Golden Flashes,KENT,Kent State Golden Flashes,Kent State,003976,efab00,277.0,M.A.C. Center,Kent,OH,17.0,MAC
+353,2729,William & Mary,Tribe,W&M,William & Mary Tribe,William & Mary,103217,f6b220,50.0,Kaplan Arena,Williamsburg,VA,12.0,CAA
+28,189,Bowling Green,Falcons,BGSU,Bowling Green Falcons,Bowling Green,2b1000,492000,278.0,Stroh Center,Bowling Green,OH,17.0,MAC
+351,2711,Western Michigan,Broncos,WMU,Western Michigan Broncos,W Michigan,532e1f,8b7f79,254.0,University Arena (MI),Kalamazoo,MI,17.0,MAC
+19,2050,Ball State,Cardinals,BALL,Ball State Cardinals,Ball State,DA0000,ffffff,269.0,Worthen Arena,Muncie,IN,17.0,MAC
+79,2199,Eastern Michigan,Eagles,EMU,Eastern Michigan Eagles,E Michigan,00331b,f0f0f0,265.0,Gervin GameAbove Center,Ypsilanti,MI,17.0,MAC
+45,2117,Central Michigan,Chippewas,CMU,Central Michigan Chippewas,C Michigan,6a0032,ffc82e,256.0,McGuirk Arena,Mount Pleasant,MI,17.0,MAC
+3,2006,Akron,Zips,AKR,Akron Zips,Akron,00285e,84754e,279.0,James A. Rhodes Arena,Akron,OH,17.0,MAC
+33,2084,Buffalo,Bulls,BUF,Buffalo Bulls,Buffalo,041A9B,ebebeb,284.0,Alumni Arena,Buffalo,NY,17.0,MAC
+267,2569,South Carolina State,Bulldogs,SCST,South Carolina State Bulldogs,SC State,7d1315,104897,43.0,Smith-Hammond-Middleton Memorial Center,Orangeburg,SC,18.0,MEAC
+114,47,Howard,Bison,HOW,Howard Bison,Howard,003a63,e51937,325.0,Burr Gymnasium,Washington,DC,18.0,MEAC
+67,2169,Delaware State,Hornets,DSU,Delaware State Hornets,Delaware St,FF3630,009cdd,336.0,Memorial Hall (DE),Dover,DE,18.0,MEAC
+59,2154,Coppin State,Eagles,COPP,Coppin State Eagles,Coppin St,2e3192,ffd204,298.0,Physical Education Complex,Baltimore,MD,18.0,MEAC
+182,2415,Morgan State,Bears,MORG,Morgan State Bears,Morgan St,014786,f47937,54.0,Hill Field House,Baltimore,MD,18.0,MEAC
+196,2450,Norfolk State,Spartans,NORF,Norfolk State Spartans,Norfolk St,0c8968,fdb813,118.0,Joseph G. Echols Hall,Norfolk,VA,18.0,MEAC
+159,2379,Maryland Eastern Shore,Hawks,UMES,Maryland Eastern Shore Hawks,MD Eastern,5c2301,b5b7ba,303.0,Hytche Center,Princess Anne,MD,18.0,MEAC
+199,2428,North Carolina Central,Eagles,NCCU,North Carolina Central Eagles,NC Central,880023,c2c3c0,266.0,McDougald-McLendon Arena,Durham,NC,18.0,MEAC
+273,79,Southern Illinois,Salukis,SIU,Southern Illinois Salukis,S Illinois,85283D,c2c3c0,281.0,Banterra Center,Carbondale,IL,19.0,MVC
+119,2287,Illinois State,Redbirds,ILST,Illinois State Redbirds,Illinois St,CE1126,ffe716,120.0,CEFCU Arena,Normal,IL,19.0,MVC
+122,282,Indiana State,Sycamores,INST,Indiana State Sycamores,Indiana St,00669a,f0f0f0,250.0,Hulman Center,Terre Haute,IN,19.0,MVC
+209,2460,Northern Iowa,Panthers,UNI,Northern Iowa Panthers,Northern Iowa,473282,ffffff,139.0,McLeod Center,Cedar Falls,IA,19.0,MVC
+82,339,Evansville,Purple Aces,EVAN,Evansville Purple Aces,Evansville,663399,ef6f00,296.0,Ford Center,Evansville,IN,19.0,MVC
+335,2674,Valparaiso,Beacons,VAL,Valparaiso Beacons,Valparaiso,794500,,283.0,Athletics-Recreation Center,Valparaiso,IN,19.0,MVC
+22,2057,Belmont,Bruins,BEL,Belmont Bruins,Belmont,182142,c9262d,101.0,Curb Event Center Arena,Nashville,TN,19.0,MVC
+184,93,Murray State,Racers,MUR,Murray State Racers,Murray St,002148,000e00,112.0,CFSB Center,Murray,KY,19.0,MVC
+315,82,UIC,Flames,UIC,UIC Flames,UIC,001e62,d50032,117.0,Credit Union 1 Arena,Chicago,IL,19.0,MVC
+257,21,San Diego State,Aztecs,SDSU,San Diego State Aztecs,San Diego St,c41230,000000,238.0,Viejas Arena,San Diego,CA,20.0,Mountain West
+322,2439,UNLV,Rebels,UNLV,UNLV Rebels,UNLV,b10202,ffffff,194.0,Thomas & Mack Center,Las Vegas,NV,20.0,Mountain West
+191,167,New Mexico,Lobos,UNM,New Mexico Lobos,New Mexico,000000,231f20,169.0,The Pit,Albuquerque,NM,20.0,Mountain West
+57,36,Colorado State,Rams,CSU,Colorado State Rams,Colorado St,1e4d2b,c8c372,178.0,Moby Arena,Fort Collins,CO,20.0,Mountain West
+358,2751,Wyoming,Cowboys,WYO,Wyoming Cowboys,Wyoming,492f24,ffc425,177.0,Arena-Auditorium,Laramie,WY,20.0,Mountain West
+2,2005,Air Force,Falcons,AFA,Air Force Falcons,Air Force,004a7b,ffffff,179.0,Clune Arena,Colorado Springs,CO,20.0,Mountain West
+25,68,Boise State,Broncos,BOIS,Boise State Broncos,Boise St,0033a0,fa4616,234.0,ExtraMile Arena,Boise,ID,20.0,Mountain West
+189,2440,Nevada,Wolf Pack,NEV,Nevada Wolf Pack,Nevada,002d62,ffffff,186.0,Lawlor Events Center,Reno,NV,20.0,Mountain West
+329,328,Utah State,Aggies,USU,Utah State Aggies,Utah State,00263a,949ca1,235.0,Dee Glen Smith Spectrum,Logan,UT,20.0,Mountain West
+92,278,Fresno State,Bulldogs,FRES,Fresno State Bulldogs,Fresno St,c41230,13284c,289.0,Save Mart Center,Fresno,CA,20.0,Mountain West
+260,23,San José State,Spartans,SJSU,San José State Spartans,San José St,005893,fdba31,185.0,Provident Credit Union Event Center,San Jose,CA,20.0,Mountain West
+84,161,Fairleigh Dickinson,Knights,FDU,Fairleigh Dickinson Knights,Fair Dickinson,72293c,28334a,253.0,Bogota Savings Bank Center,Hackensack,NJ,21.0,NEC
+341,2681,Wagner,Seahawks,WAG,Wagner Seahawks,Wagner,00483A,ffffff,294.0,Spiro Sports Center,Staten Island,NY,21.0,NEC
+146,112358,Long Island University,Sharks,LIU,Long Island University Sharks,Long Island,50c9f7,ffbf00,293.0,Steinberg Wellness Center,Brooklyn,NY,21.0,NEC
+278,2598,St. Francis (PA),Red Flash,SFPA,St. Francis (PA) Red Flash,St Francis PA,a20012,,381.0,DeGol Arena,Loretto,PA,21.0,NEC
+44,2115,Central Connecticut,Blue Devils,CCSU,Central Connecticut Blue Devils,C Connecticut,1B49A2,d1d5d8,326.0,Detrick Gymnasium,New Britain,CT,21.0,NEC
+284,284,Stonehill,Skyhawks,STO,Stonehill Skyhawks,Stonehill,000000,,28.0,Merkert Gymnasium,South Easton,MA,21.0,NEC
+140,2330,Le Moyne,Dolphins,LEM,Le Moyne Dolphins,Le Moyne,,,220.0,Ted Grant Court,Syracuse,NY,21.0,NEC
+165,2385,Mercyhurst,Lakers,MERC,Mercyhurst Lakers,Mercyhurst,000000,,300.0,Mercyhurst Athletic Center,Erie,PA,21.0,NEC
+50,2130,Chicago State,Cougars,CHST,Chicago State Cougars,Chicago St,006700,,312.0,Jones Convocation Center,Chicago,IL,21.0,NEC
+181,2413,Morehead State,Eagles,MORE,Morehead State Eagles,Morehead St,094FA3,fed91a,216.0,Ellis T. Johnson Arena,Morehead,KY,22.0,OVC
+291,2635,Tennessee Tech,Golden Eagles,TNTC,Tennessee Tech Golden Eagles,Tennessee Tech,5A4099,ffde00,258.0,Hooper Eblen Center,Cookeville,TN,22.0,OVC
+290,2634,Tennessee State,Tigers,TNST,Tennessee State Tigers,Tennessee St,171796,f0f0f0,155.0,Gentry Center,Nashville,TN,22.0,OVC
+272,2546,Southeast Missouri State,Redhawks,SEMO,Southeast Missouri State Redhawks,SE Missouri,c8102e,000000,347.0,Show Me Center,Cape Girardeau,MO,22.0,OVC
+325,2630,UT Martin,Skyhawks,UTM,UT Martin Skyhawks,UT Martin,FF6700,102a5c,241.0,Kathleen and Tom Elam Center,Martin,TN,22.0,OVC
+77,2197,Eastern Illinois,Panthers,EIU,Eastern Illinois Panthers,E Illinois,000000,bebab9,230.0,Groniger Arena,Charleston,IL,22.0,OVC
+247,2565,SIU Edwardsville,Cougars,SIUE,SIU Edwardsville Cougars,SIUE,eb1c23,080808,156.0,First Community Arena,Edwardsville,IL,22.0,OVC
+144,2031,Little Rock,Trojans,LR,Little Rock Trojans,Little Rock,AD0000,898d8f,111.0,Jack Stephens Center,Little Rock,AR,22.0,OVC
+365,88,Southern Indiana,Screaming Eagles,USI,Southern Indiana Screaming Eagles,So Indiana,CF102D,002D5D,259.0,Screaming Eagles Arena,Evansville,IN,22.0,OVC
+349,2710,Western Illinois,Leathernecks,WIU,Western Illinois Leathernecks,W Illinois,4e1e8a,ffc90a,350.0,Western Hall,Macomb,IL,22.0,OVC
+366,2815,Lindenwood,Lions,LIN,Lindenwood Lions,Lindenwood,101820,B5A36A,248.0,Hyland Arena,Saint Charles,MO,22.0,OVC
+32,2083,Bucknell,Bison,BUCK,Bucknell Bison,Bucknell,000060,00316e,344.0,Sojka Pavilion,Lewisburg,PA,23.0,Patriot
+55,2142,Colgate,Raiders,COLG,Colgate Raiders,Colgate,821019,ffffff,198.0,Cotterell Court,Hamilton,NY,23.0,Patriot
+111,107,Holy Cross,Crusaders,HC,Holy Cross Crusaders,Holy Cross,0a0a0a,080808,378.0,Hart Center,Worcester,MA,23.0,Patriot
+141,2329,Lehigh,Mountain Hawks,LEH,Lehigh Mountain Hawks,Lehigh,6c2b2a,b69e70,382.0,Stabler Arena,Bethlehem,PA,23.0,Patriot
+187,2426,Navy,Midshipmen,NAVY,Navy Midshipmen,Navy,00225b,b5a67c,272.0,Alumni Hall (Navy),Annapolis,MD,23.0,Patriot
+138,322,Lafayette,Leopards,LAF,Lafayette Leopards,Lafayette,790000,a59474,338.0,Kirby Sports Center,Easton,PA,23.0,Patriot
+15,349,Army,Black Knights,ARMY,Army Black Knights,Army,ce9c00,231f20,125.0,Christl Arena,West Point,NY,23.0,Patriot
+8,44,American University,Eagles,AMER,American University Eagles,American,c41130,c8102e,318.0,Bender Arena,Washington,DC,23.0,Patriot
+27,104,Boston University,Terriers,BU,Boston University Terriers,Boston U,cc0000,ffffff,104.0,Case Gym,Boston,MA,23.0,Patriot
+152,2352,Loyola Maryland,Greyhounds,L-MD,Loyola Maryland Greyhounds,Loyola MD,76a7a0,c9cbca,61.0,Reitz Arena,Baltimore,MD,23.0,Patriot
+135,96,Kentucky,Wildcats,UK,Kentucky Wildcats,Kentucky,0033a0,ffffff,17.0,Rupp Arena,Lexington,KY,24.0,SEC
+5,333,Alabama,Crimson Tide,ALA,Alabama Crimson Tide,Alabama,9e1632,ffffff,2.0,Coleman Coliseum,Tuscaloosa,AL,24.0,SEC
+292,2633,Tennessee,Volunteers,TENN,Tennessee Volunteers,Tennessee,ff8200,58595b,9.0,Food City Center,Knoxville,TN,24.0,SEC
+87,57,Florida,Gators,FLA,Florida Gators,Florida,0021a5,fa4616,240.0,Stephen C. O'Connell Center,Gainesville,FL,24.0,SEC
+336,238,Vanderbilt,Commodores,VAN,Vanderbilt Commodores,Vanderbilt,000000,231f20,119.0,Memorial Gymnasium (TN),Nashville,TN,24.0,SEC
+136,99,LSU,Tigers,LSU,LSU Tigers,LSU,461d7c,fdd023,232.0,Pete Maravich Assembly Center,Baton Rouge,LA,24.0,SEC
+16,2,Auburn,Tigers,AUB,Auburn Tigers,Auburn,002b5c,f26522,209.0,Neville Arena,Auburn,AL,24.0,SEC
+174,344,Mississippi State,Bulldogs,MSST,Mississippi State Bulldogs,Mississippi St,5d1725,c1c6c8,109.0,Humphrey Coliseum,Starkville,MS,24.0,SEC
+98,61,Georgia,Bulldogs,UGA,Georgia Bulldogs,Georgia,ba0c2f,ffffff,110.0,Stegeman Coliseum,Athens,GA,24.0,SEC
+220,145,Ole Miss,Rebels,MISS,Ole Miss Rebels,Ole Miss,13294b,c8102e,18.0,The Sandy and John Black Pavilion at Ole Miss,Oxford,MS,24.0,SEC
+12,8,Arkansas,Razorbacks,ARK,Arkansas Razorbacks,Arkansas,a41f35,ffffff,211.0,Bud Walton Arena,Fayetteville,AR,24.0,SEC
+266,2579,South Carolina,Gamecocks,SC,South Carolina Gamecocks,South Carolina,73000a,ffffff,84.0,Colonial Life Arena,Columbia,SC,24.0,SEC
+293,245,Texas A&M,Aggies,TA&M,Texas A&M Aggies,Texas A&M,500000,ffffff,262.0,Reed Arena,College Station,TX,24.0,SEC
+177,142,Missouri,Tigers,MIZ,Missouri Tigers,Missouri,f1b82d,000000,286.0,Mizzou Arena,Columbia,MO,24.0,SEC
+217,201,Oklahoma,Sooners,OU,Oklahoma Sooners,Oklahoma,a32036,ffffff,164.0,Lloyd Noble Center,Norman,OK,24.0,SEC
+295,251,Texas,Longhorns,TEX,Texas Longhorns,Texas,c15d26,ffffff,263.0,Moody Center,Austin,TX,24.0,SEC
+274,2582,Southern,Jaguars,SOU,Southern Jaguars,Southern,004B97,ffc82d,372.0,F.G. Clark Activity Center,Baton Rouge,LA,25.0,SWAC
+296,2640,Texas Southern,Tigers,TXSO,Texas Southern Tigers,Texas Southern,860038,ffffff,218.0,H&PE Arena,Houston,TX,25.0,SWAC
+126,2296,Jackson State,Tigers,JKST,Jackson State Tigers,Jackson St,123297,b5b7ba,442.0,Lee E. Williams Athletics and Assembly Center,Jackson,MS,25.0,SWAC
+7,2016,Alcorn State,Braves,ALCN,Alcorn State Braves,Alcorn St,4b0058,46166a,440.0,Davey L. Whitney Complex,Lorman,MS,25.0,SWAC
+6,2011,Alabama State,Hornets,ALST,Alabama State Hornets,Alabama St,e9a900,0a0a0a,373.0,Dunn-Oliver Acadome,Montgomery,AL,25.0,SWAC
+103,2755,Grambling,Tigers,GRAM,Grambling Tigers,Grambling,ee8601,ffd10a,163.0,Fredrick C. Hobdy Assembly Center,Grambling,LA,25.0,SWAC
+175,2400,Mississippi Valley State,Delta Devils,MVSU,Mississippi Valley State Delta Devils,Miss Valley St,005328,cf2d34,251.0,R.W. Harrison HPER Complex,Itta Bena,MS,25.0,SWAC
+232,2504,Prairie View A&M,Panthers,PV,Prairie View A&M Panthers,Prairie View,4d0960,,56.0,William Nicks Building,Prairie View,TX,25.0,SWAC
+4,2010,Alabama A&M,Bulldogs,AAMU,Alabama A&M Bulldogs,Alabama A&M,790000,ffffff,245.0,Event Center,Huntsville,AL,25.0,SWAC
+14,2029,Arkansas-Pine Bluff,Golden Lions,UAPB,Arkansas-Pine Bluff Golden Lions,AR-Pine Bluff,e0aa0f,eaaa00,229.0,H.O. Clemmons Arena,Pine Bluff,AR,25.0,SWAC
+23,2065,Bethune-Cookman,Wildcats,BCU,Bethune-Cookman Wildcats,Bethune,7b1831,e9aa12,368.0,Moore Gymnasium (FL),Daytona Beach,FL,25.0,SWAC
+85,50,Florida A&M,Rattlers,FAMU,Florida A&M Rattlers,Florida A&M,F89728,00843d,392.0,Al Lawson Center,Tallahassee,FL,25.0,SWAC
+49,236,Chattanooga,Mocs,UTC,Chattanooga Mocs,Chattanooga,00386b,dca71d,355.0,McKenzie Arena,Chattanooga,TN,26.0,SoCon
+299,2643,The Citadel,Bulldogs,CIT,The Citadel Bulldogs,The Citadel,002b5c,f0f0f0,247.0,McAlister Field House,Charleston,SC,26.0,SoCon
+348,2717,Western Carolina,Catamounts,WCU,Western Carolina Catamounts,W Carolina,492F91,bf9e70,98.0,Ramsey Center,Cullowhee,NC,26.0,SoCon
+356,2747,Wofford,Terriers,WOF,Wofford Terriers,Wofford,533B22,f0f0f0,26.0,Jerry Richardson Indoor Stadium,Spartanburg,SC,26.0,SoCon
+320,2430,UNC Greensboro,Spartans,UNCG,UNC Greensboro Spartans,UNC Greensboro,003559,ffd90a,57.0,First Horizon Coliseum,Greensboro,NC,26.0,SoCon
+93,231,Furman,Paladins,FUR,Furman Paladins,Furman,582c83,ffffff,379.0,Timmons Arena,Greenville,SC,26.0,SoCon
+256,2535,Samford,Bulldogs,SAM,Samford Bulldogs,Samford,005485,bc0023,97.0,Pete Hanna Center,Homewood,AL,26.0,SoCon
+164,2382,Mercer,Bears,MER,Mercer Bears,Mercer,ff7f29,080808,246.0,Hawkins Arena,Macon,GA,26.0,SoCon
+162,2377,McNeese,Cowboys,MCN,McNeese Cowboys,McNeese,00529C,,260.0,Legacy Center,Lake Charles,LA,27.0,Southland
+211,2466,Northwestern State,Demons,NWST,Northwestern State Demons,N'Western St,492F91,ed6118,99.0,Prather Coliseum,Natchitoches,LA,27.0,Southland
+195,2447,Nicholls,Colonels,NICH,Nicholls Colonels,Nicholls,C41230,f0f0f0,280.0,David R. Stopher Gymnasium,Thibodaux,LA,27.0,Southland
+246,2545,SE Louisiana,Lions,SELA,SE Louisiana Lions,SE Louisiana,215732,ffc72c,161.0,Pride Roofing University Center,Hammond,LA,27.0,Southland
+294,357,Texas A&M-Corpus Christi,Islanders,AMCC,Texas A&M-Corpus Christi Islanders,Texas A&M-CC,0067c5,007f3e,404.0,American Bank Center,Corpus Christi,TX,27.0,Southland
+193,2443,New Orleans,Privateers,UNO,New Orleans Privateers,New Orleans,005da6,a2a9ae,304.0,Lakefront Arena,New Orleans,LA,27.0,Southland
+120,2916,Incarnate Word,Cardinals,UIW,Incarnate Word Cardinals,Incarnate Word,000000,080808,267.0,McDermott Center,San Antonio,TX,27.0,Southland
+112,2277,Houston Christian,Huskies,HCU,Houston Christian Huskies,Hou Christian,00539c,,138.0,Sharp Gymnasium,Houston,TX,27.0,Southland
+76,2837,East Texas A&M,Lions,ETAM,East Texas A&M Lions,East Texas A&M,000000,,348.0,The Field House,Commerce,TX,27.0,Southland
+326,292,UT Rio Grande Valley,Vaqueros,RGV,UT Rio Grande Valley Vaqueros,UT Rio Grande,dc6000,e1732d,322.0,UTRGV Fieldhouse,Edinburg,TX,27.0,Southland
+270,2571,South Dakota State,Jackrabbits,SDST,South Dakota State Jackrabbits,S Dakota St,0033a0,ffd100,287.0,First Bank & Trust Arena,Brookings,SD,28.0,Summit
+202,2449,North Dakota State,Bison,NDSU,North Dakota State Bison,N Dakota St,01402A,ffffff,114.0,Scheels Center,Fargo,ND,28.0,Summit
+269,233,South Dakota,Coyotes,SDAK,South Dakota Coyotes,South Dakota,CD1241,f0f0f0,170.0,Sanford Coyote Sports Center,Vermillion,SD,28.0,Summit
+221,2437,Omaha,Mavericks,OMA,Omaha Mavericks,Omaha,e3193e,,113.0,Baxter Arena,Omaha,NE,28.0,Summit
+68,2172,Denver,Pioneers,DEN,Denver Pioneers,Denver,98002e,a8996e,268.0,Hamilton Gymnasium,Denver,CO,28.0,Summit
+201,155,North Dakota,Fighting Hawks,UND,North Dakota Fighting Hawks,North Dakota,00A26B,c2c3c0,334.0,Betty Engelstad Sioux Center,Grand Forks,ND,28.0,Summit
+280,2900,St. Thomas-Minnesota,Tommies,STMN,St. Thomas-Minnesota Tommies,St Thomas (MN),000000,,165.0,Schoenecker Arena,Saint Paul,MN,28.0,Summit
+265,6,South Alabama,Jaguars,USA,South Alabama Jaguars,South Alabama,003E7E,,129.0,Mitchell Center,Mobile,AL,29.0,Sun Belt
+148,309,Louisiana,Ragin' Cajuns,UL,Louisiana Ragin' Cajuns,Louisiana,ce181e,ffffff,127.0,Cajundome,Lafayette,LA,29.0,Sun Belt
+13,2032,Arkansas State,Red Wolves,ARST,Arkansas State Red Wolves,Arkansas St,e81018,000000,131.0,First National Bank Arena,Jonesboro,AR,29.0,Sun Belt
+302,2653,Troy,Trojans,TROY,Troy Trojans,Troy,AE0210,88898c,65.0,Trojan Arena,Troy,AL,29.0,Sun Belt
+316,2433,UL Monroe,Warhawks,ULM,UL Monroe Warhawks,UL Monroe,231F20,b18445,157.0,Fant-Ewing Coliseum,Monroe,LA,29.0,Sun Belt
+297,326,Texas State,Bobcats,TXST,Texas State Bobcats,Texas St,4e1719,b4975a,128.0,Strahan Arena at the University Events Center,San Marcos,TX,29.0,Sun Belt
+99,290,Georgia Southern,Eagles,GASO,Georgia Southern Eagles,GA Southern,003775,f0f0f0,67.0,Hanner Fieldhouse,Statesboro,GA,29.0,Sun Belt
+9,2026,App State,Mountaineers,APP,App State Mountaineers,App State,000000,ffcd00,36.0,Holmes Convocation Center,Boone,NC,29.0,Sun Belt
+54,324,Coastal Carolina,Chanticleers,CCU,Coastal Carolina Chanticleers,Coastal Car,007073,876447,64.0,The HTC Center,Conway,SC,29.0,Sun Belt
+129,256,James Madison,Dukes,JMU,James Madison Dukes,James Madison,450084,b5a068,66.0,Atlantic Union Bank Center,Harrisonburg,VA,29.0,Sun Belt
+275,2572,Southern Miss,Golden Eagles,USM,Southern Miss Golden Eagles,Southern Miss,FFAA3C,ffc423,130.0,Reed Green Coliseum,Hattiesburg,MS,29.0,Sun Belt
+158,276,Marshall,Thundering Herd,MRSH,Marshall Thundering Herd,Marshall,00ae42,be854c,49.0,Cam Henderson Center,Huntington,WV,29.0,Sun Belt
+332,3084,Utah Valley,Wolverines,UVU,Utah Valley Wolverines,Utah Valley,004812,e1c736,116.0,UCCU Center,Orem,UT,30.0,WAC
+39,2856,California Baptist,Lancers,CBU,California Baptist Lancers,CA Baptist,000080,,189.0,Dale E. and Sarah Ann Fowler Events Center,Riverside,CA,30.0,WAC
+288,2627,Tarleton State,Texans,TAR,Tarleton State Texans,Tarleton St,000000,,310.0,Wisdom Gym,Stephenville,TX,30.0,WAC
+1,2000,Abilene Christian,Wildcats,ACU,Abilene Christian Wildcats,Abilene Chrstn,592d82,b1b3b3,159.0,Moody Coliseum (Abilene),Abilene,TX,30.0,WAC
+330,3101,Utah Tech,Trailblazers,UTU,Utah Tech Trailblazers,Utah Tech,000000,,314.0,Burns Arena,St. George,UT,30.0,WAC
+276,253,Southern Utah,Thunderbirds,SUU,Southern Utah Thunderbirds,Southern Utah,c72026,000000,158.0,America First Events Center,Cedar City,UT,30.0,WAC
+259,2539,San Francisco,Dons,SF,San Francisco Dons,San Francisco,22523F,fbcd3c,205.0,The Sobrato Center,San Francisco,CA,31.0,WCC
+261,2541,Santa Clara,Broncos,SCU,Santa Clara Broncos,Santa Clara,690b0b,101010,352.0,Leavey Center,Santa Clara,CA,31.0,WCC
+253,2608,Saint Mary's,Gaels,SMC,Saint Mary's Gaels,Saint Mary's,d80024,003057,181.0,University Credit Union Pavilion,Moraga,CA,31.0,WCC
+102,2250,Gonzaga,Bulldogs,GONZ,Gonzaga Bulldogs,Gonzaga,041e42,c8102e,316.0,McCarthey Athletic Center,Spokane,WA,31.0,WCC
+228,2492,Pepperdine,Waves,PEPP,Pepperdine Waves,Pepperdine,003A72,dc762f,233.0,Firestone Fieldhouse,Malibu,CA,31.0,WCC
+153,2351,Loyola Marymount,Lions,LMU,Loyola Marymount Lions,LMU,880029,00345b,183.0,Gersten Pavilion,Los Angeles,CA,31.0,WCC
+258,301,San Diego,Toreros,USD,San Diego Toreros,San Diego,2f99d4,2f99d4,239.0,Jenny Craig Pavilion,San Diego,CA,31.0,WCC
+230,2501,Portland,Pilots,PORT,Portland Pilots,Portland,330072,a8b3ba,237.0,Chiles Center,Portland,OR,31.0,WCC
+344,265,Washington State,Cougars,WSU,Washington State Cougars,Washington St,981e32,ffffff,193.0,Beasley Coliseum,Pullman,WA,31.0,WCC
+224,204,Oregon State,Beavers,ORST,Oregon State Beavers,Oregon St,231f20,d73f09,180.0,Gill Coliseum,Corvallis,OR,31.0,WCC
+219,295,Old Dominion,Monarchs,ODU,Old Dominion Monarchs,Old Dominion,00507d,a1d2f1,68.0,Chartway Arena,Norfolk,VA,29.0,Sun Belt
+56,38,Colorado,Buffaloes,COLO,Colorado Buffaloes,Colorado,000000,cfb87c,176.0,CU Events Center,Boulder,CO,6.0,Big 12
+66,48,Delaware,Blue Hens,DEL,Delaware Blue Hens,Delaware,033594,e8ce31,35.0,Bob Carpenter Center,Newark,DE,13.0,CUSA
+104,2253,Grand Canyon,Lopes,GCU,Grand Canyon Lopes,Grand Canyon,522398,ffffff,168.0,Global Credit Union Arena,Phoenix,AZ,20.0,Mountain West
+176,2623,Missouri State,Bears,MOST,Missouri State Bears,Missouri St,5F0000,e8e8e8,328.0,Great Southern Bank Arena,Springfield,MO,13.0,CUSA
+1507,2441,New Haven,Chargers,NHVN,New Haven Chargers,New Haven,000000,,,,,,21.0,NEC
+262,2547,Seattle U,Redhawks,SEA,Seattle U Redhawks,Seattle U,BF2E1A,c2c3c0,313.0,Redhawk Center,Seattle,WA,31.0,WCC
+161,113,Massachusetts,Minutemen,MASS,Massachusetts Minutemen,UMass,880007,,75.0,Mullins Center,Amherst,MA,17.0,MAC
+282,2617,Stephen F. Austin,Lumberjacks,SFA,Stephen F. Austin Lumberjacks,SF Austin,393996,bec0c2,154.0,William R. Johnson Coliseum,Nacogdoches,TX,27.0,Southland
+324,250,UT Arlington,Mavericks,UTA,UT Arlington Mavericks,UT Arlington,004b7c,f58024,21.0,College Park Center,Arlington,TX,30.0,WAC
+139,2320,Lamar,Cardinals,LAM,Lamar Cardinals,Lamar,000000,ebebeb,133.0,Montagne Center,Beaumont,TX,27.0,Southland
+314,41,UConn,Huskies,CONN,UConn Huskies,UConn,0c2340,f1f2f3,208.0,Gampel Pavilion,Storrs,CT,7.0,Big East
+130,140,Kansas City,Roos,KC,Kansas City Roos,Kansas City,004b87,ffc72c,48.0,Swinney Center,Kansas City,MO,28.0,Summit
+222,198,Oral Roberts,Golden Eagles,ORU,Oral Roberts Golden Eagles,Oral Roberts,002462,dac792,282.0,Mabee Center,Tulsa,OK,28.0,Summit
+334,2678,VMI,Keydets,VMI,VMI Keydets,VMI,ae122a,ffd619,32.0,Cameron Hall,Lexington,VA,26.0,SoCon
+75,2193,East Tennessee State,Buccaneers,ETSU,East Tennessee State Buccaneers,ETSU,002d61,ffc423,72.0,Freedom Hall (TN),Johnson City,TN,26.0,SoCon
+117,70,Idaho,Vandals,IDHO,Idaho Vandals,Idaho,000000,8c6e4a,172.0,ICCU Arena,Moscow,ID,8.0,Big Sky
+100,2247,Georgia State,Panthers,GAST,Georgia State Panthers,Georgia St,1e539a,ebebeb,69.0,GSU Convocation Center,Atlanta,GA,29.0,Sun Belt
+225,279,Pacific,Tigers,PAC,Pacific Tigers,Pacific,F47820,c2c3c0,182.0,Alex G. Spanos Center,Stockton,CA,31.0,WCC
+301,119,Towson,Tigers,TOW,Towson Tigers,Towson,FFC229,,270.0,TU Arena,Towson,MD,12.0,CAA
+208,2459,Northern Illinois,Huskies,NIU,Northern Illinois Huskies,N Illinois,F1122C,cc0000,255.0,NIU Convocation Center,Dekalb,IL,17.0,MAC
+73,2184,Duquesne,Dukes,DUQ,Duquesne Dukes,Duquesne,002D62,b90b2e,146.0,UPMC Cooper Fieldhouse,Pittsburgh,PA,1.0,A-10
+311,2540,UC Santa Barbara,Gauchos,UCSB,UC Santa Barbara Gauchos,Santa Barbara,1e1840,febc11,184.0,The Thunderdome,Santa Barbara,CA,11.0,Big West
+29,71,Bradley,Braves,BRAD,Bradley Braves,Bradley,b70002,c0c0c0,121.0,Carver Arena,Peoria,IL,19.0,MVC
+70,2181,Drake,Bulldogs,DRKE,Drake Bulldogs,Drake,005596,bec0c2,95.0,Knapp Center,Des Moines,IA,19.0,MVC

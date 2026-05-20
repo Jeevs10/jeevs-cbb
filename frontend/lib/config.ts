@@ -19,6 +19,8 @@ export const API_ENDPOINTS = {
   playerRadar: (id: string) => `/api/v1/players/${id}/radar`,
   playerEvolution: (id: string) => `/api/v1/players/${id}/evolution`,
   years: "/api/v1/years",
+  teams: "/api/v1/teams",
+  team: (id: string) => `/api/v1/teams/${id}`,
 } as const;
 
 // Pagination defaults

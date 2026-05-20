@@ -5,16 +5,23 @@ import { fetchPlayerBadges } from "@/lib/api";
 import { classMap, posMap } from "@/lib/positionLabels";
 import { yearClassMap } from "@/lib/yearClassMap";
 
-function formatHeight(h?: string) {
+function formatHeight(h?: string | number) {
   if (!h) return "—";
 
-  const parts = h.split("-");
-  if (parts.length !== 2) return h;
+  const heightStr = String(h);
+  const parts = heightStr.split("-");
+  if (parts.length !== 2) return heightStr;
 
   const feet = parts[0];
   const inches = String(Number(parts[1]));
 
   return `${feet}'${inches}"`;
+}
+
+function formatHometown(city?: string, state?: string, country?: string) {
+  if (!city && !state && !country) return "—";
+  const parts = [city, state, country].filter(Boolean);
+  return parts.join(", ");
 }
 
 export default function PlayerHeader({ player }) {
@@ -57,10 +64,27 @@ export default function PlayerHeader({ player }) {
         <div className="flex gap-2 flex-wrap mt-2">
 
           {isBasicPlayer ? (
-            // Basic players only have Position available
-            <div className="px-2 py-1 text-xs font-mono border border-black bg-[#e7e8d1] text-black shadow-[2px_2px_0px_black]">
-              POS: {player.Position ?? "—"}
-            </div>
+            // Basic players now have Position, Height, Weight, Hometown from roster join
+            <>
+              <div className="px-2 py-1 text-xs font-mono border border-black bg-[#e7e8d1] text-black shadow-[2px_2px_0px_black]">
+                POS: {player.Position ?? "—"}
+              </div>
+              {player.Height && (
+                <div className="px-2 py-1 text-xs font-mono border border-black bg-[#e7e8d1] text-black shadow-[2px_2px_0px_black]">
+                  HT: {formatHeight(player.Height)}
+                </div>
+              )}
+              {player.Weight && (
+                <div className="px-2 py-1 text-xs font-mono border border-black bg-[#e7e8d1] text-black shadow-[2px_2px_0px_black]">
+                  WT: {player.Weight} lbs
+                </div>
+              )}
+              {formatHometown(player.HometownCity, player.HometownState, player.HometownCountry) !== "—" && (
+                <div className="px-2 py-1 text-xs font-mono border border-black bg-[#e7e8d1] text-black shadow-[2px_2px_0px_black]">
+                  FROM: {formatHometown(player.HometownCity, player.HometownState, player.HometownCountry)}
+                </div>
+              )}
+            </>
           ) : (
             // Enriched players have full roster info
             <>
@@ -81,6 +105,26 @@ export default function PlayerHeader({ player }) {
                   ? "Career"
                   : yearClassMap[player.roster?.year_class] ?? "—"}
               </Badge>
+
+              {(player.Weight || player.roster?.weight) && (
+                <Badge variant="meta">
+                  WT: {(player.Weight || player.roster?.weight)} lbs
+                </Badge>
+              )}
+
+              {formatHometown(
+                player.HometownCity || player.roster?.hometown_city,
+                player.HometownState || player.roster?.hometown_state,
+                player.HometownCountry || player.roster?.hometown_country
+              ) !== "—" && (
+                <Badge variant="meta">
+                  {formatHometown(
+                    player.HometownCity || player.roster?.hometown_city,
+                    player.HometownState || player.roster?.hometown_state,
+                    player.HometownCountry || player.roster?.hometown_country
+                  )}
+                </Badge>
+              )}
             </>
           )}
 

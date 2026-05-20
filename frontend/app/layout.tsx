@@ -1,6 +1,7 @@
 import "./globals.css";
 import { YearProvider } from "@/app/context/YearContext";
 import YearToggle from "@/components/ui/YearToggle";
+import { Header } from "@/components/ui/Header";
 
 export default function RootLayout({
   children,
@@ -13,6 +14,9 @@ export default function RootLayout({
         
         <YearProvider>
           <div className="w-[900px] border-4 border-black bg-[#C7D0B8] shadow-[6px_6px_0px_black]">
+
+            {/* HEADER */}
+            <Header />
 
             {/* 🔥 GLOBAL YEAR TOGGLE */}
             <div className="border-b-2 border-black p-2 bg-[#B7C4A5]">

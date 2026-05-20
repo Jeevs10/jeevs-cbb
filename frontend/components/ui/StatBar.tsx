@@ -1,4 +1,4 @@
-export default function StatBar({ label, value = 0, max = 100 }) {
+export default function StatBar({ label, value = 0, max = 100, rank = null }: { label: string; value?: number; max?: number; rank?: number | null | undefined }) {
   const pct = Math.max(0, Math.min(100, (value / max) * 100));
 
   return (
@@ -15,10 +15,17 @@ export default function StatBar({ label, value = 0, max = 100 }) {
         />
       </div>
 
-      {/* value */}
-      <span className="text-black w-10 text-right">
-        {value?.toFixed?.(0) ?? value}
-      </span>
+      {/* value and rank */}
+      <div className="flex items-center gap-2 text-right">
+        <span className="text-black w-10">
+          {value?.toFixed?.(0) ?? value}
+        </span>
+        {rank !== null && rank !== 0 && (
+          <span className="text-[10px] text-gray-600 w-8">
+            #{rank.toFixed(0)}
+          </span>
+        )}
+      </div>
     </div>
   );
 }

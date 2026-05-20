@@ -192,3 +192,38 @@ export async function fetchYears() {
   
   return res.json();
 }
+
+// -------------------------
+// TEAMS
+// -------------------------
+export async function fetchTeam(id: string, year?: YearParam) {
+  const url = new URL(`${BASE_URL}/api/v1/teams/${id}`);
+
+  if (year !== undefined && year !== null) {
+    url.searchParams.append("year", String(year));
+  }
+
+  const res = await fetch(url.toString());
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch team");
+  }
+
+  return res.json();
+}
+
+export async function fetchAllTeams(year?: YearParam) {
+  const url = new URL(`${BASE_URL}/api/v1/teams`);
+
+  if (year !== undefined && year !== null) {
+    url.searchParams.append("year", String(year));
+  }
+
+  const res = await fetch(url.toString());
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch teams");
+  }
+
+  return res.json();
+}

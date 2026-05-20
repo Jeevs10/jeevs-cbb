@@ -1,4 +1,4 @@
-from typing import List, Optional, Union
+from typing import List, Optional, Union, Dict, Any
 from pydantic import BaseModel, Field, field_validator
 
 # Base response model
@@ -30,6 +30,11 @@ class PlayerBase(BaseModel):
     off_ftr: Optional[float] = None
     off_threepr: Optional[float] = None
     off_team_poss_pct: Optional[float] = None
+    Height: Optional[float] = None
+    Weight: Optional[float] = None
+    HometownCity: Optional[str] = None
+    HometownState: Optional[str] = None
+    HometownCountry: Optional[str] = None
 
 class Player(PlayerBase):
     AthleteSourceId: Union[str, int, float]
@@ -117,6 +122,46 @@ class Badge(BaseModel):
 
 class BadgeResponse(BaseResponse):
     badges: List[Badge]
+
+# Team-related models
+class MiniStats(BaseModel):
+    wins: Optional[float] = None
+    losses: Optional[float] = None
+    adj_net: Optional[float] = None
+    off_adj_ppp: Optional[float] = None
+    def_adj_ppp: Optional[float] = None
+    wab: Optional[float] = None
+    rank_adj_net: Optional[float] = None
+    rank_off_adj_ppp: Optional[float] = None
+    rank_def_adj_ppp: Optional[float] = None
+    rank_wab: Optional[float] = None
+
+class TeamBase(BaseModel):
+    id: str
+    school: str
+    mascot: Optional[str] = None
+    abbreviation: Optional[str] = None
+    display_name: Optional[str] = None
+    conference: Optional[str] = None
+    mini_stats: Optional[MiniStats] = None
+
+class Team(TeamBase):
+    primary_color: Optional[str] = None
+    secondary_color: Optional[str] = None
+    current_venue: Optional[str] = None
+    current_city: Optional[str] = None
+    current_state: Optional[str] = None
+    analytics: Optional[Dict[str, Any]] = None
+    roster: Optional[List[Dict[str, Any]]] = None
+    analytics_available: Optional[bool] = True
+
+class TeamListResponse(BaseResponse):
+    count: int
+    results: List[TeamBase]
+
+class TeamResponse(BaseResponse):
+    team: Team
+    available_years: List[int]
 
 # Health check model
 class HealthResponse(BaseModel):

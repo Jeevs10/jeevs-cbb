@@ -27,13 +27,26 @@ import PlayerSimilarPanel from "@/components/player/PlayerSimilarPanel";
 import PlayerEvolutionPanel from "@/components/player/PlayerEvolutionPanel";
 import PlayerProgressionChart from "@/components/player/PlayerProgressionChart";
 import PlayerTimeline from "@/components/player/PlayerTimeline";
+import PlayerLocationPanel from "@/components/player/PlayerLocationPanel";
 import YearToggle from "@/components/ui/YearToggle";
 
 type Player = {
   AthleteSourceId?: string;
-  roster?: { ncaa_id: string };
+  roster?: { 
+    ncaa_id: string;
+    hometown_city?: string;
+    hometown_state?: string;
+    hometown_country?: string;
+    weight?: number;
+  };
   data_tier?: string;
   player_name?: string;
+  HometownCity?: string;
+  HometownState?: string;
+  HometownCountry?: string;
+  Weight?: number;
+  Height?: string;
+  Position?: string;
 };
 
 type PlayerRadar = any;
@@ -150,6 +163,13 @@ export default function PlayerPage() {
         playerHistory={playerHistory}
         playerName={player?.player_name || 'Player'}
         currentYear={year}
+      />
+
+      {/* HOMETOWN LOCATION */}
+      <PlayerLocationPanel
+        city={player.HometownCity || player.roster?.hometown_city}
+        state={player.HometownState || player.roster?.hometown_state}
+        primaryColor="#000000"
       />
       
       {/* DATA TIER INDICATOR */}

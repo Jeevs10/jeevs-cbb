@@ -2,46 +2,42 @@
 
 import { useYear } from "@/app/context/YearContext";
 
-export default function YearToggle({ availableYears = [] }) {
+interface YearToggleProps {
+  availableYears?: number[];
+  showCareer?: boolean;
+}
+
+export default function YearToggle({ availableYears = [], showCareer = true }: YearToggleProps) {
   const { year, setYear } = useYear();
 
   if (!availableYears || availableYears.length <= 1) return null;
 
+  const handleYearChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = event.target.value;
+    if (value === "latest") {
+      setYear(null);
+    } else if (value === "career") {
+      setYear("career");
+    } else {
+      setYear(parseInt(value));
+    }
+  };
+
   return (
-    <div className="flex gap-2 mb-3 text-xs flex-wrap">
-
-      {/* Latest */}
-      <button
-        onClick={() => setYear(null)}
-        className={`px-2 py-1 border ${
-          year === null ? "bg-black text-white" : "bg-white"
-        }`}
+    <div className="flex gap-2 mb-3 text-xs flex-wrap items-center">
+      <select
+        value={year === null ? "latest" : year === "career" ? "career" : String(year)}
+        onChange={handleYearChange}
+        className="px-2 py-1 border bg-white font-mono"
       >
-        Latest
-      </button>
-
-      {/* Career */}
-      <button
-        onClick={() => setYear("career")}
-        className={`px-2 py-1 border ${
-          year === "career" ? "bg-black text-white" : "bg-white"
-        }`}
-      >
-        Career
-      </button>
-
-      {/* Individual years */}
-      {availableYears.map((y) => (
-        <button
-          key={y}
-          onClick={() => setYear(y)}
-          className={`px-2 py-1 border ${
-            year === y ? "bg-black text-white" : "bg-white"
-          }`}
-        >
-          {y}
-        </button>
-      ))}
+        <option value="latest">Latest</option>
+        {showCareer && <option value="career">Career</option>}
+        {availableYears.map((y) => (
+          <option key={y} value={y}>
+            {y}
+          </option>
+        ))}
+      </select>
     </div>
   );
 }
