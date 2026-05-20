@@ -1,0 +1,264 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
+
+import {
+  fetchPlayer,
+  fetchPlayerMoves,
+  fetchPlayerBadges,
+  fetchPlayerSimilar,
+  fetchPlayerEvolution, // ✅ added
+  fetchPlayerHistory, // ✅ added
+} from "@/lib/api";
+
+import { useYear } from "@/app/context/YearContext";
+
+import Panel from "@/components/ui/Panel";
+import { PanelHeader } from "@/components/ui/Panel";
+
+import PlayerRadar from "@/components/ui/PlayerRadar";
+import Badge from "@/components/ui/Badge";
+
+import PlayerHeader from "@/components/player/PlayerHeader";
+import PlayerStatsPanel from "@/components/player/PlayerStatsPanel";
+import PlayerMovesPanel from "@/components/player/PlayerMovesPanel";
+import PlayerSimilarPanel from "@/components/player/PlayerSimilarPanel";
+import PlayerEvolutionPanel from "@/components/player/PlayerEvolutionPanel";
+import PlayerProgressionChart from "@/components/player/PlayerProgressionChart";
+import PlayerTimeline from "@/components/player/PlayerTimeline";
+import YearToggle from "@/components/ui/YearToggle";
+
+type Player = {
+  AthleteSourceId?: string;
+  roster?: { ncaa_id: string };
+  data_tier?: string;
+  player_name?: string;
+};
+
+type PlayerRadar = any;
+type Badge = { level: string; name: string };
+type SimilarPlayer = any;
+type Evolution = any;
+type Move = any;
+
+export default function PlayerPage() {
+  const { id } = useParams();
+  const { year } = useYear();
+
+  const [player, setPlayer] = useState<Player | null>(null);
+  const [availableYears, setAvailableYears] = useState<number[]>([]);
+  const [styleWeight, setStyleWeight] = useState(0.7);
+  const [playerHistory, setPlayerHistory] = useState<any[]>([]);
+  const [moves, setMoves] = useState<any[]>([]);
+  const [badges, setBadges] = useState<any[]>([]);
+  const [similar, setSimilar] = useState<any>(null);
+  const [evolution, setEvolution] = useState<any>(null);
+
+  const playerCode = player?.AthleteSourceId || String(player?.roster?.ncaa_id || '');
+
+  // -------------------------
+  // PLAYER
+  // -------------------------
+  useEffect(() => {
+    if (!id) return;
+
+    fetchPlayer(id, year)
+      .then((data) => {
+        setPlayer(data.player);
+        setAvailableYears(data.available_years || []);
+      })
+      .catch(console.error);
+  }, [id, year]);
+
+  // -------------------------
+  // PLAYER HISTORY
+  // -------------------------
+  useEffect(() => {
+    if (!playerCode) return;
+
+    fetchPlayerHistory(playerCode)
+      .then((data) => {
+        setPlayerHistory(data.history || []);
+      })
+      .catch(console.error);
+  }, [playerCode]);
+
+  // -------------------------
+  // DEPENDENT DATA
+  // -------------------------
+  useEffect(() => {
+    if (!playerCode) return;
+
+    // Only fetch advanced data for enriched players
+    if (player?.data_tier === 'enriched') {
+      Promise.all([
+        fetchPlayerMoves(playerCode, year),
+        fetchPlayerBadges(playerCode, year),
+        fetchPlayerSimilar(playerCode, styleWeight, year),
+        fetchPlayerEvolution(playerCode, year),
+      ])
+        .then(
+          ([
+            movesRes,
+            badgesRes,
+            similarRes,
+            evolutionRes,
+          ]) => {
+            setMoves(movesRes || []);
+            setBadges(badgesRes || []);
+            setSimilar(similarRes || null);
+            setEvolution(evolutionRes || null);
+          }
+        )
+        .catch(console.error);
+    } else {
+      // For basic players, set empty states
+      setMoves([]);
+      setBadges([]);
+      setSimilar(null);
+      setEvolution(null);
+    }
+  }, [playerCode, year, styleWeight, player?.data_tier]);
+
+  // -------------------------
+  // LOADING STATE
+  // -------------------------
+  if (!player) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[#E7E8D1] text-black font-mono">
+        LOADING PLAYER DATA...
+      </div>
+    );
+  }
+
+  return (
+    <div className="p-3 space-y-6">
+      <PlayerHeader player={player} />
+      
+      {/* YEAR TOGGLE */}
+      {availableYears.length > 0 && (
+        <YearToggle availableYears={availableYears} />
+      )}
+      
+      <div className="text-xs font-bold">
+        Viewing: {year ?? "Latest Season"}
+      </div>
+
+      {/* ✅ PLAYER TIMELINE (MOVED TO TOP) */}
+      <PlayerTimeline
+        playerHistory={playerHistory}
+        playerName={player?.player_name || 'Player'}
+        currentYear={year}
+      />
+      
+      {/* DATA TIER INDICATOR */}
+      <div className="text-xs font-bold mb-4">
+        Data Tier: <span className={player.data_tier === 'enriched' ? 'text-green-600' : 'text-orange-600'}>
+          {player.data_tier?.toUpperCase() || 'BASIC'}
+        </span>
+        {player.data_tier === 'basic' && (
+          <span className="ml-2 text-gray-600">(Limited advanced metrics available)</span>
+        )}
+      </div>
+
+      {/* MAIN GRID */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        {/* BASE STATS */}
+        <Panel>
+          <PanelHeader>BASE STATS</PanelHeader>
+          <PlayerStatsPanel player={player} />
+        </Panel>
+
+        {/* RADAR */}
+        {player?.data_tier === "enriched" && (
+          <Panel>
+            <PanelHeader>PLAYER RADAR</PanelHeader>
+            <div className="p-4">
+              <PlayerRadar playerId={playerCode} year={year} />
+            </div>
+          </Panel>
+        )}
+
+        {/* BASIC ONLY MESSAGE */}
+        {player.data_tier === 'basic' && (
+          <Panel>
+            <PanelHeader>ADVANCED PROFILE</PanelHeader>
+            <div className="p-4 text-center text-gray-600">
+              <p className="text-sm mb-2">Advanced analytics not available</p>
+              <p className="text-xs">This player has basic statistics only</p>
+            </div>
+          </Panel>
+        )}
+
+      </div>
+
+      {/* BADGES - Only for enriched data */}
+      {player.data_tier === 'enriched' ? (
+        <Panel>
+          <PanelHeader>PLAYER BADGES</PanelHeader>
+
+          <div className="flex flex-wrap gap-2">
+            {badges.map((b, i) => (
+              <Badge key={i} level={b.level} name={b.name}>
+                {b.name}
+              </Badge>
+            ))}
+          </div>
+        </Panel>
+      ) : (
+        <Panel>
+          <PanelHeader>PLAYER BADGES</PanelHeader>
+          <div className="p-4 text-center text-gray-600">
+            <p className="text-sm mb-2">Badges not available</p>
+            <p className="text-xs">Requires advanced analytics data</p>
+          </div>
+        </Panel>
+      )}
+
+      {/* MOVES - Only for enriched data */}
+      {player.data_tier === 'enriched' ? (
+        <Panel>
+          <PanelHeader>MOVES</PanelHeader>
+          <PlayerMovesPanel moves={moves} />
+        </Panel>
+      ) : (
+        <Panel>
+          <PanelHeader>MOVES</PanelHeader>
+          <div className="p-4 text-center text-gray-600">
+            <p className="text-sm mb-2">Play style analysis not available</p>
+            <p className="text-xs">Requires advanced analytics data</p>
+          </div>
+        </Panel>
+      )}
+
+      {/* SIMILAR PLAYERS - Only for enriched players */}
+      {player.data_tier === 'enriched' && (
+        <Panel>
+          <PanelHeader>SIMILAR PLAYERS</PanelHeader>
+
+          <PlayerSimilarPanel
+            player={player}
+            similar={similar}
+            styleWeight={styleWeight}
+            setStyleWeight={setStyleWeight}
+          />
+        </Panel>
+      )}
+
+      {/* ✅ EVOLUTION (NEW) */}
+      <PlayerEvolutionPanel
+        data={evolution}
+        player={player}
+      />
+
+      {/* ✅ PROGRESSION CHART (NEW) */}
+      <PlayerProgressionChart
+        playerHistory={playerHistory}
+        dataTier={(player.data_tier || 'basic') as "enriched" | "basic"}
+      />
+
+    </div>
+  );
+}
