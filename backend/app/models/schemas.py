@@ -60,6 +60,8 @@ class Player(PlayerBase):
     RPG: Optional[float] = None
     SPG: Optional[float] = None
     BPG: Optional[float] = None
+    BPM: Optional[float] = None
+    VORP: Optional[float] = None
     MPG: Optional[float] = None
     # Shooting and usage fields
     off_efg: Optional[float] = None
@@ -69,6 +71,38 @@ class Player(PlayerBase):
     NetRating: Optional[float] = None
     adj_prod_margin: Optional[float] = None
     FreeThrows_Pct: Optional[float] = Field(None, alias="FreeThrows Pct")
+    # Move-specific fields
+    off_style_rim_attack_ppp: Optional[float] = None
+    off_style_rim_attack_pct: Optional[float] = None
+    off_style_rim_attack_usg: Optional[float] = None
+    off_style_perimeter_sniper_ppp: Optional[float] = None
+    off_style_perimeter_sniper_pct: Optional[float] = None
+    off_style_perimeter_sniper_usg: Optional[float] = None
+    off_style_mid_range_ppp: Optional[float] = None
+    off_style_mid_range_pct: Optional[float] = None
+    off_style_mid_range_usg: Optional[float] = None
+    off_style_transition_ppp: Optional[float] = None
+    off_style_transition_pct: Optional[float] = None
+    off_style_transition_usg: Optional[float] = None
+    off_style_pnr_passer_ppp: Optional[float] = None
+    off_style_pnr_passer_pct: Optional[float] = None
+    off_style_pnr_passer_usg: Optional[float] = None
+    off_style_post_up_ppp: Optional[float] = None
+    off_style_post_up_pct: Optional[float] = None
+    off_style_post_up_usg: Optional[float] = None
+    # Move percentile fields
+    pctile_off_style_rim_attack_pct: Optional[float] = None
+    pctile_off_style_rim_attack_ppp: Optional[float] = None
+    pctile_off_style_perimeter_sniper_pct: Optional[float] = None
+    pctile_off_style_perimeter_sniper_ppp: Optional[float] = None
+    pctile_off_style_mid_range_pct: Optional[float] = None
+    pctile_off_style_mid_range_ppp: Optional[float] = None
+    pctile_off_style_transition_pct: Optional[float] = None
+    pctile_off_style_transition_ppp: Optional[float] = None
+    pctile_off_style_pnr_passer_pct: Optional[float] = None
+    pctile_off_style_pnr_passer_ppp: Optional[float] = None
+    pctile_off_style_post_up_pct: Optional[float] = None
+    pctile_off_style_post_up_ppp: Optional[float] = None
 
 class PlayerListResponse(BaseResponse):
     count: int

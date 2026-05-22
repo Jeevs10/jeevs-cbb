@@ -21,6 +21,7 @@ export const API_ENDPOINTS = {
   years: "/api/v1/years",
   teams: "/api/v1/teams",
   team: (id: string) => `/api/v1/teams/${id}`,
+  movesRankings: "/api/v1/moves/rankings",
 } as const;
 
 // Pagination defaults

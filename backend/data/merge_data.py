@@ -18,9 +18,9 @@ def merge_data_for_year(year):
 
         val = str(val)
 
-        # handle "2025/26"
+        # handle "2018/9" (2018-2019 season) -> 2019
         if "/" in val:
-            return int(val.split("/")[-1]) + 2000
+            return int(val.split("/")[0]) + 1
 
         return int(val)
 

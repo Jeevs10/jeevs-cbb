@@ -153,6 +153,8 @@ export const TABLE_CONFIG = {
     "SPG",
     "BPG",
     "MPG",
+    "BPM",
+    "VORP",
   ]),
   PERCENTAGE_COLUMNS: new Set([
     "off_usage",

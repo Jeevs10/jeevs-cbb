@@ -13,6 +13,7 @@ def make_move(player, name, key, category, pctile_key):
     return {
         "name": name,
         "efficiency": safe(player.get(f"{key}_ppp")),
+        "efficiencyPctile": safe(player.get(f"pctile_{key}_ppp")),
         "usage": safe(player.get(f"{key}_pct")),
         "frequencyPctile": safe(player.get(pctile_key)),
         "category": category,

@@ -12,7 +12,11 @@ def load_enriched_players():
         csv_path = os.path.join(BASE_DIR, "data", f"{year}-players_enriched.csv")
         if os.path.exists(csv_path):
             df_year = pd.read_csv(csv_path)
-            df_year["year"] = year
+            # If 'Season' column exists, use it for year, otherwise add year column
+            if 'Season' in df_year.columns:
+                df_year["year"] = pd.to_numeric(df_year["Season"], errors="coerce").fillna(year).astype(int)
+            else:
+                df_year["year"] = year
             dfs.append(df_year)
             print(f"Loaded {year} enriched players: {len(df_year)} players")
     
@@ -40,8 +44,10 @@ def load_roster_info():
             df_year["Season"] = df_year["Season"].astype(str)
             # Convert Season to year (e.g., "2025" -> 2025)
             df_year["year"] = pd.to_numeric(df_year["Season"], errors='coerce')
+            # Filter out players without conferences
+            df_year = df_year[df_year['Conference'].notna() & (df_year['Conference'] != '')]
             dfs.append(df_year)
-            print(f"Loaded {year} roster info: {len(df_year)} entries")
+            print(f"Loaded {year} roster info: {len(df_year)} entries (filtered by conference)")
     
     if not dfs:
         print("Warning: No roster info files found")
@@ -114,6 +120,26 @@ def load_basic_players():
     
     return df
 
+def load_all_time_players():
+    """Load all-time players from all_players.csv for historical percentile comparisons"""
+    csv_path = os.path.join(BASE_DIR, "data", "all_players.csv")
+    if os.path.exists(csv_path):
+        df = pd.read_csv(csv_path)
+        # Handle year parsing - all_players.csv has season format like "2025/26"
+        # Extract the ending year (e.g., "2025/26" -> 2026)
+        if 'year' in df.columns:
+            df["year"] = df["year"].apply(lambda x: int(str(x).split('/')[0]) + 1 if '/' in str(x) else int(x))
+        # Ensure roster.ncaa_id is string for consistent lookup
+        if 'roster.ncaa_id' in df.columns:
+            df['roster.ncaa_id'] = df['roster.ncaa_id'].astype(str)
+        
+        print(f"Loaded all-time players: {len(df)} players")
+        print(f"All-time years range: {df['year'].min()} to {df['year'].max()}")
+        return df
+    else:
+        print(f"Warning: all_players.csv not found at {csv_path}")
+        return pd.DataFrame()
+
 def load_all_players():
     """Load both basic and enriched players, preferring enriched when available"""
     print("Loading all players...")
@@ -165,11 +191,15 @@ def load_all_players():
     
     # Combine datasets, enriched data takes precedence
     # Use roster.ncaa_id/AthleteSourceId as the key
-    basic_df['player_key'] = basic_df['AthleteSourceId'].astype(str)
+    # Normalize both to remove .0 suffix to avoid duplicates
+    basic_df['player_key'] = basic_df['AthleteSourceId'].astype(str).str.replace('.0', '', regex=False)
     enriched_df['player_key'] = enriched_df['roster.ncaa_id'].astype(str).str.replace('.0', '', regex=False)
     
-    # Preserve Position from basic data before combining
+    # Preserve Position, BPM, and VORP from basic data before combining
+    # Use composite key (player_key, year) to preserve year-specific values
     basic_position_map = basic_df.set_index('player_key')['Position'].to_dict()
+    basic_bpm_map = basic_df.set_index(['player_key', 'year'])['BPM'].to_dict() if 'BPM' in basic_df.columns else {}
+    basic_vorp_map = basic_df.set_index(['player_key', 'year'])['VORP'].to_dict() if 'VORP' in basic_df.columns else {}
     
     # Mark enriched rows to prioritize them
     enriched_df['_is_enriched'] = True
@@ -187,8 +217,12 @@ def load_all_players():
     # Clean up temporary column
     combined = combined.drop('_is_enriched', axis=1)
     
-    # Restore Position field from basic data for enriched players
+    # Restore Position, BPM, and VORP fields from basic data for enriched players
     combined['Position'] = combined['player_key'].map(basic_position_map).fillna(combined.get('Position', ''))
+    # Restore BPM from basic data - use composite key (player_key, year) to preserve year-specific values
+    combined['BPM'] = combined.apply(lambda row: basic_bpm_map.get((row['player_key'], row['year']), row.get('BPM')), axis=1)
+    # Restore VORP from basic data - use composite key (player_key, year) to preserve year-specific values
+    combined['VORP'] = combined.apply(lambda row: basic_vorp_map.get((row['player_key'], row['year']), row.get('VORP')), axis=1)
     
     # Add pre-computed lowercase columns for efficient search
     combined['_player_name_lc'] = combined['player_name'].str.lower().fillna('')
@@ -200,6 +234,37 @@ def load_all_players():
 
 # Load all players (this maintains backward compatibility)
 df = load_all_players()
+
+# Load all-time players for historical percentile comparisons
+all_time_df = load_all_time_players()
+
+# Merge Height and Position from main df into all_time_df
+if not all_time_df.empty and not df.empty and 'Height' in df.columns and 'Position' in df.columns:
+    # Create join keys
+    all_time_df['_join_key'] = all_time_df['roster.ncaa_id'].str.replace('.0', '', regex=False)
+    df_copy = df.copy()
+    df_copy['_join_key'] = df_copy['player_key']
+    
+    # Get Height and Position from main df (first non-null value per player)
+    # Sort by year to prefer more recent data, but take first non-null
+    df_copy = df_copy.sort_values(['player_key', 'year'], ascending=[True, False])
+    
+    # For each player, get the first row with non-null Height and Position
+    def get_first_non_null(group):
+        height_row = group[group['Height'].notna()]
+        if not height_row.empty:
+            return height_row.iloc[0]
+        return group.iloc[0]
+    
+    height_pos = df_copy.groupby('player_key').apply(get_first_non_null)[['_join_key', 'Height', 'Position']].reset_index(drop=True)
+    
+    # Merge Height and Position
+    all_time_df = pd.merge(all_time_df, height_pos, on='_join_key', how='left')
+    all_time_df = all_time_df.drop('_join_key', axis=1)
+    
+    print(f"Merged Height and Position from main df into all_time_df")
+    print(f"Height non-null after merge: {all_time_df['Height'].notna().sum()}")
+    print(f"Position non-null after merge: {all_time_df['Position'].notna().sum()}")
 
 # Create player lookup (latest year per player)
 players_df = (

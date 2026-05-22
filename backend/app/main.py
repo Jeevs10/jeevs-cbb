@@ -16,6 +16,7 @@ from app.api.similarity import router as sim_router
 from app.api.years import router as years_router
 from app.api.evolution import router as evolution_router
 from app.api.history import router as history_router
+from app.api.game import router as game_router
 
 # Cache
 from app.cache.player_vectors import build_cache
@@ -31,6 +32,12 @@ async def lifespan(app: FastAPI):
     # 🚀 startup
     build_cache()
     print("✅ Player vector cache built")
+    
+    # Load player graph
+    from app.core.player_graph import player_graph
+    player_graph.load_from_roster_data()
+    print("✅ Player graph loaded")
+    
     print(f"🚀 Server starting on {settings.host}:{settings.port}")
 
     yield
@@ -80,6 +87,7 @@ app.include_router(sim_router, prefix="/api/v1", tags=["similarity"])
 app.include_router(years_router, prefix="/api/v1", tags=["years"])
 app.include_router(evolution_router, prefix="/api/v1", tags=["evolution"])
 app.include_router(history_router, prefix="/api/v1", tags=["history"])
+app.include_router(game_router, prefix="/api/v1", tags=["game"])
 
 # -------------------------
 # HEALTH CHECK

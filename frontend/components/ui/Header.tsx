@@ -52,6 +52,12 @@ export function Header() {
                   >
                     Advanced Leaderboard
                   </Link>
+                  <Link
+                    href="/moves"
+                    className="block px-4 py-2 text-xs hover:bg-[#E7E8D1]"
+                  >
+                    Moves Rankings
+                  </Link>
                 </div>
               )}
             </div>
@@ -82,6 +88,15 @@ export function Header() {
                 </div>
               )}
             </div>
+
+            <Link
+              href="/game"
+              className={`text-xs font-medium transition-colors hover:underline ${
+                pathname === "/game" ? "text-black" : "text-gray-600"
+              }`}
+            >
+              Game
+            </Link>
           </nav>
         </div>
       </div>

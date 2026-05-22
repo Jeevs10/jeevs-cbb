@@ -39,6 +39,8 @@ export interface Player {
   RPG?: number;
   SPG?: number;
   BPG?: number;
+  BPM?: number;
+  VORP?: number;
   MPG?: number;
 }
 

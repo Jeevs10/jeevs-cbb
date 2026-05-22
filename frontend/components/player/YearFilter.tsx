@@ -15,8 +15,6 @@ export const YearFilter = React.memo(function YearFilter({ years, selectedYear, 
     const value = event.target.value;
     if (value === "all") {
       onYearChange(null);
-    } else if (value === "career") {
-      onYearChange("career");
     } else {
       onYearChange(parseInt(value));
     }
@@ -39,12 +37,11 @@ export const YearFilter = React.memo(function YearFilter({ years, selectedYear, 
   return (
     <div className="mb-3">
       <select
-        value={selectedYear === null ? "all" : selectedYear === "career" ? "career" : String(selectedYear)}
+        value={selectedYear === null ? "all" : String(selectedYear)}
         onChange={handleYearChange}
         className="px-2 py-1 border bg-white text-xs font-mono"
       >
         <option value="all">All Years</option>
-        <option value="career">Career</option>
         {years.map((year) => (
           <option key={year} value={year}>
             {year}

@@ -162,6 +162,44 @@ class ApiClient {
     return this.request<number[]>(API_ENDPOINTS.years);
   }
 
+  async getMovesRankings(moveType: string, year?: YearParam, limit: number = 50, offset: number = 0, position?: string, conference?: string, highMajor?: boolean, search?: string, sortBy?: string, sortOrder?: "asc" | "desc"): Promise<any> {
+    const url = new URL(API_ENDPOINTS.movesRankings, this.baseUrl);
+
+    url.searchParams.append("move_type", moveType);
+    url.searchParams.append("limit", String(limit));
+    url.searchParams.append("offset", String(offset));
+
+    if (year !== undefined && year !== null && year !== "career") {
+      url.searchParams.append("year", String(year));
+    }
+
+    if (position !== undefined && position !== null && position !== "all") {
+      url.searchParams.append("position", position);
+    }
+
+    if (conference !== undefined && conference !== null && conference !== "all") {
+      url.searchParams.append("conference", conference);
+    }
+
+    if (highMajor !== undefined && highMajor !== null) {
+      url.searchParams.append("high_major", String(highMajor));
+    }
+
+    if (search && search.trim()) {
+      url.searchParams.append("search", search.trim());
+    }
+
+    if (sortBy !== undefined && sortBy !== null) {
+      url.searchParams.append("sort_by", sortBy);
+    }
+
+    if (sortOrder !== undefined && sortOrder !== null) {
+      url.searchParams.append("sort_order", sortOrder);
+    }
+
+    return this.request<any>(url.pathname + url.search);
+  }
+
   // Team endpoints
   async getAllTeams(year?: YearParam): Promise<any> {
     const url = new URL(API_ENDPOINTS.teams, this.baseUrl);

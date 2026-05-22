@@ -1,12 +1,14 @@
 from typing import List, Optional, Dict, Any, Union
 import pandas as pd
 import numpy as np
+import os
 
 from app.core.data_loader import df
 from app.core.player_resolver import get_player_snapshot, get_player_history
 from app.core.year_utils import normalize_year
 from app.models.schemas import PlayerQueryParams, PlayerListResponse, PlayerResponse
 from app.utils.logger import get_logger
+from app.utils.bpm_calculator import get_bpm_calculator
 
 logger = get_logger(__name__)
 
@@ -24,7 +26,7 @@ PCT_COLS = [
 ]
 
 # Sortable columns set
-SORTABLE_COLUMNS = set(df.columns) | {"PPG", "APG", "RPG", "SPG", "BPG", "MPG"}
+SORTABLE_COLUMNS = set(df.columns) | {"PPG", "APG", "RPG", "SPG", "BPG", "MPG", "BPM"}
 
 class PlayerService:
     """Service layer for player-related operations."""
@@ -34,35 +36,43 @@ class PlayerService:
         """Get players with filtering, sorting, and pagination."""
         try:
             year = normalize_year(params.year)
-            
+
             # Apply filters first to reduce dataset size before copying
             filtered_data = PlayerService._apply_filters(df, params, year)
-            
+
             # Only copy the filtered data (much smaller than full dataset)
             data = filtered_data.copy()
-            
-            # Clean and transform data
-            data = PlayerService._clean_numeric_data(data)
-            data = PlayerService._convert_percentages(data)
-            
-            # Apply field mapping for basic players
-            data = PlayerService._map_basic_fields(data)
-            
-            # Calculate derived stats for basic players
-            data = PlayerService._calculate_derived_stats(data)
-            
+
             # Calculate filtered count before any transformations
             total_filtered = len(data)
-            
+
+            # Check if sorting by a derived stat - if so, calculate it before sorting
+            derived_stats = ["PPG", "APG", "RPG", "SPG", "BPG", "MPG", "BPM"]
+            if params.sort in derived_stats:
+                # Only clean and calculate the specific derived stat needed for sorting
+                data = PlayerService._clean_numeric_data(data)
+                data = PlayerService._map_basic_fields(data)
+                data = PlayerService._calculate_derived_stats(data)
+
             # Apply sorting
             data = PlayerService._apply_sorting(data, params.sort, params.order)
-            
-            # Apply pagination
+
+            # Apply pagination BEFORE expensive transformations
             paginated_data = PlayerService._apply_pagination(data, params.limit, params.offset)
-            
+
+            # Only do remaining transformations on paginated data if not already done
+            if params.sort not in derived_stats:
+                paginated_data = PlayerService._clean_numeric_data(paginated_data)
+                paginated_data = PlayerService._convert_percentages(paginated_data)
+                paginated_data = PlayerService._map_basic_fields(paginated_data)
+                paginated_data = PlayerService._calculate_derived_stats(paginated_data)
+            else:
+                # Still need to convert percentages if not done
+                paginated_data = PlayerService._convert_percentages(paginated_data)
+
             # Convert to dict and handle NaN values, ensuring required fields are not None
             results = paginated_data.replace({np.nan: None}).to_dict(orient="records")
-            
+
             # Ensure required fields are not None for basic players
             for result in results:
                 if result.get('data_tier') == 'basic':
@@ -71,15 +81,15 @@ class PlayerService:
                         result['player_name'] = result.get('Name') or f"Player {result.get('AthleteSourceId')}"
                     if not result.get('team'):
                         result['team'] = result.get('Team') or "Unknown Team"
-            
+
             logger.info(f"Retrieved {len(results)} players (filtered from {total_filtered} of {len(df)} total)")
-            
+
             return PlayerListResponse(
                 count=len(df),
                 filtered_count=total_filtered,
                 results=results
             )
-            
+
         except Exception as e:
             logger.error(f"Error retrieving players: {str(e)}")
             raise
@@ -148,6 +158,9 @@ class PlayerService:
                     if field not in player_dict:
                         player_dict[field] = None
             
+            # BPM is pre-calculated in CSV for basic players
+            # For enriched players, BPM is not calculated due to missing feature columns
+            
             logger.info(f"Before nesting - roster keys: {[k for k in player_dict.keys() if 'roster' in k]}")
             # Apply nesting for fields with dot notation
             player_dict = PlayerService._nest_player_data(player_dict)
@@ -168,7 +181,7 @@ class PlayerService:
     
     @staticmethod
     def _calculate_derived_stats(data: pd.DataFrame) -> pd.DataFrame:
-        """Calculate derived stats (PPG, APG, RPG, SPG, BPG, MPG) for all players."""
+        """Calculate derived stats (PPG, APG, RPG, SPG, BPG, MPG, BPM) for all players."""
         # Calculate derived stats for all players (both basic and enriched)
         games = pd.to_numeric(data['Games'], errors='coerce')
         games_safe = games.where(games > 0, np.nan)
@@ -210,6 +223,30 @@ class PlayerService:
         if new_columns:
             data = data.assign(**new_columns)
         
+        # BPM is now pre-calculated and stored in the CSV file
+        # No runtime calculation needed for performance
+        
+        return data
+    
+    @staticmethod
+    def _calculate_bpm(data: pd.DataFrame) -> pd.DataFrame:
+        """Calculate BPM for all players in the DataFrame using ridge regression."""
+        try:
+            # Try to load trained model
+            calculator = get_bpm_calculator()
+            model_path = os.path.join(os.path.dirname(__file__), '..', 'models', 'bpm_model.joblib')
+            
+            if os.path.exists(model_path) and not calculator.is_trained:
+                calculator.load_model(model_path)
+                logger.info(f"Loaded trained BPM model from {model_path}")
+            
+            # Calculate BPM using the BPMCalculator utility
+            data = calculator.predict_bpm_for_dataframe(data)
+            logger.info(f"Calculated BPM for {len(data)} players")
+        except Exception as e:
+            logger.error(f"Error calculating BPM: {str(e)}")
+            # Add BPM column with None values if calculation fails
+            data['BPM'] = None
         return data
     
     @staticmethod
@@ -291,20 +328,63 @@ class PlayerService:
         if params.search and params.search.strip():
             q = params.search.strip().lower()
             
+            # Remove commas and extra spaces
+            q_clean = q.replace(',', ' ').strip()
+            
+            # Split into parts for name matching
+            parts = [p for p in q_clean.split() if p]
+            
             # Use pre-computed lowercase columns for efficient search
             if '_player_name_lc' in data.columns:
+                # Try exact match first
                 mask = (
-                    data["_player_name_lc"].str.contains(q, na=False) |
-                    data["_team_lc"].str.contains(q, na=False) |
-                    data["_ncaa_id_lc"].str.contains(q, na=False)
+                    data["_player_name_lc"].str.contains(q_clean, na=False) |
+                    data["_team_lc"].str.contains(q_clean, na=False) |
+                    data["_ncaa_id_lc"].str.contains(q_clean, na=False)
                 )
+                
+                # If no results and we have name parts, try different orderings
+                if not mask.any() and len(parts) >= 2:
+                    # Try "Last First" format (database format)
+                    last_first = f"{parts[-1]} {parts[0]}"
+                    mask = (
+                        data["_player_name_lc"].str.contains(last_first, na=False) |
+                        data["_player_name_lc"].str.contains(q_clean, na=False)
+                    )
+                    
+                    # Try matching individual parts
+                    if not mask.any():
+                        part_masks = []
+                        for part in parts:
+                            part_masks.append(data["_player_name_lc"].str.contains(part, na=False))
+                        mask = part_masks[0]
+                        for part_mask in part_masks[1:]:
+                            mask = mask & part_mask
             else:
                 # Fallback: compute lowercase on the fly
                 mask = (
-                    data["player_name"].str.lower().str.contains(q, na=False) |
-                    data["team"].str.lower().str.contains(q, na=False) |
-                    data["player_key"].str.lower().str.contains(q, na=False)
+                    data["player_name"].str.lower().str.contains(q_clean, na=False) |
+                    data["team"].str.lower().str.contains(q_clean, na=False) |
+                    data["player_key"].str.lower().str.contains(q_clean, na=False)
                 )
+                
+                # If no results and we have name parts, try different orderings
+                if not mask.any() and len(parts) >= 2:
+                    # Try "Last First" format (database format)
+                    last_first = f"{parts[-1]} {parts[0]}"
+                    mask = (
+                        data["player_name"].str.lower().str.contains(last_first, na=False) |
+                        data["player_name"].str.lower().str.contains(q_clean, na=False)
+                    )
+                    
+                    # Try matching individual parts
+                    if not mask.any():
+                        part_masks = []
+                        for part in parts:
+                            part_masks.append(data["player_name"].str.lower().str.contains(part, na=False))
+                        mask = part_masks[0]
+                        for part_mask in part_masks[1:]:
+                            mask = mask & part_mask
             
             data = data[mask]
         
@@ -313,10 +393,12 @@ class PlayerService:
     @staticmethod
     def _clean_numeric_data(data: pd.DataFrame) -> pd.DataFrame:
         """Clean numeric data columns."""
+        # Only convert columns that are actually numeric to avoid unnecessary processing
+        # Use errors='coerce' to convert non-numeric values to NaN
         for col in data.columns:
             if col not in ["player_name", "roster.ncaa_id", "team", "conf", "Position"]:
-                data[col] = pd.to_numeric(data[col], errors="ignore")
-        
+                data[col] = pd.to_numeric(data[col], errors="coerce")
+
         return data
     
     @staticmethod

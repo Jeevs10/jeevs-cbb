@@ -5,3 +5,6 @@ pydantic
 python-dotenv
 pydantic-settings
 python-multipart
+networkx
+scikit-learn
+joblib

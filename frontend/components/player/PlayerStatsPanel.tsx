@@ -65,6 +65,8 @@ export default function PlayerStatsPanel({ player }) {
           <StatBar label="RPG" value={reb_pg} max={12} />
           <StatBar label="SPG" value={stl_pg} max={3} />
           <StatBar label="BPG" value={blk_pg} max={3} />
+          <StatBar label="BPM" value={safe(player.BPM)} max={15} />
+          <StatBar label="VORP" value={safe(player.VORP)} max={15} />
           <StatBar label="GAMES" value={games} max={35} />
         </div>
       )}
@@ -76,6 +78,7 @@ export default function PlayerStatsPanel({ player }) {
           <StatBar label="DEF RTG" value={150 - player.def_rtg} max={100} />
           <StatBar label="NET RTG" value={player.NetRating} max={20} />
           <StatBar label="RAPM" value={player.adj_rapm_margin} max={10} />
+          <StatBar label="BPM" value={safe(player.BPM)} max={15} />
           <StatBar label="PROD" value={player.adj_prod_margin} max={10} />
         </div>
       )}
@@ -131,6 +134,7 @@ export default function PlayerStatsPanel({ player }) {
         <div className="space-y-2 text-black">
           <StatBar label="OFF RTG" value={player.OffensiveRating} max={130} />
           <StatBar label="NET RTG" value={player.NetRating} max={20} />
+          <StatBar label="BPM" value={safe(player.BPM)} max={15} />
           <StatBar label="USAGE" value={player.Usage} max={40} />
           <StatBar label="AST/TO" value={player.AssistsTurnoverRatio} max={5} />
           <StatBar label="PORPAG" value={player.PORPAG} max={5} />

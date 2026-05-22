@@ -95,8 +95,8 @@ def create_data_summary():
             print(f"  Basic: Not created yet")
 
 if __name__ == "__main__":
-    # Create basic players for all available years
-    for year in ['2024', '2025', '2026']:
+    # Create basic players for all available years (2019-2026)
+    for year in ['2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026']:
         create_basic_players(year)
     
     # Show summary

@@ -1,5 +1,5 @@
 from typing import Union
-from app.core.data_loader import df
+from app.core.data_loader import df, all_time_df
 import pandas as pd
 import numpy as np
 
@@ -53,6 +53,32 @@ def get_player_snapshot(ncaa_id: str, year: Union[int, str, None] = None):
         filtered = player[player["year"] == year]
         if not filtered.empty:
             player = filtered
+
+    player = player.sort_values("year")
+    return player.iloc[-1].to_dict()
+
+
+def get_player_all_time_percentiles(ncaa_id: str, year: Union[int, str, None] = None):
+    """Get a player's percentile data from the all-time dataset."""
+    if all_time_df.empty:
+        return None
+
+    # Normalize both sides for comparison - handle ".0" suffix
+    ncaa_id_normalized = str(ncaa_id).replace('.0', '')
+    player = all_time_df[all_time_df["roster.ncaa_id"].astype(str).str.replace('.0', '', regex=False) == ncaa_id_normalized]
+
+    if player.empty:
+        return None
+
+    # If a specific year is requested, filter to that year
+    if year is not None and year != "career":
+        try:
+            year_int = int(year)
+            filtered = player[player["year"] == year_int]
+            if not filtered.empty:
+                player = filtered
+        except (ValueError, TypeError):
+            pass
 
     player = player.sort_values("year")
     return player.iloc[-1].to_dict()

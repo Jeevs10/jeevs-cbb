@@ -75,7 +75,14 @@ export default function TeamRosterPanel({ roster, year }: TeamRosterPanelProps) 
     });
   }
 
-  if (filteredRoster.length === 0) {
+  // Deduplicate by player ID (Sourceid or Id) to handle duplicate entries
+  const uniqueRoster = filteredRoster.filter((player, index, self) => {
+    const playerId = player.Sourceid || player.Id;
+    const firstIndex = self.findIndex(p => (p.Sourceid || p.Id) === playerId);
+    return index === firstIndex;
+  });
+
+  if (uniqueRoster.length === 0) {
     return (
       <div className="border-2 border-black bg-[#C7D0B8] text-black p-3 font-mono">
         <div className="text-center text-gray-600">
@@ -87,7 +94,7 @@ export default function TeamRosterPanel({ roster, year }: TeamRosterPanelProps) 
   }
 
   // Sort roster by PORPAG descending, players without PORPAG go to the end
-  const sortedRoster = [...filteredRoster].sort((a, b) => {
+  const sortedRoster = [...uniqueRoster].sort((a, b) => {
     const aPORPAG = a.PORPAG ?? -Infinity;
     const bPORPAG = b.PORPAG ?? -Infinity;
     return bPORPAG - aPORPAG;
@@ -96,7 +103,7 @@ export default function TeamRosterPanel({ roster, year }: TeamRosterPanelProps) 
   return (
     <div className="border-2 border-black bg-[#C7D0B8] text-black p-3 font-mono max-h-96 overflow-y-auto">
       <div className="border-b border-black pb-2 mb-3 font-bold text-xs sticky top-0 bg-[#C7D0B8]">
-        ROSTER ({filteredRoster.length} players)
+        ROSTER ({uniqueRoster.length} players)
       </div>
       
       <div className="space-y-1">
