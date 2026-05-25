@@ -19,6 +19,7 @@ interface PlayerTableProps {
   onSort: (column: string) => void;
   loading?: boolean;
   dataTier?: "basic" | "enriched";
+  selectedYear?: string | null;
 }
 
 const basicSortableColumns = [
@@ -32,6 +33,8 @@ const basicSortableColumns = [
   { key: "SPG", label: "SPG" },
   { key: "BPG", label: "BPG" },
   { key: "BPM", label: "BPM" },
+  { key: "OBPM", label: "OBPM" },
+  { key: "DBPM", label: "DBPM" },
   { key: "VORP", label: "VORP" },
   { key: "MPG", label: "MPG" },
 ];
@@ -53,19 +56,22 @@ const enrichedSortableColumns = [
   { key: "off_ftr", label: "FTR" },
   { key: "off_threepr", label: "3P%" },
   { key: "BPM", label: "BPM" },
+  { key: "OBPM", label: "OBPM" },
+  { key: "DBPM", label: "DBPM" },
   { key: "VORP", label: "VORP" },
 ];
 
-export function PlayerTable({ players, sort, order, onSort, loading, dataTier = "enriched" }: PlayerTableProps) {
+export function PlayerTable({ players, sort, order, onSort, loading, dataTier = "enriched", selectedYear }: PlayerTableProps) {
   const handleSort = (column: string) => {
     if (TABLE_CONFIG.SORTABLE_COLUMNS.has(column)) {
       onSort(column);
     }
   };
 
-  // Always go to player detail page
+  // Go to player detail page with year parameter if available
   const getPlayerHref = (player: Player) => {
-    return `/player/${player.AthleteSourceId}`;
+    const yearToUse = selectedYear && selectedYear !== "career" ? selectedYear : (player.year ?? "2024");
+    return `/player/${player.AthleteSourceId}?year=${yearToUse}`;
   };
 
   // Format derived stats to 1 decimal place
@@ -184,6 +190,12 @@ export function PlayerTable({ players, sort, order, onSort, loading, dataTier = 
                     {formatDerivedStat(player.BPM)}
                   </td>
                   <td className={getTableCellClasses()}>
+                    {formatDerivedStat(player.OBPM)}
+                  </td>
+                  <td className={getTableCellClasses()}>
+                    {formatDerivedStat(player.DBPM)}
+                  </td>
+                  <td className={getTableCellClasses()}>
                     {formatDerivedStat(player.VORP)}
                   </td>
                   <td className={getTableCellClasses()}>
@@ -251,6 +263,12 @@ export function PlayerTable({ players, sort, order, onSort, loading, dataTier = 
                   </td>
                   <td className={getTableCellClasses()}>
                     {formatDerivedStat(player.BPM)}
+                  </td>
+                  <td className={getTableCellClasses()}>
+                    {formatDerivedStat(player.OBPM)}
+                  </td>
+                  <td className={getTableCellClasses()}>
+                    {formatDerivedStat(player.DBPM)}
                   </td>
                   <td className={getTableCellClasses()}>
                     {formatDerivedStat(player.VORP)}

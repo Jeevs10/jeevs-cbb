@@ -1,7 +1,11 @@
 import os
 import pandas as pd
+from pathlib import Path
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+BASE_DIR = Path(__file__).parent.parent.parent
+DATA_DIR = BASE_DIR / "data"
+PLAYERS_DIR = DATA_DIR / "players"
+AGGREGATE_DIR = DATA_DIR / "aggregate"
 
 def load_enriched_players():
     """Load enriched players with advanced metrics (subset of all players)"""
@@ -9,8 +13,8 @@ def load_enriched_players():
     
     # Load all available years (2019-2026)
     for year in range(2019, 2027):
-        csv_path = os.path.join(BASE_DIR, "data", f"{year}-players_enriched.csv")
-        if os.path.exists(csv_path):
+        csv_path = PLAYERS_DIR / f"{year}-players_enriched.csv"
+        if csv_path.exists():
             df_year = pd.read_csv(csv_path)
             # If 'Season' column exists, use it for year, otherwise add year column
             if 'Season' in df_year.columns:
@@ -38,8 +42,8 @@ def load_roster_info():
     
     # Load all available years (2019-2026)
     for year in range(2019, 2027):
-        csv_path = os.path.join(BASE_DIR, "data", f"{year}-roster-info.csv")
-        if os.path.exists(csv_path):
+        csv_path = PLAYERS_DIR / f"{year}-roster-info.csv"
+        if csv_path.exists():
             df_year = pd.read_csv(csv_path)
             df_year["Season"] = df_year["Season"].astype(str)
             # Convert Season to year (e.g., "2025" -> 2025)
@@ -71,17 +75,17 @@ def load_basic_players():
     # Load all available years (2019-2026)
     for year in range(2019, 2027):
         # Try new format first (players_basic.csv)
-        csv_path = os.path.join(BASE_DIR, "data", f"{year}-players_basic.csv")
-        if os.path.exists(csv_path):
+        csv_path = PLAYERS_DIR / f"{year}-players_basic.csv"
+        if csv_path.exists():
             df_year = pd.read_csv(csv_path)
             df_year["year"] = year
             dfs.append(df_year)
             print(f"Loaded {year} basic players: {len(df_year)} players")
         else:
             # Try old format (players.csv)
-            csv_path_old = os.path.join(BASE_DIR, "data", f"{year}-players.csv")
-            print(f"Checking for old format file: {csv_path_old}, exists: {os.path.exists(csv_path_old)}")
-            if os.path.exists(csv_path_old):
+            csv_path_old = PLAYERS_DIR / f"{year}-players.csv"
+            print(f"Checking for old format file: {csv_path_old}, exists: {csv_path_old.exists()}")
+            if csv_path_old.exists():
                 df_year = pd.read_csv(csv_path_old)
                 # Old format has year as "2018/9" format (2018-2019 season), extract the ending year
                 if 'year' in df_year.columns:
@@ -122,8 +126,8 @@ def load_basic_players():
 
 def load_all_time_players():
     """Load all-time players from all_players.csv for historical percentile comparisons"""
-    csv_path = os.path.join(BASE_DIR, "data", "all_players.csv")
-    if os.path.exists(csv_path):
+    csv_path = AGGREGATE_DIR / "all_players.csv"
+    if csv_path.exists():
         df = pd.read_csv(csv_path)
         # Handle year parsing - all_players.csv has season format like "2025/26"
         # Extract the ending year (e.g., "2025/26" -> 2026)

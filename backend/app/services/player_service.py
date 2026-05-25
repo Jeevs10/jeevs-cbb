@@ -321,7 +321,7 @@ class PlayerService:
         
         # High Major only filter - only show players from Big 12, SEC, ACC, Big 10, Big East
         if params.highMajorOnly:
-            high_major_conferences = ["Big 12", "Big Ten", "Big 10", "SEC", "ACC", "Big East"]
+            high_major_conferences = ["Big 12", "Big Ten", "Big 10", "B1G", "SEC", "ACC", "Big East"]
             data = data[data["conf"].isin(high_major_conferences)]
         
         # Search filter

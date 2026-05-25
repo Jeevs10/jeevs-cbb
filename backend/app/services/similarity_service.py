@@ -60,10 +60,22 @@ def extract_reasons(a, b, labels, top_n=3, similar=True, scale=1.0):
 
     results = []
     for i in idxs[:top_n]:
-        results.append({
-            "feature": labels[i],
-            "delta": float(diffs[i] * scale)
-        })
+        # Only include if the difference is meaningful
+        if diffs[i] > 0.1 or not similar:  # For differences, include even small ones if they're the largest
+            results.append({
+                "feature": labels[i],
+                "delta": float(diffs[i] * scale)
+            })
+
+    # If we don't have enough results, add more even if they're small
+    if len(results) < top_n:
+        for i in idxs[top_n:]:
+            if len(results) >= top_n:
+                break
+            results.append({
+                "feature": labels[i],
+                "delta": float(diffs[i] * scale)
+            })
 
     return results
 

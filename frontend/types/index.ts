@@ -40,6 +40,8 @@ export interface Player {
   SPG?: number;
   BPG?: number;
   BPM?: number;
+  OBPM?: number;
+  DBPM?: number;
   VORP?: number;
   MPG?: number;
 }

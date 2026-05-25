@@ -110,7 +110,7 @@ class PlayerGraph:
         years_to_load = years if years else list(range(2019, 2027))
         
         for year in years_to_load:
-            csv_path = os.path.join(BASE_DIR, "data", f"{year}-roster-info.csv")
+            csv_path = os.path.join(BASE_DIR, "data", "players", f"{year}-roster-info.csv")
             if os.path.exists(csv_path):
                 df_year = pd.read_csv(csv_path)
                 df_year["Season"] = df_year["Season"].astype(str)
@@ -186,28 +186,8 @@ class PlayerGraph:
             except:
                 continue
         
-        # Fallback: just pick any connected pair
-        start_id = random.choice(nodes_list)
-        neighbors = list(self.graph.neighbors(start_id))
-        if neighbors:
-            target_id = random.choice(neighbors)
-        else:
-            # If no neighbors, pick any other node
-            other_nodes = [n for n in nodes_list if n != start_id]
-            if not other_nodes:
-                raise ValueError("Graph has no connected pairs")
-            target_id = random.choice(other_nodes)
-            return {
-                'start_player': self.player_info.get(start_id, {'id': start_id, 'name': 'Unknown'}),
-                'end_player': self.player_info.get(target_id, {'id': target_id, 'name': 'Unknown'}),
-                'distance': self.graph.number_of_nodes() - 1  # Max possible distance
-            }
-        
-        return {
-            'start_player': self.player_info.get(start_id, {'id': start_id, 'name': 'Unknown'}),
-            'end_player': self.player_info.get(target_id, {'id': target_id, 'name': 'Unknown'}),
-            'distance': 1
-        }
+        # If we couldn't find a pair within the requested distance range, raise an error
+        raise ValueError(f"No pair found with distance between {min_distance} and {max_distance}. Try a wider range.")
     
     def get_player_info(self, player_id):
         """Get player info from the graph (including all teams and years)"""

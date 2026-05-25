@@ -27,12 +27,12 @@ class TeamService:
             # Determine which CSV file to load based on year
             year_to_load = int(year) if year and str(year).isdigit() else 2026
             csv_filename = f"{year_to_load}-hoop-explorer-teams.csv"
-            csv_path = os.path.join(os.path.dirname(__file__), '..', '..', 'data', csv_filename)
+            csv_path = os.path.join(os.path.dirname(__file__), '..', '..', 'data', 'teams', csv_filename)
             
             # Fallback to 2026 if the specified year's file doesn't exist
             if not os.path.exists(csv_path):
                 logger.warning(f"CSV file for year {year_to_load} not found, falling back to 2026")
-                csv_path = os.path.join(os.path.dirname(__file__), '..', '..', 'data', '2026-hoop-explorer-teams.csv')
+                csv_path = os.path.join(os.path.dirname(__file__), '..', '..', 'data', 'teams', '2026-hoop-explorer-teams.csv')
             
             analytics_map = {}
             with open(csv_path, 'r', encoding='utf-8-sig') as f:

@@ -10,7 +10,7 @@ def load_team_analytics():
         
         # Load all available years (2019-2026)
         for year in range(2019, 2027):
-            csv_path = os.path.join(BASE_DIR, "data", f"{year}-hoop-explorer-teams.csv")
+            csv_path = os.path.join(BASE_DIR, "data", "teams", f"{year}-hoop-explorer-teams.csv")
             if os.path.exists(csv_path):
                 df_year = pd.read_csv(csv_path, encoding='utf-8-sig')
                 df_year["year"] = year
@@ -40,7 +40,7 @@ def load_roster_info():
         
         # Load all available years (2019-2026)
         for year in range(2019, 2027):
-            csv_path = os.path.join(BASE_DIR, "data", f"{year}-roster-info.csv")
+            csv_path = os.path.join(BASE_DIR, "data", "players", f"{year}-roster-info.csv")
             if os.path.exists(csv_path):
                 df_year = pd.read_csv(csv_path)
                 df_year["Season"] = df_year["Season"].astype(str)
@@ -68,7 +68,7 @@ def load_roster_info():
 def load_historical_team_info():
     """Load static historical team information"""
     try:
-        csv = os.path.join(BASE_DIR, "data", "historical-team-info.csv")
+        csv = os.path.join(BASE_DIR, "data", "teams", "historical-team-info.csv")
         
         if not os.path.exists(csv):
             print(f"Warning: Historical team info file not found at {csv}")

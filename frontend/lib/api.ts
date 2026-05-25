@@ -144,7 +144,8 @@ export async function fetchPlayerRadar(id: string, year?: YearParam, preset?: st
 
 export async function fetchPlayerEvolution(
   id: string,
-  year?: YearParam
+  year?: YearParam,
+  metric?: string
 ) {
   const url = new URL(`${BASE_URL}/api/v1/players/${id}/evolution`);
 
@@ -152,6 +153,10 @@ export async function fetchPlayerEvolution(
   // If you want cross-era ALWAYS → comment this out
   if (year !== undefined && year !== null) {
     url.searchParams.append("year", String(year));
+  }
+
+  if (metric) {
+    url.searchParams.append("metric", metric);
   }
 
   const res = await fetch(url.toString());
@@ -223,6 +228,27 @@ export async function fetchAllTeams(year?: YearParam) {
 
   if (!res.ok) {
     throw new Error("Failed to fetch teams");
+  }
+
+  return res.json();
+}
+
+// -------------------------
+// PLAYER GAMES
+// -------------------------
+export async function fetchPlayerGames(id: string, year?: YearParam, limit: number = 5) {
+  const url = new URL(`${BASE_URL}/api/v1/players/${id}/games`);
+
+  if (year !== undefined && year !== null) {
+    url.searchParams.append("year", String(year));
+  }
+
+  url.searchParams.append("limit", String(limit));
+
+  const res = await fetch(url.toString());
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch player games");
   }
 
   return res.json();

@@ -14,9 +14,7 @@ export default function YearToggle({ availableYears = [], showCareer = true }: Y
 
   const handleYearChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
-    if (value === "latest") {
-      setYear(null);
-    } else if (value === "career") {
+    if (value === "career") {
       setYear("career");
     } else {
       setYear(parseInt(value));
@@ -26,11 +24,10 @@ export default function YearToggle({ availableYears = [], showCareer = true }: Y
   return (
     <div className="flex gap-2 mb-3 text-xs flex-wrap items-center">
       <select
-        value={year === null ? "latest" : year === "career" ? "career" : String(year)}
+        value={year === "career" ? "career" : String(year)}
         onChange={handleYearChange}
         className="px-2 py-1 border bg-white font-mono"
       >
-        <option value="latest">Latest</option>
         {showCareer && <option value="career">Career</option>}
         {availableYears.map((y) => (
           <option key={y} value={y}>
