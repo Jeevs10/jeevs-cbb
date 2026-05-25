@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 
 import {
   fetchPlayer,
@@ -28,6 +28,7 @@ import PlayerEvolutionPanel from "@/components/player/PlayerEvolutionPanel";
 import PlayerProgressionChart from "@/components/player/PlayerProgressionChart";
 import PlayerTimeline from "@/components/player/PlayerTimeline";
 import PlayerLocationPanel from "@/components/player/PlayerLocationPanel";
+import PlayerLatestGamesPanel from "@/components/player/PlayerLatestGamesPanel";
 import YearToggle from "@/components/ui/YearToggle";
 
 type Player = {
@@ -57,7 +58,8 @@ type Move = any;
 
 export default function PlayerPage() {
   const { id } = useParams();
-  const { year } = useYear();
+  const searchParams = useSearchParams();
+  const { year, setYear } = useYear();
 
   const [player, setPlayer] = useState<Player | null>(null);
   const [availableYears, setAvailableYears] = useState<number[]>([]);
@@ -67,8 +69,17 @@ export default function PlayerPage() {
   const [badges, setBadges] = useState<any[]>([]);
   const [similar, setSimilar] = useState<any>(null);
   const [evolution, setEvolution] = useState<any>(null);
+  const [evolutionMetric, setEvolutionMetric] = useState("rapm");
 
   const playerCode = player?.AthleteSourceId || String(player?.roster?.ncaa_id || '');
+
+  // Set year from URL query parameter on mount
+  useEffect(() => {
+    const yearParam = searchParams.get('year');
+    if (yearParam) {
+      setYear(parseInt(yearParam));
+    }
+  }, [searchParams, setYear]);
 
   // -------------------------
   // PLAYER
@@ -76,7 +87,7 @@ export default function PlayerPage() {
   useEffect(() => {
     if (!id) return;
 
-    fetchPlayer(id, year)
+    fetchPlayer(Array.isArray(id) ? id[0] : id, year)
       .then((data) => {
         setPlayer(data.player);
         setAvailableYears(data.available_years || []);
@@ -109,7 +120,7 @@ export default function PlayerPage() {
         fetchPlayerMoves(playerCode, year),
         fetchPlayerBadges(playerCode, year),
         fetchPlayerSimilar(playerCode, styleWeight, year),
-        fetchPlayerEvolution(playerCode, year),
+        fetchPlayerEvolution(playerCode, year, evolutionMetric),
       ])
         .then(
           ([
@@ -132,7 +143,7 @@ export default function PlayerPage() {
       setSimilar(null);
       setEvolution(null);
     }
-  }, [playerCode, year, styleWeight, player?.data_tier]);
+  }, [playerCode, year, styleWeight, player?.data_tier, evolutionMetric]);
 
   // -------------------------
   // LOADING STATE
@@ -214,6 +225,12 @@ export default function PlayerPage() {
 
       </div>
 
+      {/* LATEST 5 GAMES */}
+      <Panel>
+        <PanelHeader>LATEST 5 GAMES</PanelHeader>
+        <PlayerLatestGamesPanel playerId={playerCode} year={year ?? undefined} />
+      </Panel>
+
       {/* BADGES - Only for enriched data */}
       {player.data_tier === 'enriched' ? (
         <Panel>
@@ -254,7 +271,7 @@ export default function PlayerPage() {
       )}
 
       {/* SIMILAR PLAYERS - Only for enriched players */}
-      {player.data_tier === 'enriched' && (
+      {player.data_tier === 'enriched' ? (
         <Panel>
           <PanelHeader>SIMILAR PLAYERS</PanelHeader>
 
@@ -265,13 +282,32 @@ export default function PlayerPage() {
             setStyleWeight={setStyleWeight}
           />
         </Panel>
+      ) : (
+        <Panel>
+          <PanelHeader>SIMILAR PLAYERS</PanelHeader>
+          <div className="p-4 text-center text-gray-600">
+            <p className="text-sm mb-2">Similar players not available</p>
+            <p className="text-xs">Requires advanced analytics data</p>
+          </div>
+        </Panel>
       )}
 
-      {/* ✅ EVOLUTION (NEW) */}
-      <PlayerEvolutionPanel
-        data={evolution}
-        player={player}
-      />
+      {/* EVOLUTION - Only for enriched players */}
+      {player.data_tier === 'enriched' ? (
+        <PlayerEvolutionPanel
+          data={evolution}
+          player={player}
+          onMetricChange={setEvolutionMetric}
+        />
+      ) : (
+        <Panel>
+          <PanelHeader>EVOLUTION PATH</PanelHeader>
+          <div className="p-4 text-center text-gray-600">
+            <p className="text-sm mb-2">Evolution data not available</p>
+            <p className="text-xs">Requires advanced analytics data</p>
+          </div>
+        </Panel>
+      )}
 
       {/* ✅ PROGRESSION CHART (NEW) */}
       <PlayerProgressionChart

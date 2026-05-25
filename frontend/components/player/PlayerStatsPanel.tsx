@@ -66,6 +66,8 @@ export default function PlayerStatsPanel({ player }) {
           <StatBar label="SPG" value={stl_pg} max={3} />
           <StatBar label="BPG" value={blk_pg} max={3} />
           <StatBar label="BPM" value={safe(player.BPM)} max={15} />
+          <StatBar label="OBPM" value={safe(player.OBPM)} max={15} />
+          <StatBar label="DBPM" value={safe(player.DBPM)} max={15} />
           <StatBar label="VORP" value={safe(player.VORP)} max={15} />
           <StatBar label="GAMES" value={games} max={35} />
         </div>

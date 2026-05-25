@@ -2,12 +2,42 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export function Header() {
   const pathname = usePathname();
   const [playerDropdownOpen, setPlayerDropdownOpen] = useState(false);
   const [teamDropdownOpen, setTeamDropdownOpen] = useState(false);
+  const playerTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const teamTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handlePlayerMouseEnter = () => {
+    if (playerTimeoutRef.current) {
+      clearTimeout(playerTimeoutRef.current);
+      playerTimeoutRef.current = null;
+    }
+    setPlayerDropdownOpen(true);
+  };
+
+  const handlePlayerMouseLeave = () => {
+    playerTimeoutRef.current = setTimeout(() => {
+      setPlayerDropdownOpen(false);
+    }, 200);
+  };
+
+  const handleTeamMouseEnter = () => {
+    if (teamTimeoutRef.current) {
+      clearTimeout(teamTimeoutRef.current);
+      teamTimeoutRef.current = null;
+    }
+    setTeamDropdownOpen(true);
+  };
+
+  const handleTeamMouseLeave = () => {
+    teamTimeoutRef.current = setTimeout(() => {
+      setTeamDropdownOpen(false);
+    }, 200);
+  };
 
   return (
     <header className="border-b border-black bg-[#C7D0B8]">
@@ -30,10 +60,10 @@ export function Header() {
             </Link>
 
             {/* Player Dropdown */}
-            <div 
+            <div
               className="relative"
-              onMouseEnter={() => setPlayerDropdownOpen(true)}
-              onMouseLeave={() => setPlayerDropdownOpen(false)}
+              onMouseEnter={handlePlayerMouseEnter}
+              onMouseLeave={handlePlayerMouseLeave}
             >
               <button className="text-xs font-medium transition-colors hover:underline text-gray-600">
                 Player
@@ -63,10 +93,10 @@ export function Header() {
             </div>
 
             {/* Team Dropdown */}
-            <div 
+            <div
               className="relative"
-              onMouseEnter={() => setTeamDropdownOpen(true)}
-              onMouseLeave={() => setTeamDropdownOpen(false)}
+              onMouseEnter={handleTeamMouseEnter}
+              onMouseLeave={handleTeamMouseLeave}
             >
               <button className="text-xs font-medium transition-colors hover:underline text-gray-600">
                 Team

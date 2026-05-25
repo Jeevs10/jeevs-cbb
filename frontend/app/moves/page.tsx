@@ -281,7 +281,7 @@ export default function MovesPage() {
                 return (
                   <Link
                     key={`${move}-${playerId || index}`}
-                    href={`/player/${playerId}${year ? `?year=${year}` : ''}`}
+                    href={`/player/${playerId}?year=${player.year}`}
                     className={`grid gap-2 items-center border border-black p-2 bg-[#E7E8D1] hover:bg-[#dfe2c6] transition-colors ${year ? "grid-cols-9" : "grid-cols-10"}`}
                     style={{
                       animation: `fadeIn 0.3s ease-out ${index * 0.05}s both`

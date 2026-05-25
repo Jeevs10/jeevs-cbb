@@ -128,6 +128,7 @@ export default function AdvancedLeaderboard() {
             onSort={handleSort}
             loading={playersLoading}
             dataTier="enriched"
+            selectedYear={year === null ? null : (year === "career" ? "career" : String(year))}
           />
         )}
 

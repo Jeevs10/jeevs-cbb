@@ -8,3 +8,6 @@ backend/app/__pycache__/
 __pycache__/
 *.pyc
 .env
+
+# large data files
+backend/data/games/*.json
