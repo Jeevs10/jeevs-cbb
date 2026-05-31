@@ -3,15 +3,8 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { getCityCoordinates } from "@/lib/cityCoordinates";
+import { useEffect } from "react";
 import L from "leaflet";
-
-// Fix for default marker icon in Leaflet with React
-delete (L.Icon.Default.prototype as any)._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png",
-  iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
-  shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
-});
 
 interface TeamLocationMapProps {
   city?: string;
@@ -22,12 +15,24 @@ interface TeamLocationMapProps {
 export default function TeamLocationMap({ city, state, primaryColor = "#000000" }: TeamLocationMapProps) {
   const coordinates = city && state ? getCityCoordinates(city, state) : null;
 
+  useEffect(() => {
+    // Fix for default marker icon in Leaflet with React
+    if (typeof window !== "undefined") {
+      delete (L.Icon.Default.prototype as any)._getIconUrl;
+      L.Icon.Default.mergeOptions({
+        iconRetinaUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png",
+        iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
+        shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
+      });
+    }
+  }, []);
+
   if (!coordinates) {
     return null;
   }
 
-  // Create custom icon with team color
-  const customIcon = new L.Icon({
+  // Create custom icon with team color (only on client)
+  const customIcon = typeof window !== "undefined" ? new L.Icon({
     iconUrl: "data:image/svg+xml;base64," + btoa(`
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${primaryColor}" stroke="white" stroke-width="2">
         <circle cx="12" cy="12" r="8" />
@@ -37,7 +42,7 @@ export default function TeamLocationMap({ city, state, primaryColor = "#000000" 
     iconSize: [32, 32],
     iconAnchor: [16, 32],
     popupAnchor: [0, -32],
-  });
+  }) : undefined;
 
   return (
     <div className="w-full h-[400px] relative bg-[#e7e8d1] border-2 border-black">

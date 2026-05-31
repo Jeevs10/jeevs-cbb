@@ -38,7 +38,7 @@ def get_player_snapshot(ncaa_id: str, year: Union[int, str, None] = None):
         ncaa_id_float = float(ncaa_id)
     except (ValueError, TypeError):
         return None
-    
+
     player = df[df["player_key"] == str(ncaa_id)]
 
     if player.empty:
@@ -53,9 +53,23 @@ def get_player_snapshot(ncaa_id: str, year: Union[int, str, None] = None):
         filtered = player[player["year"] == year]
         if not filtered.empty:
             player = filtered
+        else:
+            # Player has no data for the requested year
+            return None
 
     player = player.sort_values("year")
-    return player.iloc[-1].to_dict()
+    snapshot = player.iloc[-1].to_dict()
+
+    # Ensure MPG is calculated for single-year snapshots
+    if "MPG" not in snapshot or pd.isna(snapshot.get("MPG")):
+        games = snapshot.get("Games", 1)
+        minutes = snapshot.get("Minutes", 0)
+        if games and games > 0:
+            snapshot["MPG"] = float(minutes) / float(games)
+        else:
+            snapshot["MPG"] = 0.0
+
+    return snapshot
 
 
 def get_player_all_time_percentiles(ncaa_id: str, year: Union[int, str, None] = None):

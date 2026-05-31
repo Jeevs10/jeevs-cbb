@@ -127,6 +127,60 @@ export function Header() {
             >
               Game
             </Link>
+
+            <Link
+              href="/projections/2027"
+              className={`text-xs font-medium transition-colors hover:underline ${
+                pathname === "/projections/2027" ? "text-black" : "text-gray-600"
+              }`}
+            >
+              2027 Projections
+            </Link>
+
+            <Link
+              href="/projections/leaderboard"
+              className={`text-xs font-medium transition-colors hover:underline ${
+                pathname === "/projections/leaderboard" ? "text-black" : "text-gray-600"
+              }`}
+            >
+              Projection Leaderboard
+            </Link>
+
+            <Link
+              href="/utilization"
+              className={`text-xs font-medium transition-colors hover:underline ${
+                pathname === "/utilization" ? "text-black" : "text-gray-600"
+              }`}
+            >
+              Utilization Analysis
+            </Link>
+
+            <Link
+              href="/archetype"
+              className={`text-xs font-medium transition-colors hover:underline ${
+                pathname === "/archetype" ? "text-black" : "text-gray-600"
+              }`}
+            >
+              Archetype Analysis
+            </Link>
+
+            <Link
+              href="/clusters"
+              className={`text-xs font-medium transition-colors hover:underline ${
+                pathname === "/clusters" ? "text-black" : "text-gray-600"
+              }`}
+            >
+              Cluster Analysis
+            </Link>
+
+            <Link
+              href="/team-clusters"
+              className={`text-xs font-medium transition-colors hover:underline ${
+                pathname === "/team-clusters" ? "text-black" : "text-gray-600"
+              }`}
+            >
+              Team Clusters
+            </Link>
           </nav>
         </div>
       </div>

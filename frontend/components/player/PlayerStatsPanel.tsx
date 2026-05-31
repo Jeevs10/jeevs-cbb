@@ -13,6 +13,14 @@ function perGame(value, games) {
   return safe(value) / g;
 }
 
+function calculateVORP(bpm, mpg, games) {
+  // VORP formula: [BPM - (-2.0)] * (% possessions) * (team games/33)
+  // % possessions = mpg / 40 (40 min per game)
+  const possessionsPct = safe(mpg) / 40.0;
+  const teamGames = safe(games) > 0 ? safe(games) : 33;
+  return (safe(bpm) - (-2.0)) * possessionsPct * (teamGames / 33.0);
+}
+
 export default function PlayerStatsPanel({ player }) {
   const [tab, setTab] = useState("overview");
 
@@ -31,6 +39,9 @@ export default function PlayerStatsPanel({ player }) {
   const drb_pg = isCareer ? safe(player.DRB_PG) : perGame(player["Rebounds Defensive"], games);
   const stl_pg = isCareer ? safe(player.SPG) : perGame(player.Steals, games);
   const blk_pg = isCareer ? safe(player.BPG) : perGame(player.Blocks, games);
+  
+  // Calculate VORP using the formula
+  const vorp = calculateVORP(player.BPM, min_pg, games);
 
   const TabButton = ({ id, label }) => (
     <button
@@ -66,9 +77,9 @@ export default function PlayerStatsPanel({ player }) {
           <StatBar label="SPG" value={stl_pg} max={3} />
           <StatBar label="BPG" value={blk_pg} max={3} />
           <StatBar label="BPM" value={safe(player.BPM)} max={15} />
+          <StatBar label="VORP" value={vorp} max={5} />
           <StatBar label="OBPM" value={safe(player.OBPM)} max={15} />
           <StatBar label="DBPM" value={safe(player.DBPM)} max={15} />
-          <StatBar label="VORP" value={safe(player.VORP)} max={15} />
           <StatBar label="GAMES" value={games} max={35} />
         </div>
       )}
@@ -80,7 +91,6 @@ export default function PlayerStatsPanel({ player }) {
           <StatBar label="DEF RTG" value={150 - player.def_rtg} max={100} />
           <StatBar label="NET RTG" value={player.NetRating} max={20} />
           <StatBar label="RAPM" value={player.adj_rapm_margin} max={10} />
-          <StatBar label="BPM" value={safe(player.BPM)} max={15} />
           <StatBar label="PROD" value={player.adj_prod_margin} max={10} />
         </div>
       )}
@@ -136,7 +146,6 @@ export default function PlayerStatsPanel({ player }) {
         <div className="space-y-2 text-black">
           <StatBar label="OFF RTG" value={player.OffensiveRating} max={130} />
           <StatBar label="NET RTG" value={player.NetRating} max={20} />
-          <StatBar label="BPM" value={safe(player.BPM)} max={15} />
           <StatBar label="USAGE" value={player.Usage} max={40} />
           <StatBar label="AST/TO" value={player.AssistsTurnoverRatio} max={5} />
           <StatBar label="PORPAG" value={player.PORPAG} max={5} />

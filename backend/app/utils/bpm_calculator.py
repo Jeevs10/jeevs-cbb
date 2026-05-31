@@ -233,18 +233,7 @@ class BPMCalculator:
         """
         df = df.copy()
         
-        if not self.is_trained:
-            # Fall back to heuristic if model not trained
-            return self._predict_heuristic_bpm(df)
-        
-        # Predict BPM for each player
-        bpm_values = []
-        for _, row in df.iterrows():
-            player_dict = row.to_dict()
-            bpm = self.predict_bpm(player_dict)
-            bpm_values.append(bpm)
-        
-        df['BPM'] = bpm_values
+        # BPM calculation disabled - returning DataFrame without BPM
         return df
     
     def calculate_vorp(self, df: pd.DataFrame) -> pd.DataFrame:
@@ -303,13 +292,7 @@ class BPMCalculator:
         """Fallback heuristic BPM prediction when model is not trained."""
         df = df.copy()
         
-        bpm_values = []
-        for _, row in df.iterrows():
-            player_dict = row.to_dict()
-            bpm = self._calculate_heuristic_bpm(player_dict)
-            bpm_values.append(bpm)
-        
-        df['BPM'] = bpm_values
+        # BPM calculation disabled - returning DataFrame without BPM
         return df
     
     def _calculate_heuristic_bpm(self, player_stats: Dict[str, Any]) -> Optional[float]:

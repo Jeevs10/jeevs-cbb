@@ -13,6 +13,7 @@ import TeamLocationPanel from "@/components/team/TeamLocationPanel";
 import TeamStylePanel from "@/components/team/TeamStylePanel";
 import TeamMatchupsPanel from "@/components/team/TeamMatchupsPanel";
 import TeamSimilarPanel from "@/components/team/TeamSimilarPanel";
+import TeamNilPanel from "@/components/team/TeamNilPanel";
 
 export default function TeamPage() {
   const { id } = useParams();
@@ -153,6 +154,11 @@ export default function TeamPage() {
             <TeamSimilarPanel currentTeam={team} styleWeight={styleWeight} setStyleWeight={setStyleWeight} />
           </div>
         )}
+
+        {/* NIL VALUATIONS - Full width at bottom */}
+        <div className="md:col-span-2">
+          <TeamNilPanel teamId={id as string} year={year} />
+        </div>
       </div>
     </div>
   );

@@ -26,7 +26,7 @@ PCT_COLS = [
 ]
 
 # Sortable columns set
-SORTABLE_COLUMNS = set(df.columns) | {"PPG", "APG", "RPG", "SPG", "BPG", "MPG", "BPM"}
+SORTABLE_COLUMNS = set(df.columns) | {"PPG", "APG", "RPG", "SPG", "BPG", "MPG"}
 
 class PlayerService:
     """Service layer for player-related operations."""
@@ -47,7 +47,7 @@ class PlayerService:
             total_filtered = len(data)
 
             # Check if sorting by a derived stat - if so, calculate it before sorting
-            derived_stats = ["PPG", "APG", "RPG", "SPG", "BPG", "MPG", "BPM"]
+            derived_stats = ["PPG", "APG", "RPG", "SPG", "BPG", "MPG"]
             if params.sort in derived_stats:
                 # Only clean and calculate the specific derived stat needed for sorting
                 data = PlayerService._clean_numeric_data(data)
@@ -223,30 +223,14 @@ class PlayerService:
         if new_columns:
             data = data.assign(**new_columns)
         
-        # BPM is now pre-calculated and stored in the CSV file
-        # No runtime calculation needed for performance
+        # BPM calculation disabled
         
         return data
     
     @staticmethod
     def _calculate_bpm(data: pd.DataFrame) -> pd.DataFrame:
         """Calculate BPM for all players in the DataFrame using ridge regression."""
-        try:
-            # Try to load trained model
-            calculator = get_bpm_calculator()
-            model_path = os.path.join(os.path.dirname(__file__), '..', 'models', 'bpm_model.joblib')
-            
-            if os.path.exists(model_path) and not calculator.is_trained:
-                calculator.load_model(model_path)
-                logger.info(f"Loaded trained BPM model from {model_path}")
-            
-            # Calculate BPM using the BPMCalculator utility
-            data = calculator.predict_bpm_for_dataframe(data)
-            logger.info(f"Calculated BPM for {len(data)} players")
-        except Exception as e:
-            logger.error(f"Error calculating BPM: {str(e)}")
-            # Add BPM column with None values if calculation fails
-            data['BPM'] = None
+        # BPM calculation disabled
         return data
     
     @staticmethod
@@ -324,67 +308,15 @@ class PlayerService:
             high_major_conferences = ["Big 12", "Big Ten", "Big 10", "B1G", "SEC", "ACC", "Big East"]
             data = data[data["conf"].isin(high_major_conferences)]
         
-        # Search filter
+        # Search filter - simple contains matching
         if params.search and params.search.strip():
             q = params.search.strip().lower()
             
-            # Remove commas and extra spaces
-            q_clean = q.replace(',', ' ').strip()
-            
-            # Split into parts for name matching
-            parts = [p for p in q_clean.split() if p]
-            
-            # Use pre-computed lowercase columns for efficient search
+            # Simple contains search on player name
             if '_player_name_lc' in data.columns:
-                # Try exact match first
-                mask = (
-                    data["_player_name_lc"].str.contains(q_clean, na=False) |
-                    data["_team_lc"].str.contains(q_clean, na=False) |
-                    data["_ncaa_id_lc"].str.contains(q_clean, na=False)
-                )
-                
-                # If no results and we have name parts, try different orderings
-                if not mask.any() and len(parts) >= 2:
-                    # Try "Last First" format (database format)
-                    last_first = f"{parts[-1]} {parts[0]}"
-                    mask = (
-                        data["_player_name_lc"].str.contains(last_first, na=False) |
-                        data["_player_name_lc"].str.contains(q_clean, na=False)
-                    )
-                    
-                    # Try matching individual parts
-                    if not mask.any():
-                        part_masks = []
-                        for part in parts:
-                            part_masks.append(data["_player_name_lc"].str.contains(part, na=False))
-                        mask = part_masks[0]
-                        for part_mask in part_masks[1:]:
-                            mask = mask & part_mask
+                mask = data["_player_name_lc"].str.contains(q, na=False)
             else:
-                # Fallback: compute lowercase on the fly
-                mask = (
-                    data["player_name"].str.lower().str.contains(q_clean, na=False) |
-                    data["team"].str.lower().str.contains(q_clean, na=False) |
-                    data["player_key"].str.lower().str.contains(q_clean, na=False)
-                )
-                
-                # If no results and we have name parts, try different orderings
-                if not mask.any() and len(parts) >= 2:
-                    # Try "Last First" format (database format)
-                    last_first = f"{parts[-1]} {parts[0]}"
-                    mask = (
-                        data["player_name"].str.lower().str.contains(last_first, na=False) |
-                        data["player_name"].str.lower().str.contains(q_clean, na=False)
-                    )
-                    
-                    # Try matching individual parts
-                    if not mask.any():
-                        part_masks = []
-                        for part in parts:
-                            part_masks.append(data["player_name"].str.lower().str.contains(part, na=False))
-                        mask = part_masks[0]
-                        for part_mask in part_masks[1:]:
-                            mask = mask & part_mask
+                mask = data["player_name"].str.lower().str.contains(q, na=False)
             
             data = data[mask]
         

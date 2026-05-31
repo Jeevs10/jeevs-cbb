@@ -4,6 +4,7 @@ import json
 import os
 import pandas as pd
 import numpy as np
+from pathlib import Path
 
 from app.services.player_service import PlayerService
 from app.models.schemas import PlayerQueryParams, PlayerListResponse, PlayerResponse
@@ -48,9 +49,31 @@ def get_players(
     except ValueError as e:
         logger.warning(f"Validation error in players endpoint: {str(e)}")
         raise HTTPException(status_code=400, detail=str(e))
+
+@router.get("/projections/2027")
+def get_2027_projections():
+    """Get 2027 BPM projections."""
+    try:
+        projections_path = Path(__file__).parent.parent.parent / "data" / "bpm_projections_2027.csv"
+        
+        if not projections_path.exists():
+            raise HTTPException(status_code=404, detail="Projections file not found")
+        
+        df = pd.read_csv(projections_path)
+        
+        # Replace NaN values with None for JSON compatibility
+        df = df.replace({float('nan'): None})
+        
+        # Convert to list of dicts
+        projections = df.to_dict(orient="records")
+        
+        return projections
+        
+    except HTTPException:
+        raise
     except Exception as e:
-        logger.error(f"Unexpected error in players endpoint: {str(e)}")
-        raise HTTPException(status_code=500, detail="Internal server error")
+        logger.error(f"Error loading projections: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 @router.get("/players/{ncaa_id}", response_model=PlayerResponse)
@@ -82,14 +105,14 @@ def get_player_games(
     try:
         # Use year from query param or default to 2026
         year_to_load = year if year else "2026"
-        
+
         # Load game data file
         base_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
         game_data_file = os.path.join(base_dir, "data", "games", f"{year_to_load}_player_game_data.json")
-        
+
         if not os.path.exists(game_data_file):
             raise HTTPException(status_code=404, detail=f"Game data not found for year {year_to_load}")
-        
+
         # Check cache first (historical data, no expiration)
         if year_to_load in _game_data_cache:
             game_data = _game_data_cache[year_to_load]
@@ -97,10 +120,10 @@ def get_player_games(
             with open(game_data_file, 'r', encoding='utf-8') as f:
                 game_data = json.load(f)
             _game_data_cache[year_to_load] = game_data
-        
+
         # Filter games for this player (by ncaa_id)
         player_games = [game for game in game_data if game.get('ncaa_id') == ncaa_id]
-        
+
         if not player_games:
             # Check which years have data for this player
             available_years = []
@@ -114,28 +137,196 @@ def get_player_games(
                             available_years.append(check_year)
                     except:
                         pass
-            
+
             if available_years:
                 raise HTTPException(
-                    status_code=404, 
+                    status_code=404,
                     detail=f"No games found for player {ncaa_id} in year {year_to_load}. Available years: {available_years}"
                 )
             else:
                 raise HTTPException(status_code=404, detail="No games found for this player")
-        
+
         # Sort by date (numdate) descending and take the most recent
         player_games.sort(key=lambda x: x.get('numdate', ''), reverse=True)
         recent_games = player_games[:limit]
-        
+
         return {
             "player_id": ncaa_id,
             "year": year_to_load,
             "total_games": len(player_games),
             "games": recent_games
         }
-        
+
     except HTTPException:
         raise
     except Exception as e:
         logger.error(f"Unexpected error in player games endpoint: {str(e)}")
+        raise HTTPException(status_code=500, detail="Internal server error")
+
+
+@router.get("/players/{ncaa_id}/historical-bpm")
+def get_player_historical_bpm(ncaa_id: str):
+    """Get a player's historical BPM data across all available years."""
+    try:
+        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+        historical_bpm = []
+
+        # Check each year from 2019 to 2026
+        for year in range(2019, 2027):
+            players_file = os.path.join(base_dir, "data", "players", f"{year}-players_basic.csv")
+            if not os.path.exists(players_file):
+                continue
+
+            try:
+                df = pd.read_csv(players_file)
+                # Try to find player by AthleteSourceId or AthleteId
+                player_row = df[
+                    (df['AthleteSourceId'].astype(str) == str(ncaa_id)) |
+                    (df['AthleteId'].astype(str) == str(ncaa_id))
+                ]
+
+                if not player_row.empty:
+                    player_data = player_row.iloc[0]
+                    historical_bpm.append({
+                        'year': year,
+                        'BPM': player_data.get('BPM'),
+                        'Name': player_data.get('Name'),
+                        'Team': player_data.get('Team')
+                    })
+            except Exception as e:
+                logger.warning(f"Error reading {year} player data: {e}")
+                continue
+
+        if not historical_bpm:
+            raise HTTPException(status_code=404, detail="No historical BPM data found for this player")
+
+        # Sort by year
+        historical_bpm.sort(key=lambda x: x['year'])
+
+        return {
+            "player_id": ncaa_id,
+            "historical_bpm": historical_bpm
+        }
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Unexpected error in historical BPM endpoint: {str(e)}")
+        raise HTTPException(status_code=500, detail="Internal server error")
+
+
+@router.get("/clusters/{cluster_id}/bpm-distribution")
+def get_cluster_bpm_distribution(cluster_id: int):
+    """Get BPM distribution for a specific cluster."""
+    try:
+        from app.services.projection_service import get_projection_service
+
+        service = get_projection_service()
+        service._ensure_data_loaded()
+        
+        if service._clusters_df is None:
+            raise HTTPException(status_code=404, detail="Cluster data not loaded")
+        
+        # Get cluster description from cluster_descriptions.json
+        cluster_desc_data = service._cluster_descriptions.get(str(cluster_id))
+        
+        if cluster_desc_data is None:
+            raise HTTPException(status_code=404, detail="Cluster not found")
+        
+        avg_bpm = cluster_desc_data.get('avg_bpm', 0)
+        count = cluster_desc_data.get('count', 0)
+        
+        if service._players_df is None:
+            raise HTTPException(status_code=404, detail="Player data not loaded")
+        
+        # Get players in this cluster from clusters data
+        # Convert cluster_id to match the type in the dataframe
+        cluster_players = service._clusters_df[
+            service._clusters_df['cluster'].astype(str) == str(cluster_id)
+        ][['AthleteSourceId']].copy()
+        
+        logger.info(f"Found {len(cluster_players)} players in cluster {cluster_id}")
+        logger.info(f"Cluster players sample: {cluster_players.head() if len(cluster_players) > 0 else 'empty'}")
+        
+        # Normalize player IDs
+        cluster_player_ids = set()
+        for _, row in cluster_players.iterrows():
+            athlete_source_id = str(row.get('AthleteSourceId', ''))
+            athlete_source_id = athlete_source_id.replace('.0', '')
+            if athlete_source_id and athlete_source_id != 'nan':
+                cluster_player_ids.add(athlete_source_id)
+        
+        logger.info(f"Normalized {len(cluster_player_ids)} player IDs from cluster")
+        
+        # Filter 2026 players for those in this cluster
+        # Use torvik data which has BPM column
+        torvik_path = Path(__file__).parent.parent.parent / "data" / "players" / "2026_torvik.csv"
+        logger.info(f"Looking for torvik data at: {torvik_path}")
+        if torvik_path.exists():
+            logger.info("Loading torvik data")
+            torvik_df = pd.read_csv(torvik_path)
+            logger.info(f"Torvik data loaded with {len(torvik_df)} rows")
+            logger.info(f"Torvik columns: {list(torvik_df.columns)}")
+            current_2026_players = torvik_df[
+                (torvik_df['AthleteSourceId'].astype(str).isin(cluster_player_ids))
+            ].copy()
+            logger.info(f"Filtered to {len(current_2026_players)} players from torvik")
+        else:
+            logger.warning("Torvik data not found, using fallback")
+            # Fallback to players_df if torvik not available
+            current_2026_players = service._players_df[
+                (service._players_df['Season'] == 2026) &
+                (service._players_df['AthleteSourceId'].astype(str).isin(cluster_player_ids))
+            ].copy()
+        
+        # Extract BPM values (column is lowercase 'bpm' in torvik data)
+        logger.info(f"Current 2026 players columns: {list(current_2026_players.columns)}")
+        bpm_column = 'bpm' if 'bpm' in current_2026_players.columns else 'BPM'
+        logger.info(f"Using BPM column: {bpm_column}")
+        bpm_values = current_2026_players[bpm_column].dropna().tolist()
+        
+        logger.info(f"Found {len(bpm_values)} BPM values for cluster {cluster_id}")
+        
+        if len(bpm_values) == 0:
+            # Fallback to simulated distribution if no current data
+            try:
+                std_dev = 5.0 / np.sqrt(count) if count > 0 else 2.0
+                distribution = np.random.normal(avg_bpm, std_dev, 100).tolist()
+            except Exception as e:
+                logger.error(f"Error generating fallback distribution: {e}")
+                distribution = [avg_bpm] * 100
+        else:
+            distribution = bpm_values
+
+        try:
+            percentiles = {
+                "p25": float(np.percentile(distribution, 25)),
+                "p50": float(np.percentile(distribution, 50)),
+                "p75": float(np.percentile(distribution, 75)),
+                "p90": float(np.percentile(distribution, 90)),
+                "p10": float(np.percentile(distribution, 10)),
+            }
+        except Exception as e:
+            logger.error(f"Error calculating percentiles: {e}")
+            percentiles = {
+                "p25": 0,
+                "p50": 0,
+                "p75": 0,
+                "p90": 0,
+                "p10": 0,
+            }
+
+        return {
+            "cluster_id": cluster_id,
+            "avg_bpm": avg_bpm,
+            "count": count,
+            "distribution": sorted(distribution),
+            "percentiles": percentiles,
+            "sample_size": len(distribution)
+        }
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Unexpected error in cluster BPM distribution endpoint: {str(e)}")
         raise HTTPException(status_code=500, detail="Internal server error")

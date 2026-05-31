@@ -39,11 +39,11 @@ export interface Player {
   RPG?: number;
   SPG?: number;
   BPG?: number;
+  MPG?: number;
+  // BPM values from Torvik
   BPM?: number;
   OBPM?: number;
   DBPM?: number;
-  VORP?: number;
-  MPG?: number;
 }
 
 export interface PlayerStats {

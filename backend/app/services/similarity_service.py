@@ -171,7 +171,7 @@ def get_vector(year_map, year=None):
 # MAIN SIMILARITY
 # -------------------------
 
-def get_similar_players(ncaa_id, year=None, top_k=10, style_weight=0.7):
+def get_similar_players(ncaa_id, year=None, top_k=10, style_weight=0.7, require_yoy_data=False):
 
     if ncaa_id not in PLAYER_VECTORS:
         return {"style": [], "impact": [], "combined": []}
@@ -194,6 +194,10 @@ def get_similar_players(ncaa_id, year=None, top_k=10, style_weight=0.7):
 
     for ncaa_id_check, year_map in PLAYER_VECTORS.items():
         if ncaa_id_check == ncaa_id:
+            continue
+
+        # Filter for players with year-over-year data if requested
+        if require_yoy_data and len(year_map) < 2:
             continue
 
         vec, used_label = get_vector(year_map, year)

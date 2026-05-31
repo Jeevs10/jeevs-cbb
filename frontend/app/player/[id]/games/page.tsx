@@ -42,8 +42,6 @@ interface GameData {
   DRB_per: number;
   TO_per: number;
   TS_per: number;
-  Obpm: number;
-  Dbpm: number;
   bpm_rd: number;
   bpm_net: number;
   sbpm: number;
@@ -91,8 +89,6 @@ const statOptions: StatOption[] = [
   { key: "Usage", label: "Usage%", formatter: (v) => v?.toFixed(1) + "%" || "-" },
   { key: "eFG", label: "eFG%", formatter: (v) => v?.toFixed(1) + "%" || "-" },
   { key: "TS_per", label: "TS%", formatter: (v) => v?.toFixed(1) + "%" || "-" },
-  { key: "Obpm", label: "OBPM", formatter: (v) => v?.toFixed(1) || "-" },
-  { key: "Dbpm", label: "DBPM", formatter: (v) => v?.toFixed(1) || "-" },
   { key: "bpm_rd", label: "BPM-RD", formatter: (v) => v?.toFixed(1) || "-" },
   { key: "bpm_net", label: "BPM-Net", formatter: (v) => v?.toFixed(1) || "-" },
   { key: "sbpm", label: "SBPM", formatter: (v) => v?.toFixed(1) || "-" },

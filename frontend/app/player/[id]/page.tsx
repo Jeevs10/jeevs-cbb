@@ -48,13 +48,11 @@ type Player = {
   Weight?: number;
   Height?: string;
   Position?: string;
+  BPM?: number;
 };
 
 type PlayerRadar = any;
 type Badge = { level: string; name: string };
-type SimilarPlayer = any;
-type Evolution = any;
-type Move = any;
 
 export default function PlayerPage() {
   const { id } = useParams();
