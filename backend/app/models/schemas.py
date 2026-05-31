@@ -61,6 +61,8 @@ class Player(PlayerBase):
     SPG: Optional[float] = None
     BPG: Optional[float] = None
     BPM: Optional[float] = None
+    OBPM: Optional[float] = None
+    DBPM: Optional[float] = None
     VORP: Optional[float] = None
     MPG: Optional[float] = None
     # Shooting and usage fields
@@ -197,8 +199,102 @@ class TeamResponse(BaseResponse):
     team: Team
     available_years: List[int]
 
+# NIL valuation models
+class NilBreakdown(BaseModel):
+    position_rank: Optional[float] = None
+    win_shares: Optional[float] = None
+    bpm_percentile: Optional[float] = None
+    team_success: Optional[float] = None
+    conference_prestige: Optional[float] = None
+    cluster_quality: Optional[float] = None
+    total_score: Optional[float] = None
+
+class NilValuation(BaseModel):
+    ncaa_id: str
+    player_name: str
+    team: str
+    position: str
+    year: str
+    nil_score: Optional[float] = None
+    estimated_value_low: Optional[float] = None
+    estimated_value_high: Optional[float] = None
+    percentile_all: Optional[float] = None
+    percentile_position: Optional[float] = None
+    cluster_id: Optional[Union[int, str]] = None
+    cluster_description: Optional[str] = None
+    breakdown: Optional[NilBreakdown] = None
+
+class NilValuationResponse(BaseResponse):
+    valuation: NilValuation
+
+class TeamNilResponse(BaseResponse):
+    team_id: str
+    team_name: str
+    year: str
+    total_team_value: Optional[float] = None
+    valuations: List[NilValuation]
+
+class NilListResponse(BaseResponse):
+    count: int
+    filtered_count: int
+    results: List[NilValuation]
+
 # Health check model
 class HealthResponse(BaseModel):
     status: str
     version: str
     timestamp: str
+
+# Projection models
+class ClusterDescription(BaseModel):
+    cluster_id: int
+    name: Optional[str] = None
+    count: int
+    avg_height: float
+    avg_usage: float
+    avg_rim_freq: float
+    avg_3pt_pct: float
+    avg_bpm: float
+    top_players: List[Dict[str, Any]]
+
+class ProjectionYear(BaseModel):
+    year: int
+    projected_bpm: Optional[float] = None
+    bpm_change: Optional[float] = None
+    confidence_interval: Optional[List[float]] = None
+    percentile_rank: Optional[float] = None
+    sample_size: Optional[int] = None
+    error: Optional[str] = None
+
+class SimilarPlayer(BaseModel):
+    player_key: str
+    player_name: str
+    year_from: Optional[int] = None
+    year_to: Optional[int] = None
+    bpm_change: Optional[float] = None
+    similarity: float
+    career_bpm: Optional[List[Dict[str, Any]]] = None
+
+class ClusterTransition(BaseModel):
+    cluster_id: int
+    probability: float
+    name: Optional[str] = None
+    avg_bpm: float
+    avg_usage: float
+    avg_height: float
+
+class ClusterTransitions(BaseModel):
+    current_cluster_id: int
+    stay_probability: float
+    destinations: List[ClusterTransition]
+
+class ProjectionResponse(BaseResponse):
+    player_id: str
+    current_year: int
+    cluster_id: int
+    cluster_description: Optional[ClusterDescription] = None
+    historical_samples: int
+    projections: List[ProjectionYear]
+    similar_players: List[SimilarPlayer]
+    cluster_transitions: Optional[ClusterTransitions] = None
+    methodology: str

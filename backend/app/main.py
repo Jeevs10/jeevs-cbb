@@ -17,6 +17,9 @@ from app.api.years import router as years_router
 from app.api.evolution import router as evolution_router
 from app.api.history import router as history_router
 from app.api.game import router as game_router
+from app.api.utilization import router as utilization_router
+from app.api.nil import router as nil_router
+from app.api.projections import router as projections_router
 
 # Cache
 from app.cache.player_vectors import build_cache
@@ -32,12 +35,13 @@ async def lifespan(app: FastAPI):
     # 🚀 startup
     build_cache()
     print("✅ Player vector cache built")
-    
-    # Load player graph
-    from app.core.player_graph import player_graph
-    player_graph.load_from_roster_data()
-    print("✅ Player graph loaded")
-    
+
+    # Temporarily disabled player graph loading due to performance issues
+    # from app.core.player_graph import player_graph
+    # player_graph.load_from_roster_data()
+    # print("✅ Player graph loaded")
+    print("⚠️  Player graph disabled (performance)")
+
     print(f"🚀 Server starting on {settings.host}:{settings.port}")
 
     yield
@@ -88,6 +92,9 @@ app.include_router(years_router, prefix="/api/v1", tags=["years"])
 app.include_router(evolution_router, prefix="/api/v1", tags=["evolution"])
 app.include_router(history_router, prefix="/api/v1", tags=["history"])
 app.include_router(game_router, prefix="/api/v1", tags=["game"])
+app.include_router(utilization_router, prefix="/api/v1", tags=["utilization"])
+app.include_router(nil_router, prefix="/api/v1", tags=["nil"])
+app.include_router(projections_router, prefix="/api/v1", tags=["projections"])
 
 # -------------------------
 # HEALTH CHECK

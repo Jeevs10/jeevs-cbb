@@ -1,0 +1,118 @@
+{
+  "top_20_average": {
+    "PG": {
+      "percentage": 0.03402777777777778,
+      "count": 0.3
+    },
+    "CG": {
+      "percentage": 0.1423611111111111,
+      "count": 1.2
+    },
+    "WG": {
+      "percentage": 0.23125,
+      "count": 1.95
+    },
+    "s-PG": {
+      "percentage": 0.12013888888888888,
+      "count": 1.0
+    },
+    "WF": {
+      "percentage": 0.1326388888888889,
+      "count": 1.1
+    },
+    "S-PF": {
+      "percentage": 0.07222222222222222,
+      "count": 0.6
+    },
+    "PF/C": {
+      "percentage": 0.12569444444444447,
+      "count": 1.05
+    },
+    "C": {
+      "percentage": 0.14166666666666666,
+      "count": 1.2
+    }
+  },
+  "optimal_ranges": {
+    "PG": {
+      "count_min": 0.0,
+      "count_max": 0.25,
+      "pct_min": 0.0,
+      "pct_max": 0.027777777777777776
+    },
+    "CG": {
+      "count_min": 0.0,
+      "count_max": 2.0,
+      "pct_min": 0.0,
+      "pct_max": 0.25
+    },
+    "WG": {
+      "count_min": 1.0,
+      "count_max": 3.0,
+      "pct_min": 0.125,
+      "pct_max": 0.34375
+    },
+    "s-PG": {
+      "count_min": 0.0,
+      "count_max": 2.0,
+      "pct_min": 0.0,
+      "pct_max": 0.2222222222222222
+    },
+    "WF": {
+      "count_min": 0.75,
+      "count_max": 1.25,
+      "pct_min": 0.08333333333333333,
+      "pct_max": 0.14930555555555555
+    },
+    "S-PF": {
+      "count_min": 0.0,
+      "count_max": 1.0,
+      "pct_min": 0.0,
+      "pct_max": 0.125
+    },
+    "PF/C": {
+      "count_min": 0.75,
+      "count_max": 2.0,
+      "pct_min": 0.08333333333333333,
+      "pct_max": 0.2222222222222222
+    },
+    "C": {
+      "count_min": 0.0,
+      "count_max": 2.0,
+      "pct_min": 0.0,
+      "pct_max": 0.22916666666666666
+    }
+  },
+  "templates": {
+    "balanced": {
+      "PG": 1,
+      "CG": 1,
+      "WG": 2,
+      "s-PG": 0,
+      "WF": 2,
+      "S-PF": 0,
+      "PF/C": 1,
+      "C": 1
+    },
+    "guard_heavy": {
+      "PG": 1,
+      "CG": 2,
+      "WG": 2,
+      "s-PG": 1,
+      "WF": 0,
+      "S-PF": 0,
+      "PF/C": 1,
+      "C": 1
+    },
+    "big_heavy": {
+      "PG": 1,
+      "CG": 0,
+      "WG": 1,
+      "s-PG": 0,
+      "WF": 2,
+      "S-PF": 1,
+      "PF/C": 2,
+      "C": 2
+    }
+  }
+}

@@ -1,0 +1,3433 @@
+Name,Team,cluster,BPM,Height,Usage,AthleteSourceId
+Elijah Elliott,New Mexico St.,1,-0.973155,73.0,26.7,4897978.0
+Rahmir Moore,Delaware St.,1,-4.84786,74.0,18.4,4592477.0
+Alex Hemenway,Evansville,10,-4.47401,76.0,14.3,4433001.0
+Addison Patterson,Eastern Michigan,2,1.91902,79.0,23.5,4592404.0
+Rienk Mast,Nebraska,3,5.41459,82.0,25.8,4592677.0
+Rick Issanza,Loyola Marymount,0,2.51871,85.0,10.2,4592217.0
+Steele Venters,Gonzaga,12,3.56885,79.0,15.2,4592579.0
+Micah Thomas,Northwestern St.,1,-3.82742,72.0,30.2,4897467.0
+Rashaun Agee,Texas A&M,2,8.55532,79.0,25.1,4593815.0
+Tyler Cochran,Rhode Island,6,4.71462,74.0,26.4,4431930.0
+Curt Lewis,Southern Miss,10,-0.947812,77.0,11.0,4593474.0
+Chase Johnston,High Point,12,3.05094,75.0,14.1,4612709.0
+Devan Cambridge,UCF,15,5.68773,78.0,15.1,4567588.0
+Gianni Hunt,East Texas A&M,9,0.079087,76.0,22.5,4431815.0
+Morgan Safford,Kent St.,3,1.28611,77.0,20.1,4593739.0
+Matt Van Komen,Marshall,0,3.48376,88.0,17.2,4432858.0
+Jordan Brinson,Cal St. Northridge,10,-1.43861,74.0,9.7,4432899.0
+Hosana Kitenge,UC Santa Barbara,15,0.476024,80.0,22.6,4593883.0
+Tariq Ingraham,Memphis,8,-2.09618,81.0,17.7,4431995.0
+Josh Ogundele,Hampton,15,-1.39476,84.0,20.5,4433231.0
+Jahari Long,George Mason,11,1.62939,77.0,19.3,4433512.0
+Javon Cooley,Pepperdine,3,-1.66541,77.0,19.1,4703833.0
+Toneari Lane,San Diego,14,-1.11228,77.0,16.7,4702226.0
+Trae Broadnax,Rice,9,1.82259,76.0,26.9,4702522.0
+Jeremiah Williams,Georgetown,5,-0.294465,76.0,20.3,4701222.0
+Keishon Porter,Evansville,7,-7.20913,77.0,22.8,4702212.0
+Alec Oglesby,Middle Tennessee,14,0.288729,77.0,14.9,4702696.0
+Tegra Izay,Southern Miss,0,1.58165,84.0,12.8,4700971.0
+Latrell Wrightsell Jr.,Alabama,11,5.6801,75.0,19.6,4702484.0
+Isaiah Cottrell,Southern Utah,7,-1.82305,83.0,19.5,4432201.0
+Nijel Pack,Oklahoma,11,5.24879,70.0,24.0,4576062.0
+Andre Henry,UC Irvine,11,0.0829699,76.0,19.3,4702629.0
+Josh Taylor,East Texas A&M,15,-2.48272,80.0,17.9,4702889.0
+Chad Baker-Mazara,USC,11,5.57082,79.0,27.6,4700877.0
+Dante Harris,Tennessee St.,5,-2.61408,72.0,21.0,4596531.0
+Jay Rodgers,Central Connecticut,9,-5.59208,75.0,25.8,4703644.0
+Jalen Speer,Marshall,1,-0.999383,73.0,26.1,4704015.0
+DA Houston,Texas A&M Corpus Chris,5,-3.15253,74.0,26.2,4585602.0
+Tyon Grant-Foster,Gonzaga,2,4.37395,79.0,26.0,4700527.0
+Vukasin Masic,San Francisco,17,-3.73534,77.0,15.5,4702764.0
+Yame Butler,Butler,11,0.718091,77.0,16.3,4700880.0
+Anthony Roy,Oklahoma St.,11,3.20023,77.0,23.3,4701189.0
+Graham Ike,Gonzaga,2,7.90046,81.0,26.5,4703396.0
+Quincy Ballard,Mississippi St.,13,2.4721,84.0,15.1,4683134.0
+Freddy Hicks,Tarleton St.,7,-0.429623,78.0,19.8,4705373.0
+John Shanu II,Eastern Michigan,16,-4.82184,83.0,8.3,4703097.0
+Devin Askew,Villanova,11,4.57486,77.0,21.4,4702467.0
+Brycen Long,Portland St.,10,-2.79095,74.0,14.8,4586322.0
+Markhi Strickland,North Dakota St.,8,-1.31336,78.0,21.8,4432494.0
+Yacine Toumi,Hawaii,8,-0.905133,82.0,21.5,4702598.0
+Melvyn Ebonkoli,NJIT,16,-4.88264,80.0,17.8,4703977.0
+Skylar Wicks,Saint Francis,3,-2.48087,78.0,29.5,4703980.0
+Kaden Metheny,Liberty,11,0.849835,71.0,19.4,4703572.0
+Zion Bethea,Delaware St.,4,-8.88402,75.0,22.1,4433577.0
+David Green,Tulsa,3,3.43292,79.0,25.3,5174623.0
+Joey Madimba,Prairie View A&M,3,-2.91934,77.0,21.5,4705371.0
+Tramon Mark,Texas,11,5.47996,77.0,22.1,4432243.0
+Jadon Jones,Oklahoma,12,8.19287,77.0,12.8,4611534.0
+Joshua O'Garro,Cal St. Northridge,3,1.22978,78.0,21.6,4684167.0
+Cam'Ron Fletcher,High Point,2,2.18997,79.0,23.5,4432182.0
+Nate Heise,Iowa St.,12,6.05275,77.0,11.5,4703912.0
+Niko Rocak,UC Davis,2,4.93197,81.0,20.3,4702596.0
+John Hugley IV,Duquesne,3,-1.47026,82.0,25.5,4432897.0
+Myles Wilmoth,Canisius,7,-2.93179,82.0,17.6,4433560.0
+Kyndall Davis,Texas St.,6,-0.2678,77.0,15.7,4703205.0
+Brandon Noel,Ohio St.,13,4.45269,80.0,16.9,4702994.0
+Alex Huibregtse,Bradley,12,1.7484,75.0,17.5,4702993.0
+Xavier Lipscomb,Mount St. Mary's,11,0.509197,74.0,17.3,4702218.0
+Isaiah Wilson,Winthrop,4,-5.1199,73.0,14.7,4700973.0
+Sam Towns,Bowling Green,3,0.546015,81.0,19.5,4703531.0
+Jacob Crews,Missouri,12,2.78448,80.0,15.6,4432515.0
+Te'Jon Sawyer,Montana,15,-0.0540632,80.0,18.5,4702042.0
+Jeremiah Oden,San Diego St.,12,0.977521,80.0,15.7,4703399.0
+Kasen Jennings,Appalachian St.,1,-0.348495,75.0,25.1,4700841.0
+Jaron Pierre Jr.,SMU,11,2.46021,78.0,23.3,4703115.0
+Justin Wright,UNC Asheville,1,-2.06741,74.0,26.3,4704109.0
+J'Vonne Hadley,Louisville,12,7.43241,79.0,16.3,4702784.0
+Keegan Harvey,Bryant,15,-4.74012,83.0,21.4,4702741.0
+Keshawn Williams,Iona,17,-5.18804,76.0,18.6,4602029.0
+Martel Williams,Cal Baptist,1,0.666599,75.0,21.0,4702158.0
+A.J. Staton-McCray,Seton Hall,6,3.57695,76.0,21.6,4703837.0
+Marcus Fitzgerald Jr.,Jacksonville St.,14,-1.24584,74.0,13.9,4703415.0
+Kam Woods,USC,6,2.29078,73.0,18.5,4702046.0
+Trey Fort,Michigan St.,10,2.29041,76.0,20.9,4703411.0
+Brandon Lieb,Illinois St.,0,1.25069,85.0,15.8,4684285.0
+Adam Miller,Gonzaga,12,2.60249,75.0,16.4,4432175.0
+Derrius Ward,Grambling St.,1,-2.63574,78.0,20.3,4700968.0
+Ryan Myers,Western Kentucky,14,-0.310849,73.0,20.4,4703009.0
+Truth Harris,La Salle,10,-0.246926,74.0,16.3,4703804.0
+Alyn Breed,N.C. State,11,2.17032,75.0,15.6,4585590.0
+Hunter Erickson,Hawaii,5,0.488391,75.0,15.9,4701217.0
+Tai'Reon Joseph,Prairie View A&M,1,-6.41977,74.0,26.9,4703215.0
+Jefferson Koulibaly,Georgia Southern,10,-3.91096,75.0,13.2,4702464.0
+Antwan Burnett,Missouri St.,6,-0.320394,77.0,11.9,4433185.0
+Devin Tillis,Virginia,14,1.50986,79.0,15.0,4703393.0
+PJ Carter,LSU,14,-0.427287,77.0,17.0,4702000.0
+Carson Towt,Notre Dame,13,5.26402,80.0,15.3,4702120.0
+Josh Smith,Liberty,2,0.81948,81.0,21.8,4700859.0
+Milton Matthews,East Tennessee St.,14,-1.25515,75.0,16.5,4704090.0
+Jared Garcia,Nebraska,7,-1.38548,80.0,24.8,4702740.0
+Connor Serven,Mercer,15,-0.152356,80.0,14.7,4702097.0
+Nolan Dorsey,California,17,0.965721,77.0,10.0,4703253.0
+Jalen Celestine,Cincinnati,12,7.04679,79.0,15.7,4598611.0
+Howie Fleming Jr.,UNLV,6,2.39891,77.0,18.2,4703899.0
+Boden Skunberg,Illinois St.,14,1.16601,77.0,18.1,4702671.0
+Myles Stute,South Carolina,17,0.366708,78.0,14.4,4433340.0
+JJ Traynor,Murray St.,15,-0.184292,81.0,16.3,4596711.0
+Aly Khalifa,Louisville,11,4.95294,84.0,17.7,4702739.0
+Duke Miles,Vanderbilt,9,9.60426,74.0,25.7,4702049.0
+Terrance Williams II,USC,10,0.233996,79.0,9.5,4702236.0
+Nick Boyd,Wisconsin,9,7.78862,75.0,30.1,4702654.0
+Jamal West Jr.,UTEP,2,1.42587,78.0,24.3,5176665.0
+Mekhi Gray,Maine,6,-3.50547,76.0,21.9,4701160.0
+Jadrian Tracey,VCU,11,1.48341,78.0,23.3,4701030.0
+Noah Taitz,Utah Valley,10,-2.8388,76.0,13.4,4432398.0
+Justin Amadi,Mount St. Mary's,8,-3.70011,79.0,20.0,4702765.0
+Jayden Stone,Missouri,12,6.49895,76.0,18.2,4432196.0
+Nick Pringle,Arkansas,13,4.40279,82.0,11.8,4703887.0
+Kerr Kriisa,Cincinnati,1,0.329721,75.0,17.2,4683633.0
+Nimari Burnett,Michigan,12,7.54041,77.0,16.9,4433138.0
+Deuce Turner,Fairfield,1,-5.43248,74.0,23.1,4702497.0
+Joshua Aaron Reaves,Hofstra,10,-1.6807,75.0,11.0,4703169.0
+Javohn Garcia,McNeese St.,6,4.64701,75.0,17.2,4701125.0
+RJ Johnson,Rhode Island,5,-3.77852,73.0,16.1,5108122.0
+Dominic Parolin,Boise St.,2,6.35325,81.0,17.2,4702518.0
+Themus Fulks,UCF,9,0.775388,74.0,25.8,4704078.0
+Braelon Bush,Chicago St.,1,-3.94147,69.0,20.2,4703637.0
+Dallas Howell,North Alabama,17,-2.25592,79.0,14.8,4709454.0
+Ty Harper,Oral Roberts,1,-2.66616,75.0,32.6,4683748.0
+Reese Dixon-Waters,San Diego St.,14,2.06053,78.0,20.4,5313927.0
+James Graham,Alabama A&M,3,-3.65001,79.0,19.9,4711691.0
+Meechie Johnson,South Carolina,9,4.33608,74.0,29.0,4710770.0
+Franck Kepnang,Washington,0,4.52049,83.0,15.3,4711400.0
+Tre-Vaughn Minott,Portland St.,13,1.66387,82.0,15.0,4712656.0
+Amar Augillard,Milwaukee,1,-3.86206,77.0,30.2,4897222.0
+Anouar Mellouk,Morehead St.,7,-2.23089,80.0,17.7,4897051.0
+Dola Adebayo,George Mason,6,2.22012,80.0,18.4,4897976.0
+Isaiah Barnes,Valparaiso,10,-6.18222,79.0,18.3,4683946.0
+Justice Ajogbor,Saint Joseph's,0,5.84792,82.0,11.7,4702962.0
+Jordan Riley,East Carolina,9,1.13053,76.0,32.1,4683942.0
+Daeshun Ruffin,Jackson St.,9,1.64575,70.0,36.2,4432638.0
+Grant Slatten,Tennessee Tech,17,-3.04116,77.0,11.5,4687377.0
+Ubong Abasi Etim,Southeastern Louisiana,16,-5.97581,81.0,9.7,5108048.0
+Chance Moore,West Virginia,2,3.18465,78.0,25.6,4433596.0
+Honor Huff,West Virginia,1,3.4307,70.0,22.8,4897365.0
+Brennan Watkins,Chattanooga,11,-2.32576,71.0,17.7,4897364.0
+Tasos Cook,Campbell,14,-0.833022,74.0,13.7,4897617.0
+Bryce Harris,Howard,2,3.1963,76.0,24.6,4897768.0
+Andres Marrero,Merrimack,14,-0.350181,77.0,15.2,4897066.0
+Marcus Greene,Fordham,17,-2.80433,74.0,13.1,4897953.0
+Tyler Powell,Eastern Washington,12,0.0363039,77.0,13.9,4684146.0
+Alex Anderson,Texas Southern,3,-1.67238,78.0,21.4,4897173.0
+Tyler Shirley,Florida A&M,3,-3.73902,80.0,23.0,4897175.0
+Tahj Staveskie,Incarnate Word,1,-0.774118,72.0,27.0,4896368.0
+Kobe Knox,South Carolina,11,3.38723,77.0,18.4,4896884.0
+Isaiah Shaw,Northern Arizona,3,-3.80063,80.0,21.7,4896885.0
+Louis Lesmond,Fordham,4,-5.31941,78.0,12.9,4898222.0
+DJ Patrick,UNC Asheville,14,-0.580796,78.0,13.0,4897129.0
+Ryan Cornish,USC,14,-1.56946,77.0,12.3,4898190.0
+Cade Haskins,William & Mary,17,-2.86319,78.0,17.5,4898189.0
+Makai Richards,Chattanooga,15,-4.24092,82.0,15.6,4897859.0
+Parsa Fallah,Oklahoma St.,2,5.32314,82.0,22.2,4897970.0
+Ariel Bland,Bethune Cookman,13,4.35203,79.0,14.4,4900669.0
+Jaquan Scott,Arkansas Pine Bluff,3,-3.71923,80.0,27.2,5174317.0
+Tay Mosher,East Texas A&M,17,-3.45645,79.0,14.7,4708219.0
+Jalen Breath,Ohio,16,-5.38231,80.0,18.3,4897370.0
+Khamari McGriff,Kansas St.,13,5.62359,81.0,18.6,4897715.0
+Rob Brown III,Stony Brook,14,-2.53444,76.0,17.3,4898228.0
+Will Tschetter,Michigan,14,5.5237,80.0,11.6,4684596.0
+AJ Lopez,Richmond,11,1.68846,77.0,22.5,4897192.0
+Scotty Washington,High Point,12,1.53938,76.0,16.8,4896852.0
+Jason Nelson,Youngstown St.,5,-1.55124,70.0,18.2,4710358.0
+Justice Williams,Western Michigan,1,-1.48252,76.0,23.9,4683676.0
+Julien Soumaoro,Western Carolina,1,-0.70443,71.0,21.1,4897626.0
+Kacper Klaczek,Elon,2,2.4909,80.0,20.2,4897053.0
+Brenton Knapper,Santa Clara,1,1.63828,72.0,19.3,4897209.0
+Shaqir O'Neal,Sacramento St.,7,-3.16515,80.0,14.3,4684156.0
+Chris Howell,New Mexico,6,3.13565,78.0,15.9,4684163.0
+Tyler Lundblade,Belmont,14,1.70952,77.0,17.5,4683944.0
+Jalen Smith,Rice,1,-0.822732,74.0,19.8,4690767.0
+Raymond Espinal-Guzman,Stonehill,7,-4.35676,80.0,18.2,4897973.0
+Montavious Myrick,Eastern Kentucky,8,-1.95218,80.0,19.9,4898333.0
+Justin Neely,UNC Greensboro,2,1.15006,78.0,26.3,4896620.0
+Zion Russell,Saint Francis,1,-3.24682,74.0,23.0,4898334.0
+Gus Larson,Queens,15,-2.28419,82.0,15.7,4898223.0
+Abdul Momoh,Illinois Chicago,0,3.50856,80.0,16.5,4896534.0
+Zaire Williams,Mercer,11,0.43827,76.0,19.9,4897951.0
+Isaac Abidde,Albany,3,-4.20052,81.0,18.5,4897200.0
+Theo Seng,Troy,3,-0.553502,81.0,18.8,4897957.0
+Casey Simmons,Yale,12,2.18198,78.0,17.2,4432692.0
+Grant Asman,Lipscomb,2,1.91125,82.0,22.0,4897583.0
+Sir Issac Herron,Louisiana Tech,15,-0.0105878,80.0,17.2,4897258.0
+Elijah Tucker,Longwood,15,-2.64555,80.0,23.9,4684309.0
+Lamin Sabally,Iona,2,4.4458,80.0,21.3,4897691.0
+Jalen Warley,Gonzaga,6,8.42079,79.0,16.7,4683147.0
+KeShawn Murphy,Auburn,2,8.36615,82.0,20.1,4683756.0
+Alden Applewhite,Georgia Southern,12,0.755357,79.0,19.3,4898382.0
+Josh Odunowo,UMBC,8,-1.37855,78.0,19.7,4702976.0
+Ismail Habib,Southern Indiana,1,-5.1185,72.0,25.2,4711838.0
+Trey Kaufman-Renn,Purdue,2,8.03974,81.0,24.9,4897438.0
+Brian Waddell,Bellarmine,12,-0.937217,79.0,21.2,4823976.0
+AJ George,Cal St. Bakersfield,7,-6.96338,78.0,18.4,4897668.0
+Langston Love,Georgetown,17,-1.91819,77.0,12.9,4433265.0
+Ryan Dufault,St. Thomas,12,2.03912,72.0,15.4,4897245.0
+Daylen Berry,Winthrop,1,-1.49807,76.0,20.7,4897458.0
+D.J. Smith,Campbell,1,0.930665,72.0,24.9,4897215.0
+Milos Ilic,California,15,4.19781,82.0,14.0,4897890.0
+Kyle Cuffe Jr.,Mercer,1,-5.97741,74.0,20.6,4816087.0
+Jao Ituka,Northern Illinois,1,-2.48738,73.0,21.2,4896378.0
+Joshua Beadle,Coastal Carolina,1,-1.46222,75.0,30.8,4698718.0
+C.J. Anthony,Iona,9,0.329007,72.0,26.1,4897054.0
+Tuongthach Gatkek,Little Rock,15,0.284893,81.0,15.7,4896453.0
+Kezza Giffa,Mississippi,11,1.83475,73.0,19.4,4897575.0
+Jordan Battle,Old Dominion,11,2.17094,74.0,22.0,4896969.0
+Owen Dease,Valparaiso,14,-0.116203,80.0,21.7,4897302.0
+Robert McCray V,Florida St.,9,5.25972,76.0,32.3,4685802.0
+Tyler Coleman,Towson,7,-1.35963,79.0,13.9,4897711.0
+Mike James,Vanderbilt,10,-0.449143,77.0,9.2,4684164.0
+Quimari Peterson,Washington,14,5.36567,73.0,14.5,4897465.0
+Will Allen,Louisiana Tech,15,-0.516044,79.0,12.9,4897501.0
+Julian Mackey,FIU,11,-0.657891,74.0,23.8,4719433.0
+Michael Gray Jr.,Wichita St.,10,0.596838,73.0,17.2,4710354.0
+Jayme Mitchell Jr.,Jackson St.,3,-3.12384,77.0,22.6,4897873.0
+Sam Hoiberg,Nebraska,11,9.46575,72.0,15.3,4897432.0
+Quaran McPherson,UAB,3,-2.60355,76.0,20.6,4432524.0
+Houston Mallette,Alabama,14,6.73912,77.0,12.4,4709141.0
+James Okonkwo,Utah,8,3.68389,80.0,10.3,4897777.0
+Allen Strothers,East Tennessee St.,5,-2.21507,73.0,14.2,4897387.0
+Kowacie Reeves Jr.,Georgia Tech,12,1.34454,78.0,21.5,4683757.0
+Wes Peterson,Binghamton,10,-7.19138,78.0,18.4,4897008.0
+Anquan Hill,Sacred Heart,3,-2.7586,81.0,25.9,4709320.0
+Tre Carroll,Xavier,2,3.35226,79.0,26.6,4684289.0
+Ethan Butler,Charlotte,15,-0.755731,79.0,14.1,4898117.0
+Quincy Allen,Bryant,6,-2.96428,80.0,24.3,4433257.0
+Mason Miller,Murray St.,14,0.650933,81.0,10.9,4683755.0
+John Christofilis,Seattle,14,-2.21042,75.0,16.4,4433606.0
+John Camden,California,12,4.69051,80.0,18.6,4684155.0
+Johnathan Lawson,Little Rock,11,-1.19238,79.0,22.9,4432589.0
+Milos Nenadic,Lindenwood,3,-1.40554,82.0,21.1,4897163.0
+Alex Crawford,Rhode Island,7,-3.67553,80.0,17.0,4897620.0
+Elijah Kennedy,Hampton,6,-1.65659,75.0,18.2,4879743.0
+Foster Wonders,Cleveland St.,14,-4.31998,77.0,10.7,4897481.0
+Legend Geeter,Detroit Mercy,3,1.41828,80.0,19.0,4684296.0
+Rafael Castro,George Washington,0,9.46067,83.0,24.7,4684443.0
+Corey Perkins,Delaware St.,5,-5.57905,74.0,19.5,4897761.0
+Adetokunbo Bakare,Saint Peter's,10,-3.39125,75.0,18.8,4590362.0
+Brent Bland,Saint Peter's,6,2.45764,75.0,19.0,4898256.0
+Sam Silverstein,Illinois Chicago,6,2.82764,78.0,11.0,4702961.0
+Ben Schwieger,Northern Iowa,6,3.41084,80.0,19.3,4897474.0
+Julius Rollins,Denver,3,-4.02534,79.0,19.9,4898315.0
+Devin McGlockton,Vanderbilt,2,6.81764,79.0,17.0,4791227.0
+RJ Keene,Boise St.,17,6.66998,79.0,8.6,4683941.0
+Leonardo Bettiol,Massachusetts,2,2.04947,81.0,28.3,4896505.0
+Nick Davidson,Clemson,2,4.70611,82.0,20.9,4699440.0
+Duncan Powell,Providence,17,0.497584,80.0,14.8,4565204.0
+"Corey Floyd, Jr.",Providence,11,1.2732,76.0,16.9,4684718.0
+Ramon Walker Jr.,Houston,12,4.03404,77.0,13.3,4708176.0
+Maximus Edwards,Duquesne,1,-3.25231,77.0,22.0,4897708.0
+Will Felton,North Carolina A&T,13,-0.839654,80.0,18.4,4693724.0
+Demari Williams,Houston Christian,3,-2.80756,77.0,22.4,4691165.0
+Isaiah Walker,Xavier,12,1.85841,77.0,12.1,4897261.0
+Kaleb Washington,Florida A&M,6,-2.00659,80.0,23.9,4684293.0
+Malachi Smith,Connecticut,5,2.73524,72.0,17.4,4683861.0
+Michael Folarin,East Texas A&M,16,-6.90105,82.0,20.5,4897854.0
+Justin Rochelin,Pacific,3,1.75746,77.0,18.5,4709142.0
+Shay Johnson Jr.,Long Beach St.,13,0.428674,82.0,8.4,4897531.0
+Giovanni Emejuru,East Carolina,13,1.29423,82.0,19.3,4896939.0
+Damon Nicholas Jr.,Sam Houston St.,3,1.75234,76.0,15.5,4896936.0
+Tucker DeVries,Indiana,11,6.95691,79.0,21.2,4837238.0
+Conor Enright,Indiana,11,3.23948,73.0,11.7,4897451.0
+Jaden Brownell,USC,12,0.00744941,82.0,20.5,5243241.0
+Carter Kingsbury,The Citadel,17,-5.66985,77.0,16.4,4897421.0
+Nate Johnson,Kansas St.,11,5.45395,75.0,19.9,4898278.0
+Joseph Venzant,Abilene Christian,6,1.75245,75.0,9.5,4897572.0
+Terrance Jones,Manhattan,1,-2.04765,75.0,22.3,4898280.0
+Nate Bittle,Oregon,2,8.01723,84.0,27.7,4432586.0
+Isaac Johnson,Hawaii,2,4.79792,84.0,29.1,4898118.0
+Jayden Jackson,Cal Baptist,10,1.03432,76.0,17.7,4897936.0
+Myron Amey Jr.,Loyola Marymount,11,2.68571,74.0,22.9,4897534.0
+Alex Williams,Duquesne,3,0.419719,77.0,23.7,4897383.0
+Chris Hodges,Montana St.,16,-0.0676965,81.0,14.6,4433615.0
+Matthew Mors,South Dakota St.,12,2.42914,79.0,14.5,4590359.0
+Diego Campisano,Northern Arizona,14,-2.17608,78.0,18.9,4897938.0
+Samuel Ariyibi,Utah Tech,7,-2.83999,80.0,18.7,4898377.0
+Lassina Traore,Texas,16,2.68345,81.0,15.3,4897052.0
+Malik Thomas,Virginia,3,1.83572,77.0,26.7,4683758.0
+Akiva McBirney-Griffin,UC Irvine,16,-3.72495,81.0,16.3,4897678.0
+Imanuel Zorgvol,Youngstown St.,0,4.26136,84.0,17.3,4898165.0
+Zach Bloch,Northern Colorado,14,2.16972,74.0,15.0,4897944.0
+Pablo Tamba,LSU,13,7.37102,79.0,13.9,4897898.0
+Logan Duncomb,Winthrop,2,6.19411,82.0,31.4,4682856.0
+Malcolm Chimezie,Boston University,13,-0.779073,80.0,14.8,4684448.0
+Ben Johnson,Vermont,14,-1.65911,75.0,13.6,4897010.0
+Angelo Brizzi,Buffalo,11,-0.583565,75.0,23.5,4684022.0
+Sam Alamutu,Wright St.,6,0.102474,77.0,15.7,4898006.0
+Michael Duax,Florida Gulf Coast,15,0.293016,78.0,16.2,4897479.0
+Landon Wolf,Illinois St.,12,3.85652,77.0,15.2,4897478.0
+Kooper Jacobi,Eastern Illinois,7,-2.89717,78.0,20.9,4898343.0
+Myles Rice,Maryland,5,-0.161579,75.0,21.0,4709133.0
+Wyatt Fricks,Marshall,12,3.08006,81.0,20.9,4897504.0
+Marcus Banks,Massachusetts,11,1.34596,75.0,21.0,4897361.0
+Stephen Giwa,Rice,13,2.96275,81.0,13.8,5107293.0
+Terrion Murdix,Western Kentucky,5,0.934869,73.0,18.3,4897301.0
+Boopie Miller,SMU,9,5.07498,72.0,25.8,4898283.0
+Jaylin Sellers,Providence,11,3.514,77.0,25.2,4898010.0
+Ali Dibba,Texas A&M,6,3.72785,77.0,17.7,4896862.0
+J.R. Konieczny,Florida Gulf Coast,3,0.538584,79.0,25.0,4575837.0
+Trae English,Nicholls St.,1,-2.36377,72.0,22.1,4897337.0
+Aidan Noyes,Belmont,12,0.650441,79.0,12.5,4710359.0
+Keaton Norris,Samford,1,-1.68981,72.0,18.4,4898194.0
+Keeyan Itejere,Rhode Island,13,3.61694,81.0,13.8,4684207.0
+Riley Mulvey,Siena,13,3.68255,84.0,14.4,4685004.0
+Zach Clemence,Texas A&M,12,4.45671,83.0,18.0,4683146.0
+Bryce Hopkins,St. John's,2,6.58104,79.0,22.0,4565698.0
+Daimion Collins,South Florida,0,5.37184,81.0,12.7,4611412.0
+Camren Hunter,Central Arkansas,11,3.75234,74.0,29.0,4897018.0
+Connor Hickman,Charleston,1,-1.78136,75.0,18.7,4897447.0
+Javon Ruffin,Bowling Green,14,-0.617133,77.0,14.9,4693725.0
+Cam Palesse,Alabama St.,10,-3.98223,77.0,12.7,4897484.0
+Preston Ruedinger,Green Bay,11,2.30548,74.0,18.5,4897485.0
+Cameron Crawford,Duquesne,17,-2.40183,77.0,13.5,4897466.0
+Veljko Ilic,Sam Houston St.,8,3.48776,82.0,23.3,4897888.0
+Garrett Johnson,George Washington,3,-0.366185,80.0,22.4,4898230.0
+Jaden Cooper,Maryland Eastern Shore,1,-2.87585,75.0,17.4,4898212.0
+Nana Owusu-Anane,Grand Canyon,6,7.18949,80.0,15.3,4898210.0
+Jerrell Colbert,McNeese St.,0,3.50628,82.0,16.4,4433273.0
+Randy Brady,South Alabama,6,1.87552,77.0,12.6,4433611.0
+Patrick McMahon,Montana St.,3,-2.57468,79.0,25.7,4897923.0
+Jakai Robinson,Bryant,7,-5.69343,77.0,12.1,4683741.0
+Wilhelm Breidenbach,Grand Canyon,6,2.51558,82.0,14.5,4433600.0
+Oleg Kojenets,Stony Brook,16,-6.79179,84.0,19.7,4810230.0
+Zaakir Williamson,Saint Peter's,7,-1.05142,79.0,20.7,4898370.0
+Devin Hines,North Florida,7,-7.05468,76.0,18.4,4897902.0
+Kaleb Brown,Robert Morris,17,-1.11891,79.0,14.6,4690766.0
+Trevon Brazile,Arkansas,2,9.28023,82.0,17.2,4698719.0
+Anton Brookshire,Austin Peay,11,-0.693116,74.0,16.9,4683734.0
+Makai Willis,Texas St.,8,-3.62437,80.0,24.6,4896371.0
+TJ Long,Vermont,3,-3.40713,76.0,21.8,4896370.0
+Xzavier Long,Hampton,7,0.773722,79.0,18.0,4896367.0
+Kadar Waller,Cal St. Bakersfield,5,-4.42647,72.0,12.6,4899807.0
+Jake Heidbreder,Fresno St.,11,1.91559,77.0,22.3,4903264.0
+Ryan Abelman,Northern Arizona,14,-0.687337,76.0,18.7,5107851.0
+Noah Feddersen,North Dakota St.,2,1.72622,82.0,20.9,5107278.0
+Lance Waddles,Nebraska Omaha,3,-1.03921,76.0,21.5,5107275.0
+Oakland Fort,Northern Arizona,17,-6.1824,70.0,17.1,4888717.0
+Ryan Conwell,Louisville,11,5.23004,75.0,27.5,5107157.0
+Dok Muordar,Monmouth,0,0.154472,83.0,16.7,5107158.0
+William Kyle III,Syracuse,0,8.9675,81.0,15.4,5107258.0
+Kolby King,Utah St.,12,5.20292,73.0,17.2,5105604.0
+Christian Winborne,Nicholls St.,14,-1.36391,75.0,17.7,5105975.0
+Quin Berger,Bucknell,10,-5.55157,74.0,13.1,5105976.0
+Austin Benigni,Navy,9,-1.51157,70.0,27.1,5105691.0
+Jayden Pierre,TCU,11,2.25471,72.0,16.8,5105619.0
+Quante Berry,Memphis,6,1.83594,76.0,18.0,5105618.0
+Ezra Ausar,USC,8,4.01659,81.0,23.4,5106051.0
+Valentino Pinedo,UNC Greensboro,13,2.03875,80.0,14.7,5106053.0
+Kareem Rozier,Winthrop,1,0.743709,69.0,20.4,5105885.0
+Evans Kipruto,UC Santa Barbara,13,3.4658,80.0,16.5,5107146.0
+Erik Pratt,Stony Brook,9,-0.498814,77.0,31.7,5105560.0
+Tavari Johnson,Akron,11,2.87345,71.0,27.8,5108059.0
+Ryan Prather Jr.,Robert Morris,11,3.98652,77.0,20.6,5108062.0
+Houston Emory,Delaware,15,0.551541,81.0,10.1,5105772.0
+Max Mackinnon,LSU,1,0.68426,78.0,23.8,5105785.0
+Madison Durr,UNC Wilmington,1,-1.36762,77.0,25.1,5107358.0
+Aidan Kehoe,Navy,13,7.21549,82.0,21.0,5105698.0
+Jalen Forrest,Southeastern Louisiana,3,-4.52528,77.0,24.6,5107520.0
+Derek Simpson,Saint Joseph's,9,4.61488,75.0,22.8,5105858.0
+Dashon Gittens,Sacred Heart,11,2.47028,75.0,19.4,4712834.0
+Antwone Woolfolk,Miami OH,2,4.4969,81.0,20.3,5105859.0
+Kenny Noland,Columbia,11,0.872987,76.0,25.2,5106236.0
+Ethan Meuser,Stonehill,7,-1.06236,80.0,19.9,5106628.0
+Izaiyah Nelson,South Florida,2,9.20818,82.0,23.7,5107251.0
+Darrion Williams,N.C. State,11,3.66334,78.0,23.7,4937074.0
+Denzel Aberdeen,Kentucky,11,3.05876,77.0,20.9,5105527.0
+Jo'el Emanuel,William & Mary,15,-0.38817,78.0,18.0,5106588.0
+Trevon Blassingame,Idaho,12,0.828242,76.0,11.5,5106590.0
+Jayland Randall,New Mexico St.,14,-0.593552,77.0,22.4,5107453.0
+Vladimer Salaridze,Youngstown St.,6,4.82319,79.0,25.4,5107154.0
+Kenyon Giles,Wichita St.,1,3.56951,70.0,23.0,5107508.0
+Luke Northweather,Missouri,12,4.96167,83.0,11.2,5106269.0
+Quion Williams,Arkansas Pine Bluff,9,1.81063,77.0,27.6,5106274.0
+Rory Stewart,Florida Gulf Coast,10,-2.84984,80.0,15.5,5105971.0
+Chevalier Emery,Cleveland St.,1,-7.90719,72.0,27.9,5106598.0
+Javon Bennett,Dayton,1,2.02326,70.0,22.9,5106599.0
+Jordan Derkack,Dayton,6,1.77599,77.0,23.0,5106600.0
+Jasen Green,Creighton,2,6.25133,80.0,19.1,5105577.0
+Ola Ajiboye,Southern Indiana,16,-1.27099,79.0,14.4,5108043.0
+Mike Sharavjamts,South Carolina,2,4.98679,81.0,18.5,5105875.0
+Achile Spadone,Bucknell,6,-0.826507,76.0,20.5,5242555.0
+Jack Collins,Monmouth,5,-0.114172,77.0,16.3,5106703.0
+Grant Newell,Western Kentucky,3,0.1151,81.0,22.4,5105587.0
+Jack Payne,Idaho,14,1.11946,78.0,17.6,5107563.0
+KyeRon Lindsay-Martin,UAB,2,1.02846,80.0,21.6,5105531.0
+Emil Skytta,North Dakota St.,15,-1.02791,77.0,14.7,5108046.0
+Nate Brafford,Charleston Southern,17,-1.20157,81.0,12.7,5107230.0
+Edward Nnamoko,Winthrop,8,-4.62512,82.0,18.8,5107220.0
+Daniel Rivera,UAB,15,1.33179,79.0,19.5,5105982.0
+Jack Doumbia Jr.,Towson,6,0.932764,78.0,28.5,5107976.0
+Keyshawn Hall,Auburn,2,5.03594,79.0,26.5,5075625.0
+Jonathan Beagle,Richmond,8,1.36845,82.0,24.0,5106043.0
+Romad Dean,Tulsa,12,2.57595,79.0,12.5,5105890.0
+Josiah Davis,Cal St. Northridge,9,-1.77756,75.0,29.6,5106291.0
+Joshua Ola-Joseph,Loyola Chicago,3,-2.58955,79.0,19.2,5105822.0
+Cam Thrower,Penn,1,-2.70779,75.0,19.3,5107164.0
+Nick Krass,Nicholls St.,17,-4.78046,76.0,8.7,5105625.0
+Brian Taylor,East Tennessee St.,11,-1.16336,76.0,22.4,5106766.0
+Tre Dinkins,George Washington,14,0.040917,74.0,19.2,5107176.0
+Koren Johnson,Mississippi,4,-2.00747,73.0,16.8,5105649.0
+Achor Achor,Mississippi St.,3,0.900739,81.0,19.7,5107364.0
+Sincere Parker,Memphis,3,0.232682,75.0,26.9,5105984.0
+Jerome Palm,UMKC,7,-5.35815,82.0,17.6,5107872.0
+Harry Wessels,Saint Mary's,0,5.67049,85.0,16.2,5105418.0
+Silas Sunday,Hofstra,13,4.05943,84.0,15.2,4684984.0
+Sadiku Ibine Ayo,St. John's,6,3.36641,79.0,11.8,5107197.0
+Maleek Arington,Seattle,5,3.0015,75.0,12.8,5107830.0
+Barrington Hargress,Colorado,11,4.04103,72.0,19.6,4712832.0
+Jacari White,Virginia,11,5.17829,75.0,21.7,5107274.0
+Braxton Bayless,Little Rock,5,-5.60206,74.0,19.9,5107792.0
+David Coit,Maryland,11,1.81968,71.0,25.7,5108023.0
+DeJuan Campbell,California,10,-1.17179,74.0,14.1,5107343.0
+Will Johnston,Richmond,14,-0.837127,75.0,18.1,5105481.0
+Mohamed Wague,Oklahoma,0,9.70192,82.0,17.5,5106293.0
+Jestin Porter,Clemson,14,4.11976,73.0,19.0,5106880.0
+Luca Colceag,Tennessee Martin,17,-2.7825,80.0,16.2,5107843.0
+Camden Heide,Texas,12,5.49181,79.0,10.0,5105855.0
+Barry Dunning Jr.,Pittsburgh,12,3.10631,78.0,18.6,4683675.0
+Kymany Houinsou,Loyola Chicago,15,-1.78898,79.0,17.1,5105659.0
+Iaroslav Niagu,Jacksonville St.,0,2.05317,84.0,13.7,5105645.0
+Tre Donaldson,Miami FL,9,5.25951,75.0,24.4,4837356.0
+Bol Dengdit,UC San Diego,3,0.458802,83.0,25.4,5105426.0
+Cord Stansberry,Western Carolina,1,-1.17231,76.0,23.9,5105455.0
+Jevon Porter,Missouri,2,7.37565,83.0,18.1,4684798.0
+David Mager,Pepperdine,10,-5.94727,75.0,18.3,5105456.0
+Jorge Diaz Graham,Oregon St.,2,4.29396,83.0,17.3,5105411.0
+Denver Anglin,Iona,10,-3.33744,73.0,18.7,5105596.0
+JJ Starling,Syracuse,1,-0.927365,76.0,22.2,4683697.0
+Ven-Allen Lubin,N.C. State,13,6.50914,80.0,19.3,4684799.0
+Aidan Hadaway,Ohio,3,0.365047,80.0,22.4,5108011.0
+Chris Ashby,Queens,14,-2.60431,74.0,16.0,5107088.0
+Josh Dix,Creighton,12,3.11916,78.0,19.2,5105800.0
+Dasonte Bowen,St. Bonaventure,1,-3.13696,74.0,19.8,5105801.0
+Robbie Avila,Saint Louis,11,6.40251,82.0,22.2,4917097.0
+Vincent Brady II,High Point,6,-0.0964201,75.0,16.0,5106755.0
+Geoff Sprouse,American,14,-0.138892,72.0,16.3,5105660.0
+Jefferson De La Cruz Monegro,Cal St. Fullerton,3,0.226925,75.0,18.5,5176246.0
+Max Burton,Western Michigan,8,-1.60529,82.0,14.4,5107999.0
+Jasteven Walker,Alabama St.,7,-3.08032,82.0,16.0,5107441.0
+Jermaine Ballisager Webb,Portland,2,1.36305,85.0,21.2,5105662.0
+Amani Lyles,Akron,2,5.09933,79.0,25.5,5108060.0
+Braden Smith,Purdue,9,8.51445,72.0,26.5,5105854.0
+Chris Morgan,Purdue Fort Wayne,10,-5.53392,74.0,10.8,5106785.0
+Kaleb Banks,DePaul,12,0.148075,80.0,16.4,5105795.0
+KC Ibekwe,Pacific,16,-1.68081,83.0,21.6,5105631.0
+Orlando Lovejoy,Detroit Mercy,9,0.906882,75.0,26.5,5108764.0
+Justin Mullins,Northwestern,15,2.47255,78.0,14.7,5107289.0
+Andrew Alia,Drake,14,0.648355,74.0,11.5,5107963.0
+Ja'Kobi Gillespie,Tennessee,9,8.60623,73.0,25.7,5107968.0
+Derrian Ford,Temple,1,-0.598808,75.0,24.8,4684720.0
+Braden Housley,Utah Valley,5,-2.24126,76.0,14.1,5105495.0
+Barry Evans,VCU,6,3.92121,80.0,15.9,5105987.0
+Percy Daniels,Tulane,0,3.11063,81.0,7.9,4684988.0
+Jack Campion,SIU Edwardsville,9,0.0566018,70.0,22.2,5107627.0
+Jaden Henley,Grand Canyon,6,4.32252,79.0,29.0,5105821.0
+Pharrel Payne,Maryland,13,6.5098,81.0,31.2,5105823.0
+Keyontae Lewis,Norfolk St.,8,-4.06628,81.0,16.0,5106634.0
+Darren Buchanan Jr.,Rutgers,3,0.172119,79.0,20.3,5105402.0
+Daniel Rouzan,Bethune Cookman,3,-2.68661,80.0,24.3,5108148.0
+Delrecco Gillespie,Kent St.,2,1.96987,80.0,26.3,5108093.0
+Rokas Jocius,Loyola Marymount,15,-1.25792,82.0,14.9,5105904.0
+Roddy Gayle Jr.,Michigan,6,6.29884,77.0,17.9,5105836.0
+Charlie Williams,Lipscomb,3,-2.03695,82.0,24.6,5106738.0
+Jack Karasinski,Bellarmine,12,-0.995643,79.0,29.2,5106735.0
+Jorn Everson,Army,17,-6.43913,80.0,20.9,5108810.0
+Ethan Roberts,Penn,1,-0.614192,77.0,27.3,5108811.0
+Connor Turnbull,Evansville,0,0.0528526,82.0,34.2,4888885.0
+Brian Moore Jr.,Grand Canyon,11,0.891642,73.0,18.4,5107895.0
+Blaise Keita,Western Kentucky,8,0.802193,83.0,11.6,5105826.0
+Josiah Harris,Cleveland St.,3,-1.71363,79.0,18.5,5106292.0
+Jacob Conner,Dayton,17,1.63022,82.0,11.8,5108991.0
+Tyson Commander,Loyola MD,17,-4.18019,76.0,10.9,5105689.0
+Keelan Steele,Maine,8,-3.40058,82.0,23.7,5107211.0
+Landon Moore,Illinois St.,17,-1.22665,75.0,14.5,5106612.0
+Miles Webb,Delaware St.,15,-4.91311,80.0,19.0,5106611.0
+Magnus Entenmann,Kent St.,15,0.0877034,80.0,11.5,5108091.0
+Ryan Pettit,Lafayette,6,-1.93844,73.0,15.5,5105678.0
+Seth Trimble,North Carolina,11,4.98996,75.0,21.7,4712836.0
+LJ Thomas,Old Dominion,9,-2.6531,74.0,23.3,4683842.0
+Markus Harding,Indiana St.,15,-4.8899,82.0,20.3,5108045.0
+Tajavis Miller,New Mexico,14,2.1042,76.0,15.9,5107272.0
+Damari Wheeler-Thomas,North Dakota St.,1,1.07122,72.0,23.7,5107273.0
+Quadir Copeland,N.C. State,9,6.09848,78.0,28.1,4683860.0
+Jacari Lane,Texas A&M,1,1.78401,72.0,17.7,5107078.0
+Dionte Johnson,North Carolina Central,9,-2.577,72.0,19.5,5108775.0
+Sage Tolentino,UNC Asheville,13,-0.647493,85.0,5.4,4838724.0
+Josh Reed,Penn St.,12,1.93493,80.0,19.0,4838723.0
+Armani Mighty,Mercer,13,1.43721,82.0,20.2,4917161.0
+Chas Kelley III,Georgia Tech,14,-1.97505,75.0,13.7,4888733.0
+Prince Aligbe,Southern Illinois,16,-3.81277,79.0,20.8,4609653.0
+Donald Hand Jr.,Boston College,7,-3.27319,77.0,25.2,4683629.0
+Dan Skillings Jr.,Baylor,3,3.4806,78.0,19.5,5105811.0
+Davion Sykes,Southern Illinois,8,0.557863,78.0,19.0,5106452.0
+Jordan Mason,Temple,1,-1.04924,76.0,20.8,5106453.0
+Faizon Fields,Milwaukee,15,-0.400973,82.0,15.9,5106461.0
+Matija Belic,Wyoming,16,-1.01452,79.0,22.3,5107147.0
+Efrem Johnson,Clemson,14,3.96812,76.0,15.0,5107144.0
+Chase Martin,Oral Roberts,15,-2.4931,77.0,11.3,5107320.0
+Amarri Monroe,Quinnipiac,6,2.0092,79.0,26.0,5107321.0
+"Anthony Arrington, Jr.",Mount St. Mary's,4,-8.38378,74.0,22.6,5107325.0
+Coleton Benson,New Orleans,14,-0.28069,74.0,20.7,5108809.0
+Rex Sunderland,Stonehill,4,-5.4593,77.0,17.1,5107184.0
+Ridvan Tutic,Stonehill,8,-3.05885,83.0,17.1,5107189.0
+Braden Appelhans,Drake,14,-4.1457,79.0,17.0,5107781.0
+Donovan Dent,UCLA,9,4.93668,74.0,26.3,5107782.0
+Zae Blake,UT Rio Grande Valley,10,-1.42921,73.0,16.4,5106750.0
+Mark Mitchell,Missouri,2,5.91914,81.0,25.9,4433285.0
+Trey Campbell,Northern Iowa,9,4.34863,76.0,24.6,5107887.0
+Steven Clay,Southern Indiana,12,-3.19656,76.0,14.8,5107877.0
+Noah Ross,UNC Wilmington,3,1.22663,79.0,17.0,5106732.0
+Nolan Hodge,UNC Wilmington,14,3.14016,79.0,19.7,5106731.0
+Richie Saunders,BYU,11,8.89803,77.0,23.8,5105462.0
+Zach Davis,Memphis,6,-0.0173868,79.0,20.1,5105548.0
+Daniel Hankins-Sanford,Massachusetts,3,-0.325127,80.0,20.3,5105551.0
+TJ Wainwright,Pacific,14,0.259108,75.0,19.0,4683947.0
+Jayden Brewer,Western Michigan,3,-2.41012,78.0,26.8,5106869.0
+Isaiah Gaines,Southeastern Louisiana,8,1.71674,80.0,21.6,5106865.0
+Allen Mukeba,Arizona St.,0,5.06013,80.0,18.1,5109033.0
+Dre Bullock,Hawaii,6,2.6272,78.0,24.6,5106877.0
+Kelechi Okworogwo,North Carolina Central,15,-3.86742,78.0,15.6,5106673.0
+Kobe MaGee,Florida St.,12,2.28824,78.0,18.6,5105779.0
+Dillon Mitchell,St. John's,2,9.87044,80.0,15.9,5106283.0
+Ross Candelino,Lipscomb,12,0.535704,77.0,18.2,5105864.0
+LeJuan Watts,Texas Tech,3,2.69289,78.0,25.6,5107312.0
+Lamar Washington,Georgia Tech,9,0.832334,76.0,22.6,5106284.0
+Frank Mitchell,St. Bonaventure,8,3.13167,80.0,26.5,5107180.0
+Reis Jones,Charleston Southern,0,0.288793,82.0,18.8,5107670.0
+Wilguens Jr. Exacte,Drake,7,-3.77409,78.0,23.6,5105646.0
+Ryan Zan,Fairfield,4,-8.24491,79.0,10.3,5105901.0
+Nick Ellington,George Mason,15,1.39301,79.0,19.5,5107703.0
+Marvin McGhee III,UT Rio Grande Valley,14,2.00063,76.0,14.8,5108718.0
+Apostolos Roumoglou,Richmond,17,1.87202,80.0,12.5,5105566.0
+Louie Jordan,Radford,17,-4.94778,81.0,16.0,5108145.0
+Joseph Pinion,South Florida,11,5.22884,77.0,20.9,4699760.0
+Alex Karaban,Connecticut,12,8.8434,80.0,17.6,4917149.0
+Rashad King,LSU,17,1.39507,78.0,16.9,5106715.0
+Chase Cormier,Iona,10,-4.06584,74.0,11.9,4838705.0
+Dug McDaniel,Memphis,9,1.76616,71.0,22.4,5105805.0
+Harold Woods,Incarnate Word,15,-0.528296,77.0,15.8,5106716.0
+Justin Thomas,Bowling Green,5,-0.755883,79.0,12.1,5106773.0
+Troy Hupstead,Texas Southern,3,-1.57808,79.0,23.8,5108778.0
+Aidan Shaw,Boston College,0,2.88817,81.0,11.4,5105543.0
+Andrew Ball,Monmouth,15,0.124585,80.0,18.0,5106702.0
+TJ Johnson,VMI,3,-2.45632,79.0,24.2,5107076.0
+Daniel Egbuniwe,St. Bonaventure,14,0.233665,79.0,17.1,5108796.0
+Dionjahe Thomas,Jackson St.,7,-6.15705,80.0,17.5,5107301.0
+Malik Dia,Mississippi,3,0.197415,81.0,31.5,4712862.0
+Zach Keller,Utah St.,15,0.994367,82.0,13.4,4896363.0
+Lee Dort,California,13,4.04011,82.0,17.3,4683672.0
+Xaivian Lee,Florida,11,7.51298,75.0,20.5,5107169.0
+Micah Handlogten,Florida,0,11.8841,85.0,14.9,5108992.0
+Mak Manciel,Eastern Michigan,14,-3.22227,76.0,20.8,5107246.0
+Angel Montas Jr.,UMass Lowell,3,-1.43546,78.0,25.7,5105889.0
+Brenen Lorient,West Virginia,2,6.15429,81.0,21.8,5106864.0
+Braeden Smith,Gonzaga,9,4.65491,72.0,17.9,5105672.0
+Brady Cummins,Colgate,10,-7.06939,78.0,15.7,5105671.0
+Dylan Arnett,North Texas,16,-0.346023,81.0,18.5,5106742.0
+Jaden Slaughter,Sacred Heart,3,-4.17462,77.0,14.3,5243020.0
+Isaac Jack,Pacific,13,3.14429,83.0,17.9,5108762.0
+RJ Smith,DePaul,10,0.383846,75.0,14.3,5105612.0
+Logan Woods,Wright St.,17,-1.65894,77.0,15.1,5106806.0
+Stephon Payne III,Seton Hall,0,5.9394,81.0,16.9,5108891.0
+Treysen Eaglestaff,West Virginia,3,2.71534,78.0,19.5,5107287.0
+Robert Lewis,Lindenwood,15,-4.18671,81.0,13.2,5108826.0
+Caden Powell,Baylor,13,6.76686,81.0,13.9,5107866.0
+Gestin Liberis,Saint Francis,8,-5.73495,81.0,17.3,5106614.0
+Will Berg,Wichita St.,0,5.07139,86.0,20.5,5105857.0
+Justyn Fernandez,Delaware,1,-4.19184,77.0,25.9,4917385.0
+Devin Dinkins,Manhattan,1,-5.98473,70.0,19.5,5105895.0
+Noah Batchelor,Buffalo,12,1.07536,78.0,10.7,5105803.0
+Patrick Wessler,UNC Wilmington,8,2.37855,84.0,24.8,4838717.0
+Victor Panov,Drexel,12,2.71046,79.0,18.1,5108105.0
+Tre Green,Middle Tennessee,14,-0.479139,75.0,17.8,5106881.0
+MJ Collins,Utah St.,11,4.0106,76.0,22.4,5105401.0
+Ajay Sheldon,Ohio,10,0.0600682,73.0,12.8,5108009.0
+Elmore James,Ball St.,14,-4.86394,75.0,17.6,5108010.0
+Otega Oweh,Kentucky,6,4.83162,76.0,27.1,5106270.0
+AJ Storr,Mississippi,11,1.92902,79.0,29.3,5105603.0
+Kalen Garry,South Dakota St.,1,-0.317631,75.0,20.1,5107255.0
+Henri Veesaar,North Carolina,2,9.6505,84.0,22.7,5105571.0
+A'lahn Sumler,Charleston Southern,9,0.40059,76.0,29.2,5106775.0
+Felix Okpara,Tennessee,0,7.38782,83.0,13.5,5105841.0
+LJ Wells,Northern Kentucky,2,2.37656,80.0,22.6,5106776.0
+Cody Pennebaker,Lamar,6,0.567405,77.0,15.6,5108080.0
+Nate Calmese,Wake Forest,9,2.21885,74.0,23.0,5108081.0
+Turner Buttry,Eastern Kentucky,1,-3.4746,71.0,17.5,5106705.0
+Jaden Daughtry,Marist,6,1.10029,79.0,18.2,5107770.0
+Kyle Carlesimo,Colgate,14,-2.5875,74.0,16.4,5107704.0
+Cam Haffner,Western Kentucky,14,-3.05263,74.0,15.9,5107700.0
+Sincere Malone,Nicholls St.,6,0.797204,80.0,19.7,5107701.0
+Isaiah Brickner,Idaho,3,-0.220375,76.0,26.0,5107768.0
+Kyle Thomas,SIU Edwardsville,7,-3.67064,82.0,18.6,5107708.0
+Devon Arlington,Yale,4,-3.79256,75.0,15.7,5107175.0
+Nick Townsend,Yale,2,5.35231,79.0,25.7,5107174.0
+Chas Stinson,Stonehill,7,-2.26561,76.0,24.0,5106620.0
+Bowen Hardman,Akron,14,-1.68122,75.0,14.1,5105840.0
+Colin Porter,Liberty,11,1.31979,70.0,18.1,5107070.0
+Corneilous Williams,North Alabama,8,-2.66591,81.0,19.2,5105533.0
+Zach Cleveland,Liberty,2,4.00483,79.0,24.4,5107069.0
+Tyrell Ward,VCU,3,0.162954,78.0,21.8,4684733.0
+Javan Simmons,Ohio,8,0.682739,79.0,27.2,5108006.0
+AJ Smith,Bradley,6,2.73478,78.0,17.6,5107626.0
+Cade Hornecker,Abilene Christian,7,-1.58481,84.0,20.4,5107885.0
+Christian May,UNC Wilmington,17,1.17677,77.0,18.6,5106728.0
+Dylan Williamson,Towson,1,-0.366159,73.0,22.6,5106727.0
+Kylan Blackmon,Charlotte,10,-4.71135,75.0,12.8,5107233.0
+Harlan Obioha,West Virginia,8,2.82443,84.0,16.2,4920142.0
+Tyler Andrews,Bethune Cookman,12,-0.274842,78.0,15.4,5109034.0
+Ernest Udeh Jr.,Miami FL,13,7.97448,83.0,10.8,5106261.0
+Jevin Muniz,Colorado St.,11,3.55311,78.0,19.0,5108770.0
+Kareem Watson,Delaware St.,7,-10.456,80.0,25.8,5108720.0
+Chris Moncrief,Saint Francis,6,-5.6152,78.0,19.1,5108786.0
+Michael Rataj,Baylor,3,1.67421,80.0,18.9,5105627.0
+George Beale Jr.,UCF,10,-1.62713,76.0,21.5,5107975.0
+Perry Smith Jr.,Kennesaw St.,8,-1.76436,80.0,13.1,5107296.0
+Jackson Skipper,Vermont,10,-7.29827,79.0,14.9,4870563.0
+Kellen Thames,Saint Louis,2,7.78733,78.0,24.8,5105980.0
+Jordan Pope,Texas,14,2.8083,73.0,20.1,5105624.0
+Cam Amboree,Southern,1,-4.36794,75.0,21.1,5108073.0
+Caleb Shaw,Grand Canyon,12,2.88072,78.0,18.6,5107860.0
+Xavier Amos,Loyola Chicago,3,-2.91232,79.0,22.2,5108022.0
+Langston Reynolds,Minnesota,9,0.654137,76.0,22.6,5107857.0
+Brock Wisne,Northern Colorado,2,1.78493,81.0,24.9,5107858.0
+B.J. Edwards,SMU,6,7.71034,75.0,19.7,5105552.0
+Learic Davis,USC Upstate,15,-1.58301,79.0,18.3,5108806.0
+Sami Pissis,Alabama A&M,9,-1.91344,75.0,22.0,5108915.0
+PJ Haggerty,Kansas St.,9,1.4704,76.0,32.0,5106275.0
+Leo Torbor,Texas A&M Corpus Chris,5,-1.09425,75.0,17.8,5107813.0
+Ibu Yamazaki,Northern Colorado,12,-1.17866,79.0,16.5,5107514.0
+TJ Hurley,Vermont,12,-0.0876983,77.0,21.2,5107295.0
+Josiah Harris,La Salle,8,-4.56912,81.0,25.1,5106607.0
+Fredrick King,Murray St.,2,4.59364,81.0,23.8,5105580.0
+Sean Logan,Davidson,0,7.02851,82.0,17.3,5105866.0
+Reed Bailey,Indiana,2,3.71813,82.0,21.0,5105865.0
+Cooper Noard,Cornell,12,-0.0684601,74.0,24.9,5106247.0
+Jeremy Foumena,UCF,8,-0.293849,83.0,18.0,5105970.0
+Jaylen Thompson,Stanford,17,-0.122741,79.0,11.5,5105634.0
+Andrew Rohde,Wisconsin,14,4.58053,78.0,13.8,5109019.0
+Carter Bjerke,St. Thomas,12,1.48191,81.0,15.2,5109020.0
+David Idada,Southeast Missouri St.,16,-3.07736,84.0,11.1,5107642.0
+Benny Gealer,Stanford,11,6.50433,73.0,15.0,5105633.0
+Ryan Agarwal,Stanford,10,-0.994108,78.0,15.9,5105632.0
+Jalen Washington,Vanderbilt,2,8.043,82.0,19.5,4433625.0
+Tyler Nickel,Vanderbilt,12,6.34431,79.0,16.9,4838721.0
+Matus Hronsky,Portland,17,-2.68371,80.0,16.7,5105883.0
+Dominique Ford,San Diego,6,-3.10782,77.0,18.2,5107819.0
+David Dixon,Duquesne,0,6.88867,81.0,19.2,5105881.0
+German Plotnikov,Hofstra,12,3.93708,77.0,13.1,5105719.0
+Emanuel Sharp,Houston,11,8.66806,75.0,23.2,5106058.0
+Marcus Tankersley,Chicago St.,1,-6.90662,77.0,25.3,5106744.0
+Dallin Hall,Virginia,11,5.04783,75.0,13.9,5105464.0
+Tanner Toolson,TCU,3,2.55866,77.0,18.8,5105461.0
+Cole Hargrove,Providence,8,3.60281,80.0,9.4,5105782.0
+Garfield Turner,Drexel,13,2.21221,80.0,19.6,5105781.0
+Justin Moore,Loyola Chicago,5,-5.67182,75.0,24.5,5105780.0
+Shane Blakeney,Drexel,3,0.981075,77.0,23.8,5105778.0
+Love Bettis,Incarnate Word,10,-7.00914,71.0,15.0,5106711.0
+Milos Uzan,Houston,11,5.3955,76.0,19.3,5106272.0
+Dylan Anderson,Murray St.,7,-2.62214,84.0,15.7,4432739.0
+Filip Borovicanin,Xavier,3,4.53648,81.0,20.1,5105569.0
+Kylan Boswell,Illinois,11,7.32276,74.0,20.6,4684269.0
+Jaden Alexander,Cal St. Bakersfield,1,-4.96441,76.0,23.5,5108983.0
+Ben Vander Wal,Furman,13,2.77666,79.0,14.5,5107369.0
+Chandler Jackson,Arkansas St.,9,1.08173,77.0,21.6,4712843.0
+Riley Kugel,UCF,1,3.15671,77.0,24.5,5105529.0
+Cameron Corhen,Pittsburgh,2,2.58425,82.0,21.8,4712902.0
+Baba Miller,Cincinnati,2,9.64885,83.0,22.3,5075626.0
+Tom House,Furman,14,-1.58908,79.0,17.0,4896557.0
+Brennan Rigsby,Radford,17,-1.28676,75.0,12.4,5105622.0
+Damarco Minor,Pittsburgh,11,3.0873,72.0,15.9,5107652.0
+Marquel Sutton,LSU,3,2.18167,81.0,19.1,5107264.0
+Lamar Wilkerson,Indiana,11,6.12136,78.0,27.2,5105876.0
+Jackson Benigni,Binghamton,12,-1.64507,73.0,13.8,5106619.0
+Louis Hutchinson,Alabama A&M,14,-3.98444,79.0,12.3,5105972.0
+TJ Caldwell,Arkansas St.,1,-0.768257,76.0,20.9,5105545.0
+Malique Ewin,Arkansas,2,7.53271,82.0,21.7,5105546.0
+Luke Jungers,Iona,12,-1.27144,81.0,14.2,5107259.0
+Ja'Sean Glover,Nebraska Omaha,3,-2.93714,77.0,24.8,5107263.0
+Trey Lewis,Western Michigan,12,-2.01981,78.0,19.9,5105966.0
+Caleb Reese,Loyola Chicago,4,-8.46194,71.0,15.3,5105967.0
+Pierre Geneste Jr.,Cal St. Bakersfield,0,-1.31252,84.0,10.1,5106879.0
+Jayden Dawson,Kansas,14,2.60803,76.0,12.0,5105964.0
+Jalen Quinn,Drake,9,-1.97369,75.0,31.6,5105965.0
+Christoph Tilly,Ohio St.,2,5.62851,84.0,23.5,5109790.0
+Jake Ensminger,Santa Clara,12,7.46656,81.0,10.9,5109789.0
+Kosy Akametu,Iona,3,-4.10442,77.0,24.7,5109787.0
+Braden Huff,Gonzaga,2,8.80208,82.0,25.0,4894445.0
+Jaylen Peterson,Presbyterian,15,0.48199,80.0,18.3,5107524.0
+Amaree Abram,Tennessee,6,6.44081,75.0,14.1,5105544.0
+Jordan Crawford,South Dakota,14,-1.2863,75.0,20.9,5105758.0
+Isaiah Carr,Drake,0,2.52504,83.0,19.3,4712893.0
+Lajae Jones,Florida St.,3,5.10566,79.0,19.3,5108969.0
+Ose Okojie,Howard,6,1.91642,77.0,18.8,5107986.0
+Justin Archer,La Salle,8,1.15576,79.0,15.8,5107507.0
+Deangelo Elisee,Purdue Fort Wayne,0,0.548408,81.0,13.4,5106786.0
+Paul Otieno,Saint Louis,2,5.76392,81.0,16.4,5107797.0
+Federiko Federiko,Texas A&M,13,6.3637,83.0,11.8,5105412.0
+Jaeden Marshall,La Salle,14,-1.52534,76.0,20.9,5107261.0
+Drake Allen,Utah St.,6,6.32546,77.0,19.8,5105494.0
+Cam Morris III,East Tennessee St.,2,3.4505,80.0,25.2,5107271.0
+Tyler Houser,Delaware,12,-0.660744,81.0,22.1,5107353.0
+Taeshaud Jackson,Fairleigh Dickinson,3,-1.9515,78.0,20.8,5107349.0
+Asher Woods,Tulane,1,-2.18073,75.0,22.3,5107350.0
+Matt Hayman,Arkansas St.,1,-0.38871,77.0,24.8,5109782.0
+Maximus Nelson,Purdue Fort Wayne,14,-2.63957,80.0,12.8,5107870.0
+Nick Martinelli,Northwestern,2,5.86337,79.0,29.4,5105832.0
+Terry Anderson,High Point,2,4.73577,78.0,25.4,5241590.0
+Cam Denson,Ball St.,4,-3.53718,79.0,14.8,5105458.0
+Duane Posey,Texas Southern,8,-3.30158,79.0,21.0,5107438.0
+Jakevion Buckley,New Orleans,9,-0.308237,74.0,26.7,5108082.0
+Ben Gold,Marquette,12,2.57719,83.0,14.9,5105599.0
+Harrison Carrington,UC Irvine,2,1.5225,79.0,21.4,5105615.0
+Shammah Scott,Akron,14,-0.503682,74.0,20.1,5106652.0
+Bruce Thornton,Ohio St.,11,10.9109,74.0,23.2,5105837.0
+MJ Russell,Louisiana Monroe,1,-4.28113,75.0,23.0,5105539.0
+Alphonzo Billups III,Longwood,6,0.215457,79.0,17.0,5106039.0
+Shawn Jones Jr.,Mississippi St.,6,3.99496,78.0,12.8,5105540.0
+Skyy Clark,UCLA,11,6.00358,75.0,18.0,5105794.0
+Jayden Epps,Mississippi St.,1,-0.488401,74.0,25.3,5105791.0
+Sencire Harris,Cincinnati,6,4.35769,76.0,21.2,5105790.0
+Nigel Burris,Weber St.,3,-0.537051,79.0,19.6,5107824.0
+RaSheed Jones,Coastal Carolina,1,1.4411,78.0,21.3,5107346.0
+Marcus Kell,Western Carolina,3,-2.21238,80.0,21.4,5107345.0
+Cole Farrell,Long Beach St.,17,-5.13985,77.0,18.7,5108150.0
+Fletcher Loyer,Purdue,11,7.29865,76.0,19.2,5105853.0
+Cale Jacobsen,Nebraska,6,5.87091,76.0,12.5,5105827.0
+Hayden Welling,Utah Valley,3,-3.32335,81.0,23.6,5107161.0
+Elijah Chol,UC Irvine,15,0.294888,84.0,13.9,5107163.0
+Yohan Traore,Butler,8,1.3484,83.0,18.1,4869741.0
+Cade Tyson,Minnesota,12,5.17954,79.0,24.3,5107970.0
+Kheni Briggs,New Haven,11,-3.91465,75.0,20.6,5108121.0
+Tyeree Bryan,Texas Tech,17,3.95266,77.0,11.6,5108120.0
+Kyler VanderJagt,Toledo,11,-1.863,76.0,18.4,5107969.0
+Chance Westry,UAB,9,4.59254,78.0,25.6,4683680.0
+Bryson Ogletree,North Carolina A&T,12,-3.51463,76.0,10.4,5242272.0
+Tobi Lawal,Virginia Tech,2,2.38953,80.0,20.2,5106040.0
+Ugonna Onyenso,Virginia,0,13.8674,84.0,15.1,5037878.0
+Peter Suder,Miami OH,11,4.69792,77.0,23.0,5106674.0
+Nik Graves,Creighton,9,2.93371,74.0,23.8,5106863.0
+Rob Martin,High Point,9,0.762471,70.0,28.4,5107904.0
+Cruz Davis,Hofstra,9,3.17072,75.0,27.2,5107198.0
+Malik Reneau,Miami FL,2,5.89899,81.0,30.1,5105798.0
+CJ Gunn,DePaul,6,1.8195,79.0,26.4,5105796.0
+Tyren Moore,Georgia Southern,11,0.566225,71.0,24.9,5107226.0
+Cam Gregory,Campbell,14,-0.154937,77.0,12.1,5106610.0
+Jamar Franklin,Jacksonville St.,10,-2.06631,75.0,16.0,5106456.0
+Austin Nunez,UTSA,4,-8.16867,74.0,22.9,4712837.0
+Duke Brennan,Villanova,13,7.43174,82.0,21.1,4870569.0
+Chase Lowe,William & Mary,2,3.34795,77.0,20.7,5106734.0
+Isaiah Jones,South Florida,12,5.94072,79.0,11.5,4067423.0
+Khalil London,Tennessee St.,10,-9.25496,75.0,24.2,5105760.0
+Donovan Atwell,Texas Tech,14,8.7323,77.0,13.1,5107355.0
+Jordan Chatman,Florida A&M,14,-1.28093,77.0,16.1,5107408.0
+Jaxon Ellingsworth,Arkansas St.,3,-0.829682,80.0,18.7,5106055.0
+Jaden Bradley,Arizona,9,7.5798,75.0,21.1,4432737.0
+Rylan Griffen,Texas A&M,11,6.71895,77.0,19.2,4683682.0
+Tyler Hendricks,Utah Valley,12,2.85901,78.0,16.0,4838703.0
+Yann Farell,Sacred Heart,12,-0.405765,79.0,16.7,5105988.0
+Roddie Anderson III,Xavier,9,0.715259,75.0,24.9,5107148.0
+Jac Mani,Fresno St.,3,-2.55632,81.0,26.2,5107167.0
+Jaquel Morris,Norfolk St.,13,-0.533153,80.0,15.9,5108030.0
+Ryan Mabrey,Maine,10,-5.12811,77.0,16.5,5108029.0
+Tyler Bilodeau,UCLA,12,5.64986,81.0,23.7,5105626.0
+Elijah Jamison,Norfolk St.,1,-4.4586,75.0,28.1,5106767.0
+Billy Smith,Chattanooga,14,-5.40614,79.0,19.8,5108028.0
+Chandler Pigge,Harvard,6,1.37318,77.0,23.6,4902967.0
+Chisom Okpara,Stanford,3,0.398579,80.0,28.8,4684745.0
+Sadraque NgaNga,San Jose St.,3,-3.25533,82.0,18.5,4432749.0
+Khalil Farmer,UMass Lowell,10,-5.73135,75.0,14.8,5105717.0
+Jace Whiting,Weber St.,1,-0.871842,75.0,17.2,5107474.0
+Rich Rolf,Youngstown St.,12,2.19398,79.0,16.0,5106862.0
+Elijah Jones,UTEP,12,-0.03855,80.0,21.6,5106056.0
+Dorian Finister,Louisiana,3,0.448726,77.0,25.0,5106265.0
+Travis Roberts,Alcorn St.,10,-7.17393,78.0,13.9,4684734.0
+Demarion Watson,North Texas,4,1.73371,79.0,10.9,5106255.0
+Tamin Lipsey,Iowa St.,9,9.60719,73.0,22.9,5106254.0
+Eli King,North Dakota,6,2.85435,76.0,19.4,5106253.0
+Simeon Cottle,Kennesaw St.,9,1.08019,74.0,29.0,5106660.0
+Taj Manning,Kansas St.,15,3.69328,79.0,11.8,5106266.0
+Maliq Brown,Duke,13,13.8643,81.0,14.5,5105337.0
+Bryson Dawkins,Youngstown St.,3,-1.71358,74.0,21.8,5107077.0
+Chris Bell,California,12,2.42335,79.0,21.0,4684627.0
+Lamine Niang,Tennessee Martin,0,-2.52734,81.0,16.3,5108101.0
+Kaseem Watson,UTEP,3,-1.94234,81.0,22.1,5108719.0
+Yuto Yamanouchi-Williams,Oral Roberts,7,-6.04494,82.0,23.8,5108086.0
+Zuby Ejiofor,St. John's,2,14.2722,81.0,26.4,5106262.0
+Youri Fritz,Northeastern,15,-0.92971,80.0,19.8,5107178.0
+Braden Sparks,Fairfield,1,0.0716727,72.0,24.3,5108879.0
+RJ Godfrey,Clemson,2,6.69019,80.0,23.6,5105449.0
+Noah Williamson,Alabama,7,2.30325,84.0,13.5,5105668.0
+Dillon Hunter,Clemson,6,4.46031,76.0,16.0,5105445.0
+Chauncey Wiggins,Florida St.,12,2.38029,82.0,18.4,5105448.0
+Ruot Bijiek,Bucknell,3,-5.02094,81.0,25.3,5105670.0
+Chauncey Gibson,Chicago St.,4,-6.23145,79.0,22.6,5105446.0
+Harry Rouhliadeff,Hawaii,15,2.7462,81.0,18.3,5107204.0
+Goanar Biliew,Western Illinois,7,-9.93397,80.0,15.7,5107966.0
+Chendall Weaver,Texas,6,5.04485,75.0,15.1,5105486.0
+Tre White,Kansas,3,6.13565,79.0,21.3,5105643.0
+Vincent Iwuchukwu,Georgetown,2,2.42175,85.0,23.8,5105641.0
+Oziyah Sellers,St. John's,14,4.21976,77.0,15.5,5105642.0
+Bessanty Saragba,Delaware St.,16,-7.16847,82.0,9.9,5107879.0
+Cameron Fens,South Dakota,8,-1.06678,82.0,27.1,5107880.0
+CJ Jones,Kansas St.,10,-2.56456,77.0,14.2,5107878.0
+Mike Walz,Richmond,2,4.26877,83.0,21.7,5105974.0
+Michael Eley,Hampton,11,0.923953,76.0,28.2,5107807.0
+Mekhi Mason,Wake Forest,6,2.25547,77.0,19.7,4905250.0
+Brendan Coyle,Siena,14,-1.33659,79.0,15.8,5107811.0
+Andrew Akuchie,Rice,13,-0.0387243,81.0,13.9,5107142.0
+Tyrone Marshall,George Washington,2,4.76075,80.0,19.4,5106841.0
+Ramel Lloyd Jr.,Arkansas Pine Bluff,17,-5.29959,78.0,18.2,5105824.0
+Sam Alexis,Indiana,13,9.14726,81.0,18.5,5107375.0
+Cameron Tweedy,Saint Francis,8,-7.92423,76.0,13.5,5106589.0
+Tre Holloman,N.C. State,11,2.6723,74.0,17.5,5105816.0
+Jaxon Kohler,Michigan St.,2,9.60592,81.0,20.1,5105815.0
+Carson Cooper,Michigan St.,2,8.56976,83.0,19.3,5105817.0
+Solomon Washington,Maryland,8,2.80801,79.0,19.1,5105562.0
+Justin Abson,Georgia,0,9.56767,81.0,13.0,5238204.0
+Elijah Perkins,Saint Peter's,4,-3.05039,76.0,11.7,5106667.0
+Elijah Fisher,Seton Hall,6,2.52448,78.0,17.0,5106288.0
+Jackson Paveletzke,Ohio,9,-0.712895,74.0,24.2,5107317.0
+Ben Roy,Boston University,11,-4.12863,72.0,13.1,5105665.0
+Pop Isaacs,Texas A&M,11,2.48631,74.0,21.2,5106285.0
+Christian Reeves,Charleston,13,2.24883,85.0,22.3,5105444.0
+Jaden Schutt,Virginia Tech,14,2.45252,77.0,13.3,4712846.0
+Keba Keita,BYU,13,8.22896,80.0,13.0,5105647.0
+Mason Falslev,Utah St.,6,8.75309,76.0,22.9,5107864.0
+Ethan Potter,Utah Tech,2,2.89476,80.0,23.7,5105471.0
+Colin Smith,UC Santa Barbara,12,0.534611,80.0,19.7,4684812.0
+Malik Messina-Moore,Xavier,1,0.680598,77.0,18.1,5105454.0
+Zion Cruz,Rider,1,-6.08372,77.0,24.5,5105581.0
+Rowan Brumbaugh,Tulane,9,2.35034,76.0,27.0,5106280.0
+Jalen Hampton,Arkansas St.,2,2.67129,79.0,15.5,5241394.0
+Jalen Pitre,Tennessee St.,13,2.14164,80.0,12.7,5105453.0
+Evan Mahaffey,Akron,6,6.59097,78.0,17.6,5105847.0
+Terrance Arceneaux,N.C. State,6,3.83963,78.0,12.6,5106059.0
+Isaac Traudt,Creighton,14,0.249388,82.0,15.0,4712866.0
+Isaac McKneely,Louisville,14,4.72806,76.0,15.1,4712845.0
+Leon Bond III,Northern Iowa,3,2.63022,77.0,19.1,4838704.0
+Dylan Darling,St. John's,6,6.03341,73.0,17.4,5105658.0
+Jlynn Counter,Charleston,9,4.35549,75.0,28.4,5106754.0
+Will Shaver,Samford,16,-4.58977,82.0,20.5,4684838.0
+ND Okafor,Washington St.,8,1.49474,81.0,24.7,5105588.0
+Masai Troutman,George Mason,3,0.440477,76.0,18.3,5106714.0
+Landon Lewis,Brown,2,0.136055,79.0,27.2,5106206.0
+Jamai Felt,Temple,13,1.72289,82.0,17.5,5108050.0
+Anthony McComb III,Norfolk St.,1,-3.47931,75.0,23.5,5108049.0
+Kam Craft,Georgia Tech,14,-0.69894,78.0,15.8,5105607.0
+Desmond Claude,Washington,1,-1.58138,77.0,24.8,5105606.0
+Braeden Carrington,Wisconsin,14,6.16173,77.0,19.4,5105820.0
+Damien Mayo Jr.,Southern Illinois,6,3.93605,75.0,18.1,5107899.0
+N.J. Benson,DePaul,13,4.27713,80.0,21.3,5107903.0
+Kyran Ratliff,Louisiana,7,-2.73198,80.0,10.4,5107218.0
+Christian Watson,Hampton,17,-5.30699,79.0,19.0,4684735.0
+AJ Casey,Evansville,2,1.74686,81.0,24.9,4433286.0
+Michael Zanoni,Penn,14,-0.765648,77.0,17.1,5108877.0
+Danilo Jovanovich,Milwaukee,15,2.3239,80.0,17.9,4838711.0
+Arnas Sakenis,SIU Edwardsville,0,5.44913,83.0,16.7,5107655.0
+DJ Richards,McNeese St.,14,0.406606,76.0,17.4,5106843.0
+Mike Woods,Navy,3,-0.750589,75.0,16.7,5105694.0
+Jed Miller,Montana St.,11,6.03173,74.0,20.4,5107844.0
+Rob Lawson,Morgan St.,1,-6.55036,71.0,23.1,5107977.0
+Joshua Jefferson,Iowa St.,2,11.2303,81.0,28.6,4870564.0
+Aidan Mahaney,UC Santa Barbara,14,-0.495408,75.0,21.3,4684628.0
+Donovan Oday,Northern Kentucky,11,2.08434,74.0,26.9,5107298.0
+Keon Thompson,Stephen F. Austin,9,4.0617,73.0,33.3,5106037.0
+Caelum Swanton-Rodger,Old Dominion,13,1.07102,84.0,20.1,5105804.0
+Dion Brown,Saint Louis,12,3.94357,75.0,20.2,5107242.0
+Trevan Leonhardt,Utah Valley,6,4.13306,76.0,19.3,5105468.0
+Juanse Gorosito,San Diego,1,-0.0917191,72.0,22.0,4870444.0
+Kamari Lands,Middle Tennessee,3,0.791646,80.0,23.3,4610140.0
+Tae Davis,Oklahoma,3,2.60636,81.0,23.5,5105594.0
+Jaquan Sanders,Florida A&M,1,-1.78251,76.0,21.0,5105593.0
+Devin Ree,Jackson St.,17,-4.08614,81.0,15.0,5105431.0
+Maurice Odum,Arizona St.,9,4.08445,74.0,26.6,5105457.0
+Luke Hunger,George Washington,3,-1.12368,82.0,22.0,5105833.0
+Dior Johnson,Tarleton St.,9,3.83347,75.0,36.5,4432741.0
+Guillermo Diaz Graham,San Francisco,3,3.18044,84.0,16.8,5105410.0
+Leland Walker,Wyoming,9,0.549987,73.0,27.0,4712838.0
+Tayshawn Comer,Nevada,9,-0.808946,73.0,26.1,5106706.0
+Jackson Holt,Eastern Kentucky,14,-2.64313,76.0,15.7,5106707.0
+Chase Ross,Marquette,6,3.73146,77.0,23.4,5105598.0
+"Jerome Brewer, Jr.",La Salle,12,0.994333,81.0,18.9,5108930.0
+Alonzo Dodd,Appalachian St.,9,1.42362,73.0,26.0,5108925.0
+D.J. Jefferson,Gardner Webb,17,-7.81226,77.0,24.3,4895353.0
+Tobe Awaka,Arizona,2,8.64578,80.0,21.0,5105555.0
+Kyle Evans,UC Irvine,0,7.76542,82.0,16.1,5107567.0
+Jayden Williams,Dartmouth,14,-1.94985,78.0,22.1,5106241.0
+Brandon Mitchell-Day,Dartmouth,2,-0.0673976,80.0,25.0,5106240.0
+Jackson Munro,Dartmouth,12,1.79404,80.0,15.2,5106242.0
+Brody Robinson,Oakland,9,0.998041,71.0,24.2,5107377.0
+Cyril Martynov,Fairleigh Dickinson,8,-5.13773,84.0,19.9,5105432.0
+Kanye Clary,Oklahoma St.,9,2.15272,72.0,20.9,5105844.0
+Kebba Njie,Notre Dame,13,-2.369,82.0,12.0,5105845.0
+Mor Seck,Towson,16,-2.83915,85.0,13.8,5107205.0
+Blair Thompson,Columbia,12,1.8332,79.0,15.2,5106237.0
+Kyrese Mullen,New Mexico St.,7,-5.61769,79.0,20.0,5106697.0
+Kody Williams,Hampton,10,-6.03407,72.0,13.5,5107203.0
+Greedy Williams,UNC Wilmington,11,3.18806e-05,77.0,17.1,5108909.0
+Demetrius Lilley,Binghamton,8,-8.5442,81.0,27.3,5105848.0
+Kimani Hamilton,UNLV,3,3.42115,80.0,21.8,5105538.0
+Tarris Reed Jr.,Connecticut,0,12.9328,82.0,26.5,5105809.0
+Collin Metcalf,Maryland,16,2.00769,81.0,8.2,5106718.0
+Dylan Andrews,Boise St.,1,1.75746,75.0,23.4,5105636.0
+Shawn Phillips Jr.,Missouri,0,3.55491,84.0,19.9,5105537.0
+Jaden Clayton,Pacific,5,0.0635676,73.0,20.1,5107209.0
+Miles Byrd,San Diego St.,6,8.55465,79.0,21.2,5107804.0
+Elijah Saunders,Maryland,14,3.12688,80.0,14.1,4870565.0
+Toby Onyekonwu,Stony Brook,5,-6.62274,74.0,16.3,5106719.0
+Jared Frey,UMass Lowell,17,-6.35495,78.0,14.9,5106722.0
+Brody Rowbury,Idaho,15,1.65933,83.0,15.1,5108917.0
+Jamarques Lawrence,Nebraska,11,2.06929,75.0,21.1,5105825.0
+Justin Bailey,Georgia,14,1.68359,75.0,14.8,5107490.0
+Braxton Stacker,Southeast Missouri St.,3,-1.1988,77.0,20.9,5107891.0
+Jaxon Edwards,IU Indy,2,-1.19716,77.0,23.0,5107890.0
+Adam Hinton,Cornell,11,0.391632,77.0,21.5,5106243.0
+DJ Nix,Cornell,17,-3.6852,78.0,15.4,4684840.0
+Carl Daughtery Jr.,UC Davis,14,-0.109034,75.0,15.4,5106684.0
+Anthony Dell'Orso,Arizona,11,5.27952,78.0,19.0,5108141.0
+Tony Osburn,Nebraska Omaha,14,-0.331466,74.0,17.0,5107268.0
+Josh Baldwin,Cornell,3,0.935798,77.0,23.9,5106245.0
+Larry Hughes II,Cal St. Northridge,14,0.540584,76.0,21.3,5105981.0
+Jalen Bolden,Texas St.,17,-2.17454,76.0,15.9,5108069.0
+Garry Clark,Utah St.,13,6.19484,81.0,18.3,5108973.0
+Steven Jamerson II,UCLA,13,9.86873,82.0,12.7,5105417.0
+Andrew King,Youngstown St.,5,-2.5251,75.0,13.1,5107307.0
+Corey Washington,SMU,12,4.28399,78.0,17.4,5110039.0
+Asjon Anderson,Alabama St.,1,-5.53791,74.0,30.5,5105478.0
+Marcell McCreary,UT Arlington,6,3.67233,76.0,21.7,5113390.0
+Thierno Sylla,Memphis,16,-0.594351,84.0,14.8,5106647.0
+Kellan Boylan,Lipscomb,7,-2.63658,79.0,15.6,5113385.0
+Zytarious Mortle,Texas Southern,5,-4.3477,74.0,25.3,5110173.0
+AK Okereke,Vanderbilt,12,5.74101,79.0,17.3,5114350.0
+Sola Adebisi,The Citadel,15,0.395161,79.0,15.7,5114809.0
+Ahmet Jonovic,Bradley,0,1.29315,85.0,18.4,5122918.0
+Janko Bulajic,Lamar,13,0.27689,82.0,10.9,5123799.0
+Emmanuel Okorafor,Wichita St.,0,2.63746,82.0,19.7,5125176.0
+Simeon Wilcher,Texas,10,2.15442,76.0,17.4,4683785.0
+Cameron Grant,Stanford,10,-2.94202,79.0,14.7,5175008.0
+Kanaan Carlyle,Florida Atlantic,11,0.52474,75.0,23.8,4683761.0
+Shaquil Bender,Long Beach St.,1,-6.31452,74.0,27.2,5177115.0
+Sean Newman Jr.,San Diego St.,5,-0.666222,73.0,15.7,5175973.0
+Terri Miller Jr.,Portland St.,2,4.27163,80.0,29.9,5175976.0
+Jaylin Henderson,Portland St.,9,0.225545,75.0,28.3,5175974.0
+Belal El Shakery,New Hampshire,7,-5.28598,80.0,28.7,5176417.0
+John Blackwell,Wisconsin,11,6.51967,76.0,25.6,5103630.0
+Jack Janicki,Wisconsin,17,3.52836,77.0,10.4,5174807.0
+Nolan Winter,Wisconsin,2,9.21334,84.0,17.8,4895783.0
+Gus Yalden,Vermont,2,2.62783,81.0,33.2,4685686.0
+Tre'shawn Sheppard,LIU,15,-1.59545,78.0,12.9,5177262.0
+Deng Garang,Le Moyne,3,-2.50538,78.0,18.0,5177248.0
+Eric Acker,La Salle,5,-3.67717,74.0,19.1,5177260.0
+Jaylen Carey,Tennessee,8,4.19549,80.0,22.7,4685687.0
+AJ Dancler,Coastal Carolina,1,0.111612,74.0,23.8,5177247.0
+Omaha Biliew,Wake Forest,12,2.28199,80.0,14.3,5175037.0
+Milan Momcilovic,Iowa St.,12,7.63581,80.0,18.1,4848637.0
+JT Rock,New Mexico,0,5.27581,85.0,20.5,5061598.0
+Dani Pounds,Tennessee Tech,2,-2.45584,80.0,29.9,5176571.0
+Grant Stubblefield,Nebraska Omaha,11,1.36184,73.0,17.7,5177015.0
+Josh Jones,North Dakota,16,-3.30928,81.0,13.8,5177038.0
+Jamir Simpson,UTSA,1,-3.51542,77.0,24.4,5111919.0
+Isaiah Manning,Sam Houston St.,3,0.483728,80.0,21.7,4895786.0
+Jace Posey,TCU,7,-2.10447,77.0,21.7,5101654.0
+Bangot Dak,Colorado,2,4.3577,83.0,22.5,5175021.0
+Devin Curtis,Southern Indiana,16,-4.96339,83.0,12.8,5060698.0
+Rodney Brown Jr.,Loyola Marymount,14,-0.373391,78.0,20.6,5037870.0
+Augusto Cassia,Mississippi,15,2.66587,80.0,12.3,5175354.0
+Boden Kapke,Boston College,3,0.529174,83.0,20.6,5103631.0
+Finley Bizjack,Butler,11,1.97885,76.0,22.3,4848619.0
+Noah Melson,Fairleigh Dickinson,10,-9.44248,78.0,18.4,5176109.0
+Bryan Ndjonga,Canisius,3,-3.433,81.0,25.3,5175788.0
+Collin Mulholland,Chattanooga,3,-3.33994,82.0,25.7,5176111.0
+Malachi Davis,LIU,1,-5.13452,76.0,27.6,5175029.0
+Nic McClain,Belmont,9,1.50223,75.0,28.1,5175371.0
+Isaiah Moses,Eastern Washington,1,-0.0863991,73.0,26.7,5176412.0
+Jeremiah Quigley,Binghamton,9,-3.72873,71.0,26.9,5177097.0
+Jean Aranguren,George Washington,6,3.76283,75.0,19.9,5177098.0
+Gabe Cupps,Ohio St.,17,1.62731,74.0,10.9,4845387.0
+Jakai Newton,Georgia St.,7,-3.99302,76.0,23.9,4895743.0
+Eli Shetlar,Drake,12,1.00162,78.0,14.3,5176347.0
+Jaden Daughtry,Richmond,3,-2.93383,79.0,27.9,5176349.0
+Derek Vorst,Indiana St.,15,0.583536,82.0,19.0,5176350.0
+Vincent Delano,Northern Colorado,17,-4.55275,74.0,17.4,5176494.0
+Collin Kuhl,Stetson,2,-1.14791,80.0,23.7,5176799.0
+Eren Banks,Appalachian St.,17,-2.82942,76.0,16.4,5176798.0
+Ibrahim Souare,Syracuse,13,3.19769,81.0,8.2,5174559.0
+Naithan George,Syracuse,9,1.92754,75.0,22.8,5174557.0
+Avantae Parker,Queens,2,3.17822,81.0,22.4,5176801.0
+Almar Atlason,Miami OH,12,-0.846447,80.0,21.6,5176313.0
+Aaron Davis,Bryant,3,-3.70607,79.0,21.1,5174850.0
+Demarion Burch,Bradley,17,-4.15826,76.0,21.4,5176312.0
+Shaedon Simpson,Saint Peter's,10,-3.91456,78.0,16.2,5176179.0
+Bryce Eaton,Saint Peter's,9,-2.727,72.0,25.7,5176176.0
+"Darin Smith, Jr.",Central Connecticut,3,-3.32452,79.0,29.8,5177229.0
+Ayomide Bamisile,Louisiana Monroe,16,-3.45338,79.0,12.2,5174978.0
+Trey Horton,UTEP,10,-4.42003,77.0,15.5,5177692.0
+David Terrell Jr.,North Texas,9,2.00641,76.0,24.7,5177691.0
+Jake Wahlin,Clemson,3,2.18835,82.0,14.6,5174977.0
+Jayden Teat,Sacramento St.,10,-8.13555,74.0,21.2,5174976.0
+Marqueas Bell,Southeast Missouri St.,3,-1.79645,75.0,21.1,5177370.0
+Dontae Horne,Prairie View A&M,9,0.86474,76.0,31.5,5176727.0
+Kwo Agwa,UT Rio Grande Valley,15,3.78573,78.0,15.8,5176685.0
+Terrence Brown,Utah,9,1.12525,75.0,32.9,5177233.0
+Chuck Bailey III,Nevada,14,-0.0918839,76.0,18.4,5177732.0
+Joshua Hughes,Evansville,12,-1.14879,82.0,16.0,5177734.0
+Corey Hadnot II,Purdue Fort Wayne,9,1.23614,75.0,28.9,5177707.0
+Myles Colvin,Wake Forest,11,2.30912,77.0,21.8,4894452.0
+Marcus Hill,Texas A&M,6,2.94963,75.0,21.3,5176153.0
+Keonte Jones,Dayton,6,4.67242,78.0,15.1,5175785.0
+Mahmoud Fofana,Cal St. Northridge,13,4.36447,78.0,15.3,5175787.0
+Joel Armotrading,Nevada,0,3.48207,82.0,17.2,5175170.0
+Jacob Meyer,UAB,1,-2.85881,74.0,21.5,5176795.0
+Adam Clark,Seton Hall,9,1.97985,70.0,26.1,5177275.0
+Mason Jones,Ball St.,17,0.0663625,79.0,9.4,5176167.0
+Omar Adegbola,Northwestern St.,10,-5.37782,76.0,20.6,5175026.0
+Chrishawn Christmas,Stephen F. Austin,8,3.36153,77.0,12.8,5177516.0
+Toyaz Solomon,UNC Asheville,3,-0.00421447,81.0,27.6,5176355.0
+Josiah Hammons,Illinois Chicago,14,0.224239,74.0,17.5,5176577.0
+Tidjiane Dioumassi,Western Carolina,1,-2.08323,76.0,21.2,5177606.0
+Jaylen Jones,Jacksonville,5,-2.43574,72.0,22.8,4845388.0
+Drew Scharnowski,Belmont,0,8.1772,81.0,25.7,5176309.0
+Mac Wrecke,Green Bay,17,-2.99082,77.0,13.8,5176812.0
+Blake Buchanan,Iowa St.,13,9.80666,82.0,17.5,5079838.0
+Seth Joba,Idaho,15,0.15567,81.0,14.5,5174853.0
+Noah Barnett,Vermont,15,1.47079,81.0,12.7,4895789.0
+Owen Freeman,Creighton,0,8.30826,82.0,21.4,4894465.0
+Jason Rivera-Torres,Monmouth,6,5.4882,79.0,24.8,5174288.0
+"JaQualon ""JQ"" Roberts",Davidson,16,1.64054,80.0,16.4,4848644.0
+DaJohn Craig,Coastal Carolina,14,-3.0025,73.0,17.2,5172339.0
+Jeremy Fears Jr.,Michigan St.,9,8.1909,74.0,27.1,4711255.0
+Josh Lee,Denver,1,-4.26051,75.0,16.0,5176939.0
+Jasper Floyd,West Virginia,6,4.65464,75.0,16.5,5177104.0
+Nakyel Shelton,Loyola Marymount,14,-3.35679,75.0,14.1,5177341.0
+Takai Simpkins,Oregon,11,0.83681,76.0,20.5,5174937.0
+Youssouf Singare,High Point,16,-1.94862,82.0,8.6,5102797.0
+Jayden Ross,Connecticut,12,7.39871,79.0,12.6,4895753.0
+Fred Payne,Boston College,1,2.91568,73.0,24.7,4684268.0
+Errol White,Lamar,16,-1.1871,79.0,15.9,5176637.0
+Emmanuel Ugbo,Washington St.,3,-2.34389,80.0,19.7,5195304.0
+Bilal Abdur-Rahman,Alabama A&M,9,-0.330734,71.0,19.2,5177520.0
+TJ Biel,Maine,3,-2.42952,81.0,20.2,5177368.0
+Malek Gomma,Weber St.,15,-0.460747,80.0,18.2,5177717.0
+Will Heimbrodt,Seattle,0,3.54128,79.0,25.7,5177716.0
+Isaiah Coleman,Oklahoma St.,8,0.312614,77.0,18.1,4884257.0
+Bukky Oboye,Santa Clara,13,8.15303,85.0,17.7,5176361.0
+Luke McEldon,Mount St. Mary's,13,0.20706,82.0,22.1,5176362.0
+Isaac Bruns,South Dakota,3,-3.3886,77.0,30.9,5177042.0
+Shey Eberwein,South Dakota,5,-4.79632,77.0,23.2,5177041.0
+Josh Scovens,Davidson,2,4.28876,78.0,23.3,5176031.0
+Zach Halligan,Akron,12,1.0724,76.0,10.8,5176138.0
+Marvin Musiime-Kamali,Akron,13,4.65708,78.0,11.3,5176139.0
+Luke Wilson,Appalachian St.,13,2.37517,81.0,19.1,5176754.0
+Jordan Marsh,USC,1,0.829238,71.0,20.3,5176755.0
+Ma'Shy Hill,Abilene Christian,16,-6.96594,82.0,14.4,5177705.0
+Darrion Baker,SIU Edwardsville,15,-1.51309,80.0,18.5,5176137.0
+Tyran Cook,Western Illinois,5,-9.77784,74.0,17.9,5176331.0
+Koree Cotton,UT Rio Grande Valley,2,4.17742,78.0,27.2,5176333.0
+Michael Belle,VCU,15,3.86855,80.0,16.1,5174672.0
+AJ Clark,VMI,6,-2.88995,76.0,14.9,5176334.0
+Walker Andrews,VMI,1,-9.15494,73.0,18.2,5176337.0
+Greg Gordon,LIU,6,1.19352,77.0,21.9,5177096.0
+Augustinas Kiudulas,Colorado St.,15,1.4122,80.0,22.3,5176346.0
+Julius Mims,New Mexico St.,15,0.922619,81.0,17.5,5176298.0
+Quinn Denker,Northern Colorado,9,4.67185,75.0,29.0,5176300.0
+Eli Rice,Penn St.,14,-1.30318,80.0,16.5,5093264.0
+Leeroy Odiahi,Western Kentucky,13,-1.43982,83.0,9.5,5176572.0
+Jailen Bedford,Virginia Tech,14,0.393649,76.0,22.4,5177040.0
+Tariq Francis,Rutgers,9,4.63643,73.0,29.3,5175809.0
+Cornelius Robinson Jr.,Monmouth,7,-2.81535,78.0,19.5,5174962.0
+Sebastian Robinson,NJIT,9,-3.92492,73.0,29.9,5175802.0
+Brady Dunlap,Saint Louis,12,1.78063,79.0,16.7,4685659.0
+Miles Rose,Albany,4,-9.58121,76.0,16.1,5174669.0
+Kennard Davis Jr.,BYU,12,4.10498,78.0,13.4,4685654.0
+Sheridan Sharp,Southern Indiana,4,-6.51346,75.0,21.0,5176388.0
+BJ Ward,Southeast Missouri St.,1,-3.63846,72.0,22.1,5177367.0
+Kachi Nzeh,Little Rock,3,-3.14469,80.0,20.8,4895787.0
+Kamari Jones,Cleveland St.,14,-7.7831,76.0,19.8,5176378.0
+Dailyn Swain,Texas,2,9.43828,80.0,25.5,4848625.0
+Gabe Dynes,USC,13,4.93915,89.0,11.6,5177227.0
+Jack Edelen,Western Kentucky,4,-6.22964,70.0,14.7,5176778.0
+Osiris Grady,UC Riverside,7,-3.94214,81.0,18.6,4858609.0
+Kahlil Singleton,Canisius,14,-2.13279,75.0,17.2,5176059.0
+DeAndre Williams,Holy Cross,1,-5.62981,75.0,20.0,5176058.0
+KiJan Robinson,New Hampshire,1,-6.42162,75.0,23.4,5174932.0
+Silas Demary Jr.,Connecticut,9,8.79031,76.0,22.5,5054083.0
+Dylan James,Georgia,8,2.04127,81.0,17.1,4895794.0
+Joe Nugent,Holy Cross,12,-0.842319,78.0,18.2,5176062.0
+Jordan Clayton,Northwestern,14,2.62237,74.0,11.1,5093250.0
+Dez White,Oregon St.,14,-0.26749,74.0,17.9,5175842.0
+Blake Barkley,East Tennessee St.,2,-0.905907,79.0,22.4,5174800.0
+Dennis Evans,Grand Canyon,0,6.56149,85.0,14.1,4872744.0
+Curtis Williams Jr.,Tulane,3,-1.42241,78.0,20.4,4683782.0
+Ty-Laur Johnson,San Diego,9,1.06091,72.0,30.7,4845369.0
+Joshua Ingram,Lehigh,11,1.2771,76.0,17.0,5176077.0
+Cam Gillus,Howard,9,0.54796,71.0,18.7,5176075.0
+George Marshall,Morehead St.,11,0.486302,76.0,22.2,5177360.0
+Jeremiah Burke,Denver,3,-3.3401,79.0,22.3,5176954.0
+De'Shayne Montgomery,Dayton,6,5.48963,76.0,21.7,5177122.0
+Chris Loofe,Middle Tennessee,15,-1.53137,83.0,17.4,5176765.0
+Bailey Nunn,Cal St. Fullerton,10,-1.62165,72.0,12.1,5175404.0
+Alvaro Folgueiras,Iowa,2,8.43833,82.0,22.3,5177211.0
+CJ Beaumont,Sam Houston St.,17,-0.642079,80.0,13.7,5176773.0
+Armoni Zeigler,Ball St.,5,-2.09416,76.0,24.9,5177148.0
+Solomon Callaghan,Wright St.,14,0.00919893,74.0,15.0,5177215.0
+Parker Gerrits,Washington St.,17,2.3332,73.0,12.0,5117606.0
+Isaiah Watts,Maryland,10,1.01094,75.0,15.2,5174970.0
+Myles Rigsby,Tulsa,11,3.7593,78.0,15.7,5176734.0
+Victor Valdes,Troy,9,-0.398761,79.0,31.3,5176736.0
+Thomas Dowd,Troy,2,4.72478,80.0,19.8,5176732.0
+Marcus Rigsby Jr.,UT Arlington,17,-1.986,75.0,15.1,5176733.0
+Maki Johnson,East Tennessee St.,12,1.39682,76.0,11.4,4845380.0
+Jaden Harris,Kennesaw St.,10,-1.45516,76.0,14.7,5176770.0
+Jamal Albritton,North Alabama,16,-4.5681,81.0,9.0,5176204.0
+Jake Davis,Illinois,12,8.33145,78.0,10.9,5176150.0
+Michael Nwoko,LSU,13,3.79597,82.0,27.6,4895795.0
+David Thomas,Richmond,14,-1.30198,74.0,14.7,5176149.0
+Jerone Morton,Washington St.,11,0.885198,76.0,17.1,5177358.0
+Mikey Williams,Sacramento St.,1,-4.13499,75.0,28.9,4683786.0
+Anthony Benard,Canisius,5,-9.71156,72.0,21.9,5176146.0
+Ashton Hardaway,Memphis,17,1.23337,80.0,16.0,4711280.0
+Eddie Ricks III,James Madison,15,1.99354,79.0,13.9,5177359.0
+Tyler Ringgold,Tulane,6,0.0383243,80.0,22.3,5174293.0
+Bryce Lindsay,Villanova,14,2.06961,75.0,21.5,5174291.0
+Chris Fields Jr.,Campbell,8,-1.66643,79.0,30.3,5176752.0
+Jordan Leaks,Norfolk St.,17,-4.21205,75.0,15.1,5176751.0
+Rashaud Marshall,Austin Peay,13,3.79841,80.0,22.2,5060699.0
+Jordan Pickett,SIU Edwardsville,10,-4.99167,75.0,16.7,5177364.0
+Eli Wilborn,James Madison,13,0.7409,80.0,19.0,5177286.0
+Miles Heide,San Diego St.,13,5.2467,82.0,16.0,5176243.0
+BJ Davis,San Diego St.,11,6.08421,74.0,23.2,5176241.0
+Kam Burton,Stephen F. Austin,14,0.416002,75.0,16.4,5176674.0
+Malachi Brown,Georgia St.,1,-2.20421,73.0,22.6,5164367.0
+Eli DeLaurier,East Carolina,7,-5.44442,82.0,18.8,4858612.0
+Tan Yildizoglu,VMI,5,-6.10869,76.0,23.0,5176530.0
+Chris Johnson,UCF,11,3.25392,77.0,18.9,5175069.0
+Devon Pryor,Oregon,17,1.13535,79.0,11.3,5152761.0
+Alex Doyle,Stetson,14,-3.0144,81.0,16.1,5177677.0
+Jordan Ross,Georgia,1,1.29571,75.0,16.2,4711402.0
+Tucker Anderson,Utah St.,12,3.84241,81.0,13.2,5175860.0
+AC Bryant,Jacksonville St.,14,1.54267,75.0,18.6,5177521.0
+Javion Guy-King,Central Arkansas,6,0.22943,78.0,22.2,4712848.0
+Logan Carey,Maine,9,-2.01781,75.0,22.6,5175690.0
+Aaron McBride,Loyola Marymount,15,3.30589,78.0,14.7,4872743.0
+Tre Norman,Marquette,6,-0.677857,76.0,19.2,4895745.0
+Zaide Lowery,Marquette,1,0.755082,77.0,20.3,4895750.0
+Jahnathan Lamothe,UNC Wilmington,14,-0.000568539,76.0,17.0,4711264.0
+Michael Teal,Maryland Eastern Shore,5,-6.53647,73.0,17.5,5179096.0
+James Morrow,South Carolina St.,3,-1.39135,80.0,18.7,5179094.0
+Wilson Dubinsky,Marshall,10,-0.928735,75.0,13.5,5179092.0
+Danny Stephens,Western Illinois,10,-8.41116,79.0,20.4,5174298.0
+Trent Pierce,Missouri,12,6.06871,82.0,15.0,5037881.0
+Rory Hawke,Saint Mary's,15,0.0143992,77.0,12.3,5123978.0
+Freddie Dilione V,Penn St.,11,2.13374,77.0,26.0,5125192.0
+Jordan Pennick,Navy,1,-4.38043,71.0,16.8,5176091.0
+Jinwoo Kim,Navy,14,-1.96382,74.0,16.2,5176086.0
+Cam Cole,Navy,11,-0.0384417,73.0,16.7,5176084.0
+Kyle Pock,Northern Iowa,14,-0.906257,78.0,14.2,5176385.0
+Kade Douglas,Tarleton St.,1,-4.51533,72.0,18.2,5176664.0
+RJ Taylor,Northern Iowa,11,-0.250691,71.0,13.5,5176384.0
+Layden Blocker,DePaul,9,1.26966,74.0,23.8,4845358.0
+Makaih Williams,Grand Canyon,11,3.75271,73.0,25.6,5176662.0
+Stephen Byard,Chicago St.,3,-3.23402,80.0,24.7,5177534.0
+Djahi Binet,Southern Miss,2,3.30676,79.0,19.6,5177539.0
+Jalyke Gaines-Wyatt,Hampton,1,-5.37134,72.0,25.7,5177538.0
+Seydou Traore,Utah,6,0.802457,79.0,18.9,5177114.0
+Braeden Shrewsberry,Notre Dame,14,1.74264,76.0,17.3,4912455.0
+Carey Booth,Colorado St.,2,3.28483,82.0,19.1,5037880.0
+Christian Jones,George Washington,11,0.456933,74.0,20.8,4685650.0
+Markus Burton,Notre Dame,9,4.62503,72.0,30.7,5101623.0
+Logan Imes,Notre Dame,17,0.376941,76.0,15.4,4872727.0
+Morris Ugusuk,West Virginia,17,-1.73335,76.0,9.4,5174294.0
+Austin Herro,St. Thomas,6,5.64046,75.0,14.6,4685653.0
+Arden Conyers,Charlotte,12,-1.44831,79.0,17.1,5093265.0
+Jerrell Bellamy,Troy,15,-0.0369021,81.0,20.2,5176735.0
+Lazar Djokovic,VCU,2,3.84047,82.0,21.8,5175368.0
+Jonas Sirtautas,Loyola MD,0,-0.72118,81.0,15.6,5176285.0
+Christian Bliss,Delaware,9,1.59489,76.0,26.5,5142618.0
+Aday Mara,Michigan,0,14.6193,87.0,23.8,5174983.0
+Jarin Stevenson,North Carolina,12,5.39075,82.0,15.0,4873181.0
+Mouhamed Dioubate,Kentucky,2,7.68694,79.0,19.5,4895780.0
+Sam Walters,SMU,17,-1.58332,81.0,14.3,4683781.0
+Christian Coleman,Oklahoma St.,15,3.36632,80.0,18.8,4901961.0
+Zack Davidson,Northern Arizona,15,-5.19715,81.0,28.5,5177696.0
+Money Williams,Montana,9,2.23268,76.0,35.5,5177694.0
+Devin Williams,Florida Atlantic,0,6.15124,82.0,16.8,4685685.0
+Jan Vide,Loyola Marymount,9,-3.0715,78.0,25.9,5174984.0
+Sam Wright,Colgate,3,-3.64895,81.0,23.4,5176049.0
+Cooper Wright,Colgate,16,-1.40266,77.0,9.1,5176047.0
+Jalen Cox,Colgate,9,2.33404,75.0,28.0,5176046.0
+Braelon Green,Eastern Michigan,17,-3.54325,75.0,13.2,5175028.0
+Chip Brunt,Northwestern St.,5,-4.05975,77.0,16.3,5176415.0
+Vice Zanki,Niagara,12,-2.31379,80.0,18.2,5175375.0
+Emmett Marquardt,Eastern Washington,12,0.814076,81.0,17.4,5175374.0
+Cameron Carr,Baylor,2,6.0069,77.0,24.3,5113969.0
+J.P. Estrella,Tennessee,2,7.26442,83.0,23.1,5093142.0
+Rueben Chinyelu,Florida,13,7.29902,83.0,20.1,5174971.0
+Christian King,Montana St.,3,-3.02369,80.0,24.3,5313225.0
+Max Frazier,Central Connecticut,13,1.49155,81.0,19.5,5177169.0
+Mike Evbagharu,Canisius,6,-1.21393,76.0,19.0,5177167.0
+Tunde Vahlberg Fasasi,William & Mary,11,3.07711,79.0,20.2,5174608.0
+Jamar Brown,UCLA,12,5.15867,77.0,12.2,5177743.0
+Drew Fielder,Boise St.,2,5.44676,83.0,27.9,5082704.0
+Todd Brogna,Merrimack,6,1.32945,79.0,14.6,5177298.0
+Mason So,Mount St. Mary's,5,-4.84118,74.0,16.3,5176220.0
+Zvonimir Ivisic,Illinois,0,10.4366,86.0,16.2,5174665.0
+Pavle Stosic,Pepperdine,8,-0.947571,81.0,13.8,5176260.0
+Drew Carter,Oregon,17,-2.15001,75.0,11.2,5176387.0
+Dominique Daniels Jr.,Cal Baptist,9,3.72251,70.0,31.1,5178207.0
+Cayden Vasko,Wofford,11,-0.0362723,78.0,18.1,5176177.0
+Jacob Bannarbie,UNLV,8,1.06634,81.0,20.0,5176263.0
+Brooklyn Hicks,Montana,12,-0.799476,75.0,19.2,5101624.0
+Marqui Worthy,UC Riverside,9,-0.976956,75.0,25.9,5174613.0
+Jayden Ndjigue,Massachusetts,6,3.41673,76.0,14.3,5174614.0
+Jacob Beccles,Cornell,11,-0.0845273,75.0,18.6,5175898.0
+Cyr Malonga,New Mexico St.,13,-0.641704,83.0,13.6,5175054.0
+Tayton Conerway,Indiana,9,6.73409,75.0,25.1,5176737.0
+Tyshawn Archie,McNeese St.,9,3.15677,73.0,27.2,5175726.0
+Cbo Newton,Abilene Christian,11,-1.70355,75.0,19.8,5177575.0
+Mikale Stevenson,Purdue Fort Wayne,1,-2.80416,74.0,26.1,5177573.0
+Tom Beattie,UC San Diego,6,2.95173,76.0,18.5,5176372.0
+Drew Steffe,Southern Illinois,17,0.887878,77.0,17.5,4711281.0
+Akira Jacobs,Fordham,14,-0.862388,81.0,12.4,5176374.0
+Eemeli Yalaho,Washington St.,12,2.11425,80.0,18.1,5175078.0
+Spencer Elliott,Charlotte,15,-0.244808,81.0,15.6,5175712.0
+KJ Debrick,North Carolina A&T,0,1.29413,81.0,19.8,5177701.0
+Elijah Jones,Longwood,15,-0.70544,79.0,12.3,5176811.0
+Kavion McClain,Monmouth,9,0.330988,70.0,25.8,5177703.0
+Tre'Von Spillers,Wake Forest,2,6.69431,79.0,17.7,5176758.0
+Addarin Scott,UMKC,16,-6.65807,81.0,18.5,5174654.0
+Randarius Jones,Grambling St.,8,-6.48912,79.0,18.6,5176741.0
+Evan Otten,Idaho St.,0,-0.62771,83.0,18.5,5176324.0
+Chase Walker,Illinois St.,2,5.92092,81.0,32.4,5176354.0
+Sasa Ciani,Penn St.,7,-5.52819,82.0,14.6,5170078.0
+Junjie Wang,San Francisco,3,0.129886,81.0,21.2,5176426.0
+Isaac Harrell,Elon,12,-0.869939,80.0,12.6,5174938.0
+Bryce Ford,Arizona St.,14,-0.0715084,76.0,14.8,5176231.0
+Stephan Snagg,Binghamton,8,-5.97834,79.0,10.1,5174814.0
+Kilian Brockhoff,William & Mary,3,-1.24806,80.0,24.9,5176465.0
+Augustus Gerhart,Penn,13,2.09676,81.0,14.5,5182415.0
+Sam Brown,Davidson,1,-2.98816,75.0,21.8,5182413.0
+Gavin Griffiths,Temple,6,4.25673,80.0,18.0,4884255.0
+Jamichael Davis,Rutgers,1,2.97037,73.0,16.2,5142358.0
+Emmanuel Ogbole,Rutgers,0,2.93117,82.0,15.4,5174805.0
+Daniel Akitoby,UTSA,15,-3.45764,81.0,18.5,5176290.0
+Dylan Faulkner,Samford,2,4.16234,81.0,30.2,5176193.0
+Kai Yu,Bradley,3,-2.53738,84.0,18.2,5175971.0
+Ben Humrichous,Illinois,12,8.79765,81.0,11.5,5177736.0
+Sterling Young,Indiana St.,1,-4.53741,73.0,23.4,5175049.0
+Jon Sanders,Eastern Michigan,1,-4.55003,74.0,20.3,5176794.0
+Lase Olalere,Charleston Southern,0,-0.111728,82.0,15.8,5175655.0
+Trent Middleton Jr.,North Carolina A&T,1,-2.59321,75.0,22.9,5176166.0
+Keynan Davis,The Citadel,17,-8.31632,77.0,21.8,5176173.0
+Jizzle James,Cincinnati,14,2.22558,75.0,18.2,5175033.0
+Rayvon Griffith,Kent St.,17,-1.37499,79.0,15.6,4683765.0
+Mayar Wol,Bowling Green,12,-0.111383,80.0,22.0,5102799.0
+James Scott,Mississippi,0,7.90457,82.0,10.6,5102798.0
+Christian Moore,The Citadel,14,-3.92982,78.0,22.4,5176171.0
+Rahmir Barno,Florida Gulf Coast,9,-3.28401,72.0,22.1,4895738.0
+Donovan Draper,Navy,6,3.52137,77.0,20.5,5176087.0
+Deywilk Tavarez,Loyola Chicago,1,-3.36312,74.0,22.7,5176275.0
+Jaylen Crocker-Johnson,Minnesota,3,2.75352,80.0,24.8,4894462.0
+Noah Amenhauser,Oregon St.,8,-1.71518,86.0,21.6,4895790.0
+Austin Ball,Eastern Kentucky,14,-4.15846,79.0,18.0,4895779.0
+Cooper Bowser,Furman,13,3.86972,83.0,18.0,5176136.0
+Nick Dorn,Indiana,12,2.36409,79.0,15.5,5174935.0
+Kaden Gumbs,Texas St.,5,-1.30607,74.0,18.1,5176728.0
+Ryan Beasley,San Francisco,9,2.56631,71.0,21.8,5176425.0
+Aidan Burke,UC San Diego,12,1.44285,75.0,14.0,5176423.0
+Sebastian Mack,Missouri,1,-2.46558,75.0,23.3,4711270.0
+Ned Hull,Elon,14,-3.85491,75.0,12.4,5174940.0
+Kintavious Dozier,Alabama A&M,1,-1.47882,73.0,23.3,5177572.0
+Tuburu Naivalurua,Oakland,3,2.03546,78.0,20.0,5177207.0
+Bradley Douglas,James Madison,1,-3.16807,73.0,25.5,5177352.0
+Johan Nziemi,Longwood,8,0.00881732,78.0,22.1,5175666.0
+Michael Imariagbe,Wright St.,2,3.10865,79.0,25.0,4707481.0
+Amire Robinson,Nevada,12,1.39499,76.0,12.7,5176227.0
+Tru Washington,Miami FL,6,4.71743,76.0,21.1,4845368.0
+Tyler Rolison,Nevada,5,-0.303012,72.0,20.7,4845370.0
+JT Toppin,Texas Tech,2,9.35341,81.0,30.6,5143604.0
+Ryan Curry,Army,1,-2.44185,72.0,22.3,5176030.0
+Tate Laczkowski,Army,15,-1.0573,80.0,15.3,5176034.0
+Amani Hansberry,Virginia Tech,2,8.01295,80.0,24.5,4685673.0
+Magoon Gwath,San Diego St.,0,4.80837,84.0,22.9,5176240.0
+Dian Wright-Forde,Norfolk St.,5,-4.67096,75.0,22.0,5176708.0
+Terrance Dixon Jr.,Southern,13,1.74882,80.0,17.4,5175066.0
+"Teddy Washington, Jr.",Chattanooga,1,-5.19437,74.0,23.5,5176712.0
+Kam Parker,Texas A&M Corpus Chris,10,-2.18709,74.0,15.4,5176710.0
+Shilo Jackson,Le Moyne,2,2.17993,81.0,24.8,5176713.0
+Aaron Franklin,Milwaukee,15,0.392038,77.0,13.6,5176835.0
+Darius Duffy,Purdue Fort Wayne,13,1.32922,80.0,11.6,5176836.0
+Devon Ellis,Norfolk St.,15,-1.82559,79.0,18.4,5178891.0
+Tyler Mack,Alabama St.,17,-2.892,77.0,15.5,5178892.0
+Egan Shields,Northern Colorado,13,0.188513,82.0,17.1,5175417.0
+Jaylen Smith,East Tennessee St.,1,-1.88342,71.0,22.3,5176209.0
+Mason Lee,North Florida,12,-1.1416,79.0,15.7,5176208.0
+Jasai Miles,Indiana,7,-1.27328,78.0,13.6,5143601.0
+Patrick O'Brien,Bucknell,7,-6.80107,80.0,12.9,5176042.0
+Tylen Riley,Tulsa,9,1.52652,75.0,28.9,5178210.0
+Jonathan Griman,Cal Baptist,13,2.7729,83.0,14.3,5178211.0
+Jermaine Coleman,St. Thomas,12,-3.66631,79.0,14.3,5177708.0
+Tyler Perkins,Villanova,11,6.31922,76.0,21.1,5182412.0
+Koron Davis,Alabama A&M,3,-4.68955,78.0,25.3,5174561.0
+Jun Seok Yeo,Seattle,3,-0.450741,80.0,21.3,5176261.0
+Rob Whaley Jr.,Kent St.,15,-1.12885,79.0,25.3,5176262.0
+Caleb Johnson,LIU,6,0.299391,79.0,12.2,5175939.0
+Kayden Fish,Ball St.,3,-3.31029,78.0,21.9,5103584.0
+Elliot Cadeau,Michigan,9,5.51927,73.0,22.9,4869764.0
+Nasir Whitlock,Lehigh,1,-2.22275,74.0,30.1,5176076.0
+Jelani Hamilton,Georgia St.,9,1.08626,78.0,28.9,4895747.0
+Jacolb Fredson-Cole,McNeese St.,6,2.43338,79.0,17.6,5238222.0
+Austin Parks,Toledo,2,2.14531,82.0,20.7,4711260.0
+Eric Dailey Jr.,UCLA,3,4.32975,80.0,21.6,4610012.0
+Kaden Cooper,Louisiana Tech,6,2.00377,77.0,19.4,5070505.0
+Connor Dow,Oral Roberts,12,-0.484421,78.0,19.9,5101865.0
+Brandon Garrison,Kentucky,0,5.82419,82.0,16.3,4711306.0
+Justin McBride,James Madison,3,-0.491265,79.0,26.8,4685664.0
+Quentin Jones,Saint Louis,6,3.25986,77.0,18.6,5175171.0
+Justin Page,Niagara,1,-4.71305,77.0,23.9,5175174.0
+Jackson Mosley,Cal Poly,1,-4.28589,70.0,20.1,5175173.0
+Colby Duggan,Charleston,17,-3.27132,79.0,18.3,5174947.0
+Travis Gray,Wagner,3,-2.44095,78.0,19.9,5177687.0
+Okechukwu Okeke,Albany,13,1.15159,82.0,17.4,5177685.0
+Jaidon Lipscomb,Cleveland St.,11,0.431415,77.0,21.4,5177686.0
+Jackson Holcombe,Utah Valley,6,6.54174,79.0,27.3,5176632.0
+Karson Templin,Utah St.,2,5.83851,81.0,22.6,5176273.0
+Tennessee Rainwater,Le Moyne,15,-1.95643,78.0,19.7,5176649.0
+Nate Kingz,Syracuse,12,5.2756,77.0,16.4,5240882.0
+Evan Phelps,East Texas A&M,4,-8.16146,72.0,13.0,5176688.0
+KC Ugwuakazi,Merrimack,0,5.54442,80.0,16.5,5176686.0
+Jahmere Tripp,Rhode Island,6,2.6195,78.0,25.9,4848629.0
+Devin Vanterpool,Florida Atlantic,6,4.25792,76.0,23.6,5175058.0
+Jason Edwards,Providence,11,2.15374,73.0,28.5,5175064.0
+Johnny Kinziger,Illinois St.,1,0.336793,71.0,21.3,5176352.0
+Ty Pence,Illinois St.,12,3.50868,78.0,19.2,5176351.0
+Dra Gibbs-Lawhorn,UNLV,11,3.17975,73.0,25.6,4711259.0
+Miles Klapper,Idaho,6,-1.17271,75.0,14.4,5176305.0
+Cam Estevez,Fairfield,10,-6.11887,75.0,17.4,5174619.0
+Thomas Ndong,Cal Baptist,8,1.90776,82.0,15.9,5175014.0
+Josiah Lake II,Oregon St.,9,2.83104,74.0,21.2,5175011.0
+David Fuchs,San Francisco,2,1.10011,81.0,28.4,5174624.0
+Nils Cooper,UC Davis,2,3.3639,78.0,22.9,5176518.0
+Misha Bednostin,Lafayette,13,-4.26821,83.0,11.9,5176066.0
+Davion Bailey,Incarnate Word,1,-1.58513,76.0,26.8,5176164.0
+Yanis Ndjonga,McNeese St.,13,0.823616,80.0,9.4,5175027.0
+Matt Mayock,American,12,-0.844686,79.0,15.2,5176029.0
+Joey Chammaa,Arkansas St.,9,1.63374,71.0,25.8,5176449.0
+Greg Jones,American,3,-2.47299,78.0,22.6,5176028.0
+Jimmy Oladokun Jr.,Rice,16,-1.83844,81.0,17.3,5117583.0
+Keyon Kensie Jr.,Portland St.,3,0.0612967,80.0,18.4,5176451.0
+Aden Holloway,Alabama,11,6.45117,73.0,23.1,4684276.0
+Nikolaos Chitikoudis,Robert Morris,8,1.55648,78.0,23.6,5175001.0
+Jaylen Wysinger,Texas Southern,9,-1.47417,72.0,24.3,5177608.0
+Rob Dockery,La Salle,6,3.78576,78.0,26.5,5174292.0
+Miro Little,UC Santa Barbara,9,4.71203,75.0,23.3,5033017.0
+Kenyon Goodin,Bellarmine,12,-0.909331,75.0,15.2,5175850.0
+Andrew McKeever,Saint Mary's,8,6.7213,85.0,23.1,5176481.0
+Finley Sheridan,Stetson,15,-1.54666,82.0,17.0,5177678.0
+Yaxel Lendeborg,Michigan,2,15.4997,81.0,20.5,5175737.0
+Carlous Williams,Tennessee St.,17,-5.59544,77.0,14.9,5175727.0
+Jaylen Searles,Nicholls St.,3,-0.832151,80.0,24.1,5176646.0
+Ethan Pickett,Southeastern Louisiana,7,-5.29516,76.0,19.2,5176390.0
+Kalifa Sakho,Houston,13,7.20212,83.0,9.0,5176274.0
+Hamed Olayinka,FIU,8,1.47713,81.0,21.0,5176648.0
+Michael McNair,Boston University,12,1.52906,77.0,21.1,5176039.0
+David Douglas Jr.,Fresno St.,14,-0.485634,77.0,16.8,5176815.0
+Marcus Hall,Green Bay,12,1.16664,78.0,19.5,5176814.0
+Andrew Phillips,Lafayette,1,-2.33155,76.0,22.0,5176067.0
+Mark Butler,Lafayette,1,-4.90652,70.0,19.1,5176065.0
+Luke Rasmussen,Tulane,17,-1.26319,79.0,12.8,5176064.0
+Jameel Morris,Alcorn St.,9,-2.20212,73.0,22.0,5177232.0
+Taylor Bol Bowen,Alabama,12,5.15426,82.0,14.9,4685658.0
+Garwey Dual,McNeese St.,6,4.1323,77.0,19.5,5077373.0
+Carl Parrish,Presbyterian,1,-2.12478,75.0,20.9,5175672.0
+Kory Mincy,George Mason,11,2.42361,74.0,21.1,5175671.0
+Tyler Harris,Vanderbilt,3,0.502601,80.0,21.4,5176497.0
+Kelcy Phipps,Portland St.,6,-0.0268923,74.0,13.2,5175677.0
+Day Day Thomas,Cincinnati,1,5.15055,73.0,20.3,5175032.0
+Karon Boyd,Wichita St.,3,3.04631,77.0,17.5,5176140.0
+Kobe Rodgers,Louisville,6,7.33607,75.0,13.7,5174946.0
+Aidan Rubio,Eastern Michigan,17,-2.44083,79.0,16.7,5176182.0
+J.C. Riley Jr.,Northwestern St.,3,-0.218768,82.0,17.3,5176673.0
+Chris Lockett,Jacksonville,1,-1.23679,76.0,20.4,4683768.0
+Chandler Cuthrell,Elon,3,-1.35118,80.0,33.7,5175741.0
+Corey Camper Jr.,Nevada,11,6.03116,77.0,23.6,5177690.0
+Hasan Abdul Hakim,Memphis,7,-0.994921,80.0,19.9,5176660.0
+Abou Magassa,Wyoming,8,-1.77799,79.0,17.3,5174639.0
+Dasear Haskins,Saint Joseph's,3,1.9655,80.0,19.6,5174636.0
+Cian Medley,Kent St.,5,-3.29631,71.0,20.8,5174637.0
+Xzayvier Brown,Oklahoma,11,4.2906,74.0,22.7,5174633.0
+Anthony Finkley,Saint Joseph's,10,-2.47499,78.0,19.3,5174634.0
+Tsvet Sotirov,Georgia Southern,17,-5.05952,81.0,13.2,5174642.0
+Christian Hammond,Santa Clara,11,2.22642,76.0,22.9,5176359.0
+Elmarko Jackson,Kansas,5,2.44396,75.0,16.1,4872739.0
+Marqus Marion,Wake Forest,8,3.4895,80.0,9.2,5174579.0
+Mike Williams III,Seton Hall,6,1.02675,75.0,19.0,5174319.0
+Parker Friedrichsen,Davidson,11,1.95408,76.0,21.5,4845382.0
+Brandon Rechsteiner,Colorado St.,11,1.38946,73.0,21.7,5103590.0
+Corey Chest,Mississippi,15,6.78003,80.0,12.9,4858606.0
+Jaydon Young,North Carolina,10,-0.102614,76.0,14.9,4711266.0
+Malik Olafioye,Eastern Illinois,4,-9.34048,74.0,18.7,5177742.0
+Trent Johnson,Houston Christian,12,-0.116199,78.0,13.2,5176325.0
+Eric Parnell,Fairleigh Dickinson,14,-3.84564,75.0,19.6,5174934.0
+Isaiah Griffin,Western Illinois,1,-7.80996,78.0,22.5,5176322.0
+Kiree Huie,Eastern Washington,8,-1.9326,81.0,26.2,5176321.0
+Izzy Miles,Northwestern St.,1,-3.76221,74.0,23.7,5176781.0
+Emmanuel Innocenti,Gonzaga,12,7.02332,77.0,12.4,5176787.0
+Bubu Benjamin,George Washington,17,1.53252,79.0,14.6,5176788.0
+Chase Forte,Boston College,5,0.278982,76.0,19.2,4706918.0
+Sean Smith,Middle Tennessee,9,2.1792,75.0,23.6,5177533.0
+Micah Octave,Florida A&M,6,4.65536,77.0,16.4,5177530.0
+Chris Mubiru,Northwestern St.,3,0.697025,77.0,14.6,5176672.0
+Baye Ndongo,Georgia Tech,2,4.57308,81.0,23.1,5142356.0
+Darryl Simmons II,St. Bonaventure,1,-1.82134,70.0,20.5,5175657.0
+Eddrin Bronson,Furman,10,-3.90426,76.0,17.4,5176133.0
+Ronald Jessamy,Cal St. Bakersfield,2,-0.179733,80.0,26.5,4895782.0
+Patrick Haigh,Mount St. Mary's,17,-4.94502,76.0,13.3,5177124.0
+Jake Brack,South Dakota,8,-1.86231,81.0,9.3,5177043.0
+Joe Sayler,South Dakota St.,1,-3.3128,75.0,22.1,5177048.0
+Bubz Alvarez,South Dakota St.,7,-3.7114,77.0,18.4,5177049.0
+Damon Wilkinson,South Dakota St.,8,0.434433,82.0,27.1,5177051.0
+Jayden Reid,Northwestern,9,0.328013,70.0,25.9,4895746.0
+Jalen Cooper,Eastern Kentucky,15,-2.57424,79.0,18.6,4909271.0
+Kaspar Sepp,Cornell,8,-0.0941095,79.0,17.3,5176404.0
+Cooper Schwieger,Wake Forest,15,2.1604,82.0,13.3,5176402.0
+Isaiah West,Belmont,5,-0.396597,74.0,13.7,4683784.0
+Lucas Scroggins,Saint Peter's,13,4.65487,81.0,14.6,5176401.0
+Jahari Williamson,Kent St.,14,2.12041,73.0,13.8,5176400.0
+Malik Presley,George Mason,17,-1.09508,78.0,13.1,4848631.0
+Delyle Williams,Jackson St.,4,-5.47727,74.0,14.8,5177579.0
+Donovan Hunter,Bellarmine,10,-6.88014,80.0,20.5,5176207.0
+Ahmad Henderson II,Illinois Chicago,1,-2.04277,70.0,30.1,5177126.0
+Sam Orme,Belmont,12,5.85774,81.0,19.4,5176310.0
+Brigham Rogers,Belmont,13,4.66781,81.0,17.1,5176311.0
+Gavin Walsh,UNC Wilmington,3,0.962768,79.0,19.4,5174815.0
+Win Miller,Belmont,1,-6.06963,75.0,18.3,5176308.0
+Tyson Brown,Radford,8,-1.56099,81.0,13.2,5174621.0
+Always Wright,UT Rio Grande Valley,5,-5.63008,75.0,17.3,5174620.0
+Michael Ajayi,Butler,2,5.26661,79.0,27.3,5176517.0
+Jonah Pierce,Presbyterian,8,-1.95089,82.0,26.9,5175673.0
+Jaxon Pollard,Samford,7,-4.13349,79.0,17.5,5176239.0
+Deyton Albury,New Mexico,9,3.76958,74.0,24.1,5176237.0
+Donovan Rivers,Jacksonville,8,-5.2762,81.0,24.0,5179287.0
+Torey Alston,Middle Tennessee,8,0.490517,80.0,23.3,5176763.0
+Mekhi Cooper,Lindenwood,4,-5.73277,73.0,14.9,5176213.0
+Evan Ipsaro,Miami OH,11,2.82999,72.0,20.8,5176212.0
+Paul Djobet,Nebraska Omaha,2,1.12082,79.0,28.6,5095063.0
+Eian Elmer,Miami OH,12,3.73532,78.0,17.4,5093252.0
+Keanu Dawes,Utah,2,4.11497,81.0,19.9,5060685.0
+Daemar Kelly,Northern Illinois,4,-6.05776,77.0,17.9,5177140.0
+Khaden Bennett,Wyoming,6,5.27954,76.0,19.0,5177137.0
+Rihards Vavers,Washington St.,12,2.03539,79.0,17.4,5177139.0
+Camp Wagner,Indiana St.,14,-0.337738,78.0,21.8,5175821.0
+Gabe Warren,Holy Cross,3,-1.86003,78.0,20.9,5143603.0
+Teagan Moore,Western Kentucky,2,5.05424,77.0,26.5,5176780.0
+Yanis Bamba,Maine,17,-8.82454,78.0,18.4,5175745.0
+Michael Sulaka,Western Michigan,15,-2.47474,81.0,13.6,5176248.0
+Jordan Johnson,Bethune Cookman,17,-5.73228,76.0,15.7,5177605.0
+Kolton Mitchell,Idaho,1,2.05425,73.0,23.3,5176318.0
+Joseph Tugler,Houston,2,13.6104,80.0,19.7,5060700.0
+Declan Ryan,Holy Cross,3,-7.08014,80.0,22.5,5176063.0
+Nestor Dyachok,North Florida,8,-4.96434,81.0,15.3,5177724.0
+Caedin Hamilton,Marquette,16,-0.368549,81.0,15.9,5175364.0
+Abdi Bashir Jr.,Kansas St.,14,1.816,79.0,21.3,5174959.0
+Anthony Robinson II,Missouri,6,5.08115,75.0,19.1,5054085.0
+Jordan Butler,South Carolina,15,1.55223,84.0,15.6,4683763.0
+Hayden Tibbits,St. Thomas,11,-2.08393,71.0,14.9,5177052.0
+Kevin Overton,Auburn,11,4.89191,77.0,17.7,5176314.0
+Pryce Sandfort,Nebraska,12,8.67799,79.0,21.0,4858604.0
+Mike Loughnane,Northeastern,11,-1.91922,76.0,17.9,5174569.0
+Rikus Schulte,Fordham,2,3.82487,81.0,19.6,5174571.0
+Brock Harding,TCU,5,2.13401,72.0,17.7,5103589.0
+Cliff Davis,James Madison,11,1.51251,74.0,22.1,5176669.0
+DeJour Reaves,Fordham,9,3.088,72.0,28.0,5175415.0
+Ahmad Robinson,UAB,1,0.221119,70.0,21.5,5175704.0
+Malek Abdelgowad,Southern,2,-1.65606,82.0,27.5,5176382.0
+Mekhi Cameron,Tennessee Tech,1,-4.59901,76.0,20.8,5175414.0
+Carl Cherenfant,McNeese St.,6,2.4798,77.0,14.0,4711271.0
+Baraka Okojie,Mercer,9,-0.587299,75.0,29.4,5174594.0
+"Jamie Kaiser, Jr.",Butler,12,4.08361,78.0,14.5,5060688.0
+Jaylen Curry,Oklahoma St.,9,2.95564,73.0,21.8,5174611.0
+Robert Davis Jr.,Old Dominion,10,-3.97621,78.0,17.9,5174612.0
+Dedan Thomas Jr.,LSU,9,4.97472,73.0,26.9,4873093.0
+Kajus Kublickas,Pacific,5,-3.15294,74.0,21.2,5174659.0
+Tarique Foster,Albany,17,-4.24378,80.0,16.0,5174615.0
+Chudi Dioramma,Arkansas St.,8,-1.89165,82.0,16.3,5175409.0
+Lukas Walls,Radford,12,0.360384,77.0,12.9,5176159.0
+Josh Holloway,Texas A&M,9,1.5449,73.0,19.9,5176160.0
+Ace Talbert,Gardner Webb,10,-5.55841,72.0,15.9,5177284.0
+Riley Allenspach,George Mason,2,2.3796,83.0,25.5,4838752.0
+Mookie Cook,San Francisco,3,1.83804,78.0,21.0,4683767.0
+Jackson Shelstad,Oregon,9,3.22868,73.0,24.0,4845361.0
+Kwame Evans Jr.,Oregon,2,6.3486,82.0,22.4,4683769.0
+Kendrick De Luna,Cal St. Fullerton,15,-0.919594,82.0,14.8,5175763.0
+Trey Green,Saint Louis,11,5.84374,72.0,16.9,4711258.0
+Carson Schwieger,Queens,12,-0.553706,80.0,16.1,5177217.0
+Jacob Theodosiou,Loyola MD,9,-1.93811,76.0,31.5,5176286.0
+Kael Combs,Iowa,11,2.80246,76.0,14.9,5176280.0
+Cam Manyawu,Iowa,13,8.45734,81.0,18.5,5176283.0
+Tristan Gross,Mercer,12,-0.895134,78.0,12.0,4845379.0
+Seneca Willoughby,Bethune Cookman,10,-2.44963,75.0,11.9,5178200.0
+Jakobi Heady,Bethune Cookman,11,2.1379,78.0,21.4,5178199.0
+Canin Jefferson,North Alabama,1,-4.80631,74.0,24.1,5176200.0
+Titas Sargiunas,Lipscomb,1,-3.73913,76.0,21.8,5175660.0
+Miles Rubin,Loyola Chicago,0,4.79375,82.0,21.0,5174609.0
+Jadin Collins-Roberts,Marist,5,-1.33422,73.0,17.3,5242619.0
+Jaden Winston,Manhattan,9,-0.632144,72.0,23.0,5177116.0
+Troy Cicero Jr.,Loyola MD,1,-2.67872,73.0,20.1,5176081.0
+Jordan Stiemke,Loyola MD,14,-3.76045,77.0,18.4,5176082.0
+Jason Schofield,Marist,8,2.9205,82.0,24.9,5177120.0
+Josh Pascarelli,Colorado St.,12,2.51022,75.0,17.1,5177121.0
+Drayton Jones,Butler,13,6.62279,83.0,15.8,5143607.0
+Matar Diop,Stetson,16,-4.1698,82.0,14.6,5174799.0
+Mambourou Mara,Houston Christian,6,0.153656,78.0,17.7,5176950.0
+Alex Cotton,Howard,10,-0.516796,77.0,14.3,5175065.0
+Villiam Garcia Adsten,Drexel,7,-3.11661,80.0,18.0,5176529.0
+Hunter Adam,Davidson,12,3.39803,79.0,15.7,5174570.0
+Niccolo Moretti,Florida Atlantic,5,-2.20419,73.0,14.9,5126036.0
+Shawn Simmons II,UMass Lowell,15,-1.26331,78.0,15.1,5174632.0
+Dalen Davis,Princeton,1,-5.368,72.0,30.5,5177175.0
+Jackson Hicke,Princeton,11,1.45887,77.0,23.8,5177174.0
+Jacob Huggins,Princeton,7,-0.647712,80.0,16.3,5177173.0
+Arne Osojnik,Northern Arizona,3,-5.44758,78.0,23.3,5176190.0
+Emanuel Richards,Longwood,1,-3.79174,76.0,19.2,5175665.0
+Camaren Sparrow,Coppin St.,7,-1.96562,76.0,20.7,5176269.0
+Santiago Trouet,Arizona St.,8,2.82364,83.0,17.3,5176444.0
+Andrew Meadow,Boise St.,12,4.22569,79.0,17.4,5081887.0
+Chad Moodie,Appalachian St.,16,-3.25554,80.0,11.5,5177526.0
+Elijah Strong,South Carolina,3,-1.30933,80.0,29.5,5174555.0
+Jayden Hastings,Boston College,0,5.223,81.0,16.8,4685671.0
+Trey Autry,George Washington,12,2.79825,76.0,15.3,5174599.0
+Josh Hubbard,Mississippi St.,9,3.00118,72.0,31.4,4895740.0
+Adrian Myers,San Jose St.,3,2.20652,78.0,20.2,5142584.0
+Elijah Price,Nevada,2,5.04293,81.0,23.3,5176317.0
+Khali Horton,Coppin St.,10,-5.33872,80.0,19.4,5176265.0
+Conrad Martinez,High Point,11,0.741402,72.0,19.2,5174957.0
+Ofri Naveh,Oral Roberts,6,-1.72039,78.0,21.4,5175352.0
+KJ Lewis,Georgetown,6,5.28571,76.0,27.6,5174952.0
+Paulius Murauskas,Saint Mary's,2,5.90569,80.0,26.6,5174955.0
+Motiejus Krivas,Arizona,0,11.9854,86.0,19.0,5174954.0
+Josh Rivera,Seton Hall,7,0.396732,79.0,15.9,5105681.0
+Prophet Johnson,Sacramento St.,9,3.90569,75.0,25.2,5177722.0
+Ace Valentine,UMBC,11,1.8984,75.0,18.6,5174860.0
+Josh Akpovwa,Texas Southern,16,-7.38157,80.0,16.7,5176581.0
+Franck Emmou,Texas St.,14,-2.09174,77.0,14.8,5174858.0
+Aaron Clark,Pepperdine,1,-1.99519,78.0,25.3,4895742.0
+Wesley Yates III,Washington,1,2.49033,76.0,21.4,4869737.0
+Jamari McDowell,Kansas,14,3.59867,76.0,10.8,5103571.0
+Jayson Petty,UMKC,1,-2.87406,76.0,18.8,5177741.0
+Anthony Robinson,Xavier,16,-0.442071,82.0,16.4,5143921.0
+Muneer Newton,Campbell,13,0.877893,77.0,15.8,5175796.0
+Gytis Nemeiksa,Hawaii,3,0.514772,80.0,18.3,5175369.0
+Marcus Glover,Incarnate Word,8,-0.141069,80.0,12.6,5176580.0
+Ryan Sabol,Buffalo,1,-1.06521,74.0,24.7,5177188.0
+Anquan Boldin Jr.,Florida A&M,7,-3.91066,76.0,18.7,5177189.0
+Bryson Wilson,Binghamton,7,-6.8717,77.0,22.3,4895759.0
+Churchill Abass,New Orleans,0,1.80966,82.0,20.3,5175360.0
+Ben Oosterbaan,St. Thomas,12,1.97325,78.0,14.4,5177054.0
+Aidan Cammann,Stanford,6,4.0412,82.0,17.1,5175009.0
+Andrej Stojakovic,Illinois,3,4.21116,79.0,23.8,5175007.0
+Carter Welling,Clemson,2,6.61132,82.0,26.1,5176397.0
+Domas Kauzonas,UNC Greensboro,16,-6.83887,82.0,17.5,5176222.0
+Derin Saran,UC Irvine,6,0.311533,77.0,23.6,5176395.0
+Berke Buyuktuncel,Nebraska,0,7.42474,81.0,17.3,5174982.0
+Dusty Stromer,Grand Canyon,10,0.223809,78.0,15.8,4685662.0
+Xavier Booker,UCLA,2,7.54387,83.0,16.3,4711304.0
+Coen Carr,Michigan St.,2,6.08274,78.0,19.5,4872740.0
+Brandon Williams,UCLA,17,3.62025,79.0,13.1,5174981.0
+Rashaan Mbemba,Colorado St.,2,0.149078,79.0,23.6,5176196.0
+Kyan Evans,North Carolina,5,-0.853426,74.0,16.0,5093253.0
+Jaylin Stewart,Connecticut,17,4.26943,79.0,14.8,4685647.0
+Solo Ball,Connecticut,14,2.96697,75.0,21.9,4895737.0
+Jake DiMichele,Duquesne,14,-1.04021,76.0,12.2,5174586.0
+Comeh Emuobor,New Hampshire,7,-9.80949,77.0,31.2,5103832.0
+Arrinten Page,Northwestern,2,7.55466,83.0,23.0,5060696.0
+Brandon Gardner,Sacramento St.,7,-4.15772,80.0,14.0,4711296.0
+Trevor Mullin,Yale,1,0.231993,72.0,20.7,5177185.0
+Viljami Vartiainen,Weber St.,12,1.23335,78.0,15.5,5175397.0
+Samson Aletan,Yale,13,4.43398,82.0,16.5,5177187.0
+Malcolm Wrisby-Jefferson,Brown,5,-4.19948,76.0,15.8,5175853.0
+Adrian Uchidiuno,Brown,10,-4.91505,74.0,22.2,5175855.0
+Luke Paragon,Brown,12,-1.89655,76.0,17.3,5175854.0
+Zach Matulu,Albany,11,-0.542323,74.0,17.9,5175797.0
+N'famara Dabo,Brown,13,3.84597,80.0,14.9,5175857.0
+Devon Barnes,Ball St.,1,-2.68533,73.0,24.2,5176789.0
+C.J. Booker,Southeastern Louisiana,1,-5.15805,69.0,15.0,5176658.0
+Traivar Jackson,Northern Arizona,8,-0.219154,79.0,17.3,5176783.0
+Michael Houge,Oakland,3,-3.8069,79.0,22.5,5177149.0
+DeAndre Craig,Purdue Fort Wayne,1,-2.60583,72.0,24.8,5176937.0
+Jake Fiegen,Cornell,12,4.47696,76.0,23.9,5175900.0
+Kerrington Kiel,Troy,6,0.279813,78.0,15.7,5176731.0
+Ethan Kizer,South Dakota,17,-3.52919,77.0,12.1,5176683.0
+Sonny Wilson,Toledo,11,1.18421,73.0,23.1,4845365.0
+Pasha Goodarzi,San Jose St.,14,-1.66271,75.0,15.2,5176252.0
+Sam Lewis,Virginia,11,4.15698,79.0,19.4,5176232.0
+Grgur Brcic,Bucknell,8,-3.63797,82.0,15.5,5176233.0
+John Broom,South Alabama,17,-0.276933,77.0,8.4,5176682.0
+Marcus Millender,Georgia,11,3.79505,71.0,21.5,5176681.0
+Javon Jackson,Murray St.,9,-1.14908,75.0,31.2,5113534.0
+Jacoi Hutchinson,Longwood,9,-0.96807,75.0,22.9,4845378.0
+Jaylen Benard,Longwood,17,-1.37809,74.0,18.4,5175669.0
+Brandon Hardy,Southern,17,-2.14214,75.0,10.2,5176556.0
+London Fields,East Texas A&M,10,-5.68745,77.0,13.5,5176553.0
+Jordan Burks,UCF,12,5.18989,81.0,19.3,5060684.0
+D.J. Wagner,Arkansas,11,3.28857,76.0,14.7,4683777.0
+Aaron Bradshaw,Memphis,15,1.41212,85.0,21.8,4685683.0
+Dai Dai Ames,California,1,0.0414022,73.0,25.1,4845373.0
+RJ Johnson,Kennesaw St.,9,0.816459,76.0,25.2,5176186.0
+Frankquon Sherman,Kennesaw St.,2,3.38579,79.0,19.9,5176187.0
+Colby Garland,San Jose St.,9,2.91753,72.0,29.5,5176315.0
+Jalin Rice,Nicholls St.,7,-5.81092,75.0,19.5,5177699.0
+Corey Stephenson,FIU,3,1.91289,78.0,25.4,5175759.0
+Tom Mark,Cal St. Bakersfield,15,0.257731,79.0,13.3,5175758.0
+Ocypher Owens,Tarleton St.,7,-1.65246,79.0,17.5,5177252.0
+Trent Mosquera,Le Moyne,3,-0.385929,76.0,22.8,5177250.0
+Cameron Faas,Fresno St.,14,0.262309,79.0,12.5,5177744.0
+Niko Abusara,Dartmouth,6,-1.19766,77.0,18.1,5175921.0
+Jaiun Simon,Dayton,15,2.45009,78.0,16.1,5174574.0
+Yaniel Rivera,Abilene Christian,10,-1.82155,76.0,17.3,5177702.0
+Etienne Strothers,Hampton,5,-2.59377,74.0,19.9,5176756.0
+Assane Diop,San Diego,15,-1.39348,81.0,17.4,4711295.0
+Zamoku Weluche-Ume,North Carolina A&T,7,-4.33457,80.0,20.9,5174601.0
+Jurian Dixon,UC Irvine,1,1.21627,77.0,24.3,4711267.0
+Connor Sevilla,UC Davis,14,-1.40546,72.0,18.1,5176386.0
+Randall Pettus II,Elon,1,-2.9502,75.0,21.8,5177193.0
+Tyler Tejada,Towson,3,2.48248,80.0,25.3,5175148.0
+Mekhi Lowery,Illinois Chicago,6,3.28062,79.0,17.8,5175146.0
+Thomas Haugh,Florida,2,10.1793,81.0,21.0,5080489.0
+Bobby Durkin,Minnesota,12,3.68884,79.0,14.6,5174568.0
+Nasir Mann,Queens,11,0.394759,77.0,21.5,5176643.0
+Alex Condon,Florida,2,10.2894,83.0,23.6,5174657.0
+Malik Ferguson,Tennessee Tech,5,-5.91553,76.0,19.1,5176803.0
+Nils Machowski,Wofford,11,-0.667827,75.0,24.1,5175080.0
+Brandon Muntu,Tennessee Tech,14,-1.57619,76.0,15.6,5176245.0
+Don McHenry,Utah,11,1.50803,73.0,24.0,4903216.0
+Tay Knox,Texas St.,16,-0.331032,81.0,12.7,5177655.0
+James Dent Jr.,Middle Tennessee,17,-3.59419,77.0,12.2,5177651.0
+Arman Madi,Sacramento St.,6,1.18362,78.0,16.1,5175391.0
+"Dennis Parker, Jr.",Radford,3,0.0269079,78.0,28.2,4848630.0
+Zach Kraft,North Dakota,12,-0.908441,74.0,12.8,5176946.0
+Davide Poser,New Hampshire,10,-2.81247,76.0,13.7,5175705.0
+Quinn Nielsen,Boston University,16,-6.97351,83.0,11.0,5176175.0
+Caleb Foster,Duke,11,4.03202,77.0,17.6,4711256.0
+Sean Stewart,Oregon,15,2.60043,81.0,17.4,4869739.0
+TJ Power,Penn,3,3.65458,81.0,23.1,4684843.0
+Jakub Necas,Duquesne,15,1.88899,80.0,15.0,5311858.0
+Asa Thomas,Furman,14,0.964244,79.0,19.0,4895755.0
+Jack Graham,New Hampshire,17,-3.69236,75.0,20.8,5174630.0
+Mikkel Tyne,Richmond,1,-2.95428,70.0,17.8,5174629.0
+Ryan Soulis,Columbia,15,0.485283,82.0,17.0,5174631.0
+Collin Tanner,Richmond,3,-1.64435,78.0,16.6,5174628.0
+Dean Shepherd,Delaware St.,1,-3.75862,75.0,19.5,5176278.0
+Mari Jordan,Radford,3,0.258861,80.0,16.2,4894453.0
+Blue Cain,Georgia,11,6.91497,77.0,20.2,5174661.0
+Thomas Batties II,Harvard,3,3.36692,79.0,19.5,5175954.0
+Malik Mack,Georgetown,1,1.28896,74.0,24.2,5175952.0
+Oscar Cluff,Purdue,13,13.4092,83.0,19.2,5174973.0
+Melvin Council Jr.,Kansas,9,4.43076,76.0,23.2,5177301.0
+Isaiah Stafford,Southern Illinois,17,-2.04348,74.0,20.7,5176403.0
+Allen Udemadu,Jacksonville,8,-5.44232,82.0,19.3,5176296.0
+Roderick Coffee III,Grambling St.,9,0.605838,76.0,19.8,5177557.0
+Nasir Muhammad,Albany,10,-7.48074,74.0,24.8,5176224.0
+William Kermoury,Northeastern,11,-0.375149,77.0,22.2,5175016.0
+JB Frankel,Northeastern,1,-4.02753,75.0,17.9,5175017.0
+Scotty Middleton,Tulane,14,-0.656341,78.0,14.5,4711279.0
+Taison Chatman,Ohio St.,11,3.24683,76.0,16.7,4685646.0
+Devin Royal,Ohio St.,3,4.00902,78.0,21.6,4895776.0
+Kolby Gilles,Air Force,7,-10.1509,77.0,21.0,5182079.0
+Po'Boigh King,Sam Houston St.,14,0.835835,76.0,20.2,5179294.0
+Josh Smith,West Georgia,1,-4.57212,76.0,29.2,5179291.0
+Caleb Walker,Air Force,13,-2.96675,81.0,25.2,5182084.0
+Wesley Celichowski,Air Force,17,-5.03722,84.0,16.5,5182077.0
+Zaire Hayes,Texas Southern,14,-3.14215,74.0,17.3,5185673.0
+JaVar Daniel,West Georgia,2,2.64654,82.0,18.2,5194058.0
+Drew McKenna,Old Dominion,3,-3.51294,79.0,20.7,5197113.0
+Jacob Cofie,USC,2,6.32134,82.0,16.9,4873219.0
+Jayden Fort,Georgetown,8,2.35522,81.0,15.1,5240521.0
+Billy Richmond III,Arkansas,12,6.67888,78.0,17.9,5060732.0
+Casmir Chavis,UT Arlington,5,-2.05132,72.0,24.9,5183293.0
+Karter Knox,Arkansas,12,4.74481,78.0,17.1,4869777.0
+Cole Franklin,North Texas,6,1.44107,76.0,14.9,5241611.0
+Isaiah Elohim,Florida Atlantic,3,0.00806453,77.0,19.5,4869767.0
+Jamal Fuller,LIU,11,1.64239,77.0,22.0,5122836.0
+Michael Marcus Jr.,Appalachian St.,3,0.1535,81.0,16.2,5239587.0
+Ace Buckner,Clemson,11,4.52312,74.0,23.8,5179085.0
+Del Jones,Radford,1,-3.91531,75.0,29.2,4873143.0
+Ryan Williams,Northeastern,11,0.917778,76.0,20.6,5242276.0
+Joson Sanon,St. John's,10,0.327202,77.0,19.4,5142625.0
+Jaylen Robinson,Richmond,13,-0.137305,78.0,15.2,5239673.0
+Kur Teng,Michigan St.,14,2.76533,76.0,20.1,4873111.0
+Daniil Glazkov,Loyola Chicago,17,-3.64594,78.0,13.0,5239627.0
+Sam Springer,Loyola MD,17,-7.46903,79.0,15.1,5247862.0
+Eli Robinson,Air Force,6,-1.61445,78.0,17.5,5247864.0
+Grady Lewis,Cal St. Northridge,13,-0.327173,81.0,16.7,5117707.0
+Tavion Banks,Iowa,2,4.88774,79.0,23.2,5241363.0
+Isaia Howard,Iowa,6,6.07717,77.0,16.7,5241366.0
+Kamrin Oriol,North Florida,11,-2.23632,74.0,27.4,5119069.0
+Tye Dorset,Merrimack,11,0.0662136,75.0,17.7,5242629.0
+Jaylan Ouwinga,Toledo,15,-0.865245,80.0,16.7,5243086.0
+Marcus Overstreet,San Jose St.,8,-0.851807,81.0,15.5,5243238.0
+Trent Perry,UCLA,11,5.51694,76.0,21.0,5060706.0
+Eric Freeny,UCLA,17,2.32191,76.0,12.0,5149633.0
+Baboucarr Njie,UTSA,16,-3.24949,78.0,23.7,5240407.0
+Cooper Campbell,Troy,11,1.43596,74.0,19.4,5240745.0
+Cobi Campbell,Troy,14,-0.877171,74.0,14.4,5240746.0
+Austin Cross,Troy,10,-5.07442,75.0,11.6,5240749.0
+Kevin de Kovachich,North Alabama,1,-4.29945,76.0,21.1,5239798.0
+Tyler Boston,Holy Cross,1,-1.6608,72.0,24.7,5242942.0
+Isaiah Chappell,UC Davis,17,-1.27394,81.0,16.8,5241920.0
+Arlandus Keyes,Mount St. Mary's,9,2.03191,74.0,23.4,5242635.0
+Nicholas Shogbonyo,Texas A&M Corpus Chris,11,0.638934,73.0,21.0,5241914.0
+Houran Dan,Seattle,8,-1.61182,82.0,19.4,5241344.0
+Quel'Ron House,Southern Illinois,9,0.687743,72.0,27.1,5242121.0
+Collin Chandler,Kentucky,11,5.79472,77.0,15.8,5238207.0
+Jack Daugherty,Illinois St.,10,-5.85846,80.0,17.1,5241373.0
+Brady Shoulders,Mercer,6,1.18952,78.0,16.1,5243236.0
+Andrija Vukovic,Oklahoma St.,15,4.52004,83.0,15.4,5240264.0
+Tyrone Riley IV,San Francisco,12,2.67869,78.0,17.9,5037875.0
+James O'Donnell,Portland,13,-1.06596,82.0,20.6,5241061.0
+Zaxton King,Missouri St.,14,-2.12151,75.0,13.1,5241395.0
+Makhai Valentine,Northern Illinois,14,-0.314678,75.0,18.8,5241390.0
+Josh Hill,Robert Morris,7,-7.39358,83.0,23.9,5196867.0
+Amir Lindsey,Albany,1,-1.94968,71.0,25.0,5239812.0
+Cooper Koch,Iowa,12,5.78154,80.0,12.8,4873203.0
+Martin Somerville,Florida St.,10,4.12558,75.0,16.3,5239821.0
+Britton Berrett,Utah Tech,12,-1.31814,77.0,10.4,5241402.0
+Tahaad Pettiford,Auburn,9,2.38141,73.0,25.2,4873089.0
+Aidan Richard,Holy Cross,10,-4.93332,78.0,14.1,5242945.0
+Max Pikaar,Southern Illinois,7,1.53189,84.0,10.9,5239709.0
+Riley Fox,Yale,14,-1.90978,78.0,23.3,5241755.0
+Jaden Jackson,South Dakota St.,1,0.10756,72.0,20.8,5241454.0
+Owen Larson,Drake,1,-2.87889,73.0,20.3,5241452.0
+Myles Corey,Rhode Island,6,2.19206,73.0,19.5,4706260.0
+Dillon Battie,Wichita St.,2,3.47144,80.0,21.3,5181250.0
+Aiden Tobiason,Temple,11,2.02811,77.0,20.2,5240369.0
+Holden Pierre-Louis,Cleveland St.,16,-4.6539,80.0,15.2,5240370.0
+Luke Davis,East Carolina,8,-1.215,80.0,13.3,5243062.0
+Jakai Sanders,Le Moyne,5,-4.47027,75.0,22.3,5242916.0
+Mykolaus Ivanauskas,Mercyhurst,8,-4.46978,80.0,20.3,5243379.0
+Sir Mohammed,Notre Dame,7,-1.65833,78.0,24.5,5137653.0
+Cole Certa,Notre Dame,14,1.18765,77.0,20.8,5144373.0
+Raysean Seamster,UT Arlington,6,2.86733,80.0,23.1,5241424.0
+Jovan Jester Jr.,UC Irvine,6,1.92054,76.0,25.6,5241931.0
+Karmani Gregory,USC Upstate,1,-2.44326,73.0,26.8,5241748.0
+Breylin Garcia,USC Upstate,8,1.26661,78.0,22.5,5241749.0
+Daniel Helterhoff,Rider,8,-8.54928,82.0,20.3,5116517.0
+Treyson Anderson,North Dakota St.,2,2.53677,81.0,27.5,5241642.0
+Malachi Palmer,Villanova,12,3.37028,78.0,11.6,5239554.0
+Andy Stefonowicz,North Dakota St.,11,1.16852,74.0,16.7,5241640.0
+Carson Smith,North Dakota St.,10,-6.12199,78.0,15.5,5241641.0
+DaMariee Jones,Southern,8,1.81714,77.0,17.3,4905542.0
+Florian Tenebay,South Carolina St.,5,-5.33926,78.0,19.8,5243404.0
+Jerquarius Stanback,Alabama St.,0,1.32444,82.0,18.5,5242812.0
+Elijah Malone,Colorado,3,1.70303,82.0,17.4,5115357.0
+Dorian McMillian,Jackson St.,1,-4.51488,75.0,21.8,5243344.0
+Jalen Tatum,Jackson St.,5,-5.65173,76.0,18.6,5243345.0
+Sean Craig,Toledo,3,1.50454,79.0,17.8,5115458.0
+John Mobley Jr.,Ohio St.,11,5.03037,73.0,23.5,5060708.0
+Jordan Rogers,NJIT,15,-0.148509,78.0,14.1,5239762.0
+Jaye Nash,Jacksonville St.,5,-2.95098,75.0,18.0,5060718.0
+Scooter Williams Jr.,Louisiana Tech,3,0.348869,77.0,24.6,5243118.0
+Liutauras Lelevicius,TCU,12,2.91155,79.0,13.4,5245624.0
+Charles Johnston,Furman,2,2.52187,83.0,18.1,5243230.0
+Tomas Thrastarson,Washington St.,3,-0.827863,78.0,20.8,5241071.0
+Karris Bilal,Louisiana,10,-4.28444,74.0,16.5,5313128.0
+Kieran Elliott,Cal Poly,12,-1.31743,78.0,12.3,5242266.0
+Ty Davis,Creighton,4,-1.73037,76.0,12.2,5149116.0
+Larry Johnson,McNeese St.,3,2.19528,76.0,30.5,5144375.0
+Zoom Diallo,Washington,9,3.29913,76.0,28.5,5060705.0
+Jase Butler,Colorado St.,11,2.94831,76.0,18.0,5175589.0
+Kyle Pulliam,William & Mary,11,0.98082,76.0,19.3,5242594.0
+Jordan Pyke,Incarnate Word,3,-0.261027,79.0,23.4,5242568.0
+Peter Kramer,Lehigh,14,-2.36968,77.0,10.5,5243041.0
+Hank Alvey,Lehigh,2,3.62655,81.0,24.3,5243042.0
+Edouard Benoit,Lehigh,3,-5.5659,80.0,21.0,5243039.0
+Alfredo Addesa,Lehigh,7,-8.16724,82.0,19.4,5243040.0
+David Castillo,Kansas St.,14,-2.13734,73.0,17.7,4869768.0
+Jayden Williams,Bucknell,5,-4.25221,70.0,17.1,5242553.0
+Fatt Hill,George Mason,3,-0.495018,77.0,23.9,5241480.0
+Evan Anderson,South Dakota,12,-1.96477,76.0,9.5,5241620.0
+Ben Michaels,Vermont,7,-4.45706,80.0,11.8,5243028.0
+Leon Horner,Texas Tech,3,2.10677,76.0,16.1,5240271.0
+Kavon Bradford,Northern Arizona,5,-8.00626,73.0,22.8,5243033.0
+Brandon Jennings,VCU,6,6.16881,76.0,17.9,5239713.0
+Jaxon Olvera,Louisiana,1,-4.66043,77.0,29.8,5240934.0
+Pape N'Diaye,Xavier,0,5.22065,84.0,10.8,5152658.0
+Justin Pippen,California,9,5.35999,75.0,27.2,5196370.0
+Cole McCabe,Rider,10,-6.54452,80.0,13.3,5242913.0
+Landren Blocker,Southeast Missouri St.,6,0.714711,77.0,15.9,5242134.0
+AJ Bates,Louisiana Tech,9,-1.75415,75.0,24.3,5060724.0
+Al Green,UNLV,14,-0.460816,75.0,16.6,5242133.0
+Daniel Freitag,Buffalo,9,2.03768,74.0,29.1,5101672.0
+Redd Thompson Jr.,Longwood,1,-4.75493,72.0,25.0,5101649.0
+Eric Morgan Jr.,Saint Peter's,10,-6.24017,76.0,17.6,5112342.0
+Nakavieon White,Georgia Southern,9,-2.11556,79.0,28.2,5239885.0
+Josh Omojafo,South Florida,3,3.20804,77.0,17.9,5241690.0
+Braden Frager,Nebraska,12,4.7508,79.0,22.0,5239571.0
+Babacar Mbengue,UMKC,16,-6.23054,84.0,12.0,5205881.0
+Caleb Williams,Lafayette,1,-2.742,72.0,26.7,5243035.0
+Andrin Njock,Appalachian St.,12,-0.894376,78.0,12.0,5239586.0
+Alex Dupre,Portland St.,10,-4.02814,77.0,12.2,5241305.0
+Terry McMorris,Eastern Illinois,16,-1.2765,79.0,18.1,5242423.0
+Sekou Konneh,Milwaukee,8,-0.269828,81.0,23.1,5240519.0
+All Wright,Xavier,14,0.119851,75.0,14.9,5241430.0
+Justus McNair,Valparaiso,1,-1.82306,75.0,22.4,5241429.0
+Je'Shawn Stevenson,North Texas,9,2.44404,74.0,26.9,5241608.0
+Reece Robinson,North Texas,15,1.50416,80.0,17.4,5241610.0
+Brandon Hall,Duquesne,10,-2.57292,75.0,12.0,5239529.0
+Eze Wali,The Citadel,5,-5.37062,73.0,15.8,5243243.0
+Oswin Erhunmwunse,Providence,13,6.37571,82.0,14.5,5164558.0
+Davian Williams,Alcorn St.,10,-4.57501,72.0,18.5,5243188.0
+Dylan Grant,Rutgers,3,0.195189,79.0,21.3,5061576.0
+Brayden Fagbemi,UC Davis,9,1.37195,72.0,19.1,5239775.0
+Tyran Mason,UT Arlington,3,-1.51328,78.0,19.2,5240285.0
+Valentino Simon,Nebraska Omaha,8,-1.43145,77.0,16.0,5241628.0
+Kamryn Thomas,Nebraska Omaha,7,-5.11458,80.0,14.5,5241629.0
+Yoav Berman,Queens,1,-0.701538,78.0,22.3,5240006.0
+Justin Ray,Monmouth,14,0.593981,75.0,16.7,5242598.0
+Maban Jabriel,Queens,12,0.538805,81.0,16.7,5240005.0
+Tristen Guillouette,Florida Gulf Coast,8,2.4367,82.0,14.0,5239793.0
+Isaac Davis,Utah Valley,2,1.90108,80.0,26.6,4873202.0
+Mekhi Conner,Sacred Heart,5,-4.19524,73.0,21.1,5243019.0
+Marcus Wilson,UC Davis,9,-0.393061,75.0,26.2,5241070.0
+Matt Hodge,Villanova,12,3.91141,80.0,15.0,5175588.0
+Fallou Gueye,Sacred Heart,10,-5.30419,78.0,17.3,5243023.0
+Donovan Rakotonanahary,Northern Kentucky,13,1.56691,80.0,10.4,5241676.0
+Patrick Ngongba,Duke,2,11.7782,83.0,22.5,4873209.0
+Isaiah Evans,Duke,12,6.54394,78.0,21.8,5061585.0
+Darren Harris,Duke,14,4.51837,78.0,15.3,4873107.0
+Dayan Nessah,Cleveland St.,2,-0.668995,79.0,28.3,5239604.0
+Chris Arias,Jacksonville,14,-3.22944,78.0,19.4,5243204.0
+Dailliss Cox,Chicago St.,17,-7.44077,78.0,12.6,5241708.0
+Caden Diggs,UMBC,3,-1.7087,79.0,22.7,5196866.0
+Ibrahim Olajuwon,FIU,16,-1.64446,82.0,14.2,5242119.0
+Ashton Williamson,FIU,5,-4.39834,74.0,20.3,5242116.0
+Asim Jones,Quinnipiac,1,-1.9566,74.0,23.4,5242115.0
+Scottie Hubbard,Old Dominion,10,-1.96437,78.0,12.4,5240615.0
+Nic Codie,Texas,8,2.71729,80.0,14.5,5149083.0
+Obi Agbim,Baylor,14,2.84003,75.0,15.8,5241273.0
+Samet Yigitoglu,SMU,13,5.27043,86.0,19.0,5312290.0
+Maxim Logue,Florida Atlantic,13,1.58566,81.0,19.8,5240885.0
+Johan Munch,Oregon St.,8,0.989119,83.0,22.4,5240884.0
+Isaiah Sy,Oregon St.,10,0.444768,79.0,20.1,5240883.0
+Ben Hammond,Virginia Tech,9,5.04504,71.0,20.6,4873105.0
+Antwaun Massey,Western Illinois,7,-6.78869,80.0,23.0,5241420.0
+Jorge Moreno,Southern Illinois,13,-0.102119,83.0,15.7,5241419.0
+Dylan Godfrey,UC Riverside,17,-6.90162,80.0,18.9,5241460.0
+Rich Smith,Abilene Christian,9,1.85822,76.0,21.4,5241310.0
+Jacob Dar,Seton Hall,15,2.62595,79.0,16.0,5111629.0
+Jojo Anderson,Eastern Washington,1,-2.01375,72.0,18.4,5241269.0
+Allen Graves,Santa Clara,2,14.2222,81.0,22.4,5149115.0
+Elijah Mahi,Santa Clara,6,4.43366,79.0,22.9,5241069.0
+Hamad Mousa,Cal Poly,3,1.00368,80.0,27.2,5239525.0
+Amael L'Etang,Dayton,2,3.94361,85.0,24.5,5239526.0
+Luke Skaljac,Miami OH,9,1.67747,74.0,20.9,5101653.0
+Andrea Holden,Wright St.,0,1.88445,78.0,21.6,5241700.0
+Isaac Munkadi,Fairfield,0,-2.3351,82.0,15.7,5241486.0
+Brant Byers,Miami OH,12,0.813514,80.0,18.3,5243053.0
+Taj Glover,Sacramento St.,1,-4.16628,75.0,17.0,5240356.0
+CJ Brown,South Florida,5,0.0348087,74.0,23.4,5183925.0
+Jimmie Williams,Duquesne,11,3.34697,77.0,23.6,5240353.0
+Finn Lally,William & Mary,2,1.71368,80.0,19.3,5242597.0
+Somto Cyril,Georgia,13,9.44098,83.0,17.4,5238203.0
+Karl Poom,Northern Arizona,3,-6.61969,80.0,26.8,5248277.0
+Dariyus Woodson,Louisiana,12,-2.77167,79.0,16.0,5241645.0
+Reggie Thomas,North Dakota,17,-0.308432,73.0,14.9,5241646.0
+Michael Jacobs,Southern,9,-1.85925,74.0,30.0,5243366.0
+Gianni Cobb,Northern Illinois,5,-3.83495,72.0,22.1,5241714.0
+Alexis Marmolejos,Pacific,14,-1.68888,74.0,20.7,5242571.0
+AJ Barnes,Southern,6,1.70982,78.0,20.1,5243369.0
+Joe Manning,Southern,10,-5.95129,74.0,17.7,5243368.0
+Aaron Hunkin-Claytor,Hawaii,5,-1.50399,74.0,14.2,5241898.0
+Christian Richardson,Nebraska Omaha,13,-4.01758,85.0,18.5,5241909.0
+Nordin Kapic,South Carolina,3,-1.10265,80.0,18.5,5112189.0
+Boogie Fland,Florida,6,7.12966,75.0,18.7,5238195.0
+De'Vion Lavergne,Louisiana,1,-2.67305,75.0,22.0,5241686.0
+Jaehshon Thomas,Drake,1,-4.22517,75.0,22.0,5239829.0
+Ben Bradford,Charlotte,3,-1.34293,77.0,25.8,5239828.0
+Zion Sensley,UC Santa Barbara,3,-1.21428,80.0,20.1,5242262.0
+Caden Wilkins,Green Bay,14,-1.16015,78.0,15.8,5241637.0
+Petar Majstorovic,Long Beach St.,2,2.34047,80.0,22.3,5238187.0
+Brandon Maclin,DePaul,6,3.35798,75.0,22.3,5241737.0
+Marvin McGhee IV,UC Santa Barbara,12,3.28771,79.0,15.1,5241843.0
+Bentley Waller,Cal St. Bakersfield,10,-8.7139,76.0,19.3,5241844.0
+CJ Hardy,Cal St. Bakersfield,9,-1.7791,75.0,22.6,5241841.0
+Mike Price,Cal St. Bakersfield,10,-8.44493,75.0,19.8,5241842.0
+"Ryan Jackson, Jr.",William & Mary,15,0.027774,78.0,14.5,5242596.0
+Isaiah Mbeng,East Carolina,5,-4.19575,73.0,15.2,5242592.0
+Ma'Kye Taylor,Albany,16,-6.98141,80.0,16.6,5239814.0
+Corey Thomas,Bradley,12,2.32545,81.0,14.8,5241358.0
+Jaquan Johnson,Bradley,9,5.90351,69.0,28.2,5241360.0
+Carmelo Pacheco,UCF,14,2.59608,77.0,10.9,5242634.0
+Noah Bolanga,Utah Tech,3,-0.973001,80.0,20.4,5245765.0
+Andrew Holifield,Lamar,3,1.70212,82.0,21.3,5116468.0
+James Jones,Central Connecticut,7,-2.11993,78.0,11.0,5241698.0
+Bishop Boswell,Tennessee,6,6.95749,76.0,14.3,5101648.0
+Aiden Sherrell,Alabama,2,10.6342,82.0,19.4,4873184.0
+Naas Cunningham,UNLV,1,-4.46453,79.0,20.9,4869766.0
+Derrion Reid,Oklahoma,12,3.66883,80.0,18.8,5095155.0
+Jonah Hinton,Rhode Island,1,-1.58149,75.0,21.5,5239711.0
+Stefan Cicic,Pepperdine,15,-2.05292,84.0,19.3,5240380.0
+KJ Greene,Tulane,5,-5.00184,75.0,19.5,5240378.0
+Kam Williams,Kentucky,12,4.91894,80.0,13.9,4873183.0
+Daniel Macgregor,Stetson,5,-5.37621,72.0,21.6,5240018.0
+Zaon Collins,Fresno St.,9,1.94904,73.0,23.6,5241239.0
+Brandin Cummings,Pittsburgh,1,-0.30415,75.0,23.8,5060728.0
+Connor Hollenbeck,Idaho St.,3,-0.534927,79.0,22.5,5241283.0
+Khouri Carvey,North Carolina Central,8,-2.3267,81.0,25.8,5242551.0
+Trey Scott III,Georgia St.,17,-4.00682,82.0,14.2,5239902.0
+Erich Harding,Marshall,13,-1.61538,82.0,14.8,5240547.0
+Dezayne Mingo,Charlotte,9,2.53792,76.0,26.3,5240545.0
+Hudson Ward,Western Michigan,17,0.782163,79.0,12.1,5239603.0
+Miles Goodman,UT Arlington,7,-5.08846,83.0,15.3,5061587.0
+Dominick Stewart,Penn St.,14,0.958672,77.0,15.9,5173445.0
+Jake Lemelman,Mercyhurst,1,-2.24499,74.0,26.0,5243381.0
+Qadir Martin,Mercyhurst,0,3.62526,77.0,18.6,4873160.0
+Deshaun Jackson Jr.,Mercyhurst,5,-3.52762,74.0,19.7,5243378.0
+Renars Sondors,Louisiana Monroe,3,-5.99987,81.0,17.9,5240758.0
+Sash Gavalyugov,Santa Clara,1,0.938373,74.0,23.5,5215425.0
+Tate McCubbin,Austin Peay,14,0.0862121,80.0,15.2,5239748.0
+Brian Amuneke,Wichita St.,10,-0.769892,77.0,15.7,5241241.0
+Ronnie Harrison,East Texas A&M,3,-1.46959,78.0,25.7,5241435.0
+Julen Iturbe,American,3,-0.699248,78.0,21.8,5242761.0
+Wyatt Nausadis,American,1,-4.47852,76.0,19.4,5242758.0
+Madiba Owona,Utah Tech,1,-2.86487,76.0,22.1,5241399.0
+Simon Hildebrandt,Washington St.,12,0.0660431,81.0,15.5,5241593.0
+Quin Gorman,Stony Brook,15,1.22978,80.0,12.7,5242282.0
+Veniamin Abosi,San Francisco,3,0.156901,78.0,17.0,5241062.0
+Terrence Hill Jr.,VCU,11,5.08842,75.0,25.0,5060712.0
+Jermaine Washington,San Jose St.,1,-1.96331,73.0,18.7,5241251.0
+Ben Roseborough,San Jose St.,1,-2.92133,76.0,21.5,4873192.0
+Cardell Bailey,Southern Indiana,3,-3.8531,78.0,26.8,5243390.0
+Ralph Martino Jr.,Saint Francis,12,-1.66746,78.0,11.8,5243388.0
+Bryce Dortch,Rutgers,13,3.08259,81.0,8.8,5144387.0
+Jakob Blakley,Le Moyne,14,-7.03887,72.0,13.8,5241779.0
+Darrion Sutton,Missouri St.,2,1.45689,81.0,17.3,5144381.0
+Jaeden Mustaf,Georgia Tech,3,-0.585798,77.0,19.8,5060730.0
+Triston Wilson,Presbyterian,9,-1.76583,78.0,22.7,5241606.0
+Khalon Hudson,Presbyterian,12,-1.97502,78.0,15.3,5241604.0
+Chidi Chiakwelu,Presbyterian,0,1.54839,80.0,15.4,5241605.0
+Caleb Crawford,Maine,5,-7.18758,70.0,17.6,5239745.0
+Amare Allen,Maine,7,-10.2849,79.0,19.0,5239747.0
+Eric Mahaffey,Akron,2,4.68037,76.0,16.9,5241471.0
+Sharron Young,Akron,11,2.83654,72.0,17.9,5241470.0
+Ben Tweedy,Colgate,14,-2.71338,76.0,16.7,5241633.0
+Bernie Blunt,Mercyhurst,1,-1.16117,71.0,28.4,4898243.0
+Elijah Lewis,Marist,3,-0.00807629,77.0,20.3,5242621.0
+Afan Trnka,Tennessee Martin,5,-3.61451,74.0,18.9,5243002.0
+Tarence Guinyard,Duquesne,9,2.51922,74.0,24.9,5243000.0
+Sheldon Williams,Texas A&M Corpus Chris,2,1.0593,80.0,23.0,5243128.0
+Jeremiah Johnson,Campbell,1,-1.60145,76.0,21.5,4711262.0
+Layne Taylor,Murray St.,11,1.52376,71.0,16.5,5239783.0
+Labaron Philon,Alabama,9,8.53411,76.0,29.9,4873090.0
+Julian Clarke,UNC Asheville,17,-4.4421,73.0,8.3,5241757.0
+C.J. O'Hara,Green Bay,15,0.399207,76.0,20.9,5241635.0
+Tyler Thompson,Montana,14,1.14741,78.0,13.4,5060727.0
+Dayton Forsythe,Oklahoma,1,-0.875528,74.0,18.7,5238221.0
+Jeff Nwankwo,Oklahoma,10,-0.877644,78.0,17.1,5238220.0
+Kuol Atak,Oklahoma,12,3.18128,81.0,20.1,5144388.0
+Kolten Griffin,West Georgia,17,-0.997352,78.0,13.6,5240029.0
+Mekhi Turner,Tennessee Tech,8,0.193953,80.0,22.1,5242123.0
+Ramone Seals,Kennesaw St.,3,-1.29186,78.0,19.0,5101667.0
+Adrian Wooley,Louisville,11,4.9373,76.0,18.7,5242127.0
+Braedan Lue,Kennesaw St.,3,1.39265,81.0,20.9,5242126.0
+Stas Sivka,George Mason,17,-1.82341,82.0,11.9,5239595.0
+Felix Kossaras,Colorado,12,2.30114,77.0,12.0,5214643.0
+Sebastian Rancik,Colorado,3,3.41115,83.0,22.3,5144392.0
+Andy Sigiscar,Tarleton St.,0,1.64479,81.0,18.9,5241444.0
+Chris Mpaka,Tarleton St.,8,-3.14985,78.0,25.7,5241442.0
+Ja'Borri McGhee,Mississippi St.,1,-1.18066,74.0,20.3,5240392.0
+Brendan Terry,Southeast Missouri St.,2,0.954736,79.0,23.5,5242974.0
+Bryce Heard,Dayton,3,-1.01063,78.0,17.6,5041945.0
+Trey Parker,Seton Hall,6,1.40215,73.0,19.5,5238170.0
+"Paul McNeil, Jr.",N.C. State,12,5.23339,77.0,18.2,4873151.0
+Dillon Tingler,Drexel,6,-1.19737,79.0,18.8,5101666.0
+Godslove Nwabude,Eastern Michigan,0,2.46237,81.0,12.7,5242935.0
+Jaylon Johnson,Radford,1,0.141426,72.0,21.0,5242992.0
+Kavien Jones,Tennessee St.,15,-3.75294,79.0,11.6,5242991.0
+Brady Hardewig,West Georgia,14,-3.84208,74.0,10.5,5240024.0
+Donavin Young,Stanford,17,3.63651,80.0,10.7,5214644.0
+CJ Happy,Princeton,17,-3.69535,81.0,24.1,5241741.0
+Malik Abdullahi,Princeton,8,-2.20727,79.0,18.1,5174791.0
+Kylin Green,Houston Christian,5,-5.0754,72.0,24.1,5241376.0
+Antoine Lorick III,Tennessee St.,2,3.05446,81.0,22.5,5242989.0
+Damoni Harrison,Charlotte,12,-0.0449887,77.0,20.3,5242980.0
+Isaac Asuma,Minnesota,11,2.66587,75.0,21.0,5144165.0
+Ty Robinson,Central Arkansas,6,5.67687,76.0,22.5,5239780.0
+Parker Robison,Chattanooga,17,-4.95533,72.0,9.2,5243222.0
+Justin Redmond,Northwestern St.,10,-5.36406,74.0,23.4,5243093.0
+Juke Harris,Wake Forest,3,4.02945,79.0,27.3,5142609.0
+Yaphet Moundi,San Jose St.,8,1.35962,80.0,25.3,5241493.0
+Jeremiah Wilkinson,Georgia,11,3.54297,73.0,28.1,5165276.0
+Ivan Njegovan,Ohio St.,15,4.9119,85.0,14.6,5239599.0
+Nick Anderson,Rice,11,3.35945,75.0,22.0,5243364.0
+Tyler Betsey,Syracuse,14,1.09383,80.0,16.7,4873141.0
+C.J. Cox,Purdue,12,7.19381,75.0,14.3,5175591.0
+Julius Thedford,Memphis,6,3.31143,76.0,19.3,5242617.0
+Kade Unseld,Western Kentucky,17,-4.18214,77.0,16.0,5242615.0
+Cal Liston,VMI,17,-6.83005,77.0,12.4,5243262.0
+Linus Holmstrom,VMI,14,-5.30475,75.0,19.8,5243263.0
+Caleb Embeya,Towson,16,2.39672,81.0,12.3,5242587.0
+Eoin Dillon,Belmont,12,4.50281,81.0,20.4,5241333.0
+Jabez Jenkins,Belmont,6,0.789278,76.0,20.0,5241334.0
+Jaylen Pazon,VMI,7,-14.9154,77.0,29.5,5243265.0
+Bryson Tucker,Washington,17,0.330932,79.0,13.3,4873180.0
+Blake Daberkow,Idaho St.,8,-4.17881,82.0,23.0,5241286.0
+Nick Coval,Davidson,11,-0.867694,74.0,17.2,5239520.0
+Manie Joses,Davidson,6,5.32333,79.0,8.6,5239519.0
+Jesse Hafemeister,Charleston Southern,14,-2.28264,77.0,20.0,5243382.0
+AJ Levine,Penn,9,1.52995,72.0,22.5,5241732.0
+Julius Halaifonua,Georgetown,2,6.66241,84.0,20.6,5240524.0
+Corbin Zentner,Cornell,14,-2.49215,70.0,12.3,5196671.0
+Jerald Colonel,Stephen F. Austin,0,8.07716,81.0,12.5,5243088.0
+Landyn Jumawan,Northwestern St.,10,-3.68629,76.0,14.8,5243089.0
+James Thomas,Mercyhurst,16,-4.55,78.0,11.2,5243386.0
+Jaden Steppe,Montana St.,15,-1.50367,80.0,19.3,5061605.0
+Jayden Cooper,South Alabama,14,-3.08397,74.0,19.5,5240641.0
+Evan Haywood,Butler,14,2.00523,76.0,16.7,5184903.0
+Esyah Pippa-White,Milwaukee,4,-6.56857,74.0,17.7,5241668.0
+Jaden Smith,Saint Joseph's,16,-1.60978,83.0,18.5,5061597.0
+Lefteris Liotopoulos,St. John's,10,0.48437,77.0,18.7,5145712.0
+Ian Jackson,St. John's,11,2.71835,76.0,24.6,4869770.0
+Josh Ahayere,Colgate,3,-2.12242,76.0,15.1,5242775.0
+Cory Wells,Prairie View A&M,7,-2.06321,79.0,22.3,4904928.0
+Blake Harper,Creighton,3,0.525468,79.0,22.3,5243101.0
+Isaiah Brown,Howard,5,-7.74614,73.0,18.7,5243100.0
+Josh Reed,Drexel,7,-5.80725,74.0,25.4,5239623.0
+Kevon Vanderhorst,Drexel,1,-0.926068,74.0,18.1,5239624.0
+Emmanuel Stephen,UNLV,16,-0.948405,84.0,14.4,5164369.0
+Devon Malcolm,Cal Baptist,6,5.08451,77.0,24.1,5241323.0
+Javan Buchanan,Boise St.,3,5.14745,79.0,22.8,5241230.0
+Pearson Carmichael,Boise St.,3,0.943772,79.0,20.2,5117627.0
+Tyler Doyle,Bellarmine,11,-4.72619,77.0,21.4,5239763.0
+Demarco Bethea,Houston Christian,8,-2.93345,79.0,21.3,5243123.0
+Alec Squires,South Dakota St.,8,-2.93702,82.0,17.7,5241457.0
+Jamari Phillips,Oregon,10,-3.97985,76.0,14.6,4869779.0
+Marland Harris,Morgan St.,16,-4.31671,82.0,14.3,5243111.0
+Khaafiq Myers,Saint Joseph's,5,-1.14197,70.0,22.0,5239676.0
+Cameron Jackson,UT Arlington,13,0.422629,80.0,13.3,5241428.0
+"Juan Cranford, Jr.",Eastern Kentucky,14,-4.00477,76.0,21.6,5242400.0
+Jack Turner,Oral Roberts,1,-7.33165,75.0,18.1,5239629.0
+Seifeldin Hendawy,Winthrop,7,-2.96208,80.0,19.8,5239628.0
+My'kel Jenkins,Norfolk St.,10,-3.04836,77.0,16.8,5243394.0
+Melo Baines,Norfolk St.,15,-9.10777,80.0,13.7,5243395.0
+Sebastian Akins,Wake Forest,5,-1.80668,74.0,22.1,5241913.0
+Jacob Hogarth,Gardner Webb,3,-4.18704,81.0,24.4,5241489.0
+Jacob Hudson,Gardner Webb,6,-3.30675,74.0,22.3,5240417.0
+Pharell Boyogueno,Winthrop,17,1.55235,78.0,13.0,5240416.0
+Colin Hawkins,Gardner Webb,5,-8.55561,75.0,20.1,5240419.0
+Justin Menard,Marist,9,0.420119,75.0,23.7,5241491.0
+Sebastian Tidor,Portland St.,10,-3.61826,77.0,16.5,5241303.0
+Brayden Maldonado,Seattle,11,4.35808,72.0,23.8,5241342.0
+Max Green,Northwestern,17,2.11313,78.0,16.2,5242943.0
+Ishan Sharma,Saint Louis,12,4.38153,77.0,15.2,5183809.0
+Braeden Speed,Loyola MD,11,-0.89073,75.0,23.8,5242964.0
+Jaylen Washington,UT Rio Grande Valley,9,1.92097,70.0,20.6,5243136.0
+Sean Blake,Vermont,5,-3.19343,74.0,23.4,5239825.0
+Dezdrick Lindsay,Oregon,6,1.39678,78.0,16.0,5239600.0
+Josh Pickett,Presbyterian,10,-5.13736,77.0,13.7,5241915.0
+Micah Davis,IU Indy,1,-3.85478,74.0,19.9,5239785.0
+Warren Marshall IV,Oakland,15,-0.561119,77.0,12.7,5241684.0
+Blaize Sagna,Southeast Missouri St.,17,-2.1357,75.0,9.7,5240019.0
+Austin Maurer,Seattle,2,3.19425,84.0,20.0,5241338.0
+Styles Phipps,Pepperdine,9,1.69183,74.0,24.9,5241336.0
+Michael Osei-Bonsu,Missouri St.,8,2.81582,76.0,30.2,5241397.0
+Lewis Walker,North Carolina A&T,11,-0.946862,78.0,23.3,5239649.0
+Nate Guerengomba,Quinnipiac,7,-3.82613,77.0,13.3,5239648.0
+Luka Damjanac,Massachusetts,15,0.821235,82.0,12.3,5239651.0
+Isaiah Lewis,Long Beach St.,5,-3.81127,75.0,18.3,5242546.0
+Caleb Pennyfeather,Little Rock,15,-3.53834,81.0,12.1,5242548.0
+Amadou Doumbia,North Carolina A&T,0,0.511949,83.0,13.4,5239652.0
+Justin Johnson,Western Carolina,7,-4.01705,80.0,24.4,5239588.0
+R'Chaun King,Alabama St.,8,-3.17044,78.0,18.3,5313402.0
+Jonathan Powell,North Carolina,14,3.62792,78.0,14.5,5101669.0
+KJ Tenner,Murray St.,11,-0.840112,72.0,18.0,5240511.0
+Morez Johnson Jr.,Michigan,2,11.4082,81.0,21.1,4873153.0
+LJ Brown,UTSA,17,-2.57786,73.0,13.0,4905284.0
+Peter Bandelj,Cal Poly,11,0.371832,76.0,20.5,5242268.0
+Cayden Ward,Cal Poly,3,-1.39649,77.0,23.8,5242269.0
+Jaiden Feroah,Southern Utah,2,3.96329,81.0,20.4,5242946.0
+Mason Ritter,Columbia,8,-1.69658,80.0,17.4,5241715.0
+Davis Bynum,Rider,7,-6.54364,81.0,19.7,5241869.0
+Zavier Fitch,Wagner,15,-1.03299,79.0,15.1,5242414.0
+Trent Noah,Kentucky,14,3.82678,77.0,13.4,5175592.0
+Travis Perry,Mississippi,14,3.29467,73.0,16.3,4873100.0
+Damon Strand,La Salle,10,-2.04855,75.0,15.2,5239811.0
+Zion Fruster,Eastern Illinois,1,-4.24686,74.0,26.1,5242420.0
+Josh Meo,Winthrop,10,-4.18279,76.0,16.4,5239866.0
+Tamarion Hoover,Jackson St.,12,-4.04497,77.0,13.4,5243343.0
+Dominic Pangonis,Wright St.,12,0.421201,79.0,14.9,5243109.0
+TJ Nadeau,Detroit Mercy,14,1.32516,77.0,19.5,5241618.0
+Ryan Kalambay,Detroit Mercy,0,5.86899,81.0,11.1,5241617.0
+Divine Ugochukwu,Michigan St.,12,5.27416,75.0,14.7,5060733.0
+Xander Alarie,Northeastern,7,-3.28817,80.0,21.9,5238169.0
+Austin Swartz,Creighton,11,1.86717,76.0,23.4,5144380.0
+Zion Wilburn,Samford,7,-5.45727,77.0,17.6,5144382.0
+Jordan Brathwaite,Yale,14,0.200821,76.0,15.8,5241753.0
+Isaac Celiscar,Yale,2,5.06749,78.0,19.8,5241754.0
+BJ Kolly,UC Riverside,8,-0.842916,82.0,21.5,5241291.0
+Elijah Thomas,Eastern Washington,17,-0.883381,78.0,10.8,5241164.0
+L.J. Cason,Michigan,11,6.09547,74.0,21.8,5214641.0
+Jeremiah Jenkins,Brown,5,-1.52702,72.0,21.0,4873101.0
+David Rochester,Brown,7,-3.29942,80.0,16.3,5241711.0
+Garrett Sundra,Notre Dame,12,2.13723,83.0,10.6,5142610.0
+Biggie Patterson,Hofstra,3,-2.63511,79.0,23.1,5241495.0
+Tyonne Farrell,Morehead St.,7,-4.17963,78.0,17.9,5239660.0
+Carmelo Adkins,USC Upstate,1,-2.88209,76.0,23.2,5183294.0
+Isaiah Skinner,USC Upstate,14,-0.245365,78.0,14.0,5241744.0
+D'Aundre Samuels,Houston Christian,1,-2.92358,74.0,23.6,5242556.0
+Kyle Edison,Southeastern Louisiana,6,-1.37657,76.0,23.1,5243104.0
+Jeremy Elyzee,Southeastern Louisiana,6,-0.093268,78.0,22.2,5243102.0
+Dior Conners,Ohio,10,-5.07233,75.0,20.7,5239578.0
+Jason Clarke Jr.,Appalachian St.,17,-3.03655,72.0,16.5,5239579.0
+Jaiden Lawrence,Southeastern Louisiana,17,-2.58049,76.0,13.8,5243105.0
+Jamil Muttilib,Grambling St.,12,-0.470208,78.0,20.4,5239582.0
+Mario Andrews,Alabama St.,16,-7.0095,79.0,10.7,5242808.0
+Micah Simpson,Alabama St.,1,-2.88896,74.0,24.2,5242807.0
+Makoi Mabor Makoi,UNC Wilmington,16,-4.93037,83.0,12.9,5242590.0
+Cameron McNamee,Dartmouth,14,-1.59645,78.0,14.4,5241722.0
+Daniel Jacobsen,Purdue,0,8.61132,88.0,18.9,5144147.0
+JaJuan Nicholls,Tennessee Tech,8,-0.604388,80.0,26.1,5242994.0
+Christian Anderson,Texas Tech,11,8.1787,75.0,25.2,5060701.0
+Tyler Spratt,Detroit Mercy,14,2.11024,77.0,18.5,5241607.0
+Kaden Stuckey,VMI,16,-8.71223,80.0,18.6,5243264.0
+Dan Gherezgher,Northern Kentucky,1,-2.70879,76.0,25.3,5241674.0
+Ian Smikle,Tulsa,16,1.13938,82.0,14.4,5101691.0
+Brett Decker Jr.,Liberty,14,-0.421225,75.0,20.2,5242130.0
+Owen Aquino,High Point,2,5.79047,80.0,18.4,5242131.0
+Macon Emory,Delaware,3,-2.52276,80.0,18.7,5239618.0
+DeSean Goode,Robert Morris,2,5.21024,80.0,19.7,5241658.0
+Keenan Garner,Central Michigan,15,-0.609662,78.0,18.8,5241663.0
+Ryan Mela,Providence,3,2.52677,79.0,19.0,5156117.0
+Zawdie Jackson,FIU,11,0.471495,72.0,18.7,5242602.0
+Tyler Tanner,Vanderbilt,9,10.2242,72.0,26.3,5187600.0
+Eduardo Klafke,Mississippi,12,5.03448,77.0,14.8,5171788.0
+John Bol,UCF,13,4.15946,86.0,14.4,4915060.0
+Royce Parham,Marquette,15,3.28031,80.0,19.5,5101676.0
+Nojus Indrusaitis,Pittsburgh,1,1.00585,77.0,20.9,5101664.0
+Khalil Williams,Bryant,4,-13.2307,77.0,23.6,5239715.0
+Nick Janowski,St. Thomas,12,0.474572,76.0,23.7,5060721.0
+Daniel Johnson,Hampton,3,-2.33248,77.0,21.0,5239644.0
+Alex Chaikin,UC San Diego,14,-0.709118,76.0,17.8,5243038.0
+Jaden Johnson,La Salle,4,-3.17657,74.0,16.9,5240616.0
+Nyle Ralph-Beyer,Sacred Heart,14,-2.43773,76.0,18.9,5243018.0
+Juwan Maxey,Ball St.,10,-6.98639,72.0,22.6,5241705.0
+Cris Carroll,Youngstown St.,11,0.708871,78.0,26.7,5241706.0
+TJ Burch,Wright St.,9,3.86438,73.0,28.6,5241483.0
+Lathan Sommerville,Washington,7,-2.44614,82.0,17.0,5101689.0
+Kayde Dotson,Loyola Chicago,1,-1.80429,74.0,20.6,5241246.0
+Daniel Thomas,UNC Asheville,16,-3.38403,80.0,10.4,5241247.0
+Jovan Milicevic,Xavier,3,2.06545,82.0,21.8,5101673.0
+Clinton Efinda,UNC Greensboro,14,-4.39833,77.0,14.6,5243252.0
+Tim Oboh,Buffalo,0,-2.56861,83.0,21.2,5243034.0
+Brit Harris,FIU,17,-0.457308,77.0,14.6,5241745.0
+Cameron Clark,South Carolina St.,16,-6.63811,82.0,23.0,5241847.0
+Jemel Jones,New Mexico St.,9,4.00043,76.0,30.0,5241846.0
+James Evans Jr.,Cal St. Northridge,10,-2.46566,78.0,20.3,5312430.0
+Omari Hamilton,Alcorn St.,3,-6.80309,78.0,20.1,5243190.0
+Tycen McDaniels,Alcorn St.,8,-1.96445,80.0,24.5,5243189.0
+Danilo Dozic,Pepperdine,14,-2.62859,82.0,16.9,5240937.0
+Dovydas Butka,Campbell,8,0.395809,81.0,23.0,5240935.0
+Hassan Perkins,Coppin St.,1,-6.41645,72.0,17.5,4896959.0
+Shadrak Lasu,LIU,15,-1.19786,81.0,12.3,5243273.0
+Jalen Lee,Southern Utah,10,-5.67497,79.0,16.9,5243271.0
+Jeremiah Davis,Montana St.,12,2.30432,76.0,17.4,5241290.0
+Trap Johnson,UC San Diego,17,-4.09043,78.0,14.4,5241292.0
+Tyler Behrend,Tulsa,2,5.00036,82.0,16.9,5240387.0
+Taj DeGourville,San Diego St.,5,1.03545,77.0,20.6,4873147.0
+Pharaoh Compton,San Diego St.,13,8.57619,80.0,19.9,5061584.0
+Mark Drone,Texas St.,1,-3.99989,72.0,26.9,5240685.0
+Austin Green,UMass Lowell,8,-2.63134,80.0,22.6,5240686.0
+KJ Thomas,UTEP,5,-3.24888,73.0,14.5,5242612.0
+Jack Reddick,Florida Gulf Coast,5,-5.09094,75.0,15.2,5239790.0
+Darren Williams,Florida Gulf Coast,14,-3.56148,76.0,15.7,5239791.0
+Damarien Yates,Alabama St.,6,-0.0439019,79.0,19.4,5240279.0
+Rolyns Aligbe,Southern Illinois,3,1.70786,81.0,20.0,5241417.0
+Malcolm Thomas,Dayton,0,-0.400761,80.0,25.1,5101681.0
+Jayden Johnson,South Carolina St.,9,-2.14717,73.0,26.9,5243405.0
+Joshua Dent,Saint Mary's,11,5.26009,75.0,19.0,5183875.0
+Mikey Lewis,Saint Mary's,1,2.59592,75.0,25.2,5240980.0
+Max Weisbrod,Northern Iowa,14,1.59259,76.0,13.1,5241408.0
+Liam Campbell,Saint Mary's,12,2.85585,76.0,13.5,5101655.0
+Luka Toews,Boston College,17,-1.9275,73.0,18.3,5151855.0
+Tyler Schmidt,Towson,17,-0.698459,76.0,12.1,4707808.0
+AJ Patterson,Air Force,5,-7.27252,75.0,17.3,5247860.0
+Anias Futrell,Lindenwood,6,1.37817,77.0,25.0,5242437.0
+Guzman Vasilic,Cal Poly,14,-0.904385,76.0,14.1,5242267.0
+Ketron Shaw,Old Dominion,1,-5.43427,76.0,28.7,5243387.0
+Dante Oliver,North Florida,10,-5.72763,77.0,9.7,5239995.0
+Elias Ralph,Pacific,3,4.56158,79.0,23.5,5240903.0
+Travis Harper II,Tennessee St.,12,0.383079,78.0,21.3,5242985.0
+Jacen Holloway,Army,3,-4.75859,76.0,20.0,5243043.0
+Joshua Eli,Army,3,-2.28258,78.0,15.2,5243044.0
+Isaiah Brown,Florida,12,6.51141,76.0,17.6,5144372.0
+Kai Burdick,Southern Utah,15,-2.12861,84.0,14.4,5241352.0
+Babatunde Durodola,Temple,8,0.282937,80.0,16.2,5240368.0
+Damarion Dennis,Wyoming,11,4.88457,73.0,19.0,5243127.0
+Isaac Williams,Baylor,11,2.97072,73.0,19.9,5243130.0
+Austin Rapp,Wisconsin,12,6.47542,82.0,19.5,5240971.0
+Todd Jones Jr.,Louisiana,0,1.04415,81.0,11.9,5240972.0
+Mikah Ballew,Portland,10,-4.0545,77.0,19.3,5240973.0
+Jamie Phillips Jr.,Stetson,3,-2.9897,77.0,26.2,5240016.0
+Mehki Ellison,Eastern Michigan,5,-4.47237,72.0,18.8,5240017.0
+Kent Jackson,North Florida,14,-3.69777,75.0,22.7,5243208.0
+Enrico Borio,Jacksonville,17,-5.1014,77.0,15.5,5243210.0
+Jeremiah Evans,Louisiana,16,-4.019,82.0,19.1,4873220.0
+Mostapha El Moutaouakkil,Jacksonville St.,3,-3.90307,78.0,35.2,5240082.0
+Gavin Doty,Siena,3,3.02418,77.0,23.4,5242926.0
+Major Freeman,Charlotte,1,-1.84283,75.0,20.3,5242924.0
+Jalen Shelley,Loyola Marymount,3,0.662855,80.0,24.5,5037874.0
+Robert Hinton,Harvard,3,-0.202753,77.0,26.6,5061572.0
+Ben Eisendrath,Harvard,5,-1.92442,74.0,15.5,5241725.0
+Gerard O'Keefe,Columbia,14,-2.54819,75.0,15.4,5241712.0
+Tim Moore,San Diego,3,-2.69496,78.0,19.5,5239760.0
+Kam Martin,Samford,14,-3.92377,76.0,16.3,5241906.0
+Hermann Koffi,Stonehill,14,-3.66689,76.0,17.6,5242407.0
+Pearse McGuinn,Stonehill,7,-9.997,80.0,17.1,5242410.0
+Tyler Johnson,Virginia Tech,12,7.39522,77.0,13.7,5165275.0
+Jaxon Prunty,Charleston,10,-2.04021,78.0,13.6,5060731.0
+Urban Klavzar,Florida,12,5.94886,73.0,16.5,5238200.0
+AJ Swinton,Florida St.,6,3.90044,78.0,13.2,4873208.0
+Anastasios Rozakeas,Mount St. Mary's,10,-4.68293,79.0,15.0,5238163.0
+Andre Mills,Maryland,3,2.54288,76.0,24.4,5144378.0
+Jayce Nathaniel,Illinois Chicago,3,1.6428,80.0,17.5,5174452.0
+Jadis Jones,Lindenwood,8,2.62435,77.0,21.2,4873146.0
+Aly Tounkara,Arkansas St.,0,1.29603,87.0,12.7,5242438.0
+George Turkson Jr.,Maryland,16,-2.08689,79.0,9.5,5037877.0
+Ring Nyeri,Northern Colorado,15,0.143238,80.0,15.5,5241653.0
+Kasheem Grady II,UMKC,1,-4.77954,77.0,20.0,5241652.0
+Richard Goods,Stony Brook,6,0.807288,81.0,20.0,5239643.0
+Eunique Rink,Hampton,13,-1.04999,82.0,9.4,5239645.0
+Noah Boyde,Western Kentucky,16,-3.24328,84.0,14.5,5238209.0
+Robert Miller III,LSU,13,7.43561,82.0,15.5,5061596.0
+Curtis Givens III,Memphis,11,-0.185185,75.0,18.6,5037872.0
+Vyctorius Miller,Oklahoma St.,11,2.9674,77.0,19.6,5238208.0
+Azmar Abdullah,Boston University,14,-3.03419,75.0,15.7,5242764.0
+Ben Defty,Boston University,13,2.00172,84.0,24.9,5242765.0
+Jeremy Clayville,NJIT,10,-8.54118,72.0,22.7,5242401.0
+Victor Payne,Saint Francis,12,-2.72863,76.0,13.5,5242403.0
+Angelo Ciaravino,Northwestern,15,4.03165,78.0,14.7,5239575.0
+Tomislav Ivisic,Illinois,12,7.85617,85.0,19.9,5214642.0
+Connor Amundsen,Dartmouth,1,-3.86364,71.0,18.2,5152623.0
+Kareem Thomas,Dartmouth,1,-4.29494,77.0,26.5,5241721.0
+Brewer Carruth,Southern Miss,17,-4.50377,76.0,12.3,5240665.0
+Joshua DeCady,Hofstra,17,0.69845,80.0,15.0,5239632.0
+Micah Robinson,TCU,6,4.1579,78.0,20.7,5037876.0
+Christian Gamble,Mercyhurst,17,-4.43621,73.0,12.4,5243380.0
+Jack Whitbourn,Fordham,8,-2.32064,82.0,21.3,5241957.0
+Tyler Jones,UC Riverside,10,-3.15916,74.0,11.6,5241955.0
+Abass Bodija,Fordham,3,-1.27225,82.0,19.9,5241956.0
+Landon Williams,Niagara,17,-4.39314,76.0,13.9,5242642.0
+Will Shortt,Niagara,8,-1.74213,80.0,18.8,5242643.0
+Donnie Freeman,Syracuse,2,1.4018,81.0,26.5,4873145.0
+Reid Cason,East Carolina,0,0.862831,82.0,14.2,5239834.0
+Tybo Bailey,East Carolina,10,-5.21843,74.0,17.5,5239833.0
+Jayden Gambrell,Lamar,17,-6.33869,75.0,18.7,5242574.0
+Ebrahim Kaba,Purdue Fort Wayne,10,-8.11915,81.0,17.7,5239710.0
+Braden East,Lamar,2,-1.40285,81.0,26.7,5242573.0
+Luke Flynn,Wofford,10,-2.84388,73.0,11.6,5243276.0
+Kahmare Holmes,Wofford,9,1.23812,75.0,29.2,5243278.0
+Sean Lang,Mercyhurst,4,-2.52818,75.0,7.4,4709424.0
+Iverson King,Presbyterian,17,-5.55591,78.0,15.0,5241602.0
+Tyler Lee,Central Arkansas,17,-2.3533,77.0,13.4,5239777.0
+Kayvaun Mulready,Georgetown,6,4.17735,76.0,17.2,5101668.0
+AJ Hopkins,Tennessee Martin,17,-2.10507,78.0,14.5,5243006.0
+Pedro Santos,Tennessee Martin,6,-1.17202,79.0,20.3,5243004.0
+Stefano Faloppa,New Haven,15,-3.13585,81.0,14.0,5243011.0
+Ta'Zir Smith,Robert Morris,1,-1.43771,75.0,18.3,5240756.0
+Micah Caster,Louisiana Monroe,4,-9.54719,74.0,16.0,5240757.0
+Bennett Stirtz,Iowa,11,7.35854,76.0,26.1,5241364.0
+Josiah Moore,Tulane,6,-2.02455,77.0,17.5,5241622.0
+Luke Gray,Oral Roberts,3,-2.2304,79.0,21.1,5241624.0
+Nate Johnson,Detroit Mercy,4,-6.11307,79.0,17.4,5241614.0
+Isaiah Johnson-Arigu,St. Thomas,15,-0.433327,79.0,22.6,5171688.0
+Troy Cole Jr.,Southeast Missouri St.,7,-5.24441,76.0,18.8,5242973.0
+Nick Woodard,Alcorn St.,17,-5.11954,78.0,18.3,5242279.0
+Malcolm Noel,West Georgia,5,-5.28923,71.0,21.0,5115866.0
+Amari McCottry,Saint Louis,6,3.3495,78.0,25.9,5239707.0
+Gabe Pickens,New Mexico St.,5,-4.80648,72.0,17.0,5242601.0
+Jae'Coby Osborne,New Mexico St.,15,0.948373,78.0,13.6,5242603.0
+MJ Thomas,New Orleans,2,3.06968,80.0,21.2,4848628.0
+Caleb Middleton,Elon,8,-1.2502,83.0,16.6,4873194.0
+Khalil Badru,Iona,16,-6.56811,77.0,21.9,5239768.0
+Christopher Flippin,Maryland Eastern Shore,16,-5.15305,80.0,26.0,5243393.0
+Flash Burton,Rider,1,-3.74343,75.0,26.8,5242911.0
+Colin White,Ohio St.,17,3.27867,78.0,8.2,5101675.0
+Alfred Worrell Jr.,Morgan St.,1,-3.87435,76.0,26.8,5240664.0
+Isaac Nyakundi,Le Moyne,15,-4.46015,81.0,13.7,5241781.0
+Malachi Arrington,NJIT,8,-6.68865,83.0,14.5,5239761.0
+John Kelly,NJIT,7,-4.59052,80.0,15.9,5239759.0
+Ari Fulton,NJIT,3,-2.21457,79.0,20.8,5239758.0
+Quentin Duncan,NJIT,17,-3.80457,76.0,15.9,5239757.0
+Will Hornseth,Northern Iowa,2,3.50469,80.0,23.4,5241409.0
+Javontae Campbell,Bowling Green,9,4.91143,74.0,28.4,5242560.0
+Jahvin Carter,Middle Tennessee,1,-1.05939,75.0,23.3,5149117.0
+Tommy Kamarad,Winthrop,3,0.841137,80.0,17.2,5241760.0
+Nolan Minessale,St. Thomas,9,3.77935,77.0,31.6,5241415.0
+Aaron Nkrumah,Tennessee St.,6,3.19841,78.0,27.2,5182573.0
+Tekao Carpenter,North Carolina Central,14,-7.52083,75.0,15.4,5239749.0
+Bryson Cokley,Elon,14,-1.77975,78.0,19.9,5239594.0
+Justin Begg,Sam Houston St.,5,-4.49253,72.0,23.8,5060702.0
+Makhi Myles,Southeastern Louisiana,6,1.47572,78.0,18.9,5240393.0
+Braden Hausen,High Point,12,2.09876,79.0,14.3,5241592.0
+R.J. Kennedy,New Hampshire,17,-7.66536,73.0,16.4,5240394.0
+Elliot Lowndes,Southeast Missouri St.,15,1.79587,84.0,14.6,5242977.0
+Mercy Miller,Houston,6,7.4877,76.0,19.1,4873086.0
+Chase McCarty,Houston,12,7.41727,77.0,14.8,5101660.0
+Devin Haid,South Florida,6,2.99811,77.0,15.4,5241694.0
+Khani Rooths,Louisville,2,4.77977,82.0,17.6,4873187.0
+Christian Henry,Fordham,9,-1.48731,75.0,28.0,5242936.0
+Miles Barnstable,Tulsa,12,4.87429,74.0,18.4,5241411.0
+Justice Shoats,Siena,5,-2.52882,71.0,23.6,5242922.0
+Ismael Diouf,Northern Iowa,17,-1.85671,81.0,21.7,5238171.0
+Jack Stanton,Princeton,14,1.3469,74.0,16.8,5241743.0
+Cole McCormick,Central Arkansas,12,1.18887,78.0,18.8,5239782.0
+Josiah Dunham,Southern Indiana,10,-3.91734,72.0,12.6,5242982.0
+Grayson Grove,Minnesota,15,5.71457,81.0,11.8,5239570.0
+Christian Alston,Abilene Christian,7,-6.97937,77.0,26.0,5241312.0
+Houston Holland,Chattanooga,14,-3.28119,75.0,10.9,5243217.0
+Dontrez Williams,Lindenwood,6,-0.294957,77.0,25.1,5241311.0
+Mohammad Habhab,Eastern Michigan,7,-0.048113,81.0,25.2,5242937.0
+Isaiah Abraham,Georgetown,17,1.95785,79.0,13.4,5093403.0
+Willie Williams,Northwestern St.,15,1.81004,78.0,18.1,5243094.0
+Ahmad Nowell,VCU,11,3.07128,72.0,18.7,4869778.0
+Quentin Heady,Bethune Cookman,3,-1.06947,78.0,19.9,5242938.0
+Kevin McCarthy,Army,14,-5.22602,76.0,16.5,5243045.0
+Jaxson Bell,Army,3,-2.54928,75.0,25.1,5243049.0
+Kameron Taylor,UNC Asheville,3,-0.532707,79.0,29.9,5241756.0
+Tajuan Simpkins,Seton Hall,6,2.52776,76.0,19.2,5239637.0
+Ring Malith,SIU Edwardsville,3,0.606356,81.0,27.4,5242967.0
+Jo Valrie,SIU Edwardsville,17,-3.1697,77.0,15.5,5182713.0
+Kyle Jorgensen,Colorado St.,2,5.21515,81.0,21.5,5241234.0
+Jordan Mizell,Tarleton St.,5,-0.277429,73.0,13.7,5241436.0
+Tyler McKinley,Cincinnati,16,3.34622,81.0,10.5,4873163.0
+Jamichael Stillwell,UCF,2,6.65631,80.0,21.3,5241667.0
+Halvine Dzellat,Cincinnati,8,1.11231,82.0,14.3,5240256.0
+Bradey Henige,Cal Baptist,8,1.52917,84.0,14.7,5241326.0
+David Punch,TCU,2,7.80378,79.0,23.8,5164368.0
+Robert Wright III,BYU,11,3.88454,73.0,25.2,5060709.0
+Raysean Johnson,Fairleigh Dickinson,5,-5.827,73.0,17.0,5241772.0
+Dylan Jones,Southern Utah,14,-2.67994,77.0,13.4,5241777.0
+Peyton Marshall,Georgia Tech,0,-2.20357,84.0,22.3,5061592.0
+T.O. Barrett,Missouri,9,2.339,76.0,23.1,5144166.0
+Clayton Jackson,Lindenwood,5,-6.81418,74.0,16.3,5242439.0
+Kanon Catchings,Georgia,3,2.91687,81.0,22.0,5243212.0
+Josiah LeGree,Morehead St.,9,-3.8334,72.0,25.6,5241383.0
+Myles Watkins,Bellarmine,5,-5.9042,75.0,20.7,5239765.0
+CJ Hyland,Western Carolina,5,-6.36851,73.0,21.4,5243266.0
+Jayden Harris,Eastern Kentucky,3,-5.3975,79.0,24.6,5239786.0
+Yvens Paul,Eastern Kentucky,13,-3.05787,79.0,14.8,5239788.0
+Tamaury Releford,Morehead St.,13,-1.8607,81.0,18.1,5240034.0
+Phat Phat Brooks,Central Michigan,5,-3.57555,74.0,25.0,5239560.0
+Roberts Blums,Davidson,11,1.84204,76.0,25.4,5239523.0
+Anton Bonke,Charlotte,2,3.70347,86.0,21.3,5240529.0
+Caleb Williams,Georgetown,12,3.55657,79.0,14.4,5061569.0
+Lorenzo Abellar,Southern Utah,5,-7.97505,72.0,17.4,5241350.0
+Bradyn Hubbard,Abilene Christian,6,-2.09964,79.0,30.2,5241314.0
+Jack Benter,Purdue,12,7.24338,78.0,13.7,5102618.0
+Parby Kabamba,Marist,3,-0.882186,78.0,18.2,5242622.0
+Ponce James,Delaware St.,1,-1.81988,71.0,25.3,5243399.0
+Luke Bamgboye,Texas Tech,0,6.25374,82.0,14.1,5061581.0
+Gioacchino Panzini,Cornell,15,-0.118361,77.0,12.4,5241716.0
+Anthony Nimani,Cornell,11,-1.30147,76.0,14.6,5241718.0
+Aleksander Pachucki,Bucknell,14,-4.06827,77.0,14.7,5239546.0
+George Natsvlishvili,North Dakota,8,-2.70708,82.0,23.1,5241647.0
+Greyson Uelmen,North Dakota,9,-1.64264,74.0,29.6,5241648.0
+TJ Williams,Wichita St.,8,1.73316,77.0,22.3,4873115.0
+Trevor Hennig,Weber St.,17,-3.80488,76.0,20.5,5241316.0
+Trent Hundley,Evansville,14,-2.82428,78.0,14.3,5241372.0
+Kaia Berridge,Evansville,4,-6.36911,76.0,12.5,5241370.0
+Elijah Elliott,Ohio,4,-6.15113,75.0,15.3,5243080.0
+Kiir Kuany,Ohio,12,-2.70747,81.0,14.8,5243081.0
+Jesse Burris,Ohio,10,-8.12595,77.0,18.8,5243083.0
+Khamani Cooper,Nebraska Omaha,1,-6.39318,76.0,18.6,5241630.0
+Lachlan Brewer,Idaho St.,12,-1.93071,78.0,14.3,5241308.0
+EJ Ryans,Western Michigan,14,-3.03619,75.0,15.5,5243096.0
+Melo Sanchez,Central Connecticut,12,-1.3482,76.0,17.3,5116128.0
+Trey Deveaux,Mount St. Mary's,3,-2.27398,77.0,22.4,5243013.0
+Moustapha Thiam,Cincinnati,0,4.9811,86.0,22.0,5149078.0
+Tey Barbour,Harvard,12,1.24672,76.0,18.4,5241728.0
+Austin Hunt,Harvard,12,-0.981635,76.0,16.6,5241727.0
+Donte Bacchus,North Alabama,3,-3.51272,79.0,22.5,5239797.0
+JJ Wheat,South Alabama,6,-2.77083,72.0,18.3,5240643.0
+Cade Norris,Samford,12,-0.196214,76.0,14.0,5241374.0
+Taj Bryant,Sacred Heart,5,-7.45481,74.0,18.6,5243021.0
+Luca Soroa Schaller,Northeastern,5,-3.8489,79.0,20.3,5242277.0
+Flory Bidunga,Kansas,0,11.6163,81.0,19.6,5044426.0
+Bruno Alocen,Indiana St.,17,-0.81236,78.0,16.6,5241387.0
+Jaiden Glover-Toscano,Saint Joseph's,3,0.95949,78.0,22.9,5142608.0
+Jahni Summers,Sacramento St.,14,-2.88581,78.0,16.7,5241384.0
+Jared Lary,Detroit Mercy,4,-5.85295,78.0,19.0,5191345.0
+Gicarri Harris,Purdue,11,7.15089,75.0,13.5,5101658.0
+Chike Ndefo,Towson,16,-4.51801,79.0,16.1,5242583.0
+DarKaun King,North Alabama,3,-5.07718,79.0,15.5,5239803.0
+Jordan McCullum,East Tennessee St.,15,-0.0289274,80.0,19.2,4873161.0
+Paul Jones III,James Madison,10,-5.64009,76.0,16.5,5241759.0
+Cheikh Sow,Idaho St.,7,-2.73047,79.0,11.8,5241282.0
+P.J. Eason,Alabama A&M,8,0.627235,81.0,17.6,5243339.0
+James Flippin,Alabama A&M,7,-7.7854,82.0,22.1,5243342.0
+Fraser Roxburgh,Manhattan,3,-5.51042,79.0,18.8,5241537.0
+Masiah Gilyard,Temple,3,-0.708719,75.0,18.0,5241536.0
+Kyric Davis,North Carolina Central,7,-4.89574,77.0,19.8,5240023.0
+Grant Randall,Quinnipiac,12,1.62017,81.0,15.6,5242905.0
+Samson Reilly,Quinnipiac,10,-3.1058,74.0,16.4,5242906.0
+Kody Clouet,Winthrop,12,3.60962,77.0,17.6,4906515.0
+Dante Kearse,The Citadel,17,-5.14207,76.0,16.8,5243245.0
+Jaden Zimmerman,Quinnipiac,1,-4.57991,77.0,25.7,5242908.0
+Ariik Mawien,Northern Colorado,7,-6.86635,76.0,20.1,5241299.0
+Amar Amkou,Florida Atlantic,3,0.355819,79.0,21.5,5239836.0
+Matas Vokietaitis,Texas,13,2.01255,84.0,27.7,5239838.0
+Théo Pierre-Justin,DePaul,14,1.80369,82.0,13.3,5240520.0
+Andrija Bukumirović,Tennessee Martin,2,2.03633,79.0,21.0,5242999.0
+Rubén Prey,St. John's,2,9.49318,82.0,19.0,5240539.0
+Daylon Dickerson,UMBC,15,-0.707136,78.0,21.0,5239816.0
+Shelton Williams-Dryden,West Georgia,3,-1.77572,78.0,28.0,5240027.0
+Marko Ljubicic,Manhattan,17,-5.05569,82.0,16.0,5246878.0
+Kenneth Chime,West Georgia,0,1.03706,81.0,13.7,5240033.0
+Timoty van der Knaap,Bradley,3,-2.7342,80.0,16.6,5241359.0
+Rickey Ballard,Grambling St.,14,0.754582,79.0,14.6,5112181.0
+Bryce Roberts,Texas Southern,14,-1.32444,73.0,18.2,5183379.0
+Spence Wewe,Quinnipiac,16,-0.9148,84.0,11.0,5242907.0
+Abdou Khadre Kébé,Mount St. Mary's,3,-1.33613,79.0,19.9,5242638.0
+Matija Žužic,West Georgia,10,-6.44422,79.0,15.6,5243003.0
+Filip Radaković,Tennessee Martin,5,-4.47208,79.0,23.3,5243012.0
+Gavin Ripp,San Diego,7,-3.45654,79.0,15.6,5241002.0
+Xavier Shegog,West Georgia,7,-7.99706,78.0,14.1,5240026.0
+Mihailo Boskovic,BYU,12,1.42421,82.0,13.9,5243211.0
+Damarius Owens,Marquette,3,0.78444,79.0,16.5,5061595.0
+Khadim Mboup,BYU,16,1.68145,81.0,11.3,5262601.0
+Yonatan Levy,Pepperdine,3,-1.76458,81.0,15.5,5262456.0
+Abdulai Fanta Kabba,Western Carolina,13,1.01603,84.0,14.2,5241916.0
+Okku Federiko,Drake,15,0.916383,81.0,20.2,5186601.0
+Elijah Crawford,Illinois Chicago,9,3.39237,75.0,31.1,5060703.0
+Fedor Zugic,Creighton,14,-0.368305,78.0,17.4,5075230.0
+Kiani Saxon,Wyoming,16,0.647096,80.0,10.4,5313753.0
+Darrius Bolden,Bellarmine,4,-7.0907,73.0,12.7,5312901.0
+Jonah Butler,Stony Brook,6,0.833533,78.0,17.3,5312182.0
+Tai Turnage,Quinnipiac,10,-3.49041,72.0,17.3,5311607.0
+Landon Clark,Princeton,17,0.202065,80.0,13.0,5221328.0
+Keith McKnight,Quinnipiac,2,1.72374,79.0,21.3,5311609.0
+Walter Peggs Jr.,Morgan St.,14,-4.78276,76.0,20.2,5110002.0
+Meechie White,Eastern Illinois,9,-0.00916995,73.0,19.9,5311580.0
+Khoi Thurmon,Oakland,4,-7.55563,73.0,17.4,5313713.0
+Troy Plumtree,Cal Poly,15,-1.90973,78.0,19.3,5312012.0
+Austin Goode,Cal Poly,17,-1.41245,79.0,15.4,5312011.0
+Zac Foster,Clemson,1,1.02517,76.0,26.3,5237299.0
+Ezra McKenna,Buffalo,12,-2.83378,80.0,14.8,5112334.0
+Darrel Yepdo,UMass Lowell,1,-4.07018,72.0,19.5,5313151.0
+JJ Massaquoi,UMass Lowell,7,-8.28864,78.0,25.6,5313154.0
+Jadin Booth,Samford,11,2.02126,74.0,24.0,4702680.0
+Corey Dunning,Prairie View A&M,16,1.95036,81.0,5.5,4904924.0
+Ty Owens,Tennessee Tech,5,-4.78552,72.0,17.9,5314364.0
+Lance Williams,Prairie View A&M,1,-2.22072,73.0,14.6,4904931.0
+Jon Carroll,Morehead St.,8,-0.247825,79.0,21.2,5314326.0
+Jah'Kim Payne,Tennessee Tech,5,-7.33422,78.0,17.3,5314363.0
+Rocco Awad,NJIT,10,-5.98551,73.0,15.8,5313134.0
+Issac Williamson,UNLV,1,-2.79385,72.0,19.8,5313939.0
+Tyrin Jones,UNLV,0,5.56951,81.0,20.6,5236223.0
+Rhyjon Blackwell,Marist,1,-1.89777,72.0,21.0,5107299.0
+Eli Greenberg,Le Moyne,5,-7.75766,76.0,14.6,5313953.0
+Gustav Winther,Northern Illinois,15,-1.81641,82.0,18.6,5314209.0
+Samuel Hincapie,Le Moyne,17,-7.27606,77.0,17.4,5313955.0
+Dylan Ducommun,Northern Illinois,5,-5.77239,76.0,23.6,5314208.0
+Akai Fleming,Georgia Tech,1,-3.08513,76.0,22.0,5101784.0
+Sebastien Emenalo,Loyola MD,17,-5.98473,78.0,14.0,5314517.0
+Carter Berg-McLean,Loyola MD,7,-7.0917,76.0,17.2,5314513.0
+Everett Barnes,Loyola MD,7,-7.25318,81.0,10.6,5314515.0
+Cole Kirouac,Georgia Tech,13,-0.119279,84.0,8.2,5172343.0
+Cameron Wallace,Little Rock,8,-4.0512,80.0,25.0,5314309.0
+Declan Wucherpfennig,Fairfield,15,1.08351,79.0,18.6,5311735.0
+Eternity Eguagie,Rice,7,-4.14751,78.0,18.3,5312069.0
+Alex Mirhosseini,Arkansas Pine Bluff,1,-2.72785,70.0,19.4,5259802.0
+Cassius Brooks,UTEP,4,-5.22352,72.0,13.5,5314540.0
+Nazareth Fisher,Eastern Illinois,8,-4.12497,82.0,16.1,4901611.0
+Louis Bond,Idaho St.,3,-4.37254,77.0,18.8,5313171.0
+Martin Kheil,Idaho St.,14,-2.53664,76.0,14.7,5313170.0
+Tyler Byrd,Alabama St.,6,-0.678433,75.0,20.1,5313399.0
+Luka Bogavac,North Carolina,14,1.96404,78.0,20.7,5312014.0
+Tay Smith,North Dakota St.,14,0.803074,74.0,16.2,4901166.0
+Eric Reibe,Connecticut,13,6.71796,85.0,18.2,5152763.0
+Darius Livingston,Robert Morris,5,-3.03861,74.0,22.0,5313731.0
+Emanuel Prospere II,UC San Diego,6,2.20214,77.0,23.7,5313049.0
+Noah Norgaard,UNC Greensboro,10,-4.55652,74.0,16.5,5314570.0
+Chris Davis Jr,Charleston,14,-1.74835,76.0,19.7,5313548.0
+Chadlyn Traylor,Charleston,17,-3.13813,75.0,12.9,5313546.0
+Martin Kalu,Charleston,17,-1.55759,78.0,16.8,5313547.0
+Zion Obanla,Maryland Eastern Shore,8,-0.197483,80.0,24.4,5314171.0
+Howie Keene,Montana St.,17,-0.976104,79.0,9.6,5313222.0
+Kaleb Lowery,Nevada,12,4.53083,80.0,12.5,5119063.0
+Vaughn Weems,Nevada,12,4.73431,77.0,18.3,5313914.0
+Peyton White,Nevada,14,-0.939969,78.0,16.6,5313915.0
+Myles Walker,Nevada,5,-0.961426,70.0,13.5,5313913.0
+Victor Okojie,UMass Lowell,7,-4.13679,80.0,16.3,5313153.0
+Alliou Fall,Iona,16,-0.177973,82.0,13.4,5311752.0
+Ryan Crotty,Oklahoma St.,10,-0.3296,78.0,12.6,5215268.0
+Nas Hart,La Salle,7,-8.74619,82.0,14.9,5311863.0
+Gabe Newhof,James Madison,8,-2.5258,81.0,19.9,5313098.0
+Narit Chotikavanic,Stephen F. Austin,14,2.38323,74.0,17.2,5314587.0
+Koa Peat,Arizona,2,7.99692,80.0,24.4,5041953.0
+Brayden Burries,Arizona,11,10.2047,76.0,21.6,5082206.0
+Ivan Kharchenkov,Arizona,6,8.89592,79.0,17.4,5311896.0
+John Awoke,Wagner,10,-4.26815,75.0,16.0,5317316.0
+Jaion Pitt,Pacific,15,4.52562,79.0,11.5,5101832.0
+John Squire,New Hampshire,15,-1.39725,80.0,13.0,5176520.0
+Josiah Sabino,Niagara,3,-2.69468,76.0,20.0,5106680.0
+Lavell Brodnex,Louisiana Monroe,2,0.520919,77.0,22.4,5106632.0
+Tamario Adley,Central Michigan,9,1.1498,73.0,24.4,5313260.0
+Jai Chisolm,Cal St. Northridge,17,-2.91431,75.0,15.1,5312433.0
+Tyler Isaak,Montana,11,-0.37142,75.0,14.6,5106313.0
+Keith Palek III,Missouri St.,3,-0.558228,80.0,30.1,5313696.0
+Jake Blackburn,Binghamton,12,-7.53633,77.0,14.6,5312447.0
+Miles Ndalama,Florida A&M,16,-3.61617,83.0,18.5,5313446.0
+Jake Wilkins,Georgia,2,4.37391,81.0,21.3,5142622.0
+Amari Reed,UT Arlington,0,0.455092,80.0,15.5,5196935.0
+"Dwayne Wimbley, Jr.",Massachusetts,4,-3.72452,78.0,13.6,5101843.0
+Romari Robinson,Sacramento St.,4,-4.35146,76.0,11.7,5313274.0
+Ahmad Harrison,Saint Francis,5,-7.04791,74.0,20.5,5247200.0
+Ryan Conway,Towson,10,-2.15688,73.0,15.6,4683948.0
+Caleb Wilson,North Carolina,2,12.2009,82.0,28.8,5095151.0
+Hassane Diallo,Prairie View A&M,16,-3.11935,79.0,17.2,5190922.0
+Alex Steen,Florida St.,13,6.78071,80.0,16.5,5316049.0
+Daniel Michelini-Jackson,Texas A&M Corpus Chris,7,-1.02,77.0,16.7,5314705.0
+Rontavious Blackshear,Youngstown St.,12,-3.22176,78.0,21.5,5314625.0
+Ziare Wells,Oakland,6,-0.00417102,78.0,17.6,5315124.0
+Tolu Samuels,Southern Indiana,7,-2.68764,80.0,14.7,5314340.0
+Hantz Louis Jeune,South Alabama,17,-2.23411,78.0,11.2,5107410.0
+Christian Beam,Georgia St.,16,-4.88277,78.0,13.9,5313071.0
+Omer Suljanovic,UC Davis,7,-6.34847,80.0,22.2,5313005.0
+Kobi Williams,Missouri St.,14,-0.52914,76.0,18.4,5190926.0
+Danas Kazakevicius,Howard,7,-4.5734,82.0,14.8,5316219.0
+Travelle Bryson,Howard,3,-2.17345,77.0,21.4,5316220.0
+Dezmon Briscoe,Kent St.,16,-0.247402,80.0,14.1,5313326.0
+Cortez Graham-Howard,North Alabama,5,-6.72216,77.0,19.0,5314351.0
+Braylon Patton,North Alabama,5,-9.2233,72.0,25.1,5314349.0
+Nadjrick Peat,Coastal Carolina,13,-0.141023,82.0,10.4,5184709.0
+Xander Pintelon,Florida Atlantic,3,1.79702,83.0,16.6,5312061.0
+Kabeya Tshibangu,Niagara,13,-2.11466,80.0,11.4,5314358.0
+Ed Holland III,Howard,16,-3.68597,78.0,10.0,4898226.0
+Finley Woodward,IU Indy,5,-2.51948,79.0,18.3,5313210.0
+LeBron Thomas,Green Bay,8,-4.54042,75.0,21.5,5313200.0
+Chase Thompson,Clemson,12,2.72028,80.0,12.5,5196962.0
+Luka Jovanovic,Middle Tennessee,13,1.63393,83.0,8.8,5313679.0
+Garrett Nuckolls,Portland,5,-2.41411,78.0,18.8,5314720.0
+Timo George,Portland,13,5.33714,80.0,25.1,5314717.0
+Joel Foxwell,Portland,9,1.22476,73.0,26.9,5314722.0
+Josiah Shackleford,North Texas,8,-3.91676,81.0,24.2,5106682.0
+De'Undrae Perteete,UC Riverside,14,0.0798848,77.0,11.7,5313033.0
+Dayjaun Anderson,UAB,17,-1.79005,74.0,17.3,5177218.0
+Panagiotis Pagonis,New Orleans,7,-1.99561,81.0,14.2,5313581.0
+Jordan Watford,Queens,9,1.19402,77.0,27.7,5144110.0
+Shaun Wysocki,Denver,15,-2.61637,78.0,15.9,5314634.0
+Carson Johnson,Denver,1,-2.12682,72.0,24.4,5314641.0
+Dallas Washington,Long Beach St.,7,-8.43958,82.0,20.1,5101834.0
+Gavin Sykes,Long Beach St.,11,-0.930442,76.0,24.7,5196921.0
+Christian Meeks,Morgan St.,15,-3.42694,78.0,11.2,5314179.0
+Chris Cenac Jr,Houston,2,6.28734,83.0,19.5,5142621.0
+Eddie Placer,Wagner,14,-3.45212,77.0,16.4,5176342.0
+Kingston Flemings,Houston,9,10.3482,76.0,26.5,5149077.0
+Teshaun Steele,New Haven,8,-2.08781,79.0,15.7,5314319.0
+Malchiah Marable,Central Arkansas,16,0.243238,81.0,13.5,5312925.0
+Andre Pasha,New Haven,3,-1.89673,81.0,19.6,5314320.0
+Esteban Mann,Incarnate Word,4,-13.557,79.0,16.2,5313506.0
+Sader Servilus,Valparaiso,6,3.54135,76.0,16.0,5313892.0
+Carter Hopoi,Valparaiso,16,-0.392457,83.0,16.0,5313888.0
+JT Pettigrew,Valparaiso,3,0.590601,80.0,27.0,5313886.0
+Mark Brown,Valparaiso,4,-3.81981,72.0,18.7,5313887.0
+Rakim Chaney,Valparaiso,11,2.43399,75.0,20.6,5313883.0
+Josh Ward,Cal St. Fullerton,9,1.64966,73.0,23.2,5180837.0
+Andrew Austin,Eastern Illinois,17,-8.5103,79.0,16.0,5311583.0
+Jannoy Thomas,Prairie View A&M,8,-3.0508,71.0,10.7,5314804.0
+Elijah Mitchell,Prairie View A&M,10,-4.14291,77.0,8.8,5314805.0
+Noah Pagotto,East Texas A&M,15,1.21561,79.0,17.6,5313493.0
+Aginaldo Neto,Boise St.,5,-2.3351,75.0,16.6,5313902.0
+Jaden Kempson,Albany,5,-4.40105,75.0,22.2,5313144.0
+Albert Vargas,Robert Morris,5,-2.43177,70.0,20.0,5313733.0
+Simon Majok,Memphis,16,0.444773,85.0,12.9,5313374.0
+Eugene Alvin,Morgan St.,3,-3.53061,79.0,18.8,5314182.0
+Cam Polak,Youngstown St.,14,-4.06416,74.0,17.3,5314620.0
+Isaiah Williams,Portland St.,6,-0.42578,79.0,12.8,5313265.0
+Sharod Barnes,Western Michigan,5,-6.53016,74.0,21.0,5314283.0
+Marcos Gonzales,The Citadel,5,-10.2811,75.0,25.4,5314550.0
+Alex Kazanecki,Delaware,14,-3.40656,78.0,9.0,5312333.0
+Noah Otshudi,Marshall,1,-5.15488,74.0,25.1,5313147.0
+Bryce Slay,Marshall,10,-3.35918,78.0,14.1,5313149.0
+Caleb Hollenbeck,Marshall,10,-3.55512,76.0,13.3,5313169.0
+Shamarrie Hugie,Marshall,15,-4.13169,78.0,17.2,5313150.0
+Landen Joseph,Marshall,11,1.80707,74.0,21.2,5313148.0
+Drew Fuquay,Marshall,15,-0.194971,80.0,15.1,5313146.0
+Daveyon Lydner,Coppin St.,4,-11.782,76.0,16.8,5313950.0
+Andrew Alekseyenko,Colgate,3,-0.970771,80.0,26.4,5314481.0
+Montana Wheeler,Bradley,1,-3.29017,70.0,20.9,5101794.0
+Edwin Suarez Jr.,Weber St.,8,-0.0737194,78.0,25.4,5313291.0
+Grant Polk,South Carolina,12,-0.731135,78.0,14.0,5254178.0
+Cole Middleton,Lipscomb,7,-8.70974,78.0,23.1,4781728.0
+Javante Edwards,Canisius,5,-7.48872,73.0,21.1,5311726.0
+Edwin Daniel,La Salle,0,2.40682,81.0,16.7,5311865.0
+Isaac Garrett,Oakland,2,2.48093,80.0,22.9,5313714.0
+Dame Sarr,Duke,6,5.86094,80.0,15.0,5287474.0
+Kedrick Osby,New Orleans,14,-2.65284,79.0,13.4,5313579.0
+Walter Brown,UNLV,17,0.218818,77.0,11.6,5313941.0
+CJ Ray,Chicago St.,1,-2.53593,78.0,23.7,5313922.0
+Marcus Pigram,Western Illinois,4,-13.2051,75.0,18.3,5176169.0
+Thiago Sucatzky,FIU,5,-6.34681,70.0,17.7,5312336.0
+William Ball,Louisiana Monroe,4,-7.87581,75.0,6.5,5313383.0
+Tanner Hayhurst,Southern Utah,14,-0.311268,78.0,13.8,5105463.0
+Justin Monden,Maryland Eastern Shore,5,-7.95013,72.0,19.3,5314175.0
+Ethan Elliott,Northern Kentucky,4,-4.90718,75.0,14.1,5313281.0
+Adrian McIntyre,San Diego,11,2.12517,75.0,21.1,5185563.0
+NaVuan Peterson,Gardner Webb,17,-3.83588,78.0,15.3,5180944.0
+Jalen Harper,Rhode Island,10,-5.6631,75.0,14.7,5311868.0
+Jaden Baker,Wagner,10,-4.62938,74.0,19.3,5247448.0
+Truman Claytor IV,Little Rock,1,-8.80464,78.0,21.8,5314308.0
+Tracy Steele Jr.,Little Rock,4,-9.74922,75.0,12.6,4904926.0
+Anthony Enoh,Georgia St.,7,-3.03278,79.0,14.9,5180677.0
+Ayouba Berthe,Georgia St.,10,-6.82222,77.0,16.3,5313070.0
+Joah Chappelle,Georgia St.,7,-2.21837,80.0,16.3,5313069.0
+Yakhya Diop,Mount St. Mary's,16,-4.3152,84.0,15.1,5314337.0
+Gavin Gores,Wyoming,13,0.00621822,82.0,18.6,5313754.0
+Tyler King,SIU Edwardsville,14,-1.45908,76.0,22.3,5314331.0
+Abijah Franklin,Furman,10,-2.93049,77.0,24.6,5314508.0
+Noam Dovrat,Miami FL,11,2.9597,77.0,16.1,5311986.0
+Salih Altuntas,Miami FL,13,2.42923,82.0,11.4,5311984.0
+Amaree Brown,Southern Indiana,1,-7.76363,77.0,28.7,5314342.0
+Shelton Henderson,Miami FL,15,4.55957,78.0,21.1,5101809.0
+"Will James, Jr.",Toledo,6,-0.957372,76.0,16.3,5314227.0
+Amir Jenkins,West Virginia,5,-0.523368,74.0,17.4,5293246.0
+DJ Thomas,West Virginia,12,1.22673,79.0,20.4,5311938.0
+Emmett Adair,Loyola MD,3,-3.94263,81.0,27.8,5314516.0
+Myles Mayfield,UNC Asheville,15,-3.74338,81.0,11.5,5313542.0
+Carlos Hart,Eastern Michigan,3,0.146804,78.0,23.9,5176654.0
+Kael Robinson,Northern Kentucky,3,-1.43451,79.0,23.4,4904206.0
+BJ Plummer,North Florida,17,-4.56889,78.0,15.0,5314453.0
+Trenton Walters,Niagara,1,-5.84516,69.0,23.0,5175675.0
+Brendan Oliver,Canisius,7,-8.63161,78.0,21.1,5311728.0
+Gasper Kocevar,Fresno St.,15,1.95681,82.0,13.2,5315575.0
+Wilson Jacques,Fresno St.,2,2.15273,84.0,19.2,5315576.0
+Bastien Rieber,Fresno St.,5,-3.54983,74.0,15.9,5315578.0
+DJ Stickman,Fresno St.,6,2.34189,74.0,15.3,5315573.0
+DeShawn Gory,Fresno St.,3,1.92462,78.0,23.6,5315579.0
+Lucas Lorenzen,Western Illinois,1,-5.39804,76.0,23.2,5314440.0
+Lilian Marville,UNC Greensboro,1,-3.36716,73.0,17.9,5314576.0
+Kaden Powers,Rutgers,1,-1.79882,76.0,25.4,5248301.0
+Harun Zrno,Rutgers,14,-0.83351,79.0,18.2,5264730.0
+Derrick Green,Coastal Carolina,13,-2.33696,81.0,12.6,5312427.0
+Tristan Thompson,Coastal Carolina,7,-3.18618,77.0,13.3,5312425.0
+Stefanos Spartalis,Monmouth,3,-3.69432,81.0,24.6,5313726.0
+Grant Sanders,Nicholls St.,15,-0.742527,82.0,13.9,5116500.0
+Ben Waller,UC Riverside,3,-1.6634,78.0,17.0,5313035.0
+Isaiah Placide,Massachusetts,14,-1.78969,76.0,18.5,5313353.0
+Gabe Oldham,Denver,13,1.89731,80.0,11.9,5314643.0
+Davante Hackett,Stonehill,1,-0.856058,75.0,25.1,5315084.0
+Roman Siulepa,Pittsburgh,3,3.62749,78.0,21.0,5312288.0
+Shainen Carter,Georgia Southern,16,-1.3965,81.0,12.9,5312456.0
+Isaiah Sutherland,East Tennessee St.,14,-4.27896,79.0,15.2,5314499.0
+Jamier Jones,Providence,15,2.26824,78.0,21.3,5041949.0
+Stefan Vaaks,Providence,11,2.81137,79.0,23.4,5311991.0
+Justin Hinds,Air Force,4,-7.68724,77.0,13.0,5313897.0
+Ethan Greenberg,Air Force,17,-3.38218,76.0,14.6,5313898.0
+Jordan Frison,Chattanooga,11,-0.122503,72.0,25.4,5314472.0
+Ade Popoola,Tulsa,14,4.17015,77.0,16.7,5313566.0
+Jaylen Lawal,Tulsa,11,1.08066,75.0,26.3,5254171.0
+CJ Hall,SIU Edwardsville,5,-6.65052,74.0,24.6,5183116.0
+Mason Porter-Brown,LIU,3,-1.2473,78.0,18.2,5314165.0
+Fabian Flores,DePaul,13,4.54093,86.0,12.4,5312300.0
+Tyler Smith,USC Upstate,5,-4.25464,72.0,15.8,5313527.0
+Truman Byrne,Central Arkansas,12,-2.46482,82.0,15.4,5312919.0
+Mason Bendinger,USC Upstate,7,-7.0182,76.0,26.4,5313530.0
+Jojo McIver,Colorado St.,5,-3.05518,75.0,16.6,5313905.0
+Davis Fogle,Gonzaga,2,7.03319,79.0,22.9,5196913.0
+Vince Dawson III,Morehead St.,10,-3.39844,78.0,10.5,5314327.0
+Miles Franklin,Columbia,3,-1.77946,77.0,20.1,5313687.0
+Dominykas Pleta,Iowa St.,13,6.08909,83.0,18.8,5281369.0
+Killyan Toure,Iowa St.,6,5.8072,75.0,19.2,5248302.0
+Jamarion Batemon,Iowa St.,14,1.9613,75.0,18.3,5217196.0
+Nicolus Anderson,Loyola Chicago,7,-4.89585,76.0,18.6,5252606.0
+Jordan Ellerbee,Florida Gulf Coast,11,-1.55498,76.0,24.0,5236221.0
+Charles Caporaso,Jacksonville,8,-1.36127,84.0,18.1,5313677.0
+Hayden Wood,Jacksonville,14,0.000193262,76.0,20.2,5313674.0
+K'Jei Parker,Massachusetts,11,0.330026,74.0,22.1,5177558.0
+Royal Blue Smith,Arkansas St.,17,-2.08209,75.0,19.9,5312390.0
+Christian Harmon,Arkansas St.,11,1.33327,78.0,21.6,5312387.0
+Chris Terrell,New Mexico St.,5,-1.14827,72.0,19.3,5180743.0
+Cenker Evran,Texas A&M Corpus Chris,8,2.02618,80.0,14.9,5314709.0
+Ja'Corey Robinson,Austin Peay,6,-0.603048,78.0,20.9,5312890.0
+Davion Hill,Ball St.,9,1.39661,74.0,27.7,5176370.0
+Ashton Magee,Southern,16,-6.8446,79.0,13.8,5101848.0
+Thomas Bassong,Florida St.,15,0.327017,80.0,16.1,5316047.0
+Fazl Oshodi,Southern,14,-1.03612,75.0,16.9,5314838.0
+Armelo Boone,Western Kentucky,6,0.171702,74.0,26.4,5313164.0
+Muazibini Adamu,Delaware St.,16,-7.67336,82.0,13.1,5317275.0
+Ademar Santos,Delaware St.,7,-7.18943,78.0,20.8,5317276.0
+Paris Papadatos,Saint Francis,17,-12.4495,76.0,20.8,5315063.0
+Jamison Guerra,Idaho St.,1,-2.94889,72.0,20.5,5313166.0
+Meleek Thomas,Arkansas,11,5.85943,77.0,22.1,5041951.0
+Devyn Franklin,Grambling St.,7,-4.68373,80.0,16.4,5259011.0
+Michael Wilson Jr.,Bellarmine,3,-7.86865,78.0,22.0,5254207.0
+Lance Stone,Detroit Mercy,10,-5.51549,68.0,19.0,5215269.0
+Avery Thomas II,Louisiana Tech,3,1.15426,79.0,18.6,5313669.0
+Jaylen Fenner,Louisiana Tech,7,-0.928173,77.0,15.6,5254333.0
+"Mario Tatum, Jr.",VMI,1,-8.05961,75.0,17.9,5314580.0
+Amari Evans,Tennessee,6,6.66567,77.0,15.6,5196914.0
+Aiden Disu,Holy Cross,3,-4.15795,79.0,22.4,5314484.0
+Liam Koelsch,Northeastern,13,-3.16263,81.0,12.8,5312179.0
+Anthony Wrzeszcz,New Mexico St.,14,-1.26442,76.0,14.3,5105877.0
+Jacob Patrick,Utah,14,2.2656,78.0,12.7,5311934.0
+Kendyl Sanders,Utah,17,0.812271,80.0,13.5,5311935.0
+Eric Mejia,Fairfield,5,-3.78464,75.0,17.0,5311730.0
+Halon Rawlins,Fairfield,4,-1.91069,78.0,16.2,5311733.0
+Brandon Benjamin,Fairfield,2,2.36096,80.0,22.7,5311734.0
+Matt Enright,Austin Peay,10,-1.50402,73.0,12.7,5312887.0
+"Jason Thirdkill, Jr.",Jacksonville,15,0.451942,79.0,16.4,5108085.0
+DeMarco Johnson,Elon,6,-2.3931,76.0,14.9,5101807.0
+Bryson Tiller,Kansas,15,3.20306,82.0,18.9,5041958.0
+Darryn Peterson,Kansas,11,7.78055,77.0,30.9,5041955.0
+Israel Hart,Southern Miss,1,-2.55107,75.0,19.7,5313268.0
+Charlie OSullivan,Brown,17,-3.02446,82.0,17.0,5312602.0
+Brady Loughlin,Brown,12,-4.57581,77.0,15.6,5312601.0
+Isaiah Langham,Brown,7,-6.272,77.0,23.0,5312599.0
+Jah'Likai King,UMBC,1,-2.50697,74.0,23.2,5313186.0
+King-Njhsanni Wilhite,Lamar,1,-6.56235,73.0,17.9,5313554.0
+Eian Lowe,Lamar,5,-3.17151,70.0,17.4,5313555.0
+Tibor Mirtic,Penn St.,15,-0.657024,81.0,17.4,5312028.0
+Patton Pinkins,Mississippi,12,2.99393,77.0,15.3,5144099.0
+Augustine Ekwe,New Mexico St.,0,-0.129866,81.0,13.1,5240272.0
+Vince Buzelis,South Dakota,15,-1.2049,76.0,16.7,5314751.0
+Sam Hughes,Boston University,14,-3.05973,78.0,16.6,5314461.0
+Chance Gladden,Boston University,1,-3.39442,75.0,25.7,5314460.0
+Karyiek Dixon,Western Illinois,8,-4.99186,77.0,17.3,5314441.0
+Drew Larson,Niagara,3,-1.35647,79.0,17.4,5314361.0
+Brian Griffith,Niagara,5,-9.88131,70.0,28.4,5314360.0
+Toby Harris,Iona,12,-1.30893,80.0,17.5,5110696.0
+KJ Cochran,Santa Clara,12,1.23315,76.0,18.6,5196879.0
+Thierry Darlan,Santa Clara,3,1.3895,80.0,18.1,5147928.0
+Noah Treadwell,South Carolina St.,14,-6.15123,77.0,19.8,5317332.0
+Teon Tindal,South Carolina St.,16,-7.168,79.0,17.4,5317336.0
+Franck Yetna,Texas A&M Corpus Chris,3,3.5403,79.0,17.7,5111902.0
+Derwin Hodge,South Carolina St.,16,-4.32927,82.0,12.6,5317333.0
+Josh Hayes,Utah,13,2.46623,81.0,11.2,5176757.0
+Jacob Taylor,Charleston Southern,17,-3.22722,75.0,12.5,5313449.0
+Mason Gibson,Texas A&M Corpus Chris,1,0.722218,72.0,21.1,4898169.0
+Antonio Munoz,Grambling St.,7,-5.17821,78.0,29.2,5314746.0
+Christian Williams,Cal St. Fullerton,11,1.39947,72.0,17.1,5312315.0
+Tyler Jackson,Eastern Kentucky,1,-3.34439,74.0,25.6,5313633.0
+Dailin Smith,Cal St. Bakersfield,1,-4.66253,78.0,26.8,4703106.0
+Darius Adams,Maryland,1,-1.74509,77.0,26.0,5311972.0
+Aidan Haskins,Hampton,10,-4.37289,80.0,11.8,5312155.0
+Quintin Cooper,Hampton,4,-11.9736,74.0,26.8,5312156.0
+Tae Simmons,San Diego St.,13,2.56063,78.0,16.9,5313925.0
+Josh Dixon,Milwaukee,1,-6.61734,73.0,26.2,5144090.0
+Stevie Elam,Milwaukee,14,0.634796,75.0,17.7,5313243.0
+Isaiah Dorceus,Milwaukee,5,-5.83244,72.0,18.2,5313242.0
+Andre Washington,Eastern Illinois,10,-7.43415,71.0,21.8,4897987.0
+Jomo Goings,LIU,5,-2.30097,77.0,18.7,5314163.0
+Jaylen Jordon,Jacksonville,8,-5.23842,80.0,17.9,5122260.0
+Melih Tunca,Penn St.,11,-0.813181,77.0,20.1,5312026.0
+Christian Jones,Siena,10,-4.64047,71.0,16.0,5314193.0
+Mason Blackwood,Penn St.,12,-2.46945,79.0,10.9,4873144.0
+Kayden Mingo,Penn St.,9,3.63375,75.0,24.6,5144108.0
+Ivan Juric,Penn St.,15,-0.915219,84.0,20.4,5312025.0
+Jesse Mcintosh,South Dakota,3,-2.21246,79.0,21.3,5314753.0
+Mussa Mzein,Mississippi Valley St.,7,-10.1344,82.0,14.0,5189254.0
+Vladimir Khryapa,Tennessee Martin,4,-1.87085,80.0,14.9,5314375.0
+Matas Deniusas,Tennessee Martin,3,-0.148489,81.0,24.3,5314377.0
+Damien King,Tennessee Martin,6,1.06372,76.0,18.4,5314372.0
+Ryan Richardson,Binghamton,4,-10.0396,77.0,14.2,5312445.0
+Olavi Suutela,Oregon St.,15,-0.215545,82.0,16.5,5313088.0
+Matija Samar,Oregon St.,10,-3.41349,78.0,18.8,5313087.0
+Elyjah Freeman,Auburn,6,5.25872,80.0,17.3,5311502.0
+John St. Germain III,Holy Cross,1,-5.98095,73.0,16.7,5252055.0
+Trevon Payton,Arkansas Pine Bluff,12,-1.32032,77.0,12.9,5185598.0
+Chandler Jackson,Milwaukee,12,0.806038,78.0,18.8,5313245.0
+Curtis Stinson Jr.,North Texas,4,-7.29228,77.0,13.9,5313377.0
+Dylan Diaz,Louisiana Monroe,14,-5.92614,74.0,14.0,5313379.0
+Jose Roberto Tanchyn,UMBC,2,2.0997,82.0,18.6,5182581.0
+Jackson Furman,Army,10,-7.07681,75.0,21.5,5314456.0
+Mario Saint-Supery,Gonzaga,9,5.80415,75.0,19.8,5313012.0
+JJ Mandaquit,Washington,5,0.748128,73.0,17.2,5101766.0
+Binael Basil,Wagner,8,-1.38602,79.0,22.1,5317320.0
+King Grace,Mississippi St.,14,1.11204,77.0,18.6,5142708.0
+Jacobe Whitted,Tennessee Tech,17,-2.78633,79.0,13.7,5314362.0
+Michael Cooper,Wagner,3,-2.85177,78.0,20.0,5317317.0
+Bryan Akanmu,Wagner,7,-4.34683,78.0,20.1,5317318.0
+Carlos Coronado Jr.,Northern Illinois,5,-11.0878,75.0,23.8,5314202.0
+Francis Okwuosah,Western Illinois,14,-4.23525,78.0,16.9,4904792.0
+Makai Kvamme,Western Illinois,4,-6.2642,74.0,16.4,5314443.0
+Reggie Hill,Coastal Carolina,10,-2.86812,79.0,16.4,5108908.0
+Uriyah Rojas,Wyoming,1,-0.398514,75.0,19.5,5313751.0
+Kiwane Garris Jr,Cal St. Fullerton,12,-0.74268,77.0,19.0,5312312.0
+Bryce Cofield,Cal St. Fullerton,7,-3.9945,78.0,27.8,5144135.0
+Brady Swartz,Western Michigan,3,-3.13394,79.0,17.1,5314284.0
+Carson Vis,Western Michigan,1,-2.67561,75.0,20.4,5314285.0
+Josiah Parker,Florida Atlantic,8,-0.541967,79.0,23.0,5312060.0
+Amari Allen,Alabama,2,8.85086,79.0,19.3,5101833.0
+Yohann Sissoko,Florida Atlantic,5,-3.54893,77.0,17.9,5312057.0
+London Jemison,Alabama,3,3.99908,80.0,17.6,5144139.0
+Lefteris Mantzoukas,Oklahoma St.,17,-2.1601,81.0,14.9,5311926.0
+Benjamin Ahmed,Oklahoma St.,8,-0.380612,82.0,20.5,5210965.0
+Reese Miller,William & Mary,11,-2.41794,76.0,23.4,5312326.0
+Jayden Smoot,UT Arlington,17,-2.18957,73.0,14.4,5314871.0
+Kaden Fuhrmann,Mercyhurst,12,-4.55963,77.0,15.3,5252076.0
+Maison Adeleye,New Haven,17,-5.63539,76.0,17.9,5252503.0
+Antonio Chol,New Mexico,17,1.27195,81.0,15.0,5105860.0
+Garrett Anderson,North Dakota,10,-3.24334,78.0,18.6,5314760.0
+Logan Kinsey,Denver,12,-0.41908,78.0,17.2,5314636.0
+Logan McIntire,Central Michigan,14,-0.689262,77.0,19.2,5108789.0
+Salim London,UAB,10,-0.981861,76.0,13.9,5101806.0
+Joey Niesman,Fairleigh Dickinson,1,-1.88684,74.0,21.0,5313932.0
+Cameron Ward,Michigan St.,13,3.46787,81.0,16.9,5101798.0
+Jordan Scott,Michigan St.,12,8.20929,80.0,14.9,5196931.0
+Rob Diaz,Long Beach St.,6,1.69414,74.0,19.3,5312976.0
+Caleb Steger,Boston College,10,-3.62094,77.0,16.5,5196919.0
+Kose Egbule,James Madison,5,-4.3311,74.0,17.9,5252289.0
+Ace Flagg,Maine,6,-2.6954,79.0,18.1,5093143.0
+Tae Dozier,Northern Kentucky,12,5.66139,77.0,14.0,4901934.0
+Jaiden Haynes,Youngstown St.,14,-2.81547,75.0,13.7,5314622.0
+JJ Kelly,Ohio,12,0.296233,78.0,13.8,5314210.0
+Evan Sterck,Jacksonville,5,-2.84228,73.0,17.5,5313678.0
+Adria Rodriguez,Washington St.,5,-0.473868,76.0,17.4,5313053.0
+Ace Glass lll,Washington St.,11,0.367927,75.0,27.3,5313054.0
+Miles Amos,Seattle,5,-2.50685,74.0,12.4,5313138.0
+Dre Kindell,Wichita St.,9,1.31435,71.0,18.9,5313656.0
+Hudson Greer,Creighton,17,0.112171,79.0,17.5,5101788.0
+Kerem Konan,Creighton,13,1.86654,81.0,17.8,5311955.0
+Cam McDowell,Tarleton St.,6,0.161403,77.0,26.4,4896462.0
+Jacobe Coleman,Sam Houston St.,14,-0.145459,75.0,17.4,5241724.0
+Jarne Elouna Eyenga,Charlotte,17,-2.19861,82.0,12.8,5312041.0
+Cam Wilds,Robert Morris,14,-2.88374,78.0,14.7,5313730.0
+"Donald Whitehead, Jr.",UNC Greensboro,1,-5.15273,70.0,21.4,5314573.0
+Achille Lonati,St. Bonaventure,17,-3.518,77.0,17.2,5311886.0
+Andrew Osasuyi,St. Bonaventure,0,6.79617,81.0,16.2,5311889.0
+Gabe Kincy,Alabama A&M,7,-5.95467,79.0,13.2,5313394.0
+Sebastian Williams-Adams,Auburn,15,4.92895,80.0,14.3,5095154.0
+Luke Haertle,South Dakota St.,5,-4.14176,75.0,18.9,5105862.0
+Jaxson Whitaker,Central Michigan,14,-4.41017,76.0,14.6,5313258.0
+EJ Walker,South Carolina,17,-1.85268,79.0,12.7,5101846.0
+Jalen Griffith,Western Michigan,1,-1.73837,70.0,26.2,5179286.0
+DJ Dudley,Louisiana Tech,1,-2.10889,76.0,24.8,5313667.0
+Sherman Weatherspoon IV,Utah Valley,14,-1.26329,75.0,14.1,5176399.0
+Brendan Rigsbee,Wofford,12,-4.40172,75.0,13.7,5121357.0
+Joshua Lewis,Louisiana,12,-1.65239,79.0,16.7,5313126.0
+Milan Mejia,Louisiana,10,-2.61907,74.0,10.3,4706561.0
+Jordan Muller,Cal Baptist,10,-2.32251,72.0,14.9,5314832.0
+Alon Michaeli,Colorado,3,-0.993393,81.0,23.3,5311912.0
+Ian Inman,Colorado,12,-0.0948469,78.0,17.7,5237434.0
+Isaiah Johnson,Colorado,11,5.31951,73.0,23.7,5254159.0
+Kameron Tinsley,IU Indy,14,-2.81539,78.0,19.1,5313214.0
+Spencer Ahrens,Boise St.,3,2.42161,82.0,20.9,5185444.0
+Aleksej Kostić,BYU,14,-1.17683,76.0,17.0,5311908.0
+AJ Dybantsa,BYU,2,6.22968,81.0,33.5,5142718.0
+Ahmad Johnson,Arkansas Pine Bluff,17,-8.58586,76.0,16.5,5106662.0
+Jackson Rasmussen,Idaho,3,-1.46805,79.0,21.8,5237588.0
+Efe Demirel,Grand Canyon,13,3.80913,85.0,17.8,5313911.0
+Andrej Kostic,Kansas St.,14,-1.07781,78.0,19.2,5311923.0
+Dorin Buca,Kansas St.,0,1.71838,86.0,16.9,5311921.0
+Elias Rapieque,Kansas St.,6,2.89327,81.0,14.6,5311919.0
+Baasil Saunders,Coppin St.,4,-7.49706,76.0,14.9,5313944.0
+Ethan Copeland,Stetson,11,0.892943,74.0,20.6,5314558.0
+Miles Daniels,Cal Baptist,5,-2.49018,74.0,14.9,5314830.0
+Ilias Kamardine,Mississippi,9,3.01992,77.0,21.7,5311523.0
+Milhan Charles,Arkansas Pine Bluff,15,-3.0648,79.0,17.1,5313440.0
+Erik Oliver-Bush,Manhattan,17,-4.2475,77.0,12.8,5311761.0
+Chance Mallory,Virginia,9,8.86607,70.0,20.4,5150404.0
+Isaac Carr,Wake Forest,5,-1.24596,76.0,14.2,5237435.0
+Lino Mark,Rutgers,6,0.167969,74.0,22.0,5234749.0
+Vinny Sigona,East Texas A&M,14,-4.89985,73.0,19.1,5107219.0
+Ja'Quavian Florence,Tennessee Tech,5,-5.27252,76.0,24.1,4702026.0
+Chris Eagan,American,7,-12.5392,80.0,21.0,5314451.0
+Madden Collins,American,2,3.28749,77.0,31.8,5314444.0
+Tanner Davis,Utah Tech,6,0.928346,77.0,15.2,5314822.0
+Efeosa Oliogu-Elabor,Butler,5,-0.218883,78.0,21.3,5311946.0
+Jackson Keith,Butler,17,-1.39043,77.0,11.2,5101859.0
+Azavier Robinson,Butler,9,2.70153,74.0,20.5,5101796.0
+Nick Jones,Wagner,9,-1.15736,74.0,26.4,5317314.0
+Luke Almodovar,Southeast Missouri St.,11,-1.11676,75.0,22.8,5314339.0
+PJ Farmer,Southeast Missouri St.,5,-4.44837,72.0,14.9,5314338.0
+Jay Jones,Penn,7,-1.88287,76.0,17.1,5314644.0
+Lucas-Allan Lueth,Penn,17,0.281364,79.0,13.1,5314648.0
+Dalton Scantlebury,Penn,8,1.61193,81.0,20.1,5314646.0
+LJ Hackman,Western Kentucky,6,0.598073,75.0,20.1,5313163.0
+Hampton Sanders,Columbia,5,-2.89368,72.0,17.9,5313685.0
+Jalen Tot,Appalachian St.,14,-1.26001,72.0,19.2,5312355.0
+Mateo Esmeraldo,Lipscomb,9,1.14145,72.0,19.4,5107530.0
+Shemani Fuller,Rider,8,-3.07338,81.0,18.7,4898349.0
+Gus Etchison,Idaho St.,9,1.26085,71.0,35.2,4898348.0
+Ali Assran,Cal Poly,16,-1.76965,81.0,19.1,5312010.0
+Jake Davis,Cal Poly,17,-0.823736,76.0,15.8,5312009.0
+Biko Johnson,Idaho,1,0.575869,74.0,24.8,5177021.0
+Ebuka Okorie,Stanford,9,6.86813,74.0,30.1,5258459.0
+Joseph Owens,Chicago St.,16,-2.35576,79.0,12.1,5180772.0
+Oskar Giltay,Stanford,0,6.6872,82.0,13.3,5312293.0
+Jae Slack,North Carolina Central,1,-7.75375,78.0,21.3,5176670.0
+Caleb Delzell,South Dakota St.,17,-4.96004,81.0,10.9,5314724.0
+Tyler Mason,Alabama St.,15,-6.63133,81.0,19.8,5313401.0
+Roman Domon,Murray St.,2,2.3748,81.0,24.5,5313873.0
+Dylan Brumfield,Southern Miss,6,-0.932234,77.0,17.0,5180818.0
+Matt Compas,IU Indy,1,-5.01702,76.0,24.0,5181934.0
+Maguire Mitchell,IU Indy,12,-0.944872,77.0,18.0,5313213.0
+Delkedric Holmes,Mississippi Valley St.,4,-12.4827,74.0,18.6,5118089.0
+Lamont Sams,Mississippi Valley St.,3,-4.86952,81.0,16.9,5191584.0
+Chance Sutton,Mississippi Valley St.,16,-9.90803,79.0,11.6,5314772.0
+Reece Hagy,IU Indy,17,-3.78847,80.0,11.2,5313207.0
+James Dyson-Merwe,Evansville,13,-5.50431,83.0,15.7,5313846.0
+Keaton Wagler,Illinois,11,11.1599,78.0,25.7,5254165.0
+Anthony Johnson,Arizona St.,9,2.24083,75.0,26.9,5189257.0
+Andrija Grbovic,Arizona St.,14,0.970177,83.0,15.8,5311900.0
+Massamba Diop,Arizona St.,0,5.53845,85.0,21.3,5311903.0
+Tre Singleton,Northwestern,2,3.53092,80.0,17.3,5226071.0
+Jake West,Northwestern,1,-0.992524,75.0,15.6,5221322.0
+Adam Olsen,South Alabama,14,-0.970625,80.0,21.4,5313206.0
+Thijs De Ridder,Virginia,2,5.69729,81.0,26.5,5311846.0
+Dillan Shaw,Saint Mary's,12,6.59454,79.0,13.9,5313031.0
+Eli Beard,Drexel,11,0.30605,71.0,16.9,5312144.0
+Martin de Laporterie,Drexel,15,-3.58075,85.0,15.5,5312145.0
+Arterio Morris,Bethune Cookman,5,-3.70433,75.0,26.8,5106279.0
+Chace Watley,Wofford,1,-5.83911,74.0,20.1,5314612.0
+Omer Mayer,Purdue,11,0.683934,76.0,20.7,5312035.0
+Jayden Tyler,Wofford,14,-4.10061,70.0,16.1,5314613.0
+Momo Nkugwa,Vermont,15,-1.99938,75.0,13.1,5313191.0
+Lucas Mari,Vermont,17,-4.52775,78.0,16.5,5313192.0
+Clayton Parker,Morehead St.,10,-5.29685,80.0,14.5,5314330.0
+Isaiah Kerr,Hawaii,17,0.3587,75.0,16.4,5107841.0
+David Bolden,NJIT,1,-1.45056,72.0,24.6,5313131.0
+Or Ashkenazi,Lipscomb,17,-1.91842,77.0,9.2,5313706.0
+Christian Gurdak,Virginia Tech,13,3.4375,82.0,15.5,5101850.0
+Mason Klabo,Illinois St.,12,1.40289,74.0,16.2,5313852.0
+Mouhamed Sylla,Georgia Tech,0,0.712737,82.0,22.1,5258494.0
+Mikhail Pocknett,Buffalo,8,-3.78008,78.0,18.4,5180962.0
+Trent Coleman,Charleston Southern,12,-1.86566,79.0,13.3,5254986.0
+Anthony Isaac,Manhattan,8,-3.02284,78.0,22.3,5311760.0
+Isaac Hawkins,Utah Valley,0,7.5737,82.0,20.4,5314813.0
+EJ Mosley,Purdue Fort Wayne,10,-7.04007,72.0,13.4,5313721.0
+Dwayne Aristode,Arizona,12,8.21119,80.0,12.1,5186456.0
+Riek Riek,Gardner Webb,17,-7.96771,81.0,11.3,5313456.0
+Jacob Wassler,Bellarmine,12,-3.91008,83.0,15.6,5312903.0
+Sam Donald,Bellarmine,12,-1.07766,80.0,12.2,5312902.0
+Tomas Valentiny,Stony Brook,17,-3.19844,78.0,14.4,5312187.0
+Andrej Shoshkikj,Stony Brook,11,0.385447,74.0,20.3,5312188.0
+Jacob Meachem,Bucknell,4,-13.6696,68.0,16.9,5314475.0
+Pat Curtin,Bucknell,6,-1.81286,75.0,28.2,5314476.0
+Amon Dörries,Bucknell,15,-2.53834,83.0,25.0,5314477.0
+Tate Sage,Iowa,12,4.16143,79.0,18.4,5311842.0
+Michael Collins,Louisiana,4,-6.66264,73.0,15.5,5313127.0
+Raevon Thomas,Jackson St.,15,-4.74225,81.0,10.6,5254840.0
+Mujahiid Burton,North Carolina A&T,17,-4.95465,77.0,15.6,5312171.0
+Dwayne Pierce,North Carolina A&T,10,-7.20099,77.0,20.9,5312174.0
+Brooklyn Vick,North Carolina A&T,5,-6.72158,74.0,17.8,5312172.0
+Nigel James Jr.,Marquette,9,5.77469,72.0,30.3,5144086.0
+Chol Machot,Charleston,0,2.88976,84.0,21.7,5313550.0
+Jaden Haire,Texas A&M Corpus Chris,16,-7.19506,79.0,18.4,5314706.0
+Victory Onuetu,Hofstra,0,2.69032,82.0,16.6,5312163.0
+Xavier Spencer,UMass Lowell,1,-0.575879,73.0,18.6,5313152.0
+C.J. McPherson,Tennessee Tech,14,-3.40047,75.0,16.3,5314366.0
+Preston Fowler,James Madison,12,0.23761,80.0,14.1,5313096.0
+David Bumpass,Morgan St.,10,-10.613,75.0,18.5,5314180.0
+Zayden High,North Carolina,8,2.88122,82.0,21.7,4895793.0
+Najimi George,New Haven,17,-4.88225,76.0,21.4,5314323.0
+Ian Scott,Indiana St.,2,5.3353,79.0,20.3,5115354.0
+Jo Van Buggenhout,Indiana St.,5,-2.85257,74.0,20.0,5313859.0
+Enel St. Bernard,Indiana St.,13,3.76371,78.0,16.7,5313861.0
+Bodey Howell,Rice,17,-5.71843,76.0,15.6,5254173.0
+B.J. Davis-Ray,SMU,17,-1.11806,78.0,11.9,5041938.0
+Jermaine O'Neal Jr.,SMU,14,0.843475,77.0,14.0,5312289.0
+Jaden Toombs,SMU,2,3.91485,82.0,18.5,5101840.0
+KJ Younger,UNC Greensboro,3,-1.84018,76.0,24.5,5314574.0
+Wei Lin,Oregon,1,-4.10709,76.0,22.4,5312019.0
+Hussain Williams,Coppin St.,17,-5.14326,77.0,20.6,5313946.0
+Keyshuan Tillery,Cincinnati,5,-0.30292,72.0,21.4,5196876.0
+Shon Abaev,Cincinnati,3,0.290619,80.0,26.4,5101852.0
+Ja'Juan Carr,Elon,1,-3.31529,74.0,18.4,4702777.0
+Quron Elliott,Manhattan,1,-8.76356,74.0,16.8,5311763.0
+Torrin Andrews,Coppin St.,5,-8.77048,76.0,17.6,5313947.0
+Kylan Howze,Louisiana Tech,16,-2.60591,82.0,14.2,5313671.0
+Ethan Simmon,Stony Brook,12,-1.9746,77.0,14.9,5312184.0
+Brett White,Oakland,14,-0.474615,78.0,14.8,5313712.0
+DeWayne Brown II,Tennessee,13,5.66962,80.0,16.7,5142710.0
+Nate Ament,Tennessee,3,6.11075,82.0,27.8,5164559.0
+Ethan Burg,Tennessee,11,1.24062,75.0,13.2,5311527.0
+Mikel Brown Jr.,Louisville,9,4.95751,77.0,31.0,5101761.0
+Neoklis Avdalas,Virginia Tech,1,0.869969,81.0,23.5,5311829.0
+Antonio Dorn,Virginia Tech,13,2.59913,84.0,16.8,5311831.0
+Irish Coquia,New Orleans,5,-5.00226,74.0,17.7,5313574.0
+Xavier Abreu,Northeastern,1,-4.33795,75.0,28.3,5312176.0
+Caleb Blackwell,UTEP,1,-1.17745,73.0,20.0,5107455.0
+Prince Johnson,Eastern Illinois,16,-4.95455,80.0,9.4,5311581.0
+Markus Blackwell,Eastern Illinois,10,-8.68763,74.0,16.4,5311579.0
+Chris Komin,Northern Arizona,11,0.0728786,75.0,15.5,5313239.0
+Brennan Peterson,Northern Arizona,10,-6.08719,72.0,14.5,5313240.0
+Quinn Woidke,Kent St.,11,1.35979,72.0,18.2,5313324.0
+Riley Jacobs,UMBC,8,-2.40672,80.0,19.1,5313189.0
+Lionel Larvadain,Chicago St.,4,-9.38449,72.0,21.5,5313921.0
+Corey Sands,Chicago St.,17,-6.00073,76.0,11.1,5191591.0
+Doyel Cockrill III,Chicago St.,1,-1.17057,74.0,24.4,5247705.0
+Malek Robinson,Chicago St.,5,-1.65492,71.0,14.0,5313920.0
+Daniel Zatsepin,Chicago St.,4,-6.0147,76.0,9.6,5313918.0
+Frankie Mannino,Harvard,13,0.597045,77.0,13.2,5313716.0
+Kareem Stagg,Georgia,12,2.47313,80.0,16.9,5144153.0
+Kaia Isaac,Tarleton St.,5,-2.16203,76.0,12.9,5314859.0
+Leroy Kelly IV,Tarleton St.,6,1.83014,74.0,13.5,5144089.0
+DJ Dormu,Tarleton St.,5,-6.14421,69.0,20.7,5314858.0
+Justin Kirby,Miami OH,12,1.73268,76.0,15.5,5313370.0
+Trey Perry,Miami OH,11,-1.71266,74.0,19.1,5313368.0
+"Rob Lee, Jr.",Lamar,1,-1.58834,74.0,26.0,5313558.0
+Jusaun Holt,Utah Tech,1,-2.30413,79.0,23.6,4684152.0
+Jalen Vazquez,Lehigh,5,-3.90074,75.0,13.9,5314506.0
+Andrew Urosevic,Lehigh,17,-6.64084,75.0,18.4,5314503.0
+Caleb Thomas,Lehigh,4,-9.66984,70.0,19.3,5314505.0
+Corey Caulker,East Carolina,10,-3.87722,72.0,16.5,5312050.0
+Creighton Morisch,Austin Peay,16,-5.16727,82.0,12.1,5312888.0
+Kai Shinholster,Minnesota,10,-0.519945,77.0,12.4,5254164.0
+Aiden Miller,IU Indy,3,-3.02482,80.0,17.1,5313215.0
+Jaden Vance,UC San Diego,6,-0.546295,78.0,19.7,5313050.0
+Filip Petkovski,Tennessee Martin,17,-4.95899,77.0,14.8,5314376.0
+Hudson Mayes,UC San Diego,2,2.71621,77.0,21.4,5313048.0
+Sananda Fru,Louisville,13,10.7356,83.0,17.7,5311967.0
+Buddy Hammer Jr.,North Texas,15,1.69301,79.0,15.9,5313378.0
+Nyk Lewis,VCU,11,5.01657,73.0,18.4,5311890.0
+Dorian Hayes,UTSA,10,-4.97565,77.0,15.8,5221325.0
+Brent Moss,UTSA,10,-2.28571,78.0,19.3,5313654.0
+Kaidon Rayfield,UTSA,7,-3.75762,80.0,20.3,5101826.0
+Matheo Coffi,UTSA,15,-2.07221,80.0,11.5,5313655.0
+Ayuba Bryant Jr.,Temple,8,-2.19136,81.0,13.2,5313565.0
+Jalen Stokes,UC Davis,7,-1.7263,77.0,17.5,5254339.0
+Abdou Yadd,Sacred Heart,7,-9.88617,81.0,24.9,5144128.0
+Preist Ryan,Cleveland St.,7,-6.00217,78.0,17.9,5176268.0
+Tayeshaun Smith,Western Carolina,7,-1.1697,79.0,9.1,5315247.0
+Samuel Dada,Western Carolina,13,4.11953,81.0,14.3,5315246.0
+Andrew Henderson,UC Riverside,3,-0.645846,77.0,27.0,5181503.0
+Zyier Beverly,Binghamton,15,-6.31326,81.0,23.7,5312446.0
+Kohl Rosario,Kansas,12,3.87258,77.0,15.3,5291864.0
+Kaden Brown,Southern Indiana,1,-4.75019,72.0,21.1,5177219.0
+Adrien Stevens,Marquette,12,4.16103,76.0,14.3,5196920.0
+Danny Carbuccia,Massachusetts,5,-4.33276,71.0,18.4,5041934.0
+Dimitri Clerc,Massachusetts,8,-4.89806,82.0,20.0,5313356.0
+Cole Scherer,Eastern Washington,10,-3.48423,74.0,16.8,5313110.0
+Mark Lavrenov,Sacramento St.,3,-4.33289,80.0,19.1,5313277.0
+Derek Dixon,North Carolina,10,1.81354,77.0,16.7,5144097.0
+Michael Phillips II,Marquette,10,-0.325541,78.0,16.0,5248300.0
+Douglas Langford,San Jose St.,16,-0.34702,79.0,13.0,5248295.0
+Japhet Moupadele,San Jose St.,17,-4.14781,80.0,16.5,5313931.0
+Tyler Koenig,Coppin St.,8,-5.82381,81.0,17.9,5313951.0
+Frederik Erichsen,Radford,15,-4.28471,81.0,20.1,5313521.0
+Tijan Saine Jr.,Weber St.,11,1.38879,70.0,24.5,5313292.0
+Devon Kobi Pearson,Texas A&M Corpus Chris,15,-3.02255,80.0,20.8,5314703.0
+Bryson Wheatfall,Texas A&M Corpus Chris,7,-1.83792,76.0,18.9,5314704.0
+Melian Martinez,Louisiana Tech,0,5.01078,84.0,12.3,5313672.0
+Lewis Rowe,Incarnate Word,7,-2.95049,82.0,10.6,4897366.0
+Tyler Bike,New Hampshire,10,-3.3499,70.0,16.7,5313119.0
+Jordan Gorecki,Texas Southern,0,-0.280938,82.0,9.4,5323989.0
+Anthony Andrews,Texas Southern,17,-5.48746,79.0,13.6,5323991.0
+Jamias Ferere,Gardner Webb,7,-8.34059,78.0,22.7,5313453.0
+Spence Sims,Gardner Webb,14,-5.94969,73.0,18.9,5313454.0
+London Maiden,Detroit Mercy,8,-3.63628,80.0,20.9,5108092.0
+Najai Hines,Seton Hall,0,10.6104,82.0,17.8,5292602.0
+Jayden Taylor,Delaware,15,-4.39466,80.0,11.1,5312332.0
+Antonio Chandler,Siena,13,1.65617,78.0,15.2,5314192.0
+Uriah Tenette,New Mexico,11,4.21827,70.0,19.1,5254340.0
+Leroy Blyden Jr.,Toledo,11,3.76442,73.0,23.6,5314225.0
+Ramel Bethea,Green Bay,0,5.6327,81.0,12.7,5313193.0
+Kam Sanders,Air Force,9,-1.37121,75.0,26.4,5313893.0
+Maruan Cicic,Green Bay,16,-6.21031,84.0,14.1,5313199.0
+Lucas Hobin,Air Force,14,-5.14491,80.0,20.8,5313899.0
+Duce Paschal,Weber St.,6,-2.24826,77.0,17.5,5313294.0
+ArDarius Grayson,Weber St.,4,-5.1602,73.0,18.7,5313295.0
+Hayden Assemian,South Carolina,13,2.27825,78.0,13.3,5173589.0
+Cameron Williams,Portland,3,-2.22522,80.0,20.3,5314723.0
+Isaac Finlinson,Hawaii,15,-0.0143887,80.0,18.2,5105472.0
+Jhei-R Jones,William & Mary,11,-1.44219,72.0,16.1,5312328.0
+Enzo Boudouma,New Orleans,3,-1.00206,81.0,15.9,5313580.0
+Dante Censori-Hercules,Portland,8,2.37778,79.0,10.0,5314718.0
+Jikari Johnson,Chattanooga,12,-1.8675,76.0,22.1,5116435.0
+Grant Kepley,Montana,5,-3.58101,76.0,20.1,5315596.0
+Jaquias Franklin,Charleston Southern,5,-6.53605,73.0,17.7,5313448.0
+Leopold Levillain,Long Beach St.,8,-1.69448,81.0,15.3,5312977.0
+Stephen Williams,South Alabama,0,1.5644,81.0,16.7,5313202.0
+Shon Tupuola,Valparaiso,13,2.97665,82.0,13.7,5180868.0
+Curtis Williams,Gardner Webb,17,-6.69835,78.0,17.2,5313458.0
+Levi Beckwith,Maryland Eastern Shore,4,-6.35207,79.0,11.3,5314177.0
+Trey Brown,Maryland Eastern Shore,4,-7.77813,79.0,21.2,5314173.0
+Caleb Smith,Rider,7,-3.37151,77.0,15.8,5314464.0
+Jalik Dunkley,Nicholls St.,15,-0.810214,79.0,21.9,5313592.0
+Jamir McNeil,Rider,4,-7.98067,72.0,12.1,5314465.0
+AB Coulibaly,Rider,17,-6.99302,77.0,16.2,5314466.0
+Peitok Machar,McNeese St.,13,3.18898,82.0,12.6,5313569.0
+JP Dragas,IU Indy,1,-3.31787,72.0,17.0,5313209.0
+Justin Allen,Green Bay,3,-1.47792,76.0,26.4,5313196.0
+Gregory Lawson,Eastern Michigan,14,-4.50397,75.0,18.9,5313308.0
+Antwan Wilson,Rider,4,-8.22804,77.0,18.3,5178893.0
+David Jevtic,Fairleigh Dickinson,17,-5.29128,80.0,19.3,5313937.0
+Ras Elijah Godbolt,Fairleigh Dickinson,4,-7.16752,72.0,8.8,5313936.0
+Jaquan Womack,Towson,7,-0.84537,78.0,21.3,5312322.0
+Trey McKenney,Michigan,12,6.00323,76.0,17.3,5041954.0
+Anthony Smith lll,North Dakota,9,-3.29201,73.0,24.1,5314757.0
+Marley Curtis,North Dakota,7,-8.99227,80.0,20.1,5314755.0
+Dante Allen,Miami FL,6,2.93843,76.0,14.9,5142709.0
+Joseph Scott,Abilene Christian,16,-4.54512,81.0,20.3,5314818.0
+Matt Able,N.C. State,6,3.70858,78.0,19.8,5196877.0
+Wes Enis,South Florida,14,2.19143,74.0,20.3,5313560.0
+Chris Kumu,Canisius,4,-8.84813,76.0,19.7,5311725.0
+Logan Applegate,The Citadel,12,-3.24815,74.0,20.2,5314551.0
+Cayden Boozer,Duke,11,4.75247,76.0,18.0,5041937.0
+Nikolas Khamenia,Duke,12,5.55131,80.0,14.6,5144124.0
+Cameron Boozer,Duke,2,16.0077,81.0,30.6,5041935.0
+Jabri Fitzpatrick,New Haven,9,-1.45153,74.0,25.6,5185239.0
+Trey Cady,North Florida,3,-8.90985,80.0,24.1,5314454.0
+Przemek Hartman,Louisiana Monroe,17,-12.5324,81.0,18.2,5313380.0
+Tounde Yessoufou,Baylor,6,5.2792,77.0,25.4,5095152.0
+Preston Edmead,Hofstra,1,2.8775,73.0,25.0,5236222.0
+Troy Glover II,Bowling Green,13,3.12812,82.0,15.3,5112412.0
+Denis Badalau,Rutgers,7,-1.75922,81.0,18.2,5312037.0
+Armari Carraway,Charleston Southern,10,-6.57227,72.0,17.6,5313447.0
+Christopher Nwuli,Rutgers,7,-1.75114,80.0,15.6,5081348.0
+Davian Brown,Montana St.,11,1.911,75.0,23.5,5313221.0
+Ahamed Mohammed,Stephen F. Austin,1,-1.98186,73.0,17.3,5314594.0
+Cayden Charles,St. Bonaventure,6,1.36303,75.0,19.8,5311887.0
+Damian Garcia,East Texas A&M,17,-1.82116,77.0,22.6,5250755.0
+Tahlan Pettway,Western Carolina,11,0.617332,74.0,18.7,5315245.0
+Semetri (TT) Carr,California,5,1.34076,72.0,15.3,5164560.0
+Chris Dockery,UMKC,15,-5.65671,78.0,18.3,5108143.0
+Isiah Harwell,Houston,10,4.02904,78.0,16.6,5041942.0
+Brandon Russell,Saint Francis,4,-11.4033,77.0,17.2,5315062.0
+Eric Dibami,FIU,8,3.5262,82.0,18.4,5312338.0
+Will Ashford,Central Michigan,17,-7.73679,77.0,14.6,5257917.0
+Jerry Easter II,USC,7,-0.472231,77.0,14.7,5101762.0
+Chance Trujillo,Utah Tech,14,-0.29667,76.0,19.0,4897982.0
+Davion Cunningham,Morehead St.,1,-4.14722,75.0,23.9,5107477.0
+Luke Moore,Central Arkansas,5,-1.15039,74.0,19.3,5312926.0
+Melvin Bell Jr.,San Jose St.,17,-2.91495,76.0,15.7,5101782.0
+Davis White,Cal St. Fullerton,17,-4.90539,77.0,11.9,5312311.0
+Lateef Patrick Jr,Stephen F. Austin,1,0.799925,74.0,27.1,5314591.0
+Gediminas Alisas,Stephen F. Austin,13,0.138295,78.0,17.8,5314593.0
+Max Jusianiec,Canisius,10,-4.36696,79.0,12.5,5243383.0
+Straton Rogers,Eastern Washington,15,2.4736,77.0,12.1,5313111.0
+Christian Oliver,Morgan St.,15,-5.47148,82.0,13.9,5176294.0
+Rickey Mitchell Jr.,Bethune Cookman,4,-5.76366,76.0,17.2,5176249.0
+Jaden Henderson,Cal St. Fullerton,1,-2.68576,75.0,20.1,4706262.0
+Jafeth Martinez,USC Upstate,13,0.765915,81.0,12.2,5313531.0
+Kruz McClure,DePaul,5,-1.89786,78.0,17.9,5254161.0
+Harrison Beauchamp,Central Arkansas,14,-3.14258,77.0,13.7,5312922.0
+Isaiah Campbell-Finch,Samford,17,-5.2085,72.0,16.8,5101768.0
+Taj Thweatt,Coppin St.,7,-5.99944,79.0,19.1,4432364.0
+Tony Williams,Fairfield,1,-2.81379,73.0,17.8,5311732.0
+Cole Bowser,Furman,15,-0.449014,78.0,12.5,5314509.0
+Alex Wilkins,Furman,9,-3.10936,77.0,34.2,5314511.0
+Cedric Taylor III,Howard,2,2.60154,79.0,26.8,5192142.0
+Omari Witherspoon,Pittsburgh,5,-2.20449,76.0,20.1,5237300.0
+Legend Smiley,San Francisco,14,0.473102,77.0,15.8,5101799.0
+Trent Sisley,Indiana,3,-0.865139,80.0,18.1,5101827.0
+Demariontay Hall,Coppin St.,8,-6.15135,79.0,26.0,5252323.0
+Donte Tisinger Jr.,Boston University,11,-2.81979,75.0,17.7,5314463.0
+Caleb Van De Griend,Idaho St.,2,-1.32424,80.0,30.1,5313173.0
+Cyril Obasogie,Delaware St.,16,-7.03735,77.0,13.5,5317274.0
+KJ Martin Jr.,Tulsa,6,1.20724,80.0,12.3,5254174.0
+Raúl Villar,Charlotte,6,0.829247,75.0,16.7,5312042.0
+Tama Isaac,UC Irvine,5,-2.2578,74.0,16.5,5313007.0
+Nes Emeneke,UC Irvine,16,-0.128931,82.0,10.2,5254329.0
+Alijah Arenas,USC,1,-2.54954,78.0,29.9,5144495.0
+Arthur Cox,Fairleigh Dickinson,3,-3.35477,80.0,25.9,5313938.0
+Alejandro Aviles,San Diego,7,-3.17798,82.0,16.2,5101837.0
+Vuk Boskovic,San Diego,17,-1.99437,79.0,18.5,5313159.0
+Hannes Steinbach,Washington,2,8.65431,83.0,24.4,5281370.0
+Eli Ellis,South Carolina,1,0.527955,72.0,18.1,5101774.0
+Je'kel Cotton,Detroit Mercy,7,-5.23153,78.0,17.5,5313181.0
+Keshawn Fisher,Detroit Mercy,7,-3.20274,79.0,26.0,5313182.0
+Ty Francis,Northeastern,15,-4.61968,79.0,15.6,5312177.0
+Joshua Dalton,Loyola Marymount,12,-1.23274,82.0,13.7,5314796.0
+Petar Pinter,Northeastern,8,-5.57081,83.0,13.1,5312180.0
+Coen Collier,USC Upstate,16,-0.665351,85.0,10.2,5313529.0
+Luke Haupt,New Mexico,6,4.53905,78.0,16.2,5188026.0
+Davius Loury,Cal St. Northridge,10,-2.79379,79.0,15.7,5312429.0
+Mihael Tomic,Incarnate Word,8,-3.03908,81.0,10.3,5313507.0
+Preston Turner,Eastern Illinois,14,-4.81707,77.0,17.7,5311582.0
+Faheim Meran,LIU,5,-2.92672,78.0,14.1,5109771.0
+Xavier Hall,Indiana St.,1,-3.14042,72.0,18.0,5190937.0
+Chiante Tramble,Southern Miss,1,-3.7308,74.0,15.8,5313269.0
+Tylik Weeks,Southern Miss,3,-1.4417,79.0,29.3,5313270.0
+Peter Hemschemeier,Southeastern Louisiana,10,-6.56325,77.0,22.8,5314564.0
+AJ Thomas,Loyola Marymount,5,-2.97918,76.0,25.0,5314795.0
+Cameron Hiatt,Dartmouth,10,-4.14388,76.0,13.2,5313700.0
+Tyler Kropp,Northwestern,3,0.761994,81.0,14.4,5144141.0
+Connor Igoe,Columbia,2,2.43834,79.0,25.1,5313686.0
+CJ Shaw,UC Santa Barbara,11,0.715881,77.0,19.0,5215271.0
+Sebastian Whitfield,Princeton,7,-7.12598,78.0,19.2,5314682.0
+Jimel Lane,Grambling St.,7,-3.12295,79.0,20.5,5112187.0
+Zyree Collins,Austin Peay,9,0.596934,72.0,26.6,5312885.0
+Francis Folefac,Siena,2,2.79692,79.0,23.5,5314195.0
+Uzziah Buntyn,South Dakota,1,-1.5826,73.0,22.2,5314750.0
+Cam Miles,Florida St.,1,-1.44331,74.0,23.3,5316046.0
+Marcus Whitlock,Middle Tennessee,12,4.71938,74.0,14.4,5176188.0
+Josiah Shackelford,Bowling Green,3,-2.15127,76.0,22.4,5312969.0
+Christopher Parker,South Carolina St.,7,-5.84829,77.0,20.1,5317337.0
+Tim Okojie,South Carolina St.,16,-2.14936,85.0,9.7,5317334.0
+Emondrek Erkins-Ford,Jacksonville St.,15,1.56822,81.0,19.8,5312342.0
+Tavaj Cope,New Orleans,15,-1.35177,79.0,17.9,5313575.0
+Jacoby Hill,Jacksonville St.,11,1.14608,76.0,17.5,5312340.0
+Aleks Alston,Maryland,17,-0.398904,82.0,12.3,5311975.0
+Isaiah Malone,Florida Gulf Coast,0,1.48344,80.0,20.5,5313662.0
+Guillermo Del Pino,Maryland,4,-2.79393,77.0,14.1,5311974.0
+Keeshawn Mason,Prairie View A&M,7,-4.12502,80.0,14.6,5247621.0
+MJ Williams,Eastern Kentucky,9,-0.48506,70.0,25.4,5313634.0
+Aiden Argabright,Richmond,11,1.23846,71.0,21.4,5254316.0
+Kiyan Anthony,Syracuse,1,-3.48398,77.0,23.9,5120280.0
+Sadiq White Jr.,Syracuse,15,1.58464,81.0,21.0,5101831.0
+Elzie Harrington,San Diego St.,11,-0.0822987,77.0,20.8,5313924.0
+J'Quan Ewing,Saint Peter's,8,0.115443,81.0,10.9,4897807.0
+Cameron Boone,Missouri St.,13,-0.16509,82.0,8.7,5313697.0
+Melakih Cunningham,Missouri St.,3,-1.45255,79.0,14.2,5313695.0
+Trey Williams Jr,Missouri St.,1,-1.89805,75.0,17.0,5313693.0
+Chuck Love III,Loyola Chicago,12,-1.60967,79.0,14.6,5101822.0
+Alexander Richardson,Loyola Chicago,8,-0.274408,81.0,16.2,5311867.0
+Hassan Washington,Northern Illinois,15,-8.02956,80.0,18.3,5314204.0
+Taj Walters,Northern Illinois,3,-3.02644,77.0,15.5,5314203.0
+Trenton Ruth,Stonehill,4,-9.99819,75.0,22.1,5315083.0
+Dwayne Williams Jr.,Georgia Southern,10,-5.30759,78.0,16.0,5312449.0
+Khayri Dunn,Georgia Southern,1,-7.96564,73.0,22.4,5312451.0
+Isaiah Henderson,Siena,14,-4.0935,78.0,15.5,5314191.0
+Preston Copeland,Ball St.,13,-1.97352,81.0,13.2,5312913.0
+Seth Amunrud,Montana St.,14,2.20442,75.0,15.2,5313226.0
+Acaden Lewis,Villanova,9,4.44724,74.0,24.6,5144105.0
+Brody Whitaker,Valparaiso,14,0.30391,75.0,16.3,5313884.0
+Tucker Tornatta,Valparaiso,7,-5.16811,80.0,23.3,5313891.0
+Declan Peterson,Western Michigan,13,-2.38206,83.0,16.5,5314286.0
+KaiMani Murdock,Lafayette,17,-4.47856,78.0,14.2,5323978.0
+Shareef Jackson,Lafayette,8,-1.68846,80.0,26.5,5323981.0
+Luke Bevilacqua,Lafayette,16,-7.56559,83.0,20.6,5144158.0
+Christian Humphrey-Rembert,Lafayette,17,-3.36277,81.0,12.7,5323979.0
+LA Hayes,UTEP,6,0.27222,77.0,22.8,5176206.0
+Joseph Grahovac,St. Bonaventure,12,2.75616,82.0,12.1,5311888.0
+Aiden Goins,Bowling Green,7,-9.49189,81.0,22.5,5312972.0
+Mekhi Fitts,Grambling St.,15,-5.67013,79.0,16.2,5314748.0
+Tre Beard,Cleveland St.,11,0.361229,70.0,18.0,5182601.0
+Krystian Lewis,Louisiana Monroe,1,-4.33248,75.0,28.0,5313381.0
+Alex Molofeev,Louisiana Monroe,5,-6.76724,77.0,15.8,5313382.0
+Aleksas Bieliauskas,Wisconsin,15,4.1125,82.0,14.0,5312048.0
+Landon Seaman,Cal St. Fullerton,3,-0.0346335,80.0,23.7,4910887.0
+Sergej Macura,Mississippi St.,15,1.88923,81.0,14.0,5311740.0
+Simeon German,The Citadel,16,-8.55253,82.0,15.2,5314555.0
+Dylan Veillette,Merrimack,16,-3.13794,79.0,14.8,5314295.0
+Ayomi Odetoyinbo,Colgate,0,0.73844,82.0,10.8,5314480.0
+Kashie Natt,Sam Houston St.,6,7.79907,75.0,20.4,5117648.0
+Chase Dawson,Morehead St.,1,-5.07427,72.0,17.9,5247158.0
+King Ijeoma,Canisius,16,-5.04507,80.0,14.0,5258414.0
+Elijah Parker,Central Connecticut,4,-4.9779,75.0,12.7,5312655.0
+Daniel Etiosa James,Central Connecticut,3,-3.69603,80.0,14.3,5312654.0
+Ashton Reynolds,Central Connecticut,3,-2.34478,76.0,17.4,5312656.0
+Quinton Perkins II,Mercer,14,-2.87096,73.0,16.7,5176784.0
+Adrean Newton,Norfolk St.,5,-6.86022,72.0,18.7,5314183.0
+Musa Sagnia,N.C. State,13,4.5562,82.0,11.4,5311995.0
+Robert Fields,Texas St.,8,-0.467997,81.0,15.6,5313360.0
+DJ Hall,Texas St.,2,2.92775,79.0,25.6,5313358.0
+Dalton Gayman,North Florida,3,-3.05411,79.0,21.9,5257916.0
+Jalen Kampen,Central Michigan,14,-5.88862,75.0,14.4,5313257.0
+Nick Mullen,Central Michigan,15,-0.816692,82.0,14.9,5116155.0
+Timotej Malovec,Miami FL,17,1.11163,80.0,14.0,5281366.0
+Shane Lancaster,Alcorn St.,14,-1.73345,76.0,18.7,5107789.0
+Trae Taylor,Montana,13,-1.96417,81.0,12.3,5315595.0
+Jojo Murphy,Seattle,6,0.948194,74.0,20.4,5313139.0
+Ethan Duncan,Lipscomb,14,-1.50387,72.0,21.1,4897775.0
+Ernest Shelton,Merrimack,14,-0.014545,77.0,20.8,5314297.0
+AJ Rohosy,Stanford,8,0.413383,81.0,20.8,5105657.0
+Evan Chatman,UAB,3,2.66125,80.0,15.3,5312079.0
+EJ Horton,North Texas,6,-2.60306,75.0,16.5,5313376.0
+Gage Lattimore,North Carolina Central,1,-4.19238,74.0,22.2,5314190.0
+Chandler Bing,Vanderbilt,15,1.95524,77.0,12.9,5311759.0
+Zane Nelson,Denver,1,0.345337,76.0,26.7,5314638.0
+Vangelis Zougris,Louisville,8,4.37628,80.0,18.4,5311969.0
+Jamarion Davis-Fleming,Mississippi St.,13,5.30521,82.0,10.3,5220874.0
+Braxton Williams,The Citadel,1,-4.18266,78.0,27.4,5314553.0
+Zacch Wiggins,Old Dominion,12,-1.20004,76.0,15.8,5313179.0
+Elijah Duval,Southern Utah,9,-1.73617,75.0,34.4,5314849.0
+Cale Barclay,Southern Utah,7,-4.72461,80.0,18.3,5314853.0
+Reggie Prudhomme,Niagara,5,-4.42556,72.0,16.0,5314357.0
+Adam Harakow,Wyoming,12,1.94258,79.0,14.6,5187519.0
+Jeremy Dent-Smith,Stanford,1,0.0434542,73.0,21.8,5189814.0
+Nathan Claerbaut,Central Michigan,0,1.12094,84.0,19.5,5313263.0
+Jailen Daniel-Dalton,UC Riverside,15,-1.14167,78.0,13.6,5180714.0
+Kenyon Aguino,Montana,15,0.802706,79.0,18.0,5315598.0
+Amir Taylor,Kennesaw St.,15,0.993993,81.0,19.4,5312348.0
+Myles Parker,Marist,12,1.85913,80.0,16.0,5279252.0
+Filip Jovic,Auburn,13,4.16205,80.0,16.6,5311506.0
+Keziah Ekissi,Oregon St.,5,-3.46489,75.0,19.5,5313086.0
+Emmanuel Kanga,George Mason,13,5.04039,81.0,20.5,5196954.0
+Devin Booker,George Mason,10,-4.74597,76.0,14.9,5254317.0
+Jalen Haynes,Southern Illinois,6,0.954229,76.0,21.3,5313875.0
+Bashir N'Galang,Maine,5,-10.6581,75.0,22.6,5313109.0
+Christian Brown,James Madison,0,2.15135,80.0,15.1,5313093.0
+Jalen Reece,LSU,5,-0.619953,72.0,16.7,5101776.0
+Jack Smiley,Belmont,11,0.99545,74.0,23.7,5255092.0
+Cameron Johnson,Mercyhurst,7,-6.54796,77.0,17.7,5315592.0
+Zy Wright,Abilene Christian,3,-3.7368,77.0,17.5,5260535.0
+DJ Armstrong,UMBC,12,2.90935,76.0,17.9,5252505.0
+Malachi Moreno,Kentucky,0,8.58588,84.0,18.2,5101849.0
+Andrija Jelavic,Kentucky,15,3.3417,83.0,18.1,5281347.0
+Jasper Johnson,Kentucky,1,-1.51424,77.0,22.8,5095153.0
+Gavin Hightower,South Florida,9,1.00837,73.0,23.4,5101765.0
+Adriel Nyorha,South Florida,5,-1.38077,77.0,23.3,5313563.0
+Jalen StClair,Delaware St.,4,-7.8006,71.0,20.1,5317273.0
+Jalin Holland,Colorado,7,0.0829977,77.0,18.4,5152729.0
+Josiah Sanders,Colorado,17,-0.0707356,77.0,16.1,5237444.0
+Dane Christensen,UT Rio Grande Valley,17,-2.36088,79.0,15.2,5314733.0
+Julien Gomez,UT Rio Grande Valley,11,2.5016,74.0,16.2,5314734.0
+Braylon Mullins,Connecticut,11,6.05107,78.0,20.1,5196916.0
+Ty'Reek Coleman,Illinois St.,11,1.72708,74.0,22.4,5313853.0
+Jared Turner,Old Dominion,12,0.809182,80.0,13.1,5106717.0
+Obomate Abbey,Utah,4,-5.52432,72.0,16.0,5311937.0
+Mathis Courbon,Murray St.,14,-0.915727,78.0,14.7,5313868.0
+Elijah Perryman,Utah St.,9,1.55833,74.0,22.0,5255260.0
+Adlan Elamin,Utah St.,12,3.8163,81.0,16.2,5195079.0
+Ian Platteeuw,Davidson,7,1.66933,84.0,21.4,5311851.0
+Devin Brown,Davidson,17,-0.0505769,78.0,16.8,5311849.0
+Dorion Staples,Maryland Eastern Shore,3,-3.00459,80.0,20.0,5107653.0
+Luka Vudragovic,Pepperdine,17,-7.56223,78.0,16.6,5314742.0
+Jake Johnson,Stetson,14,-3.20535,77.0,16.7,5314562.0
+Sean Morgan,Stetson,17,-9.9998,74.0,19.7,5314563.0
+Calvin Sirmans III,Stetson,5,-5.18184,68.0,20.4,5314559.0
+Justin Hawkins,Niagara,7,-4.12542,79.0,20.7,5314356.0
+David Mirkovic,Illinois,2,8.85105,81.0,23.3,5311832.0
+Leo Beath,UC San Diego,3,0.0735654,80.0,20.4,5106867.0
+Shawn Nelson,Northern Kentucky,4,-8.8765,76.0,16.8,5313280.0
+Cougar Downing,UMBC,14,-2.87676,74.0,13.6,5177355.0
+JJ Harper,Liberty,12,5.00519,77.0,17.4,5119095.0
+Andres Burney,Georgia Southern,13,0.178628,81.0,14.4,5175943.0
+Tavarus Webb,Georgia Southern,11,2.41262,76.0,21.5,5312457.0
+Collin Parker,Austin Peay,3,2.77511,80.0,26.2,5312891.0
+Rex Stirling,Wofford,8,-3.72399,80.0,19.6,5314618.0
+Kyler D'Augustino,IU Indy,11,-1.19778,73.0,24.0,5313212.0
+Nasir Meyer,Wyoming,3,2.96002,79.0,22.9,5313752.0
+Simm Saadi,Wyoming,14,-2.31491,81.0,20.0,5313756.0
+Filip Brankovic,UT Rio Grande Valley,2,3.30519,78.0,26.2,5314736.0
+Kevair Kennedy,Merrimack,9,0.628762,74.0,30.4,5314298.0
+Trey Simpson,Kennesaw St.,15,1.17092,80.0,14.7,5312350.0
+Jordan Lowery,UT Arlington,5,-2.97691,73.0,17.8,5144092.0
+Samuel Obenjo,Robert Morris,13,-1.94278,82.0,11.2,5313732.0
+Darius Washington III,Kennesaw St.,5,-3.57007,77.0,18.6,5312344.0
+Bahsil Laster,UT Arlington,7,-2.93523,76.0,22.0,5314870.0
+Xavier Edmonds,TCU,2,7.82149,80.0,26.3,5311928.0
+TJ Robinson,Saint Peter's,9,-5.59362,76.0,30.4,5314168.0
+Jahki Gupton,Saint Peter's,7,-3.19785,79.0,19.5,5314169.0
+Bol Agu,Saint Peter's,6,0.990017,80.0,14.8,5314170.0
+Brayden Shorter,Murray St.,12,-2.68934,77.0,18.3,5313872.0
+Martins Kilups,Oral Roberts,12,-2.12393,76.0,10.9,5314799.0
+Cal Furnish,Oral Roberts,17,-2.78207,70.0,11.2,5314798.0
+Jacob Walker,Sam Houston St.,1,-0.879686,73.0,21.9,5314535.0
+Matt Dann,Sam Houston St.,0,4.80004,84.0,13.6,5314534.0
+Bryson Calamese,Alcorn St.,5,-9.17408,72.0,21.3,5313433.0
+Nelson Lamizana,Coppin St.,7,-7.75717,81.0,20.4,5313949.0
+Jamari Piercy,Coppin St.,7,-6.92359,77.0,23.0,5313948.0
+Roor Akhuar,Fordham,17,0.756008,79.0,14.9,5311861.0
+Riley Massey,North Dakota St.,17,-1.78899,75.0,10.7,5314779.0
+Trevian Carson,North Dakota St.,6,5.10443,75.0,19.2,5314778.0
+Patrick Punch,Mississippi Valley St.,4,-7.32924,76.0,18.6,5314771.0
+Noah Meeusen,Arizona St.,6,4.24673,77.0,13.0,5311901.0
+Bryce Quinet,Evansville,5,-5.3453,75.0,20.9,5313845.0
+Leif Moeller,Evansville,1,-3.10862,79.0,22.2,5313847.0
+Joseph Locandro,Maryland Eastern Shore,3,-6.33889,81.0,23.7,5314176.0
+Tristan Smith,Northern Iowa,2,5.8144,78.0,25.3,5315806.0
+Geon Hutchins,Northern Iowa,4,-2.60723,76.0,12.9,5315804.0
+Jaylen Petty,Texas Tech,14,4.83824,73.0,15.6,5221321.0
+Chaze Harris,South Alabama,9,3.11595,78.0,36.2,5189001.0
+Tomislav Buljan,New Mexico,2,5.21788,81.0,26.6,5315585.0
+Cahmai Crosby,North Texas,10,-3.94448,75.0,14.5,5313375.0
+Kade Sebastian,American,14,0.399863,76.0,13.2,5314446.0
+Brian Sumpter,Wofford,13,-1.84058,80.0,14.7,5314611.0
+Griffen Goodbary,Drake,15,0.343785,82.0,13.6,5313836.0
+Alton Hamilton IV,Eastern Washington,2,4.12964,80.0,23.3,5313112.0
+Johnny Radford,Eastern Washington,10,-0.615379,73.0,17.1,4708534.0
+CJ Larry,Northwestern St.,4,-7.87206,75.0,14.1,5314536.0
+Moustapha Loum,Northwestern St.,16,-2.24163,82.0,12.8,5314537.0
+Kordrick Turner,Northwestern St.,8,-4.82333,78.0,16.4,5314538.0
+Brock Scholl,Nebraska Omaha,7,-2.91629,80.0,15.6,5314815.0
+JD Bowden,Presbyterian,4,-8.79464,73.0,17.3,5313514.0
+Amare Bynum,Ohio St.,12,5.52863,80.0,16.9,5196946.0
+Kaden Rickard,Kennesaw St.,5,-1.13725,78.0,18.2,5312345.0
+Daniel Mayfield,Mississippi Valley St.,7,-5.79197,80.0,25.6,5314775.0
+Kellen Pickett,Wright St.,2,2.31814,81.0,17.1,5314627.0
+Michael Cooper,Wright St.,11,-0.60763,75.0,24.0,5314630.0
+Mynor Strong,Toledo,14,-0.928723,75.0,14.9,5314226.0
+Josh Bowman,Chattanooga,0,-2.02113,81.0,17.6,5314474.0
+Tate Darner,Chattanooga,12,-2.27387,76.0,18.1,5314470.0
+Yuval Levin,Purdue Fort Wayne,6,-2.53609,80.0,18.5,5313722.0
+Courtland Muldrew,Washington,17,1.13746,75.0,15.8,5221320.0
+Elijah Kelly,Longwood,6,-0.977244,79.0,10.7,5313508.0
+Jaylin Payne,Longwood,16,-5.98545,80.0,12.9,5313511.0
+Derrick Talton Jr,Buffalo,5,-3.42536,70.0,15.5,5312996.0
+Andy Johnson,Illinois Chicago,1,-0.322376,78.0,19.4,5313880.0
+Rashund Washington Jr,Illinois Chicago,15,1.08156,77.0,17.5,5313879.0
+Zander Carter,Liberty,12,-0.0572116,78.0,12.8,5254332.0
+X’Zaevion Barnett,Mississippi Valley St.,5,-6.89563,74.0,14.7,5314777.0
+Michael James,Mississippi Valley St.,1,-2.86445,73.0,28.8,5314773.0
+Tyrone Iroghama,Mississippi Valley St.,16,-11.5535,80.0,17.0,5314774.0
+Ashton Walker,La Salle,5,0.132593,77.0,18.9,5311862.0
+Johann Grünloh,Virginia,0,10.0058,84.0,16.7,5311844.0
+Jamaria Clark,UMKC,10,-8.98772,74.0,15.7,5314676.0
+CJ Evans,UMKC,5,-7.08288,71.0,24.8,5314675.0
+Karmello Branch,UMKC,14,-6.34886,76.0,20.9,5314674.0
+Trey Booker-Lowery,UMKC,7,-10.7482,79.0,26.3,5314677.0
+Kobe Butler,Jackson St.,7,-7.43501,79.0,11.7,5314766.0
+Micah Tucker,Georgia St.,1,-3.43253,75.0,22.2,5313068.0
+Austin Williford,Saint Joseph's,6,1.83292,76.0,16.9,5236333.0
+Jalen Haralson,Notre Dame,9,1.14207,79.0,33.4,5312258.0
+Brady Koehler,Notre Dame,15,3.07668,82.0,17.8,5312256.0
+Luke Williams,Charleston Southern,14,-1.54742,72.0,15.6,5313450.0
+Elijah Davis,Morgan St.,5,-5.22051,73.0,23.7,5263816.0
+Cam Carroll,Rice,10,-3.12204,74.0,19.1,5144088.0
+Jake Hall,New Mexico,12,4.27944,76.0,19.9,5254338.0
+Kennedy Okpara,Lipscomb,7,-4.99664,80.0,20.0,5313705.0
+Ruben Dominguez,Texas A&M,14,4.51904,78.0,16.0,5311530.0
+Jabrion Spikes,Tennessee St.,17,-3.23592,74.0,12.6,5314353.0
+Michael Simcoe,UC Santa Barbara,6,-0.0533877,80.0,15.8,5254322.0
+Yaak Yaak,Oregon St.,15,-1.92159,83.0,22.0,5176771.0
+Isaac Taveras,Southern Miss,6,2.11146,77.0,33.1,5176218.0
+Ty Tabales,Bryant,5,-7.1414,74.0,25.2,5313076.0
+Gio Sanford,Bryant,17,-9.23907,76.0,10.8,5313080.0
+"Ashley Sims, II",Bryant,17,-4.55523,80.0,14.4,5313075.0
+Timofei Rudovskii,Bryant,3,-3.16835,81.0,23.2,5313085.0
+Ryan Bartley,Houston Christian,14,-2.88558,78.0,16.5,5313498.0
+Zee Hamoda,Nicholls St.,3,-1.3212,79.0,21.0,4897548.0
+Rayniel Wright,South Carolina St.,5,-9.12424,73.0,19.0,5323988.0
+"Owen Bronston, Jr.",South Carolina St.,14,-4.21203,78.0,21.9,5323987.0
+Antonio Baker,Florida A&M,5,-3.6967,75.0,20.5,5325879.0
+Darius Acuff Jr.,Arkansas,9,6.6812,75.0,29.5,5142620.0
+Brycen Blaine,Charleston Southern,9,-0.572018,77.0,31.1,5107223.0
+Abdullah Ahmed,BYU,0,5.2815,75.0,8.6,5183975.0
+Kirill Elatontsev,Oklahoma,12,6.5791,83.0,12.9,5329888.0
+Demitri Gardner,East Carolina,14,-1.83551,76.0,18.7,5252053.0
+Silas Bennion,South Dakota,10,-3.70022,73.0,11.6,5247744.0
+Xzayvion Childress,Mississippi Valley St.,5,-9.18478,72.0,17.2,5332491.0

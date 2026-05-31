@@ -32,10 +32,6 @@ const basicSortableColumns = [
   { key: "RPG", label: "RPG" },
   { key: "SPG", label: "SPG" },
   { key: "BPG", label: "BPG" },
-  { key: "BPM", label: "BPM" },
-  { key: "OBPM", label: "OBPM" },
-  { key: "DBPM", label: "DBPM" },
-  { key: "VORP", label: "VORP" },
   { key: "MPG", label: "MPG" },
 ];
 
@@ -55,10 +51,6 @@ const enrichedSortableColumns = [
   { key: "def_blk", label: "BLK%" },
   { key: "off_ftr", label: "FTR" },
   { key: "off_threepr", label: "3P%" },
-  { key: "BPM", label: "BPM" },
-  { key: "OBPM", label: "OBPM" },
-  { key: "DBPM", label: "DBPM" },
-  { key: "VORP", label: "VORP" },
 ];
 
 export function PlayerTable({ players, sort, order, onSort, loading, dataTier = "enriched", selectedYear }: PlayerTableProps) {
@@ -187,18 +179,6 @@ export function PlayerTable({ players, sort, order, onSort, loading, dataTier = 
                     {formatDerivedStat(player.BPG)}
                   </td>
                   <td className={getTableCellClasses()}>
-                    {formatDerivedStat(player.BPM)}
-                  </td>
-                  <td className={getTableCellClasses()}>
-                    {formatDerivedStat(player.OBPM)}
-                  </td>
-                  <td className={getTableCellClasses()}>
-                    {formatDerivedStat(player.DBPM)}
-                  </td>
-                  <td className={getTableCellClasses()}>
-                    {formatDerivedStat(player.VORP)}
-                  </td>
-                  <td className={getTableCellClasses()}>
                     {formatDerivedStat(player.MPG)}
                   </td>
                 </>
@@ -260,18 +240,6 @@ export function PlayerTable({ players, sort, order, onSort, loading, dataTier = 
                   </td>
                   <td className={getTableCellClasses()}>
                     {formatNumber(player.off_threepr)}
-                  </td>
-                  <td className={getTableCellClasses()}>
-                    {formatDerivedStat(player.BPM)}
-                  </td>
-                  <td className={getTableCellClasses()}>
-                    {formatDerivedStat(player.OBPM)}
-                  </td>
-                  <td className={getTableCellClasses()}>
-                    {formatDerivedStat(player.DBPM)}
-                  </td>
-                  <td className={getTableCellClasses()}>
-                    {formatDerivedStat(player.VORP)}
                   </td>
                 </>
               )}

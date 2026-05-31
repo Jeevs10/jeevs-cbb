@@ -124,6 +124,35 @@ def load_basic_players():
     
     return df
 
+def load_torvik_players():
+    """Load Torvik players with BPM values"""
+    dfs = []
+    
+    print("Loading Torvik players...")
+    
+    # Load all available years (2019-2026)
+    for year in range(2019, 2027):
+        csv_path = PLAYERS_DIR / f"{year}_torvik.csv"
+        if csv_path.exists():
+            df_year = pd.read_csv(csv_path)
+            df_year["year"] = year
+            dfs.append(df_year)
+            print(f"Loaded {year} Torvik players: {len(df_year)} players")
+    
+    if not dfs:
+        print("Warning: No Torvik player files found")
+        return pd.DataFrame()
+    
+    df = pd.concat(dfs, ignore_index=True)
+    df["year"] = pd.to_numeric(df["year"], errors="coerce").fillna(0).astype(int)
+    
+    # Normalize AthleteSourceId to string for consistent lookup
+    if 'AthleteSourceId' in df.columns:
+        df['AthleteSourceId'] = df['AthleteSourceId'].astype(str).str.replace('.0', '', regex=False)
+    
+    print(f"Combined Torvik df has years: {sorted(df['year'].unique()) if not df.empty else 'empty'}")
+    return df
+
 def load_all_time_players():
     """Load all-time players from all_players.csv for historical percentile comparisons"""
     csv_path = AGGREGATE_DIR / "all_players.csv"
@@ -150,10 +179,12 @@ def load_all_players():
     basic_df = load_basic_players()
     enriched_df = load_enriched_players()
     roster_df = load_roster_info()
+    torvik_df = load_torvik_players()
     
     print(f"Basic df years: {sorted(basic_df['year'].unique()) if not basic_df.empty else 'empty'}")
     print(f"Enriched df years: {sorted(enriched_df['year'].unique()) if not enriched_df.empty else 'empty'}")
     print(f"Roster df years: {sorted(roster_df['year'].unique()) if not roster_df.empty else 'empty'}")
+    print(f"Torvik df years: {sorted(torvik_df['year'].unique()) if not torvik_df.empty else 'empty'}")
     
     # Join basic players with roster info to get height, weight, hometown
     if not roster_df.empty and not basic_df.empty:
@@ -199,11 +230,9 @@ def load_all_players():
     basic_df['player_key'] = basic_df['AthleteSourceId'].astype(str).str.replace('.0', '', regex=False)
     enriched_df['player_key'] = enriched_df['roster.ncaa_id'].astype(str).str.replace('.0', '', regex=False)
     
-    # Preserve Position, BPM, and VORP from basic data before combining
+    # Preserve Position from basic data before combining
     # Use composite key (player_key, year) to preserve year-specific values
     basic_position_map = basic_df.set_index('player_key')['Position'].to_dict()
-    basic_bpm_map = basic_df.set_index(['player_key', 'year'])['BPM'].to_dict() if 'BPM' in basic_df.columns else {}
-    basic_vorp_map = basic_df.set_index(['player_key', 'year'])['VORP'].to_dict() if 'VORP' in basic_df.columns else {}
     
     # Mark enriched rows to prioritize them
     enriched_df['_is_enriched'] = True
@@ -221,12 +250,61 @@ def load_all_players():
     # Clean up temporary column
     combined = combined.drop('_is_enriched', axis=1)
     
-    # Restore Position, BPM, and VORP fields from basic data for enriched players
+    # Restore Position field from basic data for enriched players
     combined['Position'] = combined['player_key'].map(basic_position_map).fillna(combined.get('Position', ''))
-    # Restore BPM from basic data - use composite key (player_key, year) to preserve year-specific values
-    combined['BPM'] = combined.apply(lambda row: basic_bpm_map.get((row['player_key'], row['year']), row.get('BPM')), axis=1)
-    # Restore VORP from basic data - use composite key (player_key, year) to preserve year-specific values
-    combined['VORP'] = combined.apply(lambda row: basic_vorp_map.get((row['player_key'], row['year']), row.get('VORP')), axis=1)
+    
+    # Merge BPM values and Torvik stats from Torvik data
+    if not torvik_df.empty and not combined.empty:
+        # Create lookup key from torvik using (AthleteSourceId, year) as key
+        torvik_df['_bpm_key'] = torvik_df['AthleteSourceId'].astype(str) + '_' + torvik_df['year'].astype(str)
+        # Drop duplicates to ensure unique index
+        torvik_df = torvik_df.drop_duplicates(subset=['_bpm_key'], keep='first')
+        
+        # Select columns to merge (BPM, OBPM, DBPM + Torvik stats)
+        torvik_cols_to_merge = ['bpm', 'obpm', 'dbpm', 'GP', 'Min_per', 'ORtg', 'usgG1', 'eFG', 'TS_per',
+                                'ORB_per', 'DRB_per', 'AST_per', 'TO_per', 'FT_per', 'twoP_per', 'TP_per',
+                                'blk_per', 'stl_per', 'ftr', 'porpag', 'adjoe', 'pfr', 'drtg', 'adrtg',
+                                'dporpag', 'stops', 'oreb', 'dreb', 'treb', 'ast', 'stl', 'blk', 'pts']
+        
+        available_torvik_cols = [col for col in torvik_cols_to_merge if col in torvik_df.columns]
+        
+        if available_torvik_cols:
+            torvik_map = torvik_df.set_index('_bpm_key')[available_torvik_cols].to_dict('index')
+            
+            print(f"Torvik map has {len(torvik_map)} entries with {len(available_torvik_cols)} columns")
+            print(f"Sample Torvik keys: {list(torvik_map.keys())[:5]}")
+            
+            combined['_bpm_key'] = combined['player_key'].astype(str) + '_' + combined['year'].astype(str)
+            
+            print(f"Combined has {len(combined)} rows")
+            print(f"Sample combined player_keys: {combined['player_key'].head(5).tolist()}")
+            print(f"Sample combined _bpm_keys: {combined['_bpm_key'].head(5).tolist()}")
+            
+            def get_torvik_values(row):
+                key = row['_bpm_key']
+                if key in torvik_map:
+                    values = torvik_map[key]
+                    result = {}
+                    # Map lowercase torvik columns to uppercase for consistency
+                    col_mapping = {'bpm': 'BPM', 'obpm': 'OBPM', 'dbpm': 'DBPM'}
+                    for col in available_torvik_cols:
+                        target_col = col_mapping.get(col, col)
+                        result[target_col] = values[col]
+                    return pd.Series(result)
+                # Return None for all columns if no match
+                result = {}
+                col_mapping = {'bpm': 'BPM', 'obpm': 'OBPM', 'dbpm': 'DBPM'}
+                for col in available_torvik_cols:
+                    target_col = col_mapping.get(col, col)
+                    result[target_col] = None
+                return pd.Series(result)
+            
+            torvik_values = combined.apply(get_torvik_values, axis=1)
+            for col in torvik_values.columns:
+                combined[col] = torvik_values[col]
+            
+            combined = combined.drop('_bpm_key', axis=1)
+            print(f"Merged Torvik data for {combined['BPM'].notna().sum()} players")
     
     # Add pre-computed lowercase columns for efficient search
     combined['_player_name_lc'] = combined['player_name'].str.lower().fillna('')
@@ -240,46 +318,63 @@ def load_all_players():
 df = load_all_players()
 
 # Load all-time players for historical percentile comparisons
-all_time_df = load_all_time_players()
+# Temporarily disabled due to performance issues
+# all_time_df = load_all_time_players()
+all_time_df = pd.DataFrame()
+print("⚠️  All-time players loading disabled (performance)")
 
 # Merge Height and Position from main df into all_time_df
-if not all_time_df.empty and not df.empty and 'Height' in df.columns and 'Position' in df.columns:
-    # Create join keys
-    all_time_df['_join_key'] = all_time_df['roster.ncaa_id'].str.replace('.0', '', regex=False)
-    df_copy = df.copy()
-    df_copy['_join_key'] = df_copy['player_key']
-    
-    # Get Height and Position from main df (first non-null value per player)
-    # Sort by year to prefer more recent data, but take first non-null
-    df_copy = df_copy.sort_values(['player_key', 'year'], ascending=[True, False])
-    
-    # For each player, get the first row with non-null Height and Position
-    def get_first_non_null(group):
-        height_row = group[group['Height'].notna()]
-        if not height_row.empty:
-            return height_row.iloc[0]
-        return group.iloc[0]
-    
-    height_pos = df_copy.groupby('player_key').apply(get_first_non_null)[['_join_key', 'Height', 'Position']].reset_index(drop=True)
-    
-    # Merge Height and Position
-    all_time_df = pd.merge(all_time_df, height_pos, on='_join_key', how='left')
-    all_time_df = all_time_df.drop('_join_key', axis=1)
-    
-    print(f"Merged Height and Position from main df into all_time_df")
-    print(f"Height non-null after merge: {all_time_df['Height'].notna().sum()}")
-    print(f"Position non-null after merge: {all_time_df['Position'].notna().sum()}")
+# Temporarily disabled due to performance issues
+# if not all_time_df.empty and not df.empty and 'Height' in df.columns and 'Position' in df.columns:
+#     # Create join keys
+#     all_time_df['_join_key'] = all_time_df['roster.ncaa_id'].str.replace('.0', '', regex=False)
+#     df_copy = df.copy()
+#     df_copy['_join_key'] = df_copy['player_key']
+#     
+#     # Get Height and Position from main df (first non-null value per player)
+#     # Sort by year to prefer more recent data, but take first non-null
+#     df_copy = df_copy.sort_values(['player_key', 'year'], ascending=[True, False])
+#     
+#     # For each player, get the first row with non-null Height and Position
+#     def get_first_non_null(group):
+#         height_row = group[group['Height'].notna()]
+#         if not height_row.empty:
+#             return height_row.iloc[0]
+#         return group.iloc[0]
+#     
+#     height_pos = df_copy.groupby('player_key').apply(get_first_non_null)[['_join_key', 'Height', 'Position']].reset_index(drop=True)
+#     
+#     # Merge Height and Position
+#     all_time_df = pd.merge(all_time_df, height_pos, on='_join_key', how='left')
+#     all_time_df = all_time_df.drop('_join_key', axis=1)
+#     
+#     print(f"Merged Height and Position from main df into all_time_df")
+#     print(f"Height non-null after merge: {all_time_df['Height'].notna().sum()}")
+#     print(f"Position non-null after merge: {all_time_df['Position'].notna().sum()}")
 
 # Create player lookup (latest year per player)
-players_df = (
-    df.sort_values(["player_key", "year"])
-      .groupby("player_key")
-      .tail(1)
-)
+# Temporarily disabled due to performance issues
+# players_df = (
+#     df.sort_values(["player_key", "year"])
+#       .groupby("player_key")
+#       .tail(1)
+# )
+players_df = df.copy()
+print("⚠️  Player lookup optimization disabled (performance)")
 
 # Create lookup dictionaries for both ID types
-PLAYER_LOOKUP_BASIC = players_df[players_df['data_tier'] == 'basic'].set_index("AthleteSourceId").to_dict("index")
-PLAYER_LOOKUP_ENRICHED = players_df[players_df['data_tier'] == 'enriched'].set_index("roster.ncaa_id").to_dict("index")
+# Temporarily disabled due to performance issues
+# PLAYER_LOOKUP_BASIC = players_df[players_df['data_tier'] == 'basic'].set_index("AthleteSourceId").to_dict("index")
+PLAYER_LOOKUP_BASIC = {}
+print("⚠️  PLAYER_LOOKUP_BASIC disabled (performance)")
+
+# Temporarily disabled due to performance issues
+# PLAYER_LOOKUP_ENRICHED = players_df[players_df['data_tier'] == 'enriched'].set_index("roster.ncaa_id").to_dict("index")
+PLAYER_LOOKUP_ENRICHED = {}
+print("⚠️  PLAYER_LOOKUP_ENRICHED disabled (performance)")
 
 # Combined lookup for backward compatibility
-PLAYER_LOOKUP = players_df.set_index("player_key").to_dict("index")
+# Temporarily disabled due to performance issues
+# PLAYER_LOOKUP = players_df.set_index("player_key").to_dict("index")
+PLAYER_LOOKUP = {}
+print("⚠️  PLAYER_LOOKUP disabled (performance)")

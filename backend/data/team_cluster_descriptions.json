@@ -1,0 +1,62 @@
+[
+  {
+    "cluster_id": 0,
+    "count": 49,
+    "avg_adj_net": 2.830679591836735,
+    "avg_weighted_bpm": 1.077146681914898,
+    "avg_wins": 17.428571428571427,
+    "avg_pct_minutes_PG": 0.030411273650320883,
+    "avg_pct_minutes_C": 0.10179537199695023,
+    "avg_pct_minutes_WG": 0.23486715945137235
+  },
+  {
+    "cluster_id": 1,
+    "count": 44,
+    "avg_adj_net": -4.404,
+    "avg_weighted_bpm": -1.1448061215925,
+    "avg_wins": 14.431818181818182,
+    "avg_pct_minutes_PG": 0.03146241726334964,
+    "avg_pct_minutes_C": 0.11602556321212432,
+    "avg_pct_minutes_WG": 0.3165210292214908
+  },
+  {
+    "cluster_id": 2,
+    "count": 58,
+    "avg_adj_net": 14.732260344827584,
+    "avg_weighted_bpm": 4.948366804364484,
+    "avg_wins": 20.810344827586206,
+    "avg_pct_minutes_PG": 0.05030033466437447,
+    "avg_pct_minutes_C": 0.08282606445158161,
+    "avg_pct_minutes_WG": 0.21780259986100128
+  },
+  {
+    "cluster_id": 3,
+    "count": 30,
+    "avg_adj_net": -5.601303333333333,
+    "avg_weighted_bpm": -2.0113768978539333,
+    "avg_wins": 14.133333333333333,
+    "avg_pct_minutes_PG": 0.012251255328735762,
+    "avg_pct_minutes_C": 0.06708266541577891,
+    "avg_pct_minutes_WG": 0.29023206647591093
+  },
+  {
+    "cluster_id": 4,
+    "count": 18,
+    "avg_adj_net": 31.148327777777777,
+    "avg_weighted_bpm": 11.001746688833334,
+    "avg_wins": 28.38888888888889,
+    "avg_pct_minutes_PG": 0.0579514324902189,
+    "avg_pct_minutes_C": 0.12786694044255809,
+    "avg_pct_minutes_WG": 0.21306400958152394
+  },
+  {
+    "cluster_id": 5,
+    "count": 45,
+    "avg_adj_net": -16.052664444444446,
+    "avg_weighted_bpm": -5.286456317877778,
+    "avg_wins": 8.71111111111111,
+    "avg_pct_minutes_PG": 0.02669943897365717,
+    "avg_pct_minutes_C": 0.06562246111883907,
+    "avg_pct_minutes_WG": 0.28867489077655745
+  }
+]

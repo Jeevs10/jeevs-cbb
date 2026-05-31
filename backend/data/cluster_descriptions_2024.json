@@ -1,0 +1,146 @@
+[
+  {
+    "cluster_id": 0,
+    "count": 490,
+    "avg_height": null,
+    "avg_usage": 14.132244897959184,
+    "avg_bpm": null,
+    "top_players": []
+  },
+  {
+    "cluster_id": 1,
+    "count": 592,
+    "avg_height": null,
+    "avg_usage": 24.185641891891894,
+    "avg_bpm": null,
+    "top_players": []
+  },
+  {
+    "cluster_id": 2,
+    "count": 467,
+    "avg_height": null,
+    "avg_usage": 13.471734475374733,
+    "avg_bpm": null,
+    "top_players": []
+  },
+  {
+    "cluster_id": 3,
+    "count": 1229,
+    "avg_height": null,
+    "avg_usage": 16.903580146460538,
+    "avg_bpm": null,
+    "top_players": []
+  },
+  {
+    "cluster_id": 4,
+    "count": 1,
+    "avg_height": null,
+    "avg_usage": 30.8,
+    "avg_bpm": null,
+    "top_players": []
+  },
+  {
+    "cluster_id": 5,
+    "count": 986,
+    "avg_height": null,
+    "avg_usage": 14.201521298174443,
+    "avg_bpm": null,
+    "top_players": []
+  },
+  {
+    "cluster_id": 6,
+    "count": 443,
+    "avg_height": null,
+    "avg_usage": 17.926185101580135,
+    "avg_bpm": null,
+    "top_players": []
+  },
+  {
+    "cluster_id": 7,
+    "count": 173,
+    "avg_height": null,
+    "avg_usage": 13.319653179190752,
+    "avg_bpm": null,
+    "top_players": []
+  },
+  {
+    "cluster_id": 8,
+    "count": 551,
+    "avg_height": null,
+    "avg_usage": 18.836842105263162,
+    "avg_bpm": null,
+    "top_players": []
+  },
+  {
+    "cluster_id": 9,
+    "count": 217,
+    "avg_height": null,
+    "avg_usage": 43.21889400921659,
+    "avg_bpm": null,
+    "top_players": []
+  },
+  {
+    "cluster_id": 10,
+    "count": 410,
+    "avg_height": null,
+    "avg_usage": 27.78829268292683,
+    "avg_bpm": null,
+    "top_players": []
+  },
+  {
+    "cluster_id": 11,
+    "count": 410,
+    "avg_height": null,
+    "avg_usage": 28.63512195121951,
+    "avg_bpm": null,
+    "top_players": []
+  },
+  {
+    "cluster_id": 12,
+    "count": 871,
+    "avg_height": null,
+    "avg_usage": 18.243283582089553,
+    "avg_bpm": null,
+    "top_players": []
+  },
+  {
+    "cluster_id": 13,
+    "count": 326,
+    "avg_height": null,
+    "avg_usage": 24.46319018404908,
+    "avg_bpm": null,
+    "top_players": []
+  },
+  {
+    "cluster_id": 14,
+    "count": 541,
+    "avg_height": null,
+    "avg_usage": 15.859149722735673,
+    "avg_bpm": null,
+    "top_players": []
+  },
+  {
+    "cluster_id": 15,
+    "count": 348,
+    "avg_height": null,
+    "avg_usage": 17.31867816091954,
+    "avg_bpm": null,
+    "top_players": []
+  },
+  {
+    "cluster_id": 16,
+    "count": 677,
+    "avg_height": null,
+    "avg_usage": 19.923190546528804,
+    "avg_bpm": null,
+    "top_players": []
+  },
+  {
+    "cluster_id": 17,
+    "count": 413,
+    "avg_height": null,
+    "avg_usage": 23.33220338983051,
+    "avg_bpm": null,
+    "top_players": []
+  }
+]

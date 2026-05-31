@@ -1,0 +1,650 @@
+[
+  {
+    "cluster_id": 0,
+    "count": 776,
+    "avg_height": 82.01159793814433,
+    "avg_usage": 17.96932989690722,
+    "avg_rim_freq": 67.9566237113402,
+    "avg_3pt_pct": 5.86754536807663,
+    "avg_bpm": 4.794404203118557,
+    "top_players": [
+      {
+        "Name": "Brandon Clarke",
+        "Team": "Gonzaga",
+        "BPM": 16.5978
+      },
+      {
+        "Name": "Walker Kessler",
+        "Team": "Auburn",
+        "BPM": 15.7419
+      },
+      {
+        "Name": "Chet Holmgren",
+        "Team": "Gonzaga",
+        "BPM": 15.0043
+      },
+      {
+        "Name": "Joseph Tugler",
+        "Team": "Houston",
+        "BPM": 14.909
+      },
+      {
+        "Name": "Aday Mara",
+        "Team": "Michigan",
+        "BPM": 14.6193
+      }
+    ]
+  },
+  {
+    "cluster_id": 1,
+    "count": 2151,
+    "avg_height": 73.92236169223617,
+    "avg_usage": 22.65950720595072,
+    "avg_rim_freq": 51.09409576940958,
+    "avg_3pt_pct": 46.06435078001366,
+    "avg_bpm": -2.0966849051631797,
+    "top_players": [
+      {
+        "Name": "Tyson Etienne",
+        "Team": "Wichita St.",
+        "BPM": 5.2806
+      },
+      {
+        "Name": "Day Day Thomas",
+        "Team": "Cincinnati",
+        "BPM": 5.15055
+      },
+      {
+        "Name": "Kihei Clark",
+        "Team": "Virginia",
+        "BPM": 4.67995
+      },
+      {
+        "Name": "BJ Taylor",
+        "Team": "UCF",
+        "BPM": 4.4774
+      },
+      {
+        "Name": "Matt Bradley",
+        "Team": "San Diego St.",
+        "BPM": 4.38955
+      }
+    ]
+  },
+  {
+    "cluster_id": 2,
+    "count": 1284,
+    "avg_height": 80.49221183800623,
+    "avg_usage": 23.50911214953271,
+    "avg_rim_freq": 66.71660436137071,
+    "avg_3pt_pct": 20.172831487762352,
+    "avg_bpm": 5.041269371985981,
+    "top_players": [
+      {
+        "Name": "Zion Williamson",
+        "Team": "Duke",
+        "BPM": 16.4614
+      },
+      {
+        "Name": "Cameron Boozer",
+        "Team": "Duke",
+        "BPM": 16.0077
+      },
+      {
+        "Name": "Yaxel Lendeborg",
+        "Team": "Michigan",
+        "BPM": 15.4997
+      },
+      {
+        "Name": "Zuby Ejiofor",
+        "Team": "St. John's",
+        "BPM": 14.2722
+      },
+      {
+        "Name": "Allen Graves",
+        "Team": "Santa Clara",
+        "BPM": 14.2222
+      }
+    ]
+  },
+  {
+    "cluster_id": 3,
+    "count": 2192,
+    "avg_height": 78.84808394160584,
+    "avg_usage": 21.585675182481754,
+    "avg_rim_freq": 59.15348540145985,
+    "avg_3pt_pct": 37.730406217084116,
+    "avg_bpm": -0.28801148896441603,
+    "top_players": [
+      {
+        "Name": "Baylor Scheierman",
+        "Team": "Creighton",
+        "BPM": 7.40341
+      },
+      {
+        "Name": "Jaime Jaquez Jr.",
+        "Team": "UCLA",
+        "BPM": 7.22159
+      },
+      {
+        "Name": "Spencer Jones",
+        "Team": "Stanford",
+        "BPM": 6.57427
+      },
+      {
+        "Name": "Jack Clark",
+        "Team": "Clemson",
+        "BPM": 6.50857
+      },
+      {
+        "Name": "Marchelus Avery",
+        "Team": "Oklahoma St.",
+        "BPM": 6.41577
+      }
+    ]
+  },
+  {
+    "cluster_id": 4,
+    "count": 861,
+    "avg_height": 75.25087108013938,
+    "avg_usage": 15.861207897793264,
+    "avg_rim_freq": 39.988931475029034,
+    "avg_3pt_pct": 40.950785542520606,
+    "avg_bpm": -6.449743518815331,
+    "top_players": [
+      {
+        "Name": "Ethan Morton",
+        "Team": "Purdue",
+        "BPM": 4.15604
+      },
+      {
+        "Name": "Ofure Ujadughele",
+        "Team": "UC Irvine",
+        "BPM": 2.96668
+      },
+      {
+        "Name": "Hameir Wright",
+        "Team": "Washington",
+        "BPM": 1.801
+      },
+      {
+        "Name": "Jordan Goldwire",
+        "Team": "Duke",
+        "BPM": 1.74015
+      },
+      {
+        "Name": "Demarion Watson",
+        "Team": "North Texas",
+        "BPM": 1.73371
+      }
+    ]
+  },
+  {
+    "cluster_id": 5,
+    "count": 1767,
+    "avg_height": 73.71194114318054,
+    "avg_usage": 18.95727221279004,
+    "avg_rim_freq": 50.013022071307304,
+    "avg_3pt_pct": 35.76932784904927,
+    "avg_bpm": -3.20731593008489,
+    "top_players": [
+      {
+        "Name": "Jamal Bieniemy",
+        "Team": "Oklahoma",
+        "BPM": 4.92269
+      },
+      {
+        "Name": "Dajuan Harris Jr.",
+        "Team": "Kansas",
+        "BPM": 4.89167
+      },
+      {
+        "Name": "Rodney Chatman",
+        "Team": "Dayton",
+        "BPM": 3.88978
+      },
+      {
+        "Name": "Wabissa Bede",
+        "Team": "Virginia Tech",
+        "BPM": 3.61088
+      },
+      {
+        "Name": "Alex Lomax",
+        "Team": "Memphis",
+        "BPM": 3.53483
+      }
+    ]
+  },
+  {
+    "cluster_id": 6,
+    "count": 1547,
+    "avg_height": 76.80607627666451,
+    "avg_usage": 19.078409825468647,
+    "avg_rim_freq": 58.295617323852625,
+    "avg_3pt_pct": 34.459966665071356,
+    "avg_bpm": 2.520396174835165,
+    "top_players": [
+      {
+        "Name": "Chris Manon",
+        "Team": "Vanderbilt",
+        "BPM": 12.4943
+      },
+      {
+        "Name": "Matisse Thybulle",
+        "Team": "Washington",
+        "BPM": 11.3248
+      },
+      {
+        "Name": "Jordan Bruner",
+        "Team": "Alabama",
+        "BPM": 10.673
+      },
+      {
+        "Name": "Jaylen Clark",
+        "Team": "UCLA",
+        "BPM": 10.3784
+      },
+      {
+        "Name": "Mylik Wilson",
+        "Team": "Houston",
+        "BPM": 10.0416
+      }
+    ]
+  },
+  {
+    "cluster_id": 7,
+    "count": 1564,
+    "avg_height": 79.02813299232737,
+    "avg_usage": 18.973721227621485,
+    "avg_rim_freq": 53.63997442455243,
+    "avg_3pt_pct": 24.891021024662336,
+    "avg_bpm": -3.8921200228900257,
+    "top_players": [
+      {
+        "Name": "Nick Jourdain",
+        "Team": "Temple",
+        "BPM": 4.36509
+      },
+      {
+        "Name": "Sam Waardenburg",
+        "Team": "Miami FL",
+        "BPM": 3.88818
+      },
+      {
+        "Name": "Jason Carter",
+        "Team": "Xavier",
+        "BPM": 3.30056
+      },
+      {
+        "Name": "Nojel Eastern",
+        "Team": "Purdue",
+        "BPM": 3.06074
+      },
+      {
+        "Name": "Isaac Likekele",
+        "Team": "Ohio St.",
+        "BPM": 2.90243
+      }
+    ]
+  },
+  {
+    "cluster_id": 8,
+    "count": 1405,
+    "avg_height": 80.40925266903915,
+    "avg_usage": 20.013950177935943,
+    "avg_rim_freq": 62.55038434163701,
+    "avg_3pt_pct": 3.372132154640197,
+    "avg_bpm": -0.7954921122989322,
+    "top_players": [
+      {
+        "Name": "Mark Vital",
+        "Team": "Baylor",
+        "BPM": 9.16419
+      },
+      {
+        "Name": "Tyrique Jones",
+        "Team": "Xavier",
+        "BPM": 8.53895
+      },
+      {
+        "Name": "J'Wan Roberts",
+        "Team": "Houston",
+        "BPM": 8.30628
+      },
+      {
+        "Name": "KJ Adams",
+        "Team": "Kansas",
+        "BPM": 7.98859
+      },
+      {
+        "Name": "Day'Ron Sharpe",
+        "Team": "North Carolina",
+        "BPM": 7.60599
+      }
+    ]
+  },
+  {
+    "cluster_id": 9,
+    "count": 1420,
+    "avg_height": 73.94295774647887,
+    "avg_usage": 26.142605633802816,
+    "avg_rim_freq": 55.097612676056336,
+    "avg_3pt_pct": 34.21671329876322,
+    "avg_bpm": 2.1646681712253524,
+    "top_players": [
+      {
+        "Name": "Jalen Pickett",
+        "Team": "Penn St.",
+        "BPM": 10.8812
+      },
+      {
+        "Name": "Jamal Shead",
+        "Team": "Houston",
+        "BPM": 10.8534
+      },
+      {
+        "Name": "Ty Jerome",
+        "Team": "Virginia",
+        "BPM": 10.6691
+      },
+      {
+        "Name": "Malachi Flynn",
+        "Team": "San Diego St.",
+        "BPM": 10.4193
+      },
+      {
+        "Name": "Kingston Flemings",
+        "Team": "Houston",
+        "BPM": 10.3482
+      }
+    ]
+  },
+  {
+    "cluster_id": 10,
+    "count": 1412,
+    "avg_height": 75.72450424929178,
+    "avg_usage": 16.099929178470255,
+    "avg_rim_freq": 38.6631940509915,
+    "avg_3pt_pct": 61.062258170230834,
+    "avg_bpm": -3.4381449160481585,
+    "top_players": [
+      {
+        "Name": "Brad Davison",
+        "Team": "Wisconsin",
+        "BPM": 5.58069
+      },
+      {
+        "Name": "Connor McCaffery",
+        "Team": "Iowa",
+        "BPM": 5.53077
+      },
+      {
+        "Name": "Connor McCaffery",
+        "Team": "Iowa",
+        "BPM": 5.25408
+      },
+      {
+        "Name": "Trey Stewart",
+        "Team": "BYU",
+        "BPM": 4.87655
+      },
+      {
+        "Name": "Martin Somerville",
+        "Team": "Florida St.",
+        "BPM": 4.12558
+      }
+    ]
+  },
+  {
+    "cluster_id": 11,
+    "count": 1743,
+    "avg_height": 74.82271944922547,
+    "avg_usage": 20.80676993689042,
+    "avg_rim_freq": 60.16064830751577,
+    "avg_3pt_pct": 48.719473482886855,
+    "avg_bpm": 2.405807957820195,
+    "top_players": [
+      {
+        "Name": "Cam Spencer",
+        "Team": "Connecticut",
+        "BPM": 11.5897
+      },
+      {
+        "Name": "Keaton Wagler",
+        "Team": "Illinois",
+        "BPM": 11.1599
+      },
+      {
+        "Name": "Bruce Thornton",
+        "Team": "Ohio St.",
+        "BPM": 10.9109
+      },
+      {
+        "Name": "Tyrese Haliburton",
+        "Team": "Iowa St.",
+        "BPM": 10.7958
+      },
+      {
+        "Name": "Reed Sheppard",
+        "Team": "Kentucky",
+        "BPM": 10.5482
+      }
+    ]
+  },
+  {
+    "cluster_id": 12,
+    "count": 1470,
+    "avg_height": 78.07142857142857,
+    "avg_usage": 15.767551020408165,
+    "avg_rim_freq": 70.92836054421768,
+    "avg_3pt_pct": 59.35207997678371,
+    "avg_bpm": 1.949592816319728,
+    "top_players": [
+      {
+        "Name": "Cameron Johnson",
+        "Team": "North Carolina",
+        "BPM": 11.3563
+      },
+      {
+        "Name": "Joel Ayayi",
+        "Team": "Gonzaga",
+        "BPM": 10.5239
+      },
+      {
+        "Name": "Da'Monte Williams",
+        "Team": "Illinois",
+        "BPM": 10.506
+      },
+      {
+        "Name": "Grady Eifert",
+        "Team": "Purdue",
+        "BPM": 10.3152
+      },
+      {
+        "Name": "Corey Kispert",
+        "Team": "Gonzaga",
+        "BPM": 9.90284
+      }
+    ]
+  },
+  {
+    "cluster_id": 13,
+    "count": 916,
+    "avg_height": 81.18886462882097,
+    "avg_usage": 16.06834061135371,
+    "avg_rim_freq": 71.96859170305676,
+    "avg_3pt_pct": 1.8608582000349816,
+    "avg_bpm": 2.3675159773253274,
+    "top_players": [
+      {
+        "Name": "Maliq Brown",
+        "Team": "Duke",
+        "BPM": 13.8643
+      },
+      {
+        "Name": "Patrick Ngongba",
+        "Team": "Duke",
+        "BPM": 13.5891
+      },
+      {
+        "Name": "Oscar Cluff",
+        "Team": "Purdue",
+        "BPM": 13.4092
+      },
+      {
+        "Name": "Maliq Brown",
+        "Team": "Duke",
+        "BPM": 13.3177
+      },
+      {
+        "Name": "Clifford Omoruyi",
+        "Team": "Alabama",
+        "BPM": 10.9688
+      }
+    ]
+  },
+  {
+    "cluster_id": 14,
+    "count": 2014,
+    "avg_height": 75.99851042701093,
+    "avg_usage": 16.504617676266136,
+    "avg_rim_freq": 53.269726911618676,
+    "avg_3pt_pct": 65.8734585703879,
+    "avg_bpm": -0.4101709335983118,
+    "top_players": [
+      {
+        "Name": "Donovan Atwell",
+        "Team": "Texas Tech",
+        "BPM": 8.7323
+      },
+      {
+        "Name": "Mitch Ballock",
+        "Team": "Creighton",
+        "BPM": 8.42761
+      },
+      {
+        "Name": "David Singleton",
+        "Team": "UCLA",
+        "BPM": 7.26468
+      },
+      {
+        "Name": "Latrell Wrightsell Jr.",
+        "Team": "Alabama",
+        "BPM": 7.02943
+      },
+      {
+        "Name": "Houston Mallette",
+        "Team": "Alabama",
+        "BPM": 6.73912
+      }
+    ]
+  },
+  {
+    "cluster_id": 15,
+    "count": 1346,
+    "avg_height": 79.73402674591382,
+    "avg_usage": 16.734398216939077,
+    "avg_rim_freq": 65.8982912332838,
+    "avg_3pt_pct": 22.620533242250296,
+    "avg_bpm": 0.015487271087667174,
+    "top_players": [
+      {
+        "Name": "Jeremy Jones",
+        "Team": "Gonzaga",
+        "BPM": 8.40186
+      },
+      {
+        "Name": "Evan Mahaffey",
+        "Team": "Ohio St.",
+        "BPM": 8.15291
+      },
+      {
+        "Name": "Mitch Lightfoot",
+        "Team": "Kansas",
+        "BPM": 7.85042
+      },
+      {
+        "Name": "Coen Carr",
+        "Team": "Michigan St.",
+        "BPM": 7.57478
+      },
+      {
+        "Name": "Aguek Arop",
+        "Team": "San Diego St.",
+        "BPM": 7.52246
+      }
+    ]
+  },
+  {
+    "cluster_id": 16,
+    "count": 930,
+    "avg_height": 80.93440860215054,
+    "avg_usage": 15.448602150537635,
+    "avg_rim_freq": 56.382333333333335,
+    "avg_3pt_pct": 3.6245546591382496,
+    "avg_bpm": -3.219918022924731,
+    "top_players": [
+      {
+        "Name": "Gabe Osabuohien",
+        "Team": "West Virginia",
+        "BPM": 6.15804
+      },
+      {
+        "Name": "Jarvis Omersa",
+        "Team": "Minnesota",
+        "BPM": 5.517
+      },
+      {
+        "Name": "Victor Iwuakor",
+        "Team": "UNLV",
+        "BPM": 4.87402
+      },
+      {
+        "Name": "Will Heimbrodt",
+        "Team": "Seattle",
+        "BPM": 4.17542
+      },
+      {
+        "Name": "Abou Ousmane",
+        "Team": "Xavier",
+        "BPM": 3.95382
+      }
+    ]
+  },
+  {
+    "cluster_id": 17,
+    "count": 1719,
+    "avg_height": 77.21233275159977,
+    "avg_usage": 15.055090168702737,
+    "avg_rim_freq": 61.52702152414195,
+    "avg_3pt_pct": 54.45998989572296,
+    "avg_bpm": -2.4947621380860965,
+    "top_players": [
+      {
+        "Name": "Emmanuel Innocenti",
+        "Team": "Gonzaga",
+        "BPM": 6.73339
+      },
+      {
+        "Name": "RJ Keene",
+        "Team": "Boise St.",
+        "BPM": 6.66998
+      },
+      {
+        "Name": "Justin Minaya",
+        "Team": "Providence",
+        "BPM": 6.24854
+      },
+      {
+        "Name": "Jack Janicki",
+        "Team": "Wisconsin",
+        "BPM": 5.73795
+      },
+      {
+        "Name": "Ethan Morton",
+        "Team": "Purdue",
+        "BPM": 5.51547
+      }
+    ]
+  }
+]
