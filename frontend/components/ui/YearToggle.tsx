@@ -26,7 +26,7 @@ export default function YearToggle({ availableYears = [], showCareer = true }: Y
       <select
         value={year === "career" ? "career" : String(year)}
         onChange={handleYearChange}
-        className="px-2 py-1 border bg-white font-mono"
+        className="px-2 py-1 border-2 border-black bg-[#E7E8D1] font-mono shadow-[3px_3px_0px_black]"
       >
         {showCareer && <option value="career">Career</option>}
         {availableYears.map((y) => (

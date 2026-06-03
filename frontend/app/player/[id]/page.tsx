@@ -214,8 +214,8 @@ export default function PlayerPage() {
         {player.data_tier === 'basic' && (
           <Panel>
             <PanelHeader>ADVANCED PROFILE</PanelHeader>
-            <div className="p-4 text-center text-gray-600">
-              <p className="text-sm mb-2">Advanced analytics not available</p>
+            <div className="p-4 text-center text-black">
+              <p className="text-xs font-bold mb-2 uppercase tracking-wide">Advanced analytics not available</p>
               <p className="text-xs">This player has basic statistics only</p>
             </div>
           </Panel>
@@ -245,8 +245,8 @@ export default function PlayerPage() {
       ) : (
         <Panel>
           <PanelHeader>PLAYER BADGES</PanelHeader>
-          <div className="p-4 text-center text-gray-600">
-            <p className="text-sm mb-2">Badges not available</p>
+          <div className="p-4 text-center text-black">
+            <p className="text-xs font-bold mb-2 uppercase tracking-wide">Badges not available</p>
             <p className="text-xs">Requires advanced analytics data</p>
           </div>
         </Panel>
@@ -261,8 +261,8 @@ export default function PlayerPage() {
       ) : (
         <Panel>
           <PanelHeader>MOVES</PanelHeader>
-          <div className="p-4 text-center text-gray-600">
-            <p className="text-sm mb-2">Play style analysis not available</p>
+          <div className="p-4 text-center text-black">
+            <p className="text-xs font-bold mb-2 uppercase tracking-wide">Play style analysis not available</p>
             <p className="text-xs">Requires advanced analytics data</p>
           </div>
         </Panel>
@@ -283,8 +283,8 @@ export default function PlayerPage() {
       ) : (
         <Panel>
           <PanelHeader>SIMILAR PLAYERS</PanelHeader>
-          <div className="p-4 text-center text-gray-600">
-            <p className="text-sm mb-2">Similar players not available</p>
+          <div className="p-4 text-center text-black">
+            <p className="text-xs font-bold mb-2 uppercase tracking-wide">Similar players not available</p>
             <p className="text-xs">Requires advanced analytics data</p>
           </div>
         </Panel>
@@ -300,8 +300,8 @@ export default function PlayerPage() {
       ) : (
         <Panel>
           <PanelHeader>EVOLUTION PATH</PanelHeader>
-          <div className="p-4 text-center text-gray-600">
-            <p className="text-sm mb-2">Evolution data not available</p>
+          <div className="p-4 text-center text-black">
+            <p className="text-xs font-bold mb-2 uppercase tracking-wide">Evolution data not available</p>
             <p className="text-xs">Requires advanced analytics data</p>
           </div>
         </Panel>

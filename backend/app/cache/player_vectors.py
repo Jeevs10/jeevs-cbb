@@ -194,16 +194,20 @@ def build_cache(force_rebuild=False):
     # PASS 1: BUILD RAW + COLLECT METRICS
     # -------------------------
     raw_rows = []
+    skipped_count = 0
+    total_rows = 0
 
     for _, row in df.iterrows():
+        total_rows += 1
         player = row.to_dict()
 
-        # Only process enriched players (those with roster.ncaa_id)
-        ncaa_id = player.get("roster.ncaa_id")
+        # Try to get ncaa_id from roster.ncaa_id first, fallback to AthleteSourceId
+        ncaa_id = player.get("roster.ncaa_id") or player.get("AthleteSourceId")
         year = safe_year(player.get("year"))
 
-        # Skip basic players (those without roster.ncaa_id)
+        # Skip if no ID or year
         if not ncaa_id or pd.isna(ncaa_id) or year is None:
+            skipped_count += 1
             continue
 
         # Calculate composite RAPM percentile from existing percentile fields
@@ -252,6 +256,8 @@ def build_cache(force_rebuild=False):
     # -------------------------
     # PASS 2: BUILD STRUCTURES
     # -------------------------
+    print(f"[CACHE] Processed {len(raw_rows)} player-year vectors from {total_rows} total rows (skipped {skipped_count})")
+    
     for player, ncaa_id, year, composite_rapm_pct, bpm, vorp in raw_rows:
 
         style_vec = np.nan_to_num(build_style_vector(player))

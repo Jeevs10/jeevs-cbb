@@ -8,6 +8,16 @@ backend/app/__pycache__/
 __pycache__/
 *.pyc
 .env
+backend/venv/
 
-# large data files
+# large data files - uncompressed CSVs (use .gz versions instead)
+backend/data/aggregate/all_players.csv
+backend/data/player_clusters.csv
+backend/data/player_clusters_unified.csv
+backend/data/bpm_projections_2027.csv
+backend/data/bpm_change_modeling_data.csv
+backend/data/players/*-players_enriched.csv
+backend/data/players/*-players.csv
+backend/data/players/*_torvik.csv
+backend/data/teams/*-hoop-explorer-teams.csv
 backend/data/games/*.json

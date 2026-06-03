@@ -18,7 +18,7 @@ _game_data_cache = {}
 
 @router.get("/players", response_model=PlayerListResponse)
 def get_players(
-    limit: int = Query(default=50, ge=1, le=100),
+    limit: int = Query(default=50, ge=1, le=5000),
     offset: int = Query(default=0, ge=0),
     sort: str = Query(default="adj_rapm_margin"),
     order: str = Query(default="desc", pattern="^(asc|desc)$"),
@@ -243,47 +243,14 @@ def get_cluster_bpm_distribution(cluster_id: int):
         # Convert cluster_id to match the type in the dataframe
         cluster_players = service._clusters_df[
             service._clusters_df['cluster'].astype(str) == str(cluster_id)
-        ][['AthleteSourceId']].copy()
+        ].copy()
         
         logger.info(f"Found {len(cluster_players)} players in cluster {cluster_id}")
-        logger.info(f"Cluster players sample: {cluster_players.head() if len(cluster_players) > 0 else 'empty'}")
         
-        # Normalize player IDs
-        cluster_player_ids = set()
-        for _, row in cluster_players.iterrows():
-            athlete_source_id = str(row.get('AthleteSourceId', ''))
-            athlete_source_id = athlete_source_id.replace('.0', '')
-            if athlete_source_id and athlete_source_id != 'nan':
-                cluster_player_ids.add(athlete_source_id)
-        
-        logger.info(f"Normalized {len(cluster_player_ids)} player IDs from cluster")
-        
-        # Filter 2026 players for those in this cluster
-        # Use torvik data which has BPM column
-        torvik_path = Path(__file__).parent.parent.parent / "data" / "players" / "2026_torvik.csv"
-        logger.info(f"Looking for torvik data at: {torvik_path}")
-        if torvik_path.exists():
-            logger.info("Loading torvik data")
-            torvik_df = pd.read_csv(torvik_path)
-            logger.info(f"Torvik data loaded with {len(torvik_df)} rows")
-            logger.info(f"Torvik columns: {list(torvik_df.columns)}")
-            current_2026_players = torvik_df[
-                (torvik_df['AthleteSourceId'].astype(str).isin(cluster_player_ids))
-            ].copy()
-            logger.info(f"Filtered to {len(current_2026_players)} players from torvik")
-        else:
-            logger.warning("Torvik data not found, using fallback")
-            # Fallback to players_df if torvik not available
-            current_2026_players = service._players_df[
-                (service._players_df['Season'] == 2026) &
-                (service._players_df['AthleteSourceId'].astype(str).isin(cluster_player_ids))
-            ].copy()
-        
-        # Extract BPM values (column is lowercase 'bpm' in torvik data)
-        logger.info(f"Current 2026 players columns: {list(current_2026_players.columns)}")
-        bpm_column = 'bpm' if 'bpm' in current_2026_players.columns else 'BPM'
+        # Extract BPM values directly from cluster data
+        bpm_column = 'BPM' if 'BPM' in cluster_players.columns else 'bpm'
         logger.info(f"Using BPM column: {bpm_column}")
-        bpm_values = current_2026_players[bpm_column].dropna().tolist()
+        bpm_values = cluster_players[bpm_column].dropna().tolist()
         
         logger.info(f"Found {len(bpm_values)} BPM values for cluster {cluster_id}")
         

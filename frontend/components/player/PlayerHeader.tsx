@@ -48,12 +48,12 @@ export default function PlayerHeader({ player }) {
 
         <PanelHeader>PLAYER SCOUTING REPORT</PanelHeader>
 
-        <h1 className="text-2xl font-bold text-black">
+        <h1 className="text-xs font-bold text-black uppercase tracking-wide">
           {player.player_name}
         </h1>
 
         {/* TEAM + YEAR */}
-        <div className="text-xs text-black/70">
+        <div className="text-xs text-black">
           {player.team} • {player.conf} • {" "}
           {player.is_career
             ? "Career"
@@ -66,21 +66,21 @@ export default function PlayerHeader({ player }) {
           {isBasicPlayer ? (
             // Basic players now have Position, Height, Weight, Hometown from roster join
             <>
-              <div className="px-2 py-1 text-xs font-mono border border-black bg-[#e7e8d1] text-black shadow-[2px_2px_0px_black]">
+              <div className="px-2 py-1 text-xs font-mono border-2 border-black bg-[#E7E8D1] text-black shadow-[3px_3px_0px_black]">
                 POS: {player.Position ?? "—"}
               </div>
               {player.Height && (
-                <div className="px-2 py-1 text-xs font-mono border border-black bg-[#e7e8d1] text-black shadow-[2px_2px_0px_black]">
+                <div className="px-2 py-1 text-xs font-mono border-2 border-black bg-[#E7E8D1] text-black shadow-[3px_3px_0px_black]">
                   HT: {formatHeight(player.Height)}
                 </div>
               )}
               {player.Weight && (
-                <div className="px-2 py-1 text-xs font-mono border border-black bg-[#e7e8d1] text-black shadow-[2px_2px_0px_black]">
+                <div className="px-2 py-1 text-xs font-mono border-2 border-black bg-[#E7E8D1] text-black shadow-[3px_3px_0px_black]">
                   WT: {player.Weight} lbs
                 </div>
               )}
               {formatHometown(player.HometownCity, player.HometownState, player.HometownCountry) !== "—" && (
-                <div className="px-2 py-1 text-xs font-mono border border-black bg-[#e7e8d1] text-black shadow-[2px_2px_0px_black]">
+                <div className="px-2 py-1 text-xs font-mono border-2 border-black bg-[#E7E8D1] text-black shadow-[3px_3px_0px_black]">
                   FROM: {formatHometown(player.HometownCity, player.HometownState, player.HometownCountry)}
                 </div>
               )}

@@ -8,8 +8,10 @@ export function Header() {
   const pathname = usePathname();
   const [playerDropdownOpen, setPlayerDropdownOpen] = useState(false);
   const [teamDropdownOpen, setTeamDropdownOpen] = useState(false);
+  const [projectionsDropdownOpen, setProjectionsDropdownOpen] = useState(false);
   const playerTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const teamTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const projectionsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handlePlayerMouseEnter = () => {
     if (playerTimeoutRef.current) {
@@ -39,12 +41,26 @@ export function Header() {
     }, 200);
   };
 
+  const handleProjectionsMouseEnter = () => {
+    if (projectionsTimeoutRef.current) {
+      clearTimeout(projectionsTimeoutRef.current);
+      projectionsTimeoutRef.current = null;
+    }
+    setProjectionsDropdownOpen(true);
+  };
+
+  const handleProjectionsMouseLeave = () => {
+    projectionsTimeoutRef.current = setTimeout(() => {
+      setProjectionsDropdownOpen(false);
+    }, 200);
+  };
+
   return (
-    <header className="border-b border-black bg-[#C7D0B8]">
+    <header className="border-b-2 border-black bg-[#C7D0B8]">
       <div className="px-4">
         <div className="flex justify-between items-center h-12">
           {/* Logo/Title */}
-          <Link href="/" className="text-lg font-bold text-black hover:underline">
+          <Link href="/" className="text-xs font-bold text-black hover:underline uppercase tracking-wide">
             CBB Stats
           </Link>
 
@@ -53,7 +69,7 @@ export function Header() {
             <Link
               href="/"
               className={`text-xs font-medium transition-colors hover:underline ${
-                pathname === "/" ? "text-black" : "text-gray-600"
+                pathname === "/" ? "text-black" : "text-black"
               }`}
             >
               Home
@@ -65,28 +81,34 @@ export function Header() {
               onMouseEnter={handlePlayerMouseEnter}
               onMouseLeave={handlePlayerMouseLeave}
             >
-              <button className="text-xs font-medium transition-colors hover:underline text-gray-600">
+              <button className="text-xs font-medium transition-colors hover:underline text-black">
                 Player
               </button>
               {playerDropdownOpen && (
-                <div className="absolute top-full left-0 mt-1 bg-white border-2 border-black shadow-lg z-10">
+                <div className="absolute top-full left-0 mt-1 bg-[#E7E8D1] border-2 border-black shadow-[3px_3px_0px_black] z-10">
                   <Link
                     href="/leaderboard/basic"
-                    className="block px-4 py-2 text-xs hover:bg-[#E7E8D1]"
+                    className="block px-4 py-2 text-xs hover:bg-[#B8C0A8]"
                   >
                     Basic Leaderboard
                   </Link>
                   <Link
                     href="/leaderboard/advanced"
-                    className="block px-4 py-2 text-xs hover:bg-[#E7E8D1]"
+                    className="block px-4 py-2 text-xs hover:bg-[#B8C0A8]"
                   >
                     Advanced Leaderboard
                   </Link>
                   <Link
                     href="/moves"
-                    className="block px-4 py-2 text-xs hover:bg-[#E7E8D1]"
+                    className="block px-4 py-2 text-xs hover:bg-[#B8C0A8]"
                   >
                     Moves Rankings
+                  </Link>
+                  <Link
+                    href="/similarity"
+                    className="block px-4 py-2 text-xs hover:bg-[#B8C0A8]"
+                  >
+                    Similarity Map
                   </Link>
                 </div>
               )}
@@ -98,20 +120,20 @@ export function Header() {
               onMouseEnter={handleTeamMouseEnter}
               onMouseLeave={handleTeamMouseLeave}
             >
-              <button className="text-xs font-medium transition-colors hover:underline text-gray-600">
+              <button className="text-xs font-medium transition-colors hover:underline text-black">
                 Team
               </button>
               {teamDropdownOpen && (
-                <div className="absolute top-full left-0 mt-1 bg-white border-2 border-black shadow-lg z-10">
+                <div className="absolute top-full left-0 mt-1 bg-[#E7E8D1] border-2 border-black shadow-[3px_3px_0px_black] z-10">
                   <Link
                     href="/team-rankings"
-                    className="block px-4 py-2 text-xs hover:bg-[#E7E8D1]"
+                    className="block px-4 py-2 text-xs hover:bg-[#B8C0A8]"
                   >
                     Team Rankings
                   </Link>
                   <Link
                     href="/teams"
-                    className="block px-4 py-2 text-xs hover:bg-[#E7E8D1]"
+                    className="block px-4 py-2 text-xs hover:bg-[#B8C0A8]"
                   >
                     Team Catalog
                   </Link>
@@ -122,64 +144,55 @@ export function Header() {
             <Link
               href="/game"
               className={`text-xs font-medium transition-colors hover:underline ${
-                pathname === "/game" ? "text-black" : "text-gray-600"
+                pathname === "/game" ? "text-black" : "text-black"
               }`}
             >
               Game
             </Link>
 
-            <Link
-              href="/projections/2027"
-              className={`text-xs font-medium transition-colors hover:underline ${
-                pathname === "/projections/2027" ? "text-black" : "text-gray-600"
-              }`}
+            {/* Projections Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={handleProjectionsMouseEnter}
+              onMouseLeave={handleProjectionsMouseLeave}
             >
-              2027 Projections
-            </Link>
-
-            <Link
-              href="/projections/leaderboard"
-              className={`text-xs font-medium transition-colors hover:underline ${
-                pathname === "/projections/leaderboard" ? "text-black" : "text-gray-600"
-              }`}
-            >
-              Projection Leaderboard
-            </Link>
-
-            <Link
-              href="/utilization"
-              className={`text-xs font-medium transition-colors hover:underline ${
-                pathname === "/utilization" ? "text-black" : "text-gray-600"
-              }`}
-            >
-              Utilization Analysis
-            </Link>
-
-            <Link
-              href="/archetype"
-              className={`text-xs font-medium transition-colors hover:underline ${
-                pathname === "/archetype" ? "text-black" : "text-gray-600"
-              }`}
-            >
-              Archetype Analysis
-            </Link>
+              <button className="text-xs font-medium transition-colors hover:underline text-black">
+                Projections
+              </button>
+              {projectionsDropdownOpen && (
+                <div className="absolute top-full left-0 mt-1 bg-[#E7E8D1] border-2 border-black shadow-[3px_3px_0px_black] z-10">
+                  <Link
+                    href="/projections/2027"
+                    className="block px-4 py-2 text-xs hover:bg-[#B8C0A8]"
+                  >
+                    2027 Projections
+                  </Link>
+                  <Link
+                    href="/projections/leaderboard"
+                    className="block px-4 py-2 text-xs hover:bg-[#B8C0A8]"
+                  >
+                    Projection Leaderboard
+                  </Link>
+                </div>
+              )}
+            </div>
 
             <Link
               href="/clusters"
               className={`text-xs font-medium transition-colors hover:underline ${
-                pathname === "/clusters" ? "text-black" : "text-gray-600"
+                pathname === "/clusters" ? "text-black" : "text-black"
               }`}
             >
               Cluster Analysis
             </Link>
 
             <Link
-              href="/team-clusters"
+              href="/clusters/leaderboard"
               className={`text-xs font-medium transition-colors hover:underline ${
-                pathname === "/team-clusters" ? "text-black" : "text-gray-600"
+                pathname === "/clusters/leaderboard" ? "text-black" : "text-black"
               }`}
             >
-              Team Clusters
+              Cluster Leaderboard
             </Link>
           </nav>
         </div>
