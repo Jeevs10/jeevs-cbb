@@ -33,14 +33,16 @@ export async function fetchAllPlayers({
   sort = "adj_rapm_margin",
   order = "desc",
   year,
-  search,   // 🔥 ADD THIS
+  search,
+  dataTier,
 }: {
   limit?: number;
   offset?: number;
   sort?: string;
   order?: "asc" | "desc";
   year?: number | null;
-  search?: string;   // 🔥 ADD THIS
+  search?: string;
+  dataTier?: string;
 }) {
   const url = new URL(`${BASE_URL}/api/v1/players`);
 
@@ -57,6 +59,10 @@ export async function fetchAllPlayers({
     url.searchParams.append("search", search.trim());
   }
 
+  if (dataTier) {
+    url.searchParams.append("dataTier", dataTier);
+  }
+
   const res = await fetch(url.toString());
   if (!res.ok) throw new Error("Failed to fetch players");
 
@@ -64,9 +70,39 @@ export async function fetchAllPlayers({
   return data.results;
 }
 
-// -------------------------
-// MOVES
-// -------------------------
+export async function fetchAllVectors() {
+  const url = new URL(`${BASE_URL}/api/v1/similarity/vectors`);
+  const res = await fetch(url.toString());
+  if (!res.ok) throw new Error("Failed to fetch vectors");
+  return res.json();
+}
+
+export async function fetchPrecomputedPositions() {
+  const url = new URL(`${BASE_URL}/api/v1/similarity/positions`);
+  const res = await fetch(url.toString());
+  if (!res.ok) throw new Error("Failed to fetch positions");
+  return res.json();
+}
+
+export async function fetchNearestNeighbors(ncaaId: string, limit: number = 20) {
+  const url = new URL(`${BASE_URL}/api/v1/similarity/nearest/${ncaaId}`);
+  url.searchParams.set("limit", limit.toString());
+  const res = await fetch(url.toString());
+  if (!res.ok) throw new Error("Failed to fetch nearest neighbors");
+  return res.json();
+}
+
+export async function searchPlayers(query: string, limit: number = 20) {
+  const url = new URL(`${BASE_URL}/api/v1/players`);
+  url.searchParams.set("search", query);
+  url.searchParams.set("limit", limit.toString());
+  url.searchParams.set("sort", "Name");
+  url.searchParams.set("order", "asc");
+  url.searchParams.set("dataTier", "enriched");
+  const res = await fetch(url.toString());
+  if (!res.ok) throw new Error("Failed to search players");
+  return res.json();
+}
 export async function fetchPlayerMoves(id: string, year?: YearParam) {
   const url = new URL(`${BASE_URL}/api/v1/players/${id}/moves`);
 

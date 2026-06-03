@@ -55,6 +55,7 @@ class ProjectionService:
         self._player_key_to_name = {}
         self._transition_matrix = None
         self._cluster_development = None
+        self._projection_cache = None  # Cache for pre-calculated projections
         self._data_loaded = False
     
     def _ensure_data_loaded(self):
@@ -122,6 +123,20 @@ class ProjectionService:
                 logger.info("Loaded cluster development stats")
             else:
                 logger.warning(f"Cluster development stats not found: {development_path}")
+
+            # Load pre-calculated projection leaderboard for fast lookups
+            projection_cache_path = base_dir / "data" / "projection_leaderboard_2027.csv"
+            if projection_cache_path.exists():
+                self._projection_cache = pd.read_csv(projection_cache_path)
+                # Build a dictionary keyed by player_key for O(1) lookups
+                self._projection_cache_dict = {}
+                for _, row in self._projection_cache.iterrows():
+                    player_key = str(row['player_key'])
+                    self._projection_cache_dict[player_key] = row.to_dict()
+                logger.info(f"Loaded projection cache with {len(self._projection_cache_dict)} players")
+            else:
+                logger.warning(f"Projection cache not found: {projection_cache_path}")
+                self._projection_cache_dict = {}
 
             self._data_loaded = True
             logger.info("Projection service data loading complete")
@@ -438,6 +453,54 @@ class ProjectionService:
         """
         # Ensure data is loaded before processing
         self._ensure_data_loaded()
+
+        # Check cache first for 2027 projections (years_ahead=1, current_year=2026)
+        if (years_ahead == 1 and current_year == 2026 and 
+            hasattr(self, '_projection_cache_dict') and self._projection_cache_dict):
+            # Remove .0 suffix to match player_key format
+            ncaa_id_clean = ncaa_id.replace('.0', '')
+            if ncaa_id_clean in self._projection_cache_dict:
+                cached = self._projection_cache_dict[ncaa_id_clean]
+                logger.info(f"Cache hit for player {ncaa_id}, returning pre-calculated projection")
+                
+                # Get cluster description
+                cluster_desc = None
+                if self._cluster_descriptions:
+                    cluster_desc = self._cluster_descriptions.get(str(cached['cluster_id']))
+                
+                # Calculate percentile using cluster historical data
+                cluster_id = int(cached['cluster_id'])
+                historical_data = self.get_cluster_historical_data(cluster_id)
+                bpm_change = cached['bpm_change_predicted']
+                percentile = 0.5  # Default to median
+                if len(historical_data) > 0 and 'bpm_change' in historical_data.columns:
+                    all_changes = historical_data['bpm_change'].dropna().values
+                    if len(all_changes) > 0:
+                        percentile = np.sum(all_changes < bpm_change) / len(all_changes)
+                        logger.info(f"Percentile calculation: bpm_change={bpm_change}, all_changes_count={len(all_changes)}, changes_less={np.sum(all_changes < bpm_change)}, percentile={percentile}")
+                else:
+                    logger.warning(f"Could not calculate percentile: historical_data length={len(historical_data)}, has_bpm_change={'bpm_change' in historical_data.columns if len(historical_data) > 0 else 'N/A'}")
+                
+                # Build projection result from cached data
+                return {
+                    'player_id': ncaa_id,
+                    'current_year': current_year,
+                    'cluster_id': cluster_id,
+                    'cluster_description': cluster_desc,
+                    'current_bpm': cached['current_bpm'],
+                    'projections': [{
+                        'year': current_year + years_ahead,
+                        'projected_bpm': cached['projected_bpm'],
+                        'bpm_change': cached['bpm_change_predicted'],
+                        'confidence_interval_lower': cached['projected_bpm_lower_90'],
+                        'confidence_interval_upper': cached['projected_bpm_upper_90'],
+                        'percentile_rank': round(percentile, 3),
+                    }],
+                    'historical_samples': int(cached['historical_samples']),
+                    'methodology': 'cached',
+                    'similar_players': [],  # Empty list for cached responses
+                    'cluster_transitions': self._get_cluster_transitions(cluster_id),
+                }
 
         # Get player cluster
         cluster_info = self.get_player_cluster(ncaa_id)

@@ -68,50 +68,50 @@ POSITION_GROUPS = {
 }
 
 # Cluster quality mapping based on average BPM per cluster (18 clusters with BPM, OBPM, DBPM, 3p/100 features)
+# Updated based on actual cluster averages from player_clusters_unified.csv
 CLUSTER_QUALITY = {
     # Star clusters (high BPM) - give these the highest boosts
-    10: 1.0,  # Star Bigs (BPM 6.10) - Cameron Boozer, Yaxel Lendeborg, Aday Mara
-    12: 0.95,  # High-Usage Guards (BPM 3.91) - Keaton Wagler, Bruce Thornton, Tyler Tanner
-    4: 0.9,  # High BPM Wings (BPM 3.04) - Joshua Jefferson, Thomas Haugh, Sam Hoiberg
-    15: 0.85,  # Rim Protectors (BPM 4.81) - Ugonna Onyenso, Oscar Cluff, Tarris Reed Jr
-    8: 0.8,  # 3PT Specialists (BPM 2.65) - Alex Karaban, Ben Humrichous, Pryce Sandfort
-    6: 0.75,  # 3PT Wings (BPM 1.31) - B.J. Edwards, Bishop Boswell, Rylan Griffen
-    13: 0.7,  # Versatile Forwards (BPM 0.54) - Maliq Brown, Dillon Mitchell, Pablo Tamba
-    11: 0.65,  # Stretch Bigs (BPM 0.90) - Joseph Tugler, Malique Ewin, Corey Chest
-    5: 0.6,  # Traditional Bigs (BPM 0.27) - Brandon Garrison, Grayson Grove, Aly Khalifa
-    0: 0.55,  # Mid Guards (BPM 0.19) - Jed Miller, Skyy Clark, Urban Klavzar
-    3: 0.5,  # Wings (BPM 0.06) - Isaiah Evans, Tyler Perkins, Tre White
-    2: 0.45,  # Bigs (BPM -1.52) - Dylan Faulkner, Mike Nwoko, Qadir Martin
-    16: 0.4,  # High-Usage Low BPM (BPM -1.94) - Jaden Henley, Keon Thompson, Dior Johnson
-    17: 0.35,  # Low BPM Bigs (BPM -1.70) - Aleksas Bieliauskas, Guillermo Diaz Graham, Brady Koehler
-    # Role player clusters (low BPM)
-    1: 0.3,  # Low BPM Forwards (BPM -4.13) - JT Pettigrew, Dylan Grant, Darren Buchanan Jr
-    14: 0.25,  # Low BPM Guards (BPM -4.55) - Jojo Murphy, Michael Gray Jr, Eli Ellis
-    9: 0.2,  # Very Low BPM (BPM -3.47) - Maleek Arington, Malachi Smith, Dezdrick Lindsay
-    7: 0.15,  # Low BPM Wings (BPM -2.78) - Isiah Harwell, Chase Johnston, Jordan Clayton
+    2: 1.0,  # Elite Bigs (BPM 5.04) - highest BPM cluster
+    0: 0.95,  # High-Usage Guards (BPM 4.79) - second highest
+    6: 0.9,  # 3PT Wings (BPM 2.52) - strong shooters
+    11: 0.85,  # Stretch Bigs (BPM 2.41) - versatile bigs
+    13: 0.8,  # Versatile Forwards (BPM 2.37) - well-rounded forwards
+    9: 0.75,  # High-Usage Guards (BPM 2.16) - high usage guards
+    12: 0.7,  # Playmakers (BPM 1.95) - playmaking guards
+    15: 0.65,  # Rim Protectors (BPM 0.02) - defensive specialists
+    3: 0.6,  # Wings (BPM -0.29) - average wings
+    14: 0.55,  # Low BPM Guards (BPM -0.41) - below average guards
+    8: 0.5,  # 3PT Specialists (BPM -0.80) - specialists
+    1: 0.45,  # Low BPM Forwards (BPM -2.10) - role player forwards
+    17: 0.4,  # Low BPM Bigs (BPM -2.49) - role player bigs
+    5: 0.35,  # Traditional Bigs (BPM -3.21) - low impact bigs
+    16: 0.3,  # High-Usage Low BPM (BPM -3.22) - inefficient high usage
+    10: 0.25,  # Empty Calorie (BPM -3.44) - low efficiency
+    7: 0.2,  # Low BPM Wings (BPM -3.89) - below replacement wings
+    4: 0.15,  # Very Low BPM (BPM -6.45) - lowest BPM cluster
     "default": 0.5,
 }
 
-# Cluster description mapping
+# Cluster description mapping based on cluster_descriptions.json
 CLUSTER_DESCRIPTIONS = {
-    0: "Mid Guards",
-    1: "Low BPM Forwards",
-    2: "Bigs",
-    3: "Wings",
-    4: "Two-Way Wings",
-    5: "Traditional Bigs",
-    6: "3PT Wings",
-    7: "Low BPM Wings",
-    8: "3PT Specialists",
-    9: "Very Low BPM",
-    10: "Star Bigs",
-    11: "Stretch Bigs",
-    12: "High-Usage Guards",
-    13: "Versatile Forwards",
-    14: "Low BPM Guards",
-    15: "Rim Protectors",
-    16: "Empty Calorie",
-    17: "Low BPM Bigs",
+    0: "Elite Rim-Protecting Bigs",
+    1: "High-Usage Shooting Guards",
+    2: "Elite Two-Way High-Usage Bigs",
+    3: "Versatile Stretch Wings",
+    4: "Low-Impact 3pt Wings",
+    5: "Mid-Usage Point Guards",
+    6: "Two-Way Wings",
+    7: "Low-Impact Stretch Bigs",
+    8: "High-Usage Low-Impact Bigs",
+    9: "High-Usage Offensive Point Guards",
+    10: "High-Volume 3pt Shooters",
+    11: "Offensive Scoring Guards",
+    12: "Offensive Stretch Fours",
+    13: "Low-Usage Two-Way Bigs",
+    14: "Offensive 3pt Wings",
+    15: "Defensive Rim-Protecting Bigs",
+    16: "Low-Usage Defensive Bigs",
+    17: "Low-Impact 3pt Wings",
     "default": "Unknown",
 }
 
@@ -455,9 +455,9 @@ class NilService:
     
     @staticmethod
     def _get_player_cluster(player_name: str) -> int:
-        """Get player's cluster ID from player_clusters.csv."""
+        """Get player's cluster ID from player_clusters_unified.csv."""
         try:
-            csv_path = os.path.join(os.path.dirname(__file__), '..', '..', 'data', 'player_clusters.csv')
+            csv_path = os.path.join(os.path.dirname(__file__), '..', '..', 'data', 'player_clusters_unified.csv')
             if not os.path.exists(csv_path):
                 logger.warning(f"Cluster file not found at {csv_path}")
                 return "default"
@@ -504,8 +504,8 @@ class NilService:
         try:
             year_int = int(year) if year else 2026
             
-            # Load player clusters
-            csv_path = os.path.join(os.path.dirname(__file__), '..', '..', 'data', 'player_clusters.csv')
+            # Load player clusters from unified file
+            csv_path = os.path.join(os.path.dirname(__file__), '..', '..', 'data', 'player_clusters_unified.csv')
             if not os.path.exists(csv_path):
                 logger.warning("Player clusters file not found, falling back to position groups")
                 return NilService._calculate_position_rank_by_group(bpm, year)

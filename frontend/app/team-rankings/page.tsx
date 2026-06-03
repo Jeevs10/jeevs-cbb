@@ -165,14 +165,14 @@ export default function TeamRankingsPage() {
         {/* Year Dropdown */}
         {availableYears.length > 0 && (
           <div className="flex items-center gap-2">
-            <span className="font-bold">Season:</span>
+            <span className="font-bold uppercase tracking-wide">Season:</span>
             <select
               value={year ?? ""}
               onChange={(e) => {
                 const value = e.target.value;
                 setYear(value === "" ? null : Number(value));
               }}
-              className="bg-white border-2 border-black px-2 py-1 font-mono text-black"
+              className="bg-[#E7E8D1] border-2 border-black px-2 py-1 font-mono text-black shadow-[3px_3px_0px_black]"
             >
               <option value="">Latest</option>
               {availableYears.map((y) => (
@@ -186,11 +186,11 @@ export default function TeamRankingsPage() {
 
         {/* Conference Filter */}
         <div className="flex items-center gap-2">
-          <span className="font-bold">Conference:</span>
+          <span className="font-bold uppercase tracking-wide">Conference:</span>
           <select
             value={conferenceFilter}
             onChange={(e) => setConferenceFilter(e.target.value)}
-            className="bg-white border-2 border-black px-2 py-1 font-mono text-black"
+            className="bg-[#E7E8D1] border-2 border-black px-2 py-1 font-mono text-black shadow-[3px_3px_0px_black]"
           >
             <option value="all">All Conferences</option>
             {availableConferences.map((conf) => (
@@ -202,15 +202,15 @@ export default function TeamRankingsPage() {
         </div>
 
         {/* Count */}
-        <div className="text-[10px] opacity-70">
+        <div className="text-xs text-black">
           Showing {filteredAndSortedTeams.length} teams
           {conferenceFilter !== "all" && ` (${conferenceFilter})`}
         </div>
 
         {/* Table */}
-        <div className="border-2 border-black overflow-hidden">
+        <div className="border-2 border-black bg-[#C7D0B8] shadow-[3px_3px_0px_black] overflow-hidden">
           <table className="w-full">
-            <thead className="bg-[#B7C4A5]">
+            <thead className="bg-[#B8C0A8]">
               <tr>
                 <th className="px-4 py-2 text-left border-b-2 border-black">Rank</th>
                 <SortHeader column="school" label="Team" />
@@ -224,7 +224,7 @@ export default function TeamRankingsPage() {
             </thead>
             <tbody>
               {filteredAndSortedTeams.map((team) => (
-                <tr key={team.id} className="border-b border-black hover:bg-black/5">
+                <tr key={team.id} className="border-b-2 border-black hover:bg-[#B8C0A8]">
                   <td className="px-4 py-2 font-bold text-center">
                     {(team as any).official_rank}
                   </td>
@@ -248,7 +248,7 @@ export default function TeamRankingsPage() {
                         {team.adj_net !== null ? team.adj_net.toFixed(1) : "—"}
                       </span>
                       {team.rank_adj_net && (
-                        <span className="text-[9px] text-gray-500">
+                        <span className="text-xs text-black">
                           #{team.rank_adj_net}
                         </span>
                       )}
@@ -260,7 +260,7 @@ export default function TeamRankingsPage() {
                         {team.off_adj_ppp !== null ? team.off_adj_ppp.toFixed(1) : "—"}
                       </span>
                       {team.rank_off_adj_ppp && (
-                        <span className="text-[9px] text-gray-500">
+                        <span className="text-xs text-black">
                           #{team.rank_off_adj_ppp}
                         </span>
                       )}
@@ -272,7 +272,7 @@ export default function TeamRankingsPage() {
                         {team.def_adj_ppp !== null ? team.def_adj_ppp.toFixed(1) : "—"}
                       </span>
                       {team.rank_def_adj_ppp && (
-                        <span className="text-[9px] text-gray-500">
+                        <span className="text-xs text-black">
                           #{team.rank_def_adj_ppp}
                         </span>
                       )}
@@ -284,7 +284,7 @@ export default function TeamRankingsPage() {
                         {team.wab !== null && team.wab !== undefined ? team.wab.toFixed(1) : "—"}
                       </span>
                       {team.rank_wab && team.rank_wab !== null && (
-                        <span className="text-[9px] text-gray-500">
+                        <span className="text-xs text-black">
                           #{team.rank_wab}
                         </span>
                       )}

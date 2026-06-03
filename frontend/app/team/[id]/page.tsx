@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { fetchTeam, fetchAllTeams } from "@/lib/api";
+import { fetchTeam } from "@/lib/api";
 import { useYear } from "@/app/context/YearContext";
 
 import TeamHeader from "@/components/team/TeamHeader";
@@ -11,8 +11,6 @@ import TeamAnalyticsPanel from "@/components/team/TeamAnalyticsPanel";
 import TeamRosterPanel from "@/components/team/TeamRosterPanel";
 import TeamLocationPanel from "@/components/team/TeamLocationPanel";
 import TeamStylePanel from "@/components/team/TeamStylePanel";
-import TeamMatchupsPanel from "@/components/team/TeamMatchupsPanel";
-import TeamSimilarPanel from "@/components/team/TeamSimilarPanel";
 import TeamNilPanel from "@/components/team/TeamNilPanel";
 
 export default function TeamPage() {
@@ -20,16 +18,13 @@ export default function TeamPage() {
   const { year, setYear } = useYear();
 
   const [team, setTeam] = useState<any>(null);
-  const [allTeams, setAllTeams] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [availableYears, setAvailableYears] = useState<number[]>([]);
-  const [styleWeight, setStyleWeight] = useState<number>(0.5);
 
   useEffect(() => {
     if (!id) return;
 
-    // Fetch all teams for matchups
     fetchTeam(id as string, year)
       .then((data: any) => {
         console.log("Team data received:", data);
@@ -41,18 +36,6 @@ export default function TeamPage() {
         console.error("Error fetching team:", err);
         setError("Failed to load team data");
         setLoading(false);
-      });
-
-    // Fetch all teams for matchups
-    fetchAllTeams(year)
-      .then((data: any) => {
-        console.log("All teams data:", data);
-        if (data.results) {
-          setAllTeams(data.results);
-        }
-      })
-      .catch(err => {
-        console.error("Error fetching all teams:", err);
       });
   }, [id, year]);
 
@@ -138,20 +121,6 @@ export default function TeamPage() {
         {team.analytics && (
           <div className="md:col-span-2 max-h-[400px] overflow-y-auto">
             <TeamStylePanel analytics={team.analytics} />
-          </div>
-        )}
-
-        {/* MATCHUPS - Full width, scrollable */}
-        {team.analytics && allTeams.length > 0 && (
-          <div className="md:col-span-2 max-h-[400px] overflow-y-auto">
-            <TeamMatchupsPanel currentTeam={team} allTeams={allTeams} />
-          </div>
-        )}
-
-        {/* SIMILAR TEAMS */}
-        {team.analytics && (
-          <div className="md:col-span-2">
-            <TeamSimilarPanel currentTeam={team} styleWeight={styleWeight} setStyleWeight={setStyleWeight} />
           </div>
         )}
 

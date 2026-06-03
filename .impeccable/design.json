@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-03T20:13:00Z",
+  "title": "Design System: Jeevs CBB",
+  "extensions": {
+    "colorMeta": {
+      "court-sage": {
+        "role": "primary",
+        "displayName": "Court Sage",
+        "canonical": "#C7D0B8",
+        "tonalRamp": ["#8a9c7a", "#9cad8c", "#adbe9e", "#becfb0", "#cfe0c2", "#e0f1d4", "#f1ffe6", "#ffffff"]
+      },
+      "court-sage-light": {
+        "role": "primary",
+        "displayName": "Court Sage Light",
+        "canonical": "#E7E8D1",
+        "tonalRamp": ["#c7d0b8", "#d0dbc3", "#d9e6ce", "#e2f1d9", "#ebfce4", "#f4ffef", "#ffffff", "#ffffff"]
+      },
+      "court-sage-dark": {
+        "role": "primary",
+        "displayName": "Court Sage Dark",
+        "canonical": "#B8C0A8",
+        "tonalRamp": ["#7a8c6a", "#8a9c7a", "#9cad8c", "#adbe9e", "#becfb0", "#cfe0c2", "#e0f1d4", "#f1ffe6"]
+      },
+      "black": {
+        "role": "neutral",
+        "displayName": "Black",
+        "canonical": "#000000",
+        "tonalRamp": ["#000000", "#1a1a1a", "#333333", "#4d4d4d", "#666666", "#808080", "#999999", "#b3b3b3"]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "White",
+        "canonical": "#FFFFFF",
+        "tonalRamp": ["#e6e6e6", "#ebebeb", "#f0f0f0", "#f5f5f5", "#fafafa", "#ffffff", "#ffffff", "#ffffff"]
+      },
+      "terminal-green": {
+        "role": "accent",
+        "displayName": "Terminal Green",
+        "canonical": "#4ade80",
+        "tonalRamp": ["#2eb85c", "#3bc969", "#48da76", "#55eb83", "#62fc90", "#73ff9d", "#84ffaa", "#95ffb7"]
+      }
+    },
+    "typographyMeta": {
+      "body": {
+        "displayName": "Body",
+        "purpose": "All data values, descriptions, and content text."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Section headers, panel headers, navigation items, and UI chrome."
+      }
+    },
+    "shadows": [
+      {
+        "name": "trading-card",
+        "value": "3px 3px 0px black",
+        "purpose": "Used on all panels, cards, and dropdowns to create a trading card aesthetic."
+      }
+    ],
+    "motion": [
+      {
+        "name": "instant",
+        "value": "0s",
+        "purpose": "Hover states change instantly for game-like responsiveness."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Panel",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Primary container for content sections with trading card styling.",
+      "html": "<div class=\"ds-panel\">Panel content here</div>",
+      "css": ".ds-panel { background: #C7D0B8; color: #000; border: 2px solid black; box-shadow: 3px 3px 0px black; padding: 12px; }"
+    },
+    {
+      "name": "Button",
+      "kind": "button",
+      "refersTo": "button",
+      "description": "Game-like button with hard edges and instant hover feedback.",
+      "html": "<button class=\"ds-button\">GET STARTED</button>",
+      "css": ".ds-button { background: #C7D0B8; color: #000; border: 2px solid black; padding: 4px 8px; font-family: monospace; font-size: 12px; cursor: pointer; } .ds-button:hover { background: #B8C0A8; }"
+    },
+    {
+      "name": "Navigation Link",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Monospace uppercase navigation with underline hover.",
+      "html": "<a class=\"ds-nav-link\" href=\"#\">Home</a>",
+      "css": ".ds-nav-link { font-family: monospace; font-size: 12px; font-weight: 500; color: #4b5563; text-decoration: none; text-transform: uppercase; letter-spacing: 0.05em; } .ds-nav-link:hover { text-decoration: underline; color: #000; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Trading Card Binder",
+    "overview": "This system treats players as collectible characters with distinct visual identities, like Pokemon cards in a binder. The interface balances analytical depth with game-like discovery, making data exploration feel like collecting and understanding player archetypes. The aesthetic is intentionally tactile—hard shadows, thick borders, and monospace typography create a physical, game-like quality that makes stats feel like character attributes rather than abstract numbers. The system explicitly rejects the dense, purely numerical interfaces of hoop-reference and BartTorvik. Every metric has a visual counterpart; every data point lives in a context that explains what it means. The monospace font and hard-edged shadows reference retro sports games and trading cards, but the execution is clean and modern rather than dated.",
+    "keyCharacteristics": [
+      "Tactile, game-like UI with hard shadows and thick borders",
+      "Pokemon-style player cards as the primary visual metaphor",
+      "Monospace typography for a technical, analytical feel",
+      "Sage green palette that references basketball courts without being literal",
+      "Progressive disclosure: quick lookups first, deep analysis on demand"
+    ],
+    "rules": [
+      {
+        "name": "The Hard Border Rule",
+        "body": "All borders are 2px solid black, no exceptions. No gray borders, no hairlines, no rounded corners.",
+        "section": "colors"
+      },
+      {
+        "name": "The Trading Card Shadow Rule",
+        "body": "Shadows are always hard-edged (3px 3px 0px black), never blurred. This creates the feel of physical cards stacked on a surface.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Single Size Rule",
+        "body": "Typography uses only two sizes: 12px for body and labels, with larger sizes reserved for the logo/title.",
+        "section": "typography"
+      },
+      {
+        "name": "The Uppercase Label Rule",
+        "body": "All labels, headers, and navigation items are uppercase with 0.05em letter-spacing.",
+        "section": "typography"
+      },
+      {
+        "name": "The No Blur Rule",
+        "body": "Shadows are never blurred. The hard edge is intentional—it makes elements feel physical and game-like.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Use 2px solid black borders on all interactive elements and containers.",
+      "Use the Trading Card Shadow (3px 3px 0px black) for all elevation needs.",
+      "Keep typography at 12px for body and labels unless it's the logo/title.",
+      "Use uppercase with 0.05em letter-spacing for all labels and headers.",
+      "Balance numbers with visual explanations—never show raw data without context.",
+      "Treat players as characters with visual identities (cards, badges, archetypes)."
+    ],
+    "donts": [
+      "Use blurred shadows or graduated elevation scales.",
+      "Use rounded corners—everything is sharp-edged.",
+      "Use gray borders or hairlines—black 2px only.",
+      "Create interfaces that look like hoop-reference or BartTorvik (dense numbers without visual context).",
+      "Use more than two font sizes—keep the uniform, tabular feel.",
+      "Introduce new colors beyond the sage palette and black/white/terminal-green."
+    ]
+  }
+}

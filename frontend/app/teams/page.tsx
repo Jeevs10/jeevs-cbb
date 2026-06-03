@@ -147,8 +147,8 @@ export default function TeamsPage() {
   return (
     <div className="p-3 space-y-6">
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold mb-2">Teams</h1>
-        <p className="text-sm text-gray-600">{teams.length} teams across {Object.keys(teamsByConference).length} conferences</p>
+        <h1 className="text-xs font-bold mb-2 uppercase tracking-wide">Teams</h1>
+        <p className="text-xs text-black">{teams.length} teams across {Object.keys(teamsByConference).length} conferences</p>
       </div>
 
       {/* Search Bar */}
@@ -158,7 +158,7 @@ export default function TeamsPage() {
           placeholder="Search teams by name, mascot, or abbreviation..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full px-4 py-2 border border-black rounded-lg bg-white text-black focus:outline-none focus:ring-2 focus:ring-black"
+          className="w-full px-4 py-2 border-2 border-black bg-[#E7E8D1] text-black focus:outline-none focus:shadow-[3px_3px_0px_black]"
         />
       </div>
 
@@ -166,13 +166,13 @@ export default function TeamsPage() {
       <div className="mb-4 flex gap-2">
         <button
           onClick={expandAll}
-          className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
+          className="px-4 py-2 border-2 border-black bg-black text-white font-bold hover:bg-black/80 transition-colors shadow-[3px_3px_0px_black]"
         >
           Expand All
         </button>
         <button
           onClick={collapseAll}
-          className="px-4 py-2 bg-white text-black border border-black rounded-lg hover:bg-gray-100 transition-colors"
+          className="px-4 py-2 border-2 border-black bg-[#E7E8D1] text-black font-bold hover:bg-[#B8C0A8] transition-colors shadow-[3px_3px_0px_black]"
         >
           Collapse All
         </button>
@@ -180,20 +180,20 @@ export default function TeamsPage() {
 
       {sortedConferences.map(([conference, conferenceTeams]) => {
         const isExpanded = expandedConferences[conference] !== false;
-        
+
         return (
-          <div key={conference} className="border border-black rounded-lg p-4">
-            <div 
+          <div key={conference} className="border-2 border-black p-4">
+            <div
               className="flex items-center justify-between cursor-pointer mb-4"
               onClick={() => toggleConference(conference)}
             >
-              <h2 className="text-xl font-bold">{conference}</h2>
+              <h2 className="text-xs font-bold uppercase tracking-wide">{conference}</h2>
               <div className="flex items-center gap-2">
-                <span className="text-sm text-gray-600">{conferenceTeams.length} teams</span>
-                <span className="text-xl">{isExpanded ? "−" : "+"}</span>
+                <span className="text-xs text-black">{conferenceTeams.length} teams</span>
+                <span className="text-xs">{isExpanded ? "−" : "+"}</span>
               </div>
             </div>
-            
+
             {isExpanded && (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                 {conferenceTeams
@@ -202,13 +202,13 @@ export default function TeamsPage() {
                     <Link
                       key={team.id}
                       href={`/team/${team.id}`}
-                      className="bg-[#E7E8D1] hover:bg-[#dfe2c6] border border-black p-3 rounded transition-colors"
+                      className="bg-[#E7E8D1] hover:bg-[#B8C0A8] border-2 border-black p-3 transition-colors"
                     >
                       <div className="flex justify-between items-start mb-2">
                         <div>
-                          <div className="font-bold text-sm">{team.display_name || team.school}</div>
+                          <div className="font-bold text-xs">{team.display_name || team.school}</div>
                           {team.abbreviation && (
-                            <div className="text-xs text-gray-600">{team.abbreviation}</div>
+                            <div className="text-xs text-black">{team.abbreviation}</div>
                           )}
                         </div>
                         {team.mini_stats && (
@@ -216,27 +216,27 @@ export default function TeamsPage() {
                             {team.mini_stats.wins !== null && team.mini_stats.losses !== null ? (
                               <span>{team.mini_stats.wins}-{team.mini_stats.losses}</span>
                             ) : (
-                              <span className="text-gray-400">N/A</span>
+                              <span className="text-black">N/A</span>
                             )}
                           </div>
                         )}
                       </div>
                       {team.mini_stats && (
-                        <div className="grid grid-cols-3 gap-2 text-xs mt-2 pt-2 border-t border-black/20">
+                        <div className="grid grid-cols-3 gap-2 text-xs mt-2 pt-2 border-t-2 border-black">
                           <div className="text-center">
-                            <div className="text-gray-500">Net</div>
+                            <div className="text-black">Net</div>
                             <div className="font-mono">
                               {team.mini_stats.adj_net !== null ? team.mini_stats.adj_net.toFixed(1) : 'N/A'}
                             </div>
                           </div>
                           <div className="text-center">
-                            <div className="text-gray-500">Off</div>
+                            <div className="text-black">Off</div>
                             <div className="font-mono">
                               {team.mini_stats.off_adj_ppp !== null ? team.mini_stats.off_adj_ppp.toFixed(1) : 'N/A'}
                             </div>
                           </div>
                           <div className="text-center">
-                            <div className="text-gray-500">Def</div>
+                            <div className="text-black">Def</div>
                             <div className="font-mono">
                               {team.mini_stats.def_adj_ppp !== null ? team.mini_stats.def_adj_ppp.toFixed(1) : 'N/A'}
                             </div>

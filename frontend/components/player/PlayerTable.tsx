@@ -79,7 +79,7 @@ export function PlayerTable({ players, sort, order, onSort, loading, dataTier = 
       <div className="flex justify-center items-center h-64">
         <div className="text-center">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-black mx-auto"></div>
-          <p className="mt-2 text-sm">Loading players...</p>
+          <p className="mt-2 text-xs">Loading players...</p>
         </div>
       </div>
     );
@@ -88,14 +88,14 @@ export function PlayerTable({ players, sort, order, onSort, loading, dataTier = 
   if (players.length === 0) {
     return (
       <div className="text-center py-12">
-        <h3 className="text-lg font-medium text-gray-900">No players found</h3>
-        <p className="mt-2 text-sm text-gray-500">Try adjusting your search or filters</p>
+        <h3 className="text-xs font-bold text-black uppercase tracking-wide">No players found</h3>
+        <p className="mt-2 text-xs text-black">Try adjusting your search or filters</p>
       </div>
     );
   }
 
   return (
-    <div className="overflow-x-auto border-4 border-black bg-[#C7D0B8] shadow-[6px_6px_0px_black]">
+    <div className="overflow-x-auto border-2 border-black bg-[#C7D0B8] shadow-[3px_3px_0px_black]">
       <table className={`border-collapse ${dataTier === "basic" ? "min-w-[600px]" : "min-w-[1800px]"}`}>
         <thead>
           <tr>

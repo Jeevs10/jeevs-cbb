@@ -7,11 +7,11 @@ export default function Badge({
   name,
 }) {
   const levelStyles = {
-    1: "bg-gray-200 text-gray-800",
-    2: "bg-green-200 text-green-900",
-    3: "bg-blue-200 text-blue-900",
-    4: "bg-purple-300 text-purple-900",
-    5: "bg-yellow-300 text-yellow-900",
+    1: "bg-[#E7E8D1] text-black",
+    2: "bg-[#C7D0B8] text-black",
+    3: "bg-[#B8C0A8] text-black",
+    4: "bg-[#A8B098] text-black",
+    5: "bg-[#98A088] text-black",
   };
 
   const levelLabels = {
@@ -23,10 +23,10 @@ export default function Badge({
   };
 
     const variantStyles = {
-      default: "bg-white text-black",
-      offense: "bg-red-100 text-red-900 border-red-300",
-      defense: "bg-blue-100 text-blue-900 border-blue-300",
-      meta: "bg-[#e7e8d1] text-black border-black shadow-[2px_2px_0px_black]",
+      default: "bg-[#E7E8D1] text-black border-2 border-black shadow-[3px_3px_0px_black]",
+      offense: "bg-[#E7E8D1] text-black border-2 border-black shadow-[3px_3px_0px_black]",
+      defense: "bg-[#E7E8D1] text-black border-2 border-black shadow-[3px_3px_0px_black]",
+      meta: "bg-[#E7E8D1] text-black border-2 border-black shadow-[3px_3px_0px_black]",
     };
 
   // 🧠 detect icon
@@ -38,11 +38,11 @@ export default function Badge({
 
     return (
       <div
-        className={`flex items-center gap-1 px-2 py-1 text-xs font-mono border border-black shadow-[2px_2px_0px_black] ${levelStyles[safeLevel]}`}
+        className={`flex items-center gap-1 px-2 py-1 text-xs font-mono border-2 border-black shadow-[3px_3px_0px_black] ${levelStyles[safeLevel]}`}
       >
         {Icon && <Icon size={12} />}
         <span>{children}</span>
-        <span className="opacity-60">• {levelLabels[safeLevel]}</span>
+        <span className="text-black">• {levelLabels[safeLevel]}</span>
       </div>
     );
   }
@@ -50,7 +50,7 @@ export default function Badge({
   // ✅ Meta badge (no level)
   return (
     <div
-      className={`px-2 py-1 text-xs font-mono border border-black ${variantStyles[variant]}`}
+      className={`px-2 py-1 text-xs font-mono border-2 border-black ${variantStyles[variant]}`}
     >
       {children}
     </div>

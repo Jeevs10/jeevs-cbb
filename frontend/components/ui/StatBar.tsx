@@ -21,7 +21,7 @@ export default function StatBar({ label, value = 0, max = 100, rank = null }: { 
           {value?.toFixed?.(0) ?? value}
         </span>
         {rank !== null && rank !== 0 && (
-          <span className="text-[10px] text-gray-600 w-8">
+          <span className="text-xs text-black w-8">
             #{rank.toFixed(0)}
           </span>
         )}

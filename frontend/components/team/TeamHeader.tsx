@@ -18,7 +18,7 @@ export default function TeamHeader({ team }: TeamHeaderProps) {
 
   return (
     <div 
-      className="relative overflow-hidden mb-6 border-2 border-black p-4"
+      className="relative overflow-hidden mb-6 border-2 border-black p-4 shadow-[3px_3px_0px_black]"
       style={{
         backgroundColor: primaryColor,
       }}
@@ -29,22 +29,22 @@ export default function TeamHeader({ team }: TeamHeaderProps) {
           TEAM SCOUTING REPORT
         </div>
 
-        <h1 className="text-2xl font-bold" style={{ color: secondaryColor }}>
+        <h1 className="text-xs font-bold uppercase tracking-wide" style={{ color: secondaryColor }}>
           {team?.display_name || team?.school}
         </h1>
 
         {/* CONFERENCE + LOCATION */}
-        <div className="text-xs" style={{ color: secondaryColor, opacity: 0.8 }}>
+        <div className="text-xs" style={{ color: secondaryColor }}>
           {team?.conference} • {team?.current_city}, {team?.current_state}
         </div>
 
         {/* CORE INFO BADGES */}
         <div className="flex gap-2 flex-wrap mt-2">
-          <div className="px-2 py-1 text-xs font-mono border border-black bg-[#e7e8d1] text-black shadow-[2px_2px_0px_black]">
+          <div className="px-2 py-1 text-xs font-mono border-2 border-black bg-[#E7E8D1] text-black shadow-[3px_3px_0px_black]">
             MASCOT: {team?.mascot || "—"}
           </div>
 
-          <div className="px-2 py-1 text-xs font-mono border border-black bg-[#e7e8d1] text-black shadow-[2px_2px_0px_black]">
+          <div className="px-2 py-1 text-xs font-mono border-2 border-black bg-[#E7E8D1] text-black shadow-[3px_3px_0px_black]">
             VENUE: {team?.current_venue || "—"}
           </div>
         </div>

@@ -32,7 +32,7 @@ export function LoadingState({ message = "Loading...", className }: LoadingState
   return (
     <div className={cn("flex flex-col items-center justify-center p-8", className)}>
       <LoadingSpinner size="lg" />
-      <p className="mt-4 text-sm text-gray-600">{message}</p>
+      <p className="mt-4 text-xs text-black">{message}</p>
     </div>
   );
 }

@@ -173,7 +173,7 @@ export default function PlayerGameLogPage() {
   if (loading) {
     return (
       <div className="p-8">
-        <div className="text-center text-gray-600">Loading game log...</div>
+        <div className="text-center text-black">Loading game log...</div>
       </div>
     );
   }
@@ -181,7 +181,7 @@ export default function PlayerGameLogPage() {
   if (error) {
     return (
       <div className="p-8">
-        <div className="text-center text-red-600">{error}</div>
+        <div className="text-center text-black">{error}</div>
       </div>
     );
   }
@@ -191,17 +191,17 @@ export default function PlayerGameLogPage() {
   return (
     <div className="p-6">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold mb-2">GAME LOG</h1>
+        <h1 className="text-xs font-bold mb-2 uppercase tracking-wide">GAME LOG</h1>
         <div className="flex gap-4 items-center flex-wrap">
           <div className="flex gap-2">
             {availableYears.map(year => (
               <button
                 key={year}
                 onClick={() => handleYearChange(year)}
-                className={`px-4 py-2 border-2 border-black font-bold text-xs transition-colors ${
+                className={`px-4 py-2 border-2 border-black font-bold text-xs transition-colors shadow-[3px_3px_0px_black] ${
                   selectedYear === year
                     ? "bg-[#E7E8D1] text-black"
-                    : "bg-white text-gray-600 hover:bg-gray-100"
+                    : "bg-[#E7E8D1] text-black hover:bg-[#B8C0A8]"
                 }`}
               >
                 {year}
@@ -210,27 +210,27 @@ export default function PlayerGameLogPage() {
           </div>
           <button
             onClick={() => setShowStatSelector(!showStatSelector)}
-            className="px-4 py-2 border-2 border-black bg-[#E7E8D1] text-black font-bold text-xs hover:bg-[#c7d0b8] transition-colors"
+            className="px-4 py-2 border-2 border-black bg-[#E7E8D1] text-black font-bold text-xs hover:bg-[#B8C0A8] transition-colors shadow-[3px_3px_0px_black]"
           >
             {showStatSelector ? "HIDE STATS" : "SELECT STATS"}
           </button>
-          <span className="text-sm text-gray-600">
+          <span className="text-xs text-black">
             {games.length} games
           </span>
         </div>
       </div>
 
       {showStatSelector && (
-        <div className="mb-6 p-4 border-2 border-black bg-[#E7E8D1]">
-          <h3 className="font-bold mb-3">SELECT STATISTICS TO DISPLAY</h3>
+        <div className="mb-6 p-4 border-2 border-black bg-[#E7E8D1] shadow-[3px_3px_0px_black]">
+          <h3 className="font-bold mb-3 uppercase tracking-wide">SELECT STATISTICS TO DISPLAY</h3>
           <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2">
             {statOptions.map(option => (
-              <label key={option.key} className="flex items-center gap-2 text-sm cursor-pointer">
+              <label key={option.key} className="flex items-center gap-2 text-xs cursor-pointer">
                 <input
                   type="checkbox"
                   checked={selectedStats.includes(option.key)}
                   onChange={() => toggleStat(option.key)}
-                  className="rounded"
+                  className="border-2 border-black"
                 />
                 {option.label}
               </label>
@@ -242,7 +242,7 @@ export default function PlayerGameLogPage() {
       <div className="overflow-x-auto">
         <table className="w-full text-xs font-mono border-collapse border-2 border-black">
           <thead>
-            <tr className="border-b-2 border-black bg-gray-100">
+            <tr className="border-b-2 border-black bg-[#B8C0A8]">
               <th className="text-left p-2 font-bold">DATE</th>
               <th className="text-left p-2 font-bold">OPP</th>
               <th className="text-center p-2 font-bold">RESULT</th>
@@ -257,13 +257,13 @@ export default function PlayerGameLogPage() {
             {games.map((game, index) => (
               <tr
                 key={`${game.numdate}-${index}`}
-                className={`border-b border-gray-200 hover:bg-gray-50 ${
-                  game.win2 === 1 ? "bg-green-50" : "bg-red-50"
+                className={`border-b-2 border-black hover:bg-[#B8C0A8] ${
+                  game.win2 === 1 ? "bg-[#C7D0B8]" : "bg-[#E7E8D1]"
                 }`}
               >
                 <td className="p-2">
                   <div className="font-bold">{game.datetext}</div>
-                  <div className="text-[9px] text-gray-600">
+                  <div className="text-xs text-black">
                     {game.loc === "H" ? "vs" : game.loc === "A" ? "@" : "N"}
                   </div>
                 </td>

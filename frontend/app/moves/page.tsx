@@ -151,16 +151,16 @@ export default function MovesPage() {
 
         {/* MOVE FILTER */}
         <div className="mb-6">
-          <label className="block text-sm font-bold mb-3 text-black">MOVE TYPE</label>
+          <label className="block text-xs font-bold mb-3 text-black uppercase tracking-wide">MOVE TYPE</label>
           <div className="grid grid-cols-2 gap-2">
             {MOVE_TYPES.map((moveType) => (
               <button
                 key={moveType.value}
                 onClick={() => handleMoveChange(moveType.value)}
-                className={`px-4 py-3 border-2 border-black text-sm font-bold transition-all ${
+                className={`px-4 py-3 border-2 border-black text-xs font-bold transition-all ${
                   move === moveType.value
                     ? `${moveType.color} shadow-[3px_3px_0px_black]`
-                    : 'bg-[#E7E8D1] hover:bg-[#dfe2c6] shadow-[2px_2px_0px_black]'
+                    : 'bg-[#E7E8D1] hover:bg-[#B8C0A8] shadow-[3px_3px_0px_black]'
                 }`}
               >
                 {moveType.label}
@@ -171,11 +171,11 @@ export default function MovesPage() {
 
         {/* POSITION FILTER */}
         <div className="mb-4">
-          <label className="block text-[10px] font-bold mb-1">POSITION</label>
+          <label className="block text-xs font-bold mb-1 uppercase tracking-wide">POSITION</label>
           <select
             value={position}
             onChange={(e) => handlePositionChange(e.target.value)}
-            className="w-full px-2 py-1 border border-black bg-[#E7E8D1] text-xs"
+            className="w-full px-2 py-1 border-2 border-black bg-[#E7E8D1] text-xs shadow-[3px_3px_0px_black]"
           >
             {POSITIONS.map((pos) => (
               <option key={pos.value} value={pos.value}>
@@ -187,14 +187,14 @@ export default function MovesPage() {
 
         {/* CONFERENCE FILTER */}
         <div className="mb-4">
-          <label className="block text-[10px] font-bold mb-1">CONFERENCE</label>
+          <label className="block text-xs font-bold mb-1 uppercase tracking-wide">CONFERENCE</label>
           <select
             value={conference}
             onChange={(e) => {
               setConference(e.target.value);
               setPage(0);
             }}
-            className="w-full px-2 py-1 border border-black bg-[#E7E8D1] text-xs"
+            className="w-full px-2 py-1 border-2 border-black bg-[#E7E8D1] text-xs shadow-[3px_3px_0px_black]"
           >
             {CONFERENCES.map((conf) => (
               <option key={conf.value} value={conf.value}>
@@ -214,9 +214,9 @@ export default function MovesPage() {
               setHighMajor(e.target.checked);
               setPage(0);
             }}
-            className="w-4 h-4 border border-black"
+            className="w-4 h-4 border-2 border-black"
           />
-          <label htmlFor="highMajor" className="text-[10px] font-bold">HIGH MAJOR ONLY</label>
+          <label htmlFor="highMajor" className="text-xs font-bold uppercase tracking-wide">HIGH MAJOR ONLY</label>
         </div>
 
         {/* SEARCH */}
@@ -228,14 +228,14 @@ export default function MovesPage() {
         />
 
         {/* COUNT */}
-        <div className="mb-2 text-[10px] opacity-70">
+        <div className="mb-2 text-xs text-black">
           Showing {rankings?.results.length || 0} players
           {rankings?.filtered_count && rankings.filtered_count > 0 && ` (of ${rankings.filtered_count} filtered)`}
         </div>
 
         {/* MOVE RANKINGS */}
-        <div key={`rankings-${move}`} className="border-2 border-black bg-[#C7D0B8] p-3">
-          <div className="text-xs font-bold border-b border-black pb-1 mb-2">
+        <div key={`rankings-${move}`} className="border-2 border-black bg-[#C7D0B8] p-3 shadow-[3px_3px_0px_black]">
+          <div className="text-xs font-bold border-b-2 border-black pb-1 mb-2 uppercase tracking-wide">
             {MOVE_TYPES.find(m => m.value === move)?.label} RANKINGS
           </div>
 
@@ -247,19 +247,19 @@ export default function MovesPage() {
           ) : rankings && rankings.results.length > 0 ? (
             <div className="space-y-1">
               {/* Table Header */}
-              <div className={`grid gap-2 text-[10px] font-bold border-b border-black pb-1 ${year ? "grid-cols-9" : "grid-cols-10"}`}>
+              <div className={`grid gap-2 text-xs font-bold border-b-2 border-black pb-1 ${year ? "grid-cols-9" : "grid-cols-10"}`}>
                 <div>PLAYER</div>
                 <div>TEAM</div>
                 <div>POS</div>
                 <div>HT</div>
                 {!year && <div>YEAR</div>}
-                <div 
+                <div
                   className="text-right cursor-pointer hover:underline"
                   onClick={() => handleSort("move_frequency_pctile")}
                 >
                   FREQ {sortBy === "move_frequency_pctile" ? (sortOrder === "desc" ? "↓" : "↑") : ""}
                 </div>
-                <div 
+                <div
                   className="text-right cursor-pointer hover:underline"
                   onClick={() => handleSort("move_efficiency")}
                 >
@@ -267,14 +267,14 @@ export default function MovesPage() {
                 </div>
                 <div className="text-right">PPP %</div>
                 <div className="text-right">GRADE</div>
-                <div 
+                <div
                   className="text-right cursor-pointer hover:underline"
                   onClick={() => handleSort("grade_score")}
                 >
                   SCORE {sortBy === "grade_score" ? (sortOrder === "desc" ? "↓" : "↑") : ""}
                 </div>
               </div>
-              
+
               {/* Table Rows */}
               {rankings.results.map((player, index) => {
                 const playerId = (player.AthleteSourceId || player['roster.ncaa_id'])?.toString().replace('.0', '');
@@ -282,29 +282,26 @@ export default function MovesPage() {
                   <Link
                     key={`${move}-${playerId || index}`}
                     href={`/player/${playerId}?year=${player.year}`}
-                    className={`grid gap-2 items-center border border-black p-2 bg-[#E7E8D1] hover:bg-[#dfe2c6] transition-colors ${year ? "grid-cols-9" : "grid-cols-10"}`}
-                    style={{
-                      animation: `fadeIn 0.3s ease-out ${index * 0.05}s both`
-                    }}
+                    className={`grid gap-2 items-center border-2 border-black p-2 bg-[#E7E8D1] hover:bg-[#B8C0A8] transition-colors ${year ? "grid-cols-9" : "grid-cols-10"}`}
                   >
                     <div className="font-bold">{player.rank || index + 1}. {player.player_name}</div>
-                    <div className="text-[10px] opacity-70">{player.team}</div>
-                    <div className="text-[10px] opacity-70">{player.Position || '-'}</div>
-                    <div className="text-[10px] opacity-70">{player.Height || '-'}</div>
-                    {!year && <div className="text-[10px] opacity-70">{player.year}</div>}
-                    <div className="text-right text-[10px]">
+                    <div className="text-xs text-black">{player.team}</div>
+                    <div className="text-xs text-black">{player.Position || '-'}</div>
+                    <div className="text-xs text-black">{player.Height || '-'}</div>
+                    {!year && <div className="text-xs text-black">{player.year}</div>}
+                    <div className="text-right text-xs">
                       {(player.move_frequency_pctile * 100).toFixed(0)}th %
                     </div>
                     <div className="text-right font-bold">
                       {player.move_efficiency?.toFixed(2)}
                     </div>
-                    <div className="text-right text-[10px]">
+                    <div className="text-right text-xs">
                       {(player.move_efficiency_pctile * 100).toFixed(0)}th %
                     </div>
                     <div className="text-right font-bold">
                       {player.grade}
                     </div>
-                    <div className="text-right text-[10px]">
+                    <div className="text-right text-xs">
                       {player.grade_score?.toFixed(3)}
                     </div>
                   </Link>
@@ -312,7 +309,7 @@ export default function MovesPage() {
               })}
             </div>
           ) : (
-            <div className="text-[10px] opacity-70">No rankings available</div>
+            <div className="text-xs text-black">No rankings available</div>
           )}
 
           {/* PAGINATION */}
@@ -321,14 +318,14 @@ export default function MovesPage() {
               <button
                 onClick={handlePrevPage}
                 disabled={page === 0}
-                className="px-4 py-2 border border-black bg-[#E7E8D1] hover:bg-[#dfe2c6] disabled:opacity-50 disabled:cursor-not-allowed text-xs"
+                className="px-4 py-2 border-2 border-black bg-[#E7E8D1] hover:bg-[#B8C0A8] disabled:opacity-50 disabled:cursor-not-allowed text-xs shadow-[3px_3px_0px_black]"
               >
                 Prev
               </button>
               <button
                 onClick={handleNextPage}
                 disabled={rankings.results.length < DEFAULT_PAGE_SIZE}
-                className="px-4 py-2 border border-black bg-[#E7E8D1] hover:bg-[#dfe2c6] disabled:opacity-50 disabled:cursor-not-allowed text-xs"
+                className="px-4 py-2 border-2 border-black bg-[#E7E8D1] hover:bg-[#B8C0A8] disabled:opacity-50 disabled:cursor-not-allowed text-xs shadow-[3px_3px_0px_black]"
               >
                 Next
               </button>

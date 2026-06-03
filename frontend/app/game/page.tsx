@@ -346,23 +346,23 @@ export default function GamePage() {
     <div className="min-h-screen bg-[#E7E8D1] p-4 font-mono text-xs">
       <div className="max-w-4xl mx-auto">
         <div className="flex justify-between items-center mb-4">
-          <h1 className="text-2xl font-bold">CBB Wikirace</h1>
+          <h1 className="text-xs font-bold uppercase tracking-wide">CBB Wikirace</h1>
           <button
             onClick={fetchGamePair}
-            className="px-4 py-2 bg-black text-white font-bold border-2 border-black hover:bg-gray-800"
+            className="px-4 py-2 bg-black text-white font-bold border-2 border-black hover:bg-gray-800 shadow-[3px_3px_0px_black]"
           >
             Refresh
           </button>
         </div>
-        <p className="mb-4 opacity-70">
+        <p className="mb-4 text-black">
           Connect the starting player to the ending player by entering players who were teammates.
         </p>
 
         {/* Filters Section */}
-        <div className="bg-white border-2 border-black p-4 mb-4">
+        <div className="bg-[#E7E8D1] border-2 border-black p-4 mb-4 shadow-[3px_3px_0px_black]">
           <button
             onClick={() => setShowFilters(!showFilters)}
-            className="w-full flex justify-between items-center font-bold mb-2"
+            className="w-full flex justify-between items-center font-bold mb-2 uppercase tracking-wide"
           >
             <span>Filters</span>
             <span>{showFilters ? '▼' : '▶'}</span>
@@ -372,7 +372,7 @@ export default function GamePage() {
             <div className="space-y-4">
               {/* Conference Filter */}
               <div>
-                <div className="font-bold mb-2">Conferences:</div>
+                <div className="font-bold mb-2 uppercase tracking-wide">Conferences:</div>
                 <div className="flex flex-wrap gap-2">
                   {availableConferences.map(conf => (
                     <button
@@ -387,7 +387,7 @@ export default function GamePage() {
                       className={`px-3 py-1 text-xs border-2 border-black ${
                         selectedConferences.includes(conf)
                           ? 'bg-black text-white'
-                          : 'bg-white'
+                          : 'bg-[#E7E8D1]'
                       }`}
                     >
                       {conf}
@@ -398,7 +398,7 @@ export default function GamePage() {
 
               {/* Year Filter */}
               <div>
-                <div className="font-bold mb-2">Years:</div>
+                <div className="font-bold mb-2 uppercase tracking-wide">Years:</div>
                 <div className="flex flex-wrap gap-2">
                   {availableYears.map(year => (
                     <button
@@ -413,7 +413,7 @@ export default function GamePage() {
                       className={`px-3 py-1 text-xs border-2 border-black ${
                         selectedYears.includes(year)
                           ? 'bg-black text-white'
-                          : 'bg-white'
+                          : 'bg-[#E7E8D1]'
                       }`}
                     >
                       {year}
@@ -424,7 +424,7 @@ export default function GamePage() {
 
               {/* Difficulty Filter */}
               <div>
-                <div className="font-bold mb-2">Target Distance:</div>
+                <div className="font-bold mb-2 uppercase tracking-wide">Target Distance:</div>
                 <div className="flex flex-wrap gap-2">
                   {[3, 4, 5, 6, 7, 8].map(distance => (
                     <button
@@ -433,14 +433,14 @@ export default function GamePage() {
                       className={`px-3 py-1 text-xs border-2 border-black ${
                         targetDistance === distance
                           ? 'bg-black text-white'
-                          : 'bg-white'
+                          : 'bg-[#E7E8D1]'
                       }`}
                     >
                       {distance}
                     </button>
                   ))}
                 </div>
-                <div className="text-[10px] opacity-70 mt-1">
+                <div className="text-xs text-black mt-1">
                   Exact shortest path length
                 </div>
               </div>
@@ -449,11 +449,11 @@ export default function GamePage() {
               <button
                 onClick={reloadGraph}
                 disabled={loading}
-                className="w-full bg-[#C7D0B8] border-2 border-black py-2 font-bold hover:bg-[#B7C4A8] disabled:opacity-50"
+                className="w-full bg-[#C7D0B8] border-2 border-black py-2 font-bold hover:bg-[#B8C0A8] disabled:opacity-50 shadow-[3px_3px_0px_black]"
               >
                 {loading ? 'Applying Filters...' : 'Apply Filters & Reload'}
               </button>
-              
+
               {/* Clear Filters Button */}
               {(selectedConferences.length > 0 || selectedYears.length > 0) && (
                 <button
@@ -462,7 +462,7 @@ export default function GamePage() {
                     setSelectedYears([]);
                     reloadGraph();
                   }}
-                  className="w-full bg-white border-2 border-black py-2 font-bold hover:bg-gray-100"
+                  className="w-full bg-[#E7E8D1] border-2 border-black py-2 font-bold hover:bg-[#B8C0A8] shadow-[3px_3px_0px_black]"
                 >
                   Clear All Filters
                 </button>
@@ -476,11 +476,11 @@ export default function GamePage() {
         )}
 
         {error && !gamePair && (
-          <div className="bg-red-100 border-2 border-black p-4 mb-4">
+          <div className="bg-[#E7E8D1] border-2 border-black p-4 mb-4 shadow-[3px_3px_0px_black]">
             {error}
             <button
               onClick={fetchGamePair}
-              className="ml-4 px-2 py-1 bg-black text-white"
+              className="ml-4 px-2 py-1 bg-black text-white border-2 border-black shadow-[3px_3px_0px_black]"
             >
               Retry
             </button>
@@ -490,17 +490,16 @@ export default function GamePage() {
         {gamePair && (
           <div className="space-y-4">
             {/* Game Status Bar */}
-            <div className="bg-[#C7D0B8] border-2 border-black p-3 flex justify-between items-center" style={{ animation: 'fadeIn 0.5s ease-out' }}>
-              <div className="font-bold">Target Distance: {gamePair.distance}</div>
-              <div className="font-bold">Time: {formatTime(timeElapsed)}</div>
+            <div className="bg-[#C7D0B8] border-2 border-black p-3 flex justify-between items-center shadow-[3px_3px_0px_black]">
+              <div className="font-bold uppercase tracking-wide">Target Distance: {gamePair.distance}</div>
+              <div className="font-bold uppercase tracking-wide">Time: {formatTime(timeElapsed)}</div>
             </div>
 
             {/* Controls */}
             {!gameStarted && !gameEnded && (
               <button
                 onClick={startGame}
-                className="w-full bg-black text-white py-3 font-bold border-2 border-black hover:bg-gray-800 transition-all duration-300 hover:scale-105 active:scale-95"
-                style={{ animation: 'fadeIn 0.6s ease-out 0.4s both' }}
+                className="w-full bg-black text-white py-3 font-bold border-2 border-black hover:bg-gray-800 shadow-[3px_3px_0px_black]"
               >
                 Start Game
               </button>
@@ -509,8 +508,7 @@ export default function GamePage() {
             {gameStarted && (
               <button
                 onClick={giveUp}
-                className="w-full bg-red-600 text-white py-3 font-bold border-2 border-black hover:bg-red-700 transition-all duration-300 hover:scale-105 active:scale-95"
-                style={{ animation: 'pulse 2s ease-in-out infinite' }}
+                className="w-full bg-red-600 text-white py-3 font-bold border-2 border-black hover:bg-red-700 shadow-[3px_3px_0px_black]"
               >
                 Give Up
               </button>
@@ -519,16 +517,15 @@ export default function GamePage() {
             {gameEnded && (
               <button
                 onClick={fetchGamePair}
-                className="w-full bg-black text-white py-3 font-bold border-2 border-black hover:bg-gray-800 transition-all duration-300 hover:scale-105 active:scale-95"
-                style={{ animation: 'bounce 1s ease-in-out' }}
+                className="w-full bg-black text-white py-3 font-bold border-2 border-black hover:bg-gray-800 shadow-[3px_3px_0px_black]"
               >
                 New Game
               </button>
             )}
 
             {/* Player Chain Visualization with Collectible Cards */}
-            <div className="bg-white border-2 border-black p-6">
-              <h2 className="font-bold mb-4 text-center">Your Path:</h2>
+            <div className="bg-[#E7E8D1] border-2 border-black p-6 shadow-[3px_3px_0px_black]">
+              <h2 className="font-bold mb-4 text-center uppercase tracking-wide">Your Path:</h2>
               <div className="flex flex-wrap justify-center items-center gap-4">
                 {playerChain.map((player, index) => (
                   <div key={getPlayerId(player)} className="flex items-center gap-4">
@@ -541,7 +538,6 @@ export default function GamePage() {
                         transition-all duration-300
                       `}
                       style={{
-                        animation: `fadeIn 0.4s ease-out ${index * 0.1}s both`,
                         width: '144px',
                         height: '192px'
                       }}
@@ -550,7 +546,7 @@ export default function GamePage() {
                       <div className={`card-flip-inner ${flippedCards.has(index) ? 'flipped' : ''}`}>
                         {/* Front of card */}
                         <div
-                          className="card-flip-front relative w-36 h-48 border-4 border-black rounded-lg shadow-[4px_4px_0px_black] hover:shadow-[6px_6px_0px_black] hover:scale-105 transition-all duration-300 overflow-hidden bg-white"
+                          className="card-flip-front relative w-36 h-48 border-2 border-black shadow-[3px_3px_0px_black] hover:shadow-[3px_3px_0px_black] transition-all duration-300 overflow-hidden bg-[#E7E8D1]"
                         >
                           {/* Card header with team primary color */}
                           <div
@@ -559,40 +555,40 @@ export default function GamePage() {
                               backgroundColor: getTeamColor(getPlayerTeams(player)[0] || '').primary
                             }}
                           >
-                            <div className="text-[10px] font-bold tracking-wider truncate">
+                            <div className="text-xs font-bold tracking-wider truncate uppercase">
                               {getPlayerTeams(player)[0] || 'Unknown'}
                             </div>
                           </div>
 
                           {/* Player info */}
-                          <div className="p-3 flex flex-col items-center text-center bg-white">
+                          <div className="p-3 flex flex-col items-center text-center bg-[#E7E8D1]">
                             {/* Player name */}
-                            <div className="font-bold text-sm text-black mb-1 line-clamp-2 leading-tight">
+                            <div className="font-bold text-xs text-black mb-1 line-clamp-2 leading-tight">
                               {getPlayerName(player)}
                             </div>
 
                             {/* Position */}
                             {player.Position && (
-                              <div className="text-[9px] text-black/70 font-bold mb-1">
+                              <div className="text-xs text-black font-bold mb-1">
                                 {player.Position}
                               </div>
                             )}
 
                             {/* Team */}
                             {getPlayerTeams(player).length > 0 && (
-                              <div className="text-[10px] text-black/80 font-medium mb-1 truncate">
+                              <div className="text-xs text-black font-medium mb-1 truncate">
                                 {getPlayerTeams(player)[0]}
                               </div>
                             )}
 
                             {/* Year */}
                             {getPlayerYears(player).length > 0 && (
-                              <div className="text-[10px] text-black/60 font-bold">
+                              <div className="text-xs text-black font-bold">
                                 {getPlayerYears(player)[0]}
                               </div>
                             )}
 
-                            <div className="text-[8px] text-black/40 mt-2 italic">
+                            <div className="text-xs text-black mt-2 italic">
                               Click for more info
                             </div>
                           </div>
@@ -606,14 +602,14 @@ export default function GamePage() {
                           ></div>
 
                           {/* Step number badge */}
-                          <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-black text-white text-[11px] font-bold flex items-center justify-center border-2 border-white shadow-md">
+                          <div className="absolute -top-2 -right-2 w-7 h-7 bg-black text-white text-xs font-bold flex items-center justify-center border-2 border-white shadow-[3px_3px_0px_black]">
                             {index + 1}
                           </div>
                         </div>
 
                         {/* Back of card */}
                         <div
-                          className="card-flip-back relative w-36 h-48 border-4 border-black rounded-lg shadow-[4px_4px_0px_black] overflow-hidden bg-white"
+                          className="card-flip-back relative w-36 h-48 border-2 border-black shadow-[3px_3px_0px_black] overflow-hidden bg-[#E7E8D1]"
                         >
                           {/* Card header with team primary color */}
                           <div
@@ -622,45 +618,45 @@ export default function GamePage() {
                               backgroundColor: getTeamColor(getPlayerTeams(player)[0] || '').primary
                             }}
                           >
-                            <div className="text-[10px] font-bold tracking-wider truncate">
+                            <div className="text-xs font-bold tracking-wider truncate uppercase">
                               {getPlayerName(player)}
                             </div>
                           </div>
 
                           {/* Player details */}
-                          <div className="p-3 flex flex-col items-center text-center bg-white">
+                          <div className="p-3 flex flex-col items-center text-center bg-[#E7E8D1]">
                             {/* Height */}
                             {player.roster_height && (
-                              <div className="text-[9px] text-black mb-1">
+                              <div className="text-xs text-black mb-1">
                                 <span className="font-bold">Height:</span> {player.roster_height}
                               </div>
                             )}
                             {/* Hometown */}
                             {player.hometown && (
-                              <div className="text-[9px] text-black mb-1 truncate">
+                              <div className="text-xs text-black mb-1 truncate">
                                 <span className="font-bold">From:</span> {player.hometown}
                               </div>
                             )}
                             {/* Conference */}
                             {player.conf && (
-                              <div className="text-[9px] text-black mb-1 truncate">
+                              <div className="text-xs text-black mb-1 truncate">
                                 <span className="font-bold">Conf:</span> {player.conf}
                               </div>
                             )}
                             {/* Additional teams */}
                             {getPlayerTeams(player).length > 1 && (
-                              <div className="text-[8px] text-black/70 truncate mt-2">
+                              <div className="text-xs text-black truncate mt-2">
                                 <span className="font-bold">Also:</span> {getPlayerTeams(player).slice(1).join(', ')}
                               </div>
                             )}
                             {/* Additional years */}
                             {getPlayerYears(player).length > 1 && (
-                              <div className="text-[8px] text-black/70">
+                              <div className="text-xs text-black">
                                 <span className="font-bold">Years:</span> {getPlayerYears(player).join(', ')}
                               </div>
                             )}
 
-                            <div className="text-[8px] text-black/40 mt-2 italic">
+                            <div className="text-xs text-black mt-2 italic">
                               Click to flip back
                             </div>
                           </div>
@@ -674,34 +670,34 @@ export default function GamePage() {
                           ></div>
 
                           {/* Step number badge */}
-                          <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-black text-white text-[11px] font-bold flex items-center justify-center border-2 border-white shadow-md">
+                          <div className="absolute -top-2 -right-2 w-7 h-7 bg-black text-white text-xs font-bold flex items-center justify-center border-2 border-white shadow-[3px_3px_0px_black]">
                             {index + 1}
                           </div>
                         </div>
                       </div>
                     </div>
-                    {index < playerChain.length - 1 && <div className="text-2xl font-bold text-black/60">→</div>}
+                    {index < playerChain.length - 1 && <div className="text-xs font-bold text-black">→</div>}
                   </div>
                 ))}
                 
                 {/* Target Card */}
                 {!gameEnded && (
                   <>
-                    <div className="text-2xl font-bold text-black/60">→</div>
+                    <div className="text-xs font-bold text-black">→</div>
                     <div
-                      className="relative w-36 h-48 border-4 border-dashed border-red-500 rounded-lg shadow-[4px_4px_0px_black] opacity-70 flex flex-col items-center justify-center p-2 bg-red-50"
+                      className="relative w-36 h-48 border-2 border-dashed border-red-500 shadow-[3px_3px_0px_black] opacity-70 flex flex-col items-center justify-center p-2 bg-[#E7E8D1]"
                     >
-                      <div className="text-[10px] font-bold text-red-600 mb-2">TARGET</div>
-                      <div className="font-bold text-sm text-black mb-1 line-clamp-2 leading-tight text-center">
+                      <div className="text-xs font-bold text-red-600 mb-2 uppercase tracking-wide">TARGET</div>
+                      <div className="font-bold text-xs text-black mb-1 line-clamp-2 leading-tight text-center">
                         {getPlayerName(gamePair.end_player)}
                       </div>
                       {getPlayerTeams(gamePair.end_player).length > 0 && (
-                        <div className="text-[9px] text-black/70 truncate text-center">
+                        <div className="text-xs text-black truncate text-center">
                           {getPlayerTeams(gamePair.end_player)[0]}
                         </div>
                       )}
                       {getPlayerYears(gamePair.end_player).length > 0 && (
-                        <div className="text-[9px] text-black/60 font-bold text-center">
+                        <div className="text-xs text-black font-bold text-center">
                           {getPlayerYears(gamePair.end_player)[0]}
                         </div>
                       )}
@@ -713,31 +709,30 @@ export default function GamePage() {
 
             {/* Input */}
             {gameStarted && (
-              <div ref={searchInputRef} className="relative" style={{ animation: 'fadeIn 0.5s ease-out' }}>
+              <div ref={searchInputRef} className="relative">
                 <input
                   type="text"
                   value={currentInput}
                   onChange={handleInputChange}
                   placeholder="Enter a teammate of the current player..."
-                  className="w-full border-2 border-black p-3 font-mono bg-white focus:ring-2 focus:ring-black/20 transition-all duration-300"
+                  className="w-full border-2 border-black p-3 font-mono bg-[#E7E8D1] focus:shadow-[3px_3px_0px_black]"
                   autoFocus
                 />
 
                 {showSearchResults && searchResults.length > 0 && (
-                  <div className="absolute top-full left-0 right-0 bg-white border-2 border-black border-t-0 max-h-60 overflow-y-auto z-10" style={{ animation: 'fadeIn 0.3s ease-out' }}>
+                  <div className="absolute top-full left-0 right-0 bg-[#E7E8D1] border-2 border-black border-t-0 max-h-60 overflow-y-auto z-10 shadow-[3px_3px_0px_black]">
                     {searchResults.map((player, index) => (
                       <div
                         key={getPlayerId(player)}
                         onClick={() => selectPlayer(player)}
-                        className="p-3 hover:bg-[#E7E8D1] cursor-pointer border-b border-black last:border-b-0 transition-all duration-200 hover:scale-102"
-                        style={{ animation: `slideInLeft 0.2s ease-out ${index * 0.05}s both` }}
+                        className="p-3 hover:bg-[#B8C0A8] cursor-pointer border-b-2 border-black last:border-b-0"
                       >
                         <div className="font-bold">{getPlayerName(player)}</div>
                         {getPlayerTeams(player).length > 0 && (
-                          <div className="opacity-70 text-[10px]">{getPlayerTeams(player).slice(0, 3).join(', ')}{getPlayerTeams(player).length > 3 ? '...' : ''}</div>
+                          <div className="text-xs text-black">{getPlayerTeams(player).slice(0, 3).join(', ')}{getPlayerTeams(player).length > 3 ? '...' : ''}</div>
                         )}
                         {getPlayerYears(player).length > 0 && (
-                          <div className="opacity-70 text-[10px]">{getPlayerYears(player).join(', ')}</div>
+                          <div className="text-xs text-black">{getPlayerYears(player).join(', ')}</div>
                         )}
                       </div>
                     ))}
@@ -748,15 +743,15 @@ export default function GamePage() {
 
             {/* Error message */}
             {error && (
-              <div className="bg-red-100 border-2 border-black p-3 animate-shake">
+              <div className="bg-[#E7E8D1] border-2 border-black p-3 shadow-[3px_3px_0px_black]">
                 {error}
               </div>
             )}
 
             {/* Success message */}
             {gameEnded && playerChain[playerChain.length - 1].id === gamePair.end_player.id && (
-              <div className="bg-green-100 border-2 border-black p-4">
-                <div className="font-bold text-center text-lg">Congratulations! You completed the path!</div>
+              <div className="bg-[#E7E8D1] border-2 border-black p-4 shadow-[3px_3px_0px_black]">
+                <div className="font-bold text-center uppercase tracking-wide">Congratulations! You completed the path!</div>
                 <div className="text-center mt-2">Time: {formatTime(timeElapsed)}</div>
                 <div className="text-center">Steps: {playerChain.length - 1}</div>
               </div>
@@ -764,8 +759,8 @@ export default function GamePage() {
 
             {/* Shortest path (when gave up) */}
             {shortestPath && (
-              <div className="bg-yellow-100 border-2 border-black p-4">
-                <h2 className="font-bold mb-3 text-center">Shortest Path:</h2>
+              <div className="bg-[#E7E8D1] border-2 border-black p-4 shadow-[3px_3px_0px_black]">
+                <h2 className="font-bold mb-3 text-center uppercase tracking-wide">Shortest Path:</h2>
                 <div className="flex flex-wrap justify-center items-center gap-4">
                   {shortestPath.map((player, index) => (
                     <div key={getPlayerId(player)} className="flex items-center gap-4">
@@ -776,7 +771,6 @@ export default function GamePage() {
                           transition-all duration-300
                         `}
                         style={{
-                          animation: `fadeIn 0.4s ease-out ${index * 0.1}s both`,
                           width: '144px',
                           height: '192px'
                         }}
@@ -785,7 +779,7 @@ export default function GamePage() {
                         <div className={`card-flip-inner ${flippedCards.has(`shortest-${index}`) ? 'flipped' : ''}`}>
                           {/* Front of card */}
                           <div
-                            className="card-flip-front relative w-36 h-48 border-4 border-black rounded-lg shadow-[4px_4px_0px_black] hover:shadow-[6px_6px_0px_black] hover:scale-105 transition-all duration-300 overflow-hidden bg-white"
+                            className="card-flip-front relative w-36 h-48 border-2 border-black shadow-[3px_3px_0px_black] hover:shadow-[3px_3px_0px_black] transition-all duration-300 overflow-hidden bg-[#E7E8D1]"
                           >
                             {/* Card header with team primary color */}
                             <div
@@ -794,40 +788,40 @@ export default function GamePage() {
                                 backgroundColor: getTeamColor(getPlayerTeams(player)[0] || '').primary
                               }}
                             >
-                              <div className="text-[10px] font-bold tracking-wider truncate">
+                              <div className="text-xs font-bold tracking-wider truncate uppercase">
                                 {getPlayerTeams(player)[0] || 'Unknown'}
                               </div>
                             </div>
 
                             {/* Player info */}
-                            <div className="p-3 flex flex-col items-center text-center bg-white">
+                            <div className="p-3 flex flex-col items-center text-center bg-[#E7E8D1]">
                               {/* Player name */}
-                              <div className="font-bold text-sm text-black mb-1 line-clamp-2 leading-tight">
+                              <div className="font-bold text-xs text-black mb-1 line-clamp-2 leading-tight">
                                 {getPlayerName(player)}
                               </div>
 
                               {/* Position */}
                               {player.Position && (
-                                <div className="text-[9px] text-black/70 font-bold mb-1">
+                                <div className="text-xs text-black font-bold mb-1">
                                   {player.Position}
                                 </div>
                               )}
 
                               {/* Team */}
                               {getPlayerTeams(player).length > 0 && (
-                                <div className="text-[10px] text-black/80 font-medium mb-1 truncate">
+                                <div className="text-xs text-black font-medium mb-1 truncate">
                                   {getPlayerTeams(player)[0]}
                                 </div>
                               )}
 
                               {/* Year */}
                               {getPlayerYears(player).length > 0 && (
-                                <div className="text-[10px] text-black/60 font-bold">
+                                <div className="text-xs text-black font-bold">
                                   {getPlayerYears(player)[0]}
                                 </div>
                               )}
 
-                              <div className="text-[8px] text-black/40 mt-2 italic">
+                              <div className="text-xs text-black mt-2 italic">
                                 Click for more info
                               </div>
                             </div>
@@ -841,14 +835,14 @@ export default function GamePage() {
                             ></div>
 
                             {/* Step number badge */}
-                            <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-black text-white text-[11px] font-bold flex items-center justify-center border-2 border-white shadow-md">
+                            <div className="absolute -top-2 -right-2 w-7 h-7 bg-black text-white text-xs font-bold flex items-center justify-center border-2 border-white shadow-[3px_3px_0px_black]">
                               {index + 1}
                             </div>
                           </div>
 
                           {/* Back of card */}
                           <div
-                            className="card-flip-back relative w-36 h-48 border-4 border-black rounded-lg shadow-[4px_4px_0px_black] overflow-hidden bg-white"
+                            className="card-flip-back relative w-36 h-48 border-2 border-black shadow-[3px_3px_0px_black] overflow-hidden bg-[#E7E8D1]"
                           >
                             {/* Card header with team primary color */}
                             <div
@@ -857,45 +851,45 @@ export default function GamePage() {
                                 backgroundColor: getTeamColor(getPlayerTeams(player)[0] || '').primary
                               }}
                             >
-                              <div className="text-[10px] font-bold tracking-wider truncate">
+                              <div className="text-xs font-bold tracking-wider truncate uppercase">
                                 {getPlayerName(player)}
                               </div>
                             </div>
 
                             {/* Player details */}
-                            <div className="p-3 flex flex-col items-center text-center bg-white">
+                            <div className="p-3 flex flex-col items-center text-center bg-[#E7E8D1]">
                               {/* Height */}
                               {player.roster_height && (
-                                <div className="text-[9px] text-black mb-1">
+                                <div className="text-xs text-black mb-1">
                                   <span className="font-bold">Height:</span> {player.roster_height}
                                 </div>
                               )}
                               {/* Hometown */}
                               {player.hometown && (
-                                <div className="text-[9px] text-black mb-1 truncate">
+                                <div className="text-xs text-black mb-1 truncate">
                                   <span className="font-bold">From:</span> {player.hometown}
                                 </div>
                               )}
                               {/* Conference */}
                               {player.conf && (
-                                <div className="text-[9px] text-black mb-1 truncate">
+                                <div className="text-xs text-black mb-1 truncate">
                                   <span className="font-bold">Conf:</span> {player.conf}
                                 </div>
                               )}
                               {/* Additional teams */}
                               {getPlayerTeams(player).length > 1 && (
-                                <div className="text-[8px] text-black/70 truncate mt-2">
+                                <div className="text-xs text-black truncate mt-2">
                                   <span className="font-bold">Also:</span> {getPlayerTeams(player).slice(1).join(', ')}
                                 </div>
                               )}
                               {/* Additional years */}
                               {getPlayerYears(player).length > 1 && (
-                                <div className="text-[8px] text-black/70">
+                                <div className="text-xs text-black">
                                   <span className="font-bold">Years:</span> {getPlayerYears(player).join(', ')}
                                 </div>
                               )}
 
-                              <div className="text-[8px] text-black/40 mt-2 italic">
+                              <div className="text-xs text-black mt-2 italic">
                                 Click to flip back
                               </div>
                             </div>
@@ -909,17 +903,17 @@ export default function GamePage() {
                             ></div>
 
                             {/* Step number badge */}
-                            <div className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-black text-white text-[11px] font-bold flex items-center justify-center border-2 border-white shadow-md">
+                            <div className="absolute -top-2 -right-2 w-7 h-7 bg-black text-white text-xs font-bold flex items-center justify-center border-2 border-white shadow-[3px_3px_0px_black]">
                               {index + 1}
                             </div>
                           </div>
                         </div>
                       </div>
-                      {index < shortestPath.length - 1 && <div className="text-2xl font-bold text-black/60">→</div>}
+                      {index < shortestPath.length - 1 && <div className="text-xs font-bold text-black">→</div>}
                     </div>
                   ))}
                 </div>
-                <div className="mt-3 font-bold text-center">
+                <div className="mt-3 font-bold text-center uppercase tracking-wide">
                   Optimal steps: {shortestPath.length - 1}
                 </div>
               </div>

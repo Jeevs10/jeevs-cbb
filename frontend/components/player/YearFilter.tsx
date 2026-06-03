@@ -28,7 +28,7 @@ export const YearFilter = React.memo(function YearFilter({ years, selectedYear, 
     return (
       <div className="mb-3">
         <div className="animate-pulse">
-          <div className="h-8 w-32 bg-gray-300 border border-gray-400"></div>
+          <div className="h-8 w-32 bg-[#C7D0B8] border-2 border-black"></div>
         </div>
       </div>
     );
@@ -39,7 +39,7 @@ export const YearFilter = React.memo(function YearFilter({ years, selectedYear, 
       <select
         value={selectedYear === null ? "all" : String(selectedYear)}
         onChange={handleYearChange}
-        className="px-2 py-1 border bg-white text-xs font-mono"
+        className="px-2 py-1 border-2 border-black bg-[#C7D0B8] text-xs font-mono shadow-[3px_3px_0px_black]"
       >
         <option value="all">All Years</option>
         {years.map((year) => (

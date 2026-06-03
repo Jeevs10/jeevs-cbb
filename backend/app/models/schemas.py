@@ -117,7 +117,7 @@ class PlayerResponse(BaseResponse):
 
 # Query parameter models
 class PlayerQueryParams(BaseModel):
-    limit: int = Field(default=50, ge=1, le=100)
+    limit: int = Field(default=50, ge=1, le=5000)
     offset: int = Field(default=0, ge=0)
     sort: str = Field(default="adj_rapm_margin")
     order: str = Field(default="desc", pattern="^(asc|desc)$")
