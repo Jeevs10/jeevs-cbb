@@ -200,20 +200,25 @@ def load_all_players():
     
     # Calculate per-game stats for enriched players if not present
     if not enriched_df.empty:
+        new_cols = {}
         if 'PPG' not in enriched_df.columns and 'Points' in enriched_df.columns and 'Games' in enriched_df.columns:
-            enriched_df['PPG'] = (enriched_df['Points'] / enriched_df['Games']).round(1)
+            new_cols['PPG'] = (enriched_df['Points'] / enriched_df['Games']).round(1)
         if 'RPG' not in enriched_df.columns and 'Rebounds Total' in enriched_df.columns and 'Games' in enriched_df.columns:
-            enriched_df['RPG'] = (enriched_df['Rebounds Total'] / enriched_df['Games']).round(1)
+            new_cols['RPG'] = (enriched_df['Rebounds Total'] / enriched_df['Games']).round(1)
         if 'APG' not in enriched_df.columns and 'Assists' in enriched_df.columns and 'Games' in enriched_df.columns:
-            enriched_df['APG'] = (enriched_df['Assists'] / enriched_df['Games']).round(1)
+            new_cols['APG'] = (enriched_df['Assists'] / enriched_df['Games']).round(1)
         
         # Handle division by zero
-        if 'PPG' in enriched_df.columns:
-            enriched_df['PPG'] = enriched_df['PPG'].fillna(0)
-        if 'RPG' in enriched_df.columns:
-            enriched_df['RPG'] = enriched_df['RPG'].fillna(0)
-        if 'APG' in enriched_df.columns:
-            enriched_df['APG'] = enriched_df['APG'].fillna(0)
+        if 'PPG' in new_cols:
+            new_cols['PPG'] = new_cols['PPG'].fillna(0)
+        if 'RPG' in new_cols:
+            new_cols['RPG'] = new_cols['RPG'].fillna(0)
+        if 'APG' in new_cols:
+            new_cols['APG'] = new_cols['APG'].fillna(0)
+        
+        # Add all columns at once to avoid fragmentation
+        if new_cols:
+            enriched_df = pd.concat([enriched_df, pd.DataFrame(new_cols, index=enriched_df.index)], axis=1)
     
     # Combine datasets, enriched data takes precedence
     # Use roster.ncaa_id/AthleteSourceId as the key
