@@ -88,20 +88,20 @@ app.add_middleware(
 # -------------------------
 # ROUTES
 # -------------------------
-app.include_router(players_router, prefix="/api/v1", tags=["players"], dependencies=[Depends(limiter.limit("100/minute"))])
-app.include_router(teams_router, prefix="/api/v1", tags=["teams"], dependencies=[Depends(limiter.limit("100/minute"))])
-app.include_router(moves_router, prefix="/api/v1", tags=["moves"], dependencies=[Depends(limiter.limit("100/minute"))])
-app.include_router(badges_router, prefix="/api/v1", tags=["badges"], dependencies=[Depends(limiter.limit("100/minute"))])
-app.include_router(radar_router, prefix="/api/v1", tags=["radar"], dependencies=[Depends(limiter.limit("100/minute"))])
-app.include_router(sim_router, prefix="/api/v1", tags=["similarity"], dependencies=[Depends(limiter.limit("100/minute"))])
-app.include_router(years_router, prefix="/api/v1", tags=["years"], dependencies=[Depends(limiter.limit("100/minute"))])
-app.include_router(evolution_router, prefix="/api/v1", tags=["evolution"], dependencies=[Depends(limiter.limit("100/minute"))])
-app.include_router(history_router, prefix="/api/v1", tags=["history"], dependencies=[Depends(limiter.limit("100/minute"))])
-app.include_router(game_router, prefix="/api/v1", tags=["game"], dependencies=[Depends(limiter.limit("100/minute"))])
-app.include_router(utilization_router, prefix="/api/v1", tags=["utilization"], dependencies=[Depends(limiter.limit("100/minute"))])
-app.include_router(nil_router, prefix="/api/v1", tags=["nil"], dependencies=[Depends(limiter.limit("100/minute"))])
-app.include_router(projections_router, prefix="/api/v1", tags=["projections"], dependencies=[Depends(limiter.limit("100/minute"))])
-app.include_router(clusters_router, prefix="/api/v1", tags=["clusters"], dependencies=[Depends(limiter.limit("100/minute"))])
+app.include_router(players_router, prefix="/api/v1", tags=["players"])
+app.include_router(teams_router, prefix="/api/v1", tags=["teams"])
+app.include_router(moves_router, prefix="/api/v1", tags=["moves"])
+app.include_router(badges_router, prefix="/api/v1", tags=["badges"])
+app.include_router(radar_router, prefix="/api/v1", tags=["radar"])
+app.include_router(sim_router, prefix="/api/v1", tags=["similarity"])
+app.include_router(years_router, prefix="/api/v1", tags=["years"])
+app.include_router(evolution_router, prefix="/api/v1", tags=["evolution"])
+app.include_router(history_router, prefix="/api/v1", tags=["history"])
+app.include_router(game_router, prefix="/api/v1", tags=["game"])
+app.include_router(utilization_router, prefix="/api/v1", tags=["utilization"])
+app.include_router(nil_router, prefix="/api/v1", tags=["nil"])
+app.include_router(projections_router, prefix="/api/v1", tags=["projections"])
+app.include_router(clusters_router, prefix="/api/v1", tags=["clusters"])
 
 # -------------------------
 # HEALTH CHECK
