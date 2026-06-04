@@ -267,9 +267,11 @@ def load_all_players():
         if available_torvik_cols:
             torvik_map = torvik_df.set_index('_bpm_key')[available_torvik_cols].to_dict('index')
             
-            
-            combined['_bpm_key'] = combined['player_key'].astype(str) + '_' + combined['year'].astype(str)
-            
+            # Add _bpm_key column using concat to avoid fragmentation
+            bpm_key_col = pd.DataFrame({
+                '_bpm_key': combined['player_key'].astype(str) + '_' + combined['year'].astype(str)
+            }, index=combined.index)
+            combined = pd.concat([combined, bpm_key_col], axis=1)
             
             def get_torvik_values(row):
                 key = row['_bpm_key']
