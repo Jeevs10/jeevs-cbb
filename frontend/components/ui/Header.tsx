@@ -9,9 +9,11 @@ export function Header() {
   const [playerDropdownOpen, setPlayerDropdownOpen] = useState(false);
   const [teamDropdownOpen, setTeamDropdownOpen] = useState(false);
   const [projectionsDropdownOpen, setProjectionsDropdownOpen] = useState(false);
+  const [clustersDropdownOpen, setClustersDropdownOpen] = useState(false);
   const playerTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const teamTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const projectionsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const clustersTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handlePlayerMouseEnter = () => {
     if (playerTimeoutRef.current) {
@@ -52,6 +54,20 @@ export function Header() {
   const handleProjectionsMouseLeave = () => {
     projectionsTimeoutRef.current = setTimeout(() => {
       setProjectionsDropdownOpen(false);
+    }, 200);
+  };
+
+  const handleClustersMouseEnter = () => {
+    if (clustersTimeoutRef.current) {
+      clearTimeout(clustersTimeoutRef.current);
+      clustersTimeoutRef.current = null;
+    }
+    setClustersDropdownOpen(true);
+  };
+
+  const handleClustersMouseLeave = () => {
+    clustersTimeoutRef.current = setTimeout(() => {
+      setClustersDropdownOpen(false);
     }, 200);
   };
 
@@ -150,6 +166,8 @@ export function Header() {
               Game
             </Link>
 
+
+
             {/* Projections Dropdown */}
             <div
               className="relative"
@@ -161,39 +179,48 @@ export function Header() {
               </button>
               {projectionsDropdownOpen && (
                 <div className="absolute top-full left-0 mt-1 bg-[#E7E8D1] border-2 border-black shadow-[3px_3px_0px_black] z-10">
-                  <Link
-                    href="/projections/2027"
+            <Link
+              href="/projections/2027"
                     className="block px-4 py-2 text-xs hover:bg-[#B8C0A8]"
-                  >
-                    2027 Projections
-                  </Link>
-                  <Link
-                    href="/projections/leaderboard"
+            >
+              2027 Projections
+            </Link>
+            <Link
+              href="/projections/leaderboard"
                     className="block px-4 py-2 text-xs hover:bg-[#B8C0A8]"
-                  >
-                    Projection Leaderboard
-                  </Link>
+            >
+              Projection Leaderboard
+            </Link>
                 </div>
               )}
             </div>
 
-            <Link
-              href="/clusters"
-              className={`text-xs font-medium transition-colors hover:underline ${
-                pathname === "/clusters" ? "text-black" : "text-black"
-              }`}
+            {/* Clusters Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={handleClustersMouseEnter}
+              onMouseLeave={handleClustersMouseLeave}
             >
-              Cluster Analysis
-            </Link>
-
-            <Link
-              href="/clusters/leaderboard"
-              className={`text-xs font-medium transition-colors hover:underline ${
-                pathname === "/clusters/leaderboard" ? "text-black" : "text-black"
-              }`}
-            >
-              Cluster Leaderboard
-            </Link>
+              <button className="text-xs font-medium transition-colors hover:underline text-black">
+                Clusters
+              </button>
+              {clustersDropdownOpen && (
+                <div className="absolute top-full left-0 mt-1 bg-[#E7E8D1] border-2 border-black shadow-[3px_3px_0px_black] z-10">
+                  <Link
+                    href="/clusters"
+                    className="block px-4 py-2 text-xs hover:bg-[#B8C0A8]"
+                  >
+                    Cluster Analysis
+                  </Link>
+                  <Link
+                    href="/clusters/leaderboard"
+                    className="block px-4 py-2 text-xs hover:bg-[#B8C0A8]"
+                  >
+                    Cluster Leaderboard
+                  </Link>
+                </div>
+              )}
+            </div>
           </nav>
         </div>
       </div>

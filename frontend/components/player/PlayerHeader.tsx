@@ -34,7 +34,7 @@ export default function PlayerHeader({ player }) {
 
     fetchPlayerBadges(playerCode)
       .then(setBadges)
-      .catch(console.error);
+      .catch(() => {});
   }, [playerCode]);
 
   const isBasicPlayer = player?.data_tier === "basic";

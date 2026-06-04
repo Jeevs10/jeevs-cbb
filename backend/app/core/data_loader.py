@@ -14,14 +14,11 @@ def read_csv_with_compression(csv_path: Path) -> pd.DataFrame:
     
     # Try gzip first if it exists
     if gz_path.exists():
-        print(f"Reading compressed file: {gz_path.name}")
         return pd.read_csv(gz_path, compression='gzip')
     # Fall back to uncompressed CSV
     elif csv_path.exists():
-        print(f"Reading uncompressed file: {csv_path.name}")
         return pd.read_csv(csv_path)
     else:
-        print(f"Warning: File not found: {csv_path}")
         return pd.DataFrame()
 
 def load_enriched_players():
@@ -39,10 +36,8 @@ def load_enriched_players():
             else:
                 df_year["year"] = year
             dfs.append(df_year)
-            print(f"Loaded {year} enriched players: {len(df_year)} players")
     
     if not dfs:
-        print("Warning: No enriched player files found")
         return pd.DataFrame()
     
     df = pd.concat(dfs, ignore_index=True)
@@ -68,10 +63,8 @@ def load_roster_info():
             # Filter out players without conferences
             df_year = df_year[df_year['Conference'].notna() & (df_year['Conference'] != '')]
             dfs.append(df_year)
-            print(f"Loaded {year} roster info: {len(df_year)} entries (filtered by conference)")
     
     if not dfs:
-        print("Warning: No roster info files found")
         return pd.DataFrame()
     
     df = pd.concat(dfs, ignore_index=True)
@@ -87,7 +80,6 @@ def load_basic_players():
     """Load all players with basic stats (complete coverage)"""
     dfs = []
     
-    print("Loading basic players...")
     
     # Load all available years (2019-2026)
     for year in range(2019, 2027):
@@ -97,7 +89,6 @@ def load_basic_players():
         if not df_year.empty:
             df_year["year"] = year
             dfs.append(df_year)
-            print(f"Loaded {year} basic players: {len(df_year)} players")
         else:
             # Try old format (players.csv)
             csv_path_old = PLAYERS_DIR / f"{year}-players.csv"
@@ -106,22 +97,18 @@ def load_basic_players():
                 # Old format has year as "2018/9" format (2018-2019 season), extract the ending year
                 if 'year' in df_year.columns:
                     df_year["year"] = df_year["year"].apply(lambda x: int(str(x).split('/')[0]) + 1 if '/' in str(x) else int(x))
-                    print(f"Parsed years from {year}-players.csv: {df_year['year'].unique()}")
                 else:
                     df_year["year"] = year
                 dfs.append(df_year)
-                print(f"Loaded {year} players (old format): {len(df_year)} players")
             else:
-                print(f"No file found for year {year}")
+                pass
     
     if not dfs:
-        print("Warning: No basic player files found")
         return pd.DataFrame()
     
     df = pd.concat(dfs, ignore_index=True)
     df["year"] = pd.to_numeric(df["year"], errors="coerce").fillna(0).astype(int)
     
-    print(f"Combined basic players df has years: {sorted(df['year'].unique())}")
     
     # Ensure AthleteSourceId is string type for consistent lookup
     if 'AthleteSourceId' in df.columns:
@@ -144,7 +131,6 @@ def load_torvik_players():
     """Load Torvik players with BPM values"""
     dfs = []
     
-    print("Loading Torvik players...")
     
     # Load all available years (2019-2026)
     for year in range(2019, 2027):
@@ -153,10 +139,8 @@ def load_torvik_players():
         if not df_year.empty:
             df_year["year"] = year
             dfs.append(df_year)
-            print(f"Loaded {year} Torvik players: {len(df_year)} players")
     
     if not dfs:
-        print("Warning: No Torvik player files found")
         return pd.DataFrame()
     
     df = pd.concat(dfs, ignore_index=True)
@@ -166,7 +150,6 @@ def load_torvik_players():
     if 'AthleteSourceId' in df.columns:
         df['AthleteSourceId'] = df['AthleteSourceId'].astype(str).str.replace('.0', '', regex=False)
     
-    print(f"Combined Torvik df has years: {sorted(df['year'].unique()) if not df.empty else 'empty'}")
     return df
 
 def load_all_time_players():
@@ -182,25 +165,17 @@ def load_all_time_players():
         if 'roster.ncaa_id' in df.columns:
             df['roster.ncaa_id'] = df['roster.ncaa_id'].astype(str)
         
-        print(f"Loaded all-time players: {len(df)} players")
-        print(f"All-time years range: {df['year'].min()} to {df['year'].max()}")
         return df
     else:
-        print(f"Warning: all_players.csv not found at {csv_path}")
         return pd.DataFrame()
 
 def load_all_players():
     """Load both basic and enriched players, preferring enriched when available"""
-    print("Loading all players...")
     basic_df = load_basic_players()
     enriched_df = load_enriched_players()
     roster_df = load_roster_info()
     torvik_df = load_torvik_players()
     
-    print(f"Basic df years: {sorted(basic_df['year'].unique()) if not basic_df.empty else 'empty'}")
-    print(f"Enriched df years: {sorted(enriched_df['year'].unique()) if not enriched_df.empty else 'empty'}")
-    print(f"Roster df years: {sorted(roster_df['year'].unique()) if not roster_df.empty else 'empty'}")
-    print(f"Torvik df years: {sorted(torvik_df['year'].unique()) if not torvik_df.empty else 'empty'}")
     
     # Join basic players with roster info to get height, weight, hometown
     if not roster_df.empty and not basic_df.empty:
@@ -287,14 +262,9 @@ def load_all_players():
         if available_torvik_cols:
             torvik_map = torvik_df.set_index('_bpm_key')[available_torvik_cols].to_dict('index')
             
-            print(f"Torvik map has {len(torvik_map)} entries with {len(available_torvik_cols)} columns")
-            print(f"Sample Torvik keys: {list(torvik_map.keys())[:5]}")
             
             combined['_bpm_key'] = combined['player_key'].astype(str) + '_' + combined['year'].astype(str)
             
-            print(f"Combined has {len(combined)} rows")
-            print(f"Sample combined player_keys: {combined['player_key'].head(5).tolist()}")
-            print(f"Sample combined _bpm_keys: {combined['_bpm_key'].head(5).tolist()}")
             
             def get_torvik_values(row):
                 key = row['_bpm_key']
@@ -316,18 +286,17 @@ def load_all_players():
                 return pd.Series(result)
             
             torvik_values = combined.apply(get_torvik_values, axis=1)
-            for col in torvik_values.columns:
-                combined[col] = torvik_values[col]
-            
+            combined = pd.concat([combined, torvik_values], axis=1)
             combined = combined.drop('_bpm_key', axis=1)
-            print(f"Merged Torvik data for {combined['BPM'].notna().sum()} players")
     
     # Add pre-computed lowercase columns for efficient search
-    combined['_player_name_lc'] = combined['player_name'].str.lower().fillna('')
-    combined['_team_lc'] = combined['team'].str.lower().fillna('')
-    combined['_ncaa_id_lc'] = combined['player_key'].str.lower().fillna('')
+    lowercase_cols = pd.DataFrame({
+        '_player_name_lc': combined['player_name'].str.lower().fillna(''),
+        '_team_lc': combined['team'].str.lower().fillna(''),
+        '_ncaa_id_lc': combined['player_key'].str.lower().fillna('')
+    })
+    combined = pd.concat([combined, lowercase_cols], axis=1)
     
-    print(f"Combined df years: {sorted(combined['year'].unique()) if not combined.empty else 'empty'}")
     return combined
 
 # Load all players (this maintains backward compatibility)
@@ -336,7 +305,7 @@ df = load_all_players()
 # Load all-time players for historical percentile comparisons
 all_time_df = load_all_time_players()
 if all_time_df.empty:
-    print("⚠️  All-time players data not available")
+    pass
 
 # Merge Height and Position from main df into all_time_df
 if not all_time_df.empty and not df.empty and 'Height' in df.columns and 'Position' in df.columns:
@@ -362,9 +331,6 @@ if not all_time_df.empty and not df.empty and 'Height' in df.columns and 'Positi
     all_time_df = pd.merge(all_time_df, height_pos, on='_join_key', how='left')
     all_time_df = all_time_df.drop('_join_key', axis=1)
     
-    print(f"Merged Height and Position from main df into all_time_df")
-    print(f"Height non-null after merge: {all_time_df['Height'].notna().sum()}")
-    print(f"Position non-null after merge: {all_time_df['Position'].notna().sum()}")
 
 # Create player lookup (latest year per player)
 players_df = (
@@ -372,15 +338,11 @@ players_df = (
       .groupby("player_key")
       .tail(1)
 )
-print("✅ Player lookup enabled")
 
 # Create lookup dictionaries for both ID types
 PLAYER_LOOKUP_BASIC = players_df[players_df['data_tier'] == 'basic'].set_index("AthleteSourceId").to_dict("index")
-print("✅ PLAYER_LOOKUP_BASIC enabled")
 
 PLAYER_LOOKUP_ENRICHED = players_df[players_df['data_tier'] == 'enriched'].set_index("roster.ncaa_id").to_dict("index")
-print("✅ PLAYER_LOOKUP_ENRICHED enabled")
 
 # Combined lookup for backward compatibility
 PLAYER_LOOKUP = players_df.set_index("player_key").to_dict("index")
-print("✅ PLAYER_LOOKUP enabled")

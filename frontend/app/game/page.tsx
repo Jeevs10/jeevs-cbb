@@ -108,7 +108,6 @@ export default function GamePage() {
           "AAC", "Atlantic 10", "Mountain West", "WCC"
         ]);
       } catch (err) {
-        console.error("Failed to fetch filters:", err);
         setAvailableYears([2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]);
         setAvailableConferences(["ACC", "Big 12", "Big East", "Big Ten", "Pac-12", "SEC"]);
       }
@@ -130,11 +129,10 @@ export default function GamePage() {
       });
       if (!res.ok) throw new Error("Failed to reload graph");
       const data = await res.json();
-      console.log("Graph reloaded:", data);
       // Fetch new game pair after reload
       fetchGamePair();
     } catch (err) {
-      console.error("Failed to reload graph:", err);
+      setError("Failed to reload graph");
       setError("Failed to apply filters");
     } finally {
       setLoading(false);
@@ -159,7 +157,6 @@ export default function GamePage() {
       setNewNodeIndex(null);
     } catch (err) {
       setError("Failed to start game. Please try again.");
-      console.error(err);
     } finally {
       setLoading(false);
     }
@@ -196,7 +193,7 @@ export default function GamePage() {
       const data = await res.json();
       setShortestPath(data.path);
     } catch (err) {
-      console.error("Failed to fetch shortest path:", err);
+      // Handle error silently
     }
   };
 
@@ -225,7 +222,7 @@ export default function GamePage() {
       setSearchResults(uniqueResults);
       setShowSearchResults(true);
     } catch (err) {
-      console.error("Failed to search players:", err);
+      // Handle error silently
     }
   };
 
@@ -295,7 +292,6 @@ export default function GamePage() {
         }
       })
       .catch((err) => {
-        console.error("Failed to check teammates:", err);
         setError("Failed to check teammate connection");
       });
   };

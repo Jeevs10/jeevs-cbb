@@ -20,9 +20,6 @@ export const YearFilter = React.memo(function YearFilter({ years, selectedYear, 
     }
   };
 
-  useEffect(() => {
-    console.log("YearFilter years:", years);
-  }, [years]);
 
   if (loading) {
     return (

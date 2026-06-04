@@ -40,7 +40,6 @@ export default function TeamRankingsPage() {
     // Fetch available years first
     fetchYears()
       .then((years: number[]) => {
-        console.log("Years fetched:", years);
         setAvailableYears(years);
         // Set default year to the latest available year if not already set
         if (year === null && years.length > 0) {
@@ -48,7 +47,6 @@ export default function TeamRankingsPage() {
         }
       })
       .catch((err: any) => {
-        console.error("Error fetching years:", err);
         // Fallback to hardcoded years if API fails
         setAvailableYears([2025, 2026]);
       });
@@ -84,7 +82,6 @@ export default function TeamRankingsPage() {
         setLoading(false);
       })
       .catch((err: any) => {
-        console.error("Error fetching teams:", err);
         setError("Failed to load team rankings");
         setLoading(false);
       });

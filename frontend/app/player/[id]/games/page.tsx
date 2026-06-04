@@ -135,7 +135,7 @@ export default function PlayerGameLogPage() {
           }
         }
       })
-      .catch(console.error);
+      .catch(() => {});
   }, [playerId]);
 
   useEffect(() => {
@@ -146,7 +146,6 @@ export default function PlayerGameLogPage() {
         setGames(data.games || []);
       } catch (err) {
         setError(err instanceof Error ? err.message : "Failed to load games");
-        console.error("Error fetching games:", err);
       } finally {
         setLoading(false);
       }

@@ -62,7 +62,6 @@ export default function PlayerRadar({ playerId, year }: PlayerRadarProps) {
         );
         setRadarData(data.error ? [] : data);
       } catch (error) {
-        console.error("Failed to fetch radar data:", error);
         setRadarData([]);
       } finally {
         setLoading(false);

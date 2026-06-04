@@ -264,7 +264,7 @@ export default function TeamStylePanel({ analytics }: { analytics: any }) {
           isGood={analytics.def_style_dribble_jumper_ppp < 0.9}
           isDefense={true}
         />
-      </div>
-    </Panel>
+        </div>
+      </Panel>
   );
 }

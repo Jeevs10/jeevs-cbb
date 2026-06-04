@@ -52,7 +52,6 @@ export default function TeamsPage() {
         setLoading(false);
       })
       .catch((err: any) => {
-        console.error("Error fetching teams:", err);
         setError("Failed to load teams");
         setLoading(false);
       });

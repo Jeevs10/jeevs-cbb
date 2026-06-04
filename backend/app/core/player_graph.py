@@ -22,17 +22,15 @@ class PlayerGraph:
             conferences: Optional list of conference names to filter by
             years: Optional list of years to include
         """
-        print("Building player graph from roster data...")
         if conferences:
-            print(f"Filtering by conferences: {conferences}")
+            pass
         if years:
-            print(f"Filtering by years: {years}")
+            pass
         
         # Load roster info with filters
         roster_df = self._load_roster_data(conferences=conferences, years=years)
         
         if roster_df.empty:
-            print("Warning: No roster data found, graph will be empty")
             return
         
         # Group by player ID to collect all their teams, years, and other info
@@ -94,7 +92,6 @@ class PlayerGraph:
                     if not self.graph.has_edge(pid1, pid2):
                         self.graph.add_edge(pid1, pid2)
         
-        print(f"Built graph with {self.graph.number_of_nodes()} players and {self.graph.number_of_edges()} edges")
         self._loaded = True
     
     def _load_roster_data(self, conferences=None, years=None):
@@ -125,7 +122,6 @@ class PlayerGraph:
                 if 'Sourceid' in df_year.columns:
                     df_year['Sourceid'] = df_year['Sourceid'].astype(str)
                 dfs.append(df_year)
-                print(f"Loaded {year} roster info: {len(df_year)} entries (filtered by conference)")
         
         if not dfs:
             return pd.DataFrame()

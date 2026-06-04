@@ -40,6 +40,29 @@ export default function SimilarityPage() {
   const [positions, setPositions] = useState<any[]>([]);
   const router = useRouter();
 
+  const fetchPositions = async () => {
+    try {
+      const data = await fetchPrecomputedPositions();
+      setPositions(data.positions || []);
+    } catch (err) {
+      // Handle error silently
+    }
+  };
+
+  const fetchPlayers = async () => {
+    try {
+      setLoading(true);
+      // Fetch subset of enriched players for performance (default view)
+      // @ts-ignore - dataTier parameter added to API function
+      const data = await fetchAllPlayers({ limit: 500, sort: "adj_rapm_margin", order: "desc", dataTier: "enriched" });
+      setPlayers(data);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to load players");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     // Fetch both in parallel for faster load
     Promise.all([fetchPlayers(), fetchPositions()]);
@@ -63,7 +86,6 @@ export default function SimilarityPage() {
         });
         setSearchResults(data);
       } catch (err) {
-        console.error("Failed to search players:", err);
         setSearchResults([]);
       } finally {
         setLoadingSearch(false);
@@ -74,40 +96,9 @@ export default function SimilarityPage() {
     return () => clearTimeout(debounceTimer);
   }, [searchQuery]);
 
-  const fetchPositions = async () => {
-    try {
-      const data = await fetchPrecomputedPositions();
-      setPositions(data.positions || []);
-    } catch (err) {
-      console.error("Failed to fetch positions:", err);
-    }
-  };
-
-  const fetchPlayers = async () => {
-    try {
-      setLoading(true);
-      // Fetch subset of enriched players for performance (default view)
-      // @ts-ignore - dataTier parameter added to API function
-      const data = await fetchAllPlayers({ limit: 500, sort: "adj_rapm_margin", order: "desc", dataTier: "enriched" });
-      setPlayers(data);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to load players");
-    } finally {
-      setLoading(false);
-    }
-  };
-
   // Use precomputed positions from backend
   const playerPositions = useMemo(() => {
     if (players.length === 0 || positions.length === 0) return [];
-    
-    console.log(`Matching ${players.length} players to ${positions.length} positions`);
-    
-    // Debug: show sample IDs
-    if (players.length > 0 && positions.length > 0) {
-      console.log(`Sample player AthleteSourceId: ${players[0].AthleteSourceId}`);
-      console.log(`Sample position ncaa_id: ${positions[0].ncaa_id}`);
-    }
     
     // Match players to their positions (use latest year for each player)
     const result: { player: Player; position: [number, number, number] }[] = [];
@@ -140,7 +131,6 @@ export default function SimilarityPage() {
       }
     }
     
-    console.log(`Matched ${result.length} players to positions`);
     return result;
   }, [players, positions, selectedPlayer]);
 
@@ -175,9 +165,7 @@ export default function SimilarityPage() {
     // Fetch nearest neighbors using 3D position distance
     setLoadingSimilar(true);
     try {
-      console.log("Fetching nearest neighbors for:", player.AthleteSourceId);
       const neighborsData = await fetchNearestNeighbors(String(player.AthleteSourceId), 5);
-      console.log("Nearest neighbors data:", neighborsData);
       
       // Convert neighbors to similar players format using positions CSV data
       const neighborPlayers = neighborsData.neighbors || [];
@@ -203,7 +191,6 @@ export default function SimilarityPage() {
       
       setSimilarPlayers(neighborsWithFullData);
     } catch (err) {
-      console.error("Failed to fetch nearest neighbors:", err);
       setSimilarPlayers([]);
     } finally {
       setLoadingSimilar(false);
@@ -227,8 +214,6 @@ export default function SimilarityPage() {
     setCameraPosition([0, 0, 150]);
     setCameraTarget([0, 0, 0]);
   };
-
-  console.log(`Page state: loading=${loading}, error=${error}, players=${players.length}, positions=${positions.length}, matched=${playerPositions.length}`);
 
   if (loading) {
     return (

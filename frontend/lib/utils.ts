@@ -20,7 +20,11 @@ export function formatNumber(value: any): string {
 
 export function formatHeight(value: any): string {
   if (!value) return "—";
-  return String(value);
+  const heightInches = Number(value);
+  if (isNaN(heightInches)) return "—";
+  const feet = Math.floor(heightInches / 12);
+  const inches = heightInches % 12;
+  return `${feet}'${inches}"`;
 }
 
 export function formatPercentage(value: number, decimals: number = 1): string {

@@ -17,20 +17,16 @@ def load_team_analytics():
                 if '_id' in df_year.columns:
                     df_year['_id'] = df_year['_id'].astype(str)
                 dfs.append(df_year)
-                print(f"Loaded {year} team analytics: {len(df_year)} teams")
         
         if not dfs:
-            print(f"Warning: No team analytics files found")
             return pd.DataFrame()
         
         # Combine all years
         df_combined = pd.concat(dfs, ignore_index=True)
         
-        print(f"Loaded total team analytics: {len(df_combined)} entries across {len(dfs)} years")
         
         return df_combined
     except Exception as e:
-        print(f"Error loading team analytics: {e}")
         return pd.DataFrame()
 
 def load_roster_info():
@@ -49,20 +45,16 @@ def load_roster_info():
                 if 'TeamSourceId' in df_year.columns:
                     df_year['TeamSourceId'] = df_year['TeamSourceId'].astype(str)
                 dfs.append(df_year)
-                print(f"Loaded {year} roster info: {len(df_year)} entries")
         
         if not dfs:
-            print(f"Warning: No roster info files found")
             return pd.DataFrame()
         
         # Combine all years
         df_combined = pd.concat(dfs, ignore_index=True)
         
-        print(f"Loaded total roster info: {len(df_combined)} entries across {len(dfs)} years")
         
         return df_combined
     except Exception as e:
-        print(f"Error loading roster info: {e}")
         return pd.DataFrame()
 
 def load_historical_team_info():
@@ -71,7 +63,6 @@ def load_historical_team_info():
         csv = os.path.join(BASE_DIR, "data", "teams", "historical-team-info.csv")
         
         if not os.path.exists(csv):
-            print(f"Warning: Historical team info file not found at {csv}")
             return pd.DataFrame()
         
         df = pd.read_csv(csv, encoding='utf-8-sig')  # Handle BOM
@@ -80,12 +71,9 @@ def load_historical_team_info():
         if 'Id' in df.columns:
             df['Id'] = df['Id'].astype(str)
         
-        print(f"Loaded historical team info: {len(df)} teams")
-        print(f"Sample IDs: {df['Id'].head().tolist()}")
         
         return df
     except Exception as e:
-        print(f"Error loading historical team info: {e}")
         return pd.DataFrame()
 
 # Load all team data
@@ -98,8 +86,6 @@ TEAM_LOOKUP = {}
 
 if not historical_team_info_df.empty:
     TEAM_LOOKUP = historical_team_info_df.set_index("Id").to_dict("index")
-else:
-    print("Warning: Historical team info is empty, TEAM_LOOKUP will be empty")
 
 # Note: TEAM_ANALYTICS_LOOKUP is not created since we now have multiple years of data
 # Use team_analytics_df directly with year filtering instead

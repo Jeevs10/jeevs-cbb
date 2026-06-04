@@ -76,7 +76,6 @@ export default function TeamNilPanel({ teamId, year }: TeamNilPanelProps) {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          console.log("NIL data received:", data.valuations?.[0]);
           setNilData(data.valuations);
           setTotalTeamValue(data.total_team_value || 0);
         } else {
@@ -85,7 +84,6 @@ export default function TeamNilPanel({ teamId, year }: TeamNilPanelProps) {
         setLoading(false);
       })
       .catch((err) => {
-        console.error("Error fetching NIL data:", err);
         setError("Failed to load NIL data");
         setLoading(false);
       });

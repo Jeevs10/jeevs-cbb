@@ -56,8 +56,11 @@ def cluster_rankings(
         cluster_df = pd.read_csv(clusters_csv)
         
         # Filter by year if specified
-        if year:
+        if year and year != "all":
             cluster_df = cluster_df[cluster_df['year'] == int(year)]
+        elif year == "all":
+            # Include all years
+            pass
         else:
             # Use latest year if no year specified
             latest_year = cluster_df['year'].max()
@@ -77,19 +80,25 @@ def cluster_rankings(
         
         # Get AthleteSourceIds for players in this cluster
         cluster_ids = cluster_df['AthleteSourceId'].astype(str).tolist()
+        # Clean IDs - remove .0 suffix if present
+        cluster_ids = [id.replace('.0', '') for id in cluster_ids]
         
         # Filter main player dataframe to these players
-        if year:
+        if year and year != "all":
             df_filtered = df[df['year'] == int(year)].copy()
+        elif year == "all":
+            # Include all years
+            df_filtered = df.copy()
         else:
             latest_year = df['year'].max()
             df_filtered = df[df['year'] == latest_year].copy()
         
-        # Normalize player keys for matching
-        df_filtered['player_key'] = df_filtered['player_key'].astype(str)
+        
+        # Normalize AthleteSourceId for matching
+        df_filtered['AthleteSourceId'] = df_filtered['AthleteSourceId'].astype(str)
         
         # Filter to players in the cluster
-        cluster_players = df_filtered[df_filtered['player_key'].isin(cluster_ids)]
+        cluster_players = df_filtered[df_filtered['AthleteSourceId'].isin(cluster_ids)]
         
         if cluster_players.empty:
             return {
@@ -121,6 +130,45 @@ def cluster_rankings(
         for _, player in cluster_players.iterrows():
             player_dict = player.to_dict()
             player_dict['rank'] = int(player['rank'])
+            
+            # Calculate basic stats if not present
+            if 'SPG' not in player_dict or pd.isna(player_dict['SPG']):
+                if 'Steals' in player_dict and 'Games' in player_dict and player_dict['Games'] > 0:
+                    player_dict['SPG'] = round(player_dict['Steals'] / player_dict['Games'], 1)
+                else:
+                    player_dict['SPG'] = 0
+            
+            if 'BPG' not in player_dict or pd.isna(player_dict['BPG']):
+                if 'Blocks' in player_dict and 'Games' in player_dict and player_dict['Games'] > 0:
+                    player_dict['BPG'] = round(player_dict['Blocks'] / player_dict['Games'], 1)
+                else:
+                    player_dict['BPG'] = 0
+            
+            if 'MPG' not in player_dict or pd.isna(player_dict['MPG']):
+                if 'Minutes' in player_dict and 'Games' in player_dict and player_dict['Games'] > 0:
+                    player_dict['MPG'] = round(player_dict['Minutes'] / player_dict['Games'], 1)
+                else:
+                    player_dict['MPG'] = 0
+            
+            # Calculate PPG, APG, RPG if not present
+            if 'PPG' not in player_dict or pd.isna(player_dict['PPG']):
+                if 'Points' in player_dict and 'Games' in player_dict and player_dict['Games'] > 0:
+                    player_dict['PPG'] = round(player_dict['Points'] / player_dict['Games'], 1)
+                else:
+                    player_dict['PPG'] = 0
+            
+            if 'APG' not in player_dict or pd.isna(player_dict['APG']):
+                if 'Assists' in player_dict and 'Games' in player_dict and player_dict['Games'] > 0:
+                    player_dict['APG'] = round(player_dict['Assists'] / player_dict['Games'], 1)
+                else:
+                    player_dict['APG'] = 0
+            
+            if 'RPG' not in player_dict or pd.isna(player_dict['RPG']):
+                if 'Rebounds' in player_dict and 'Games' in player_dict and player_dict['Games'] > 0:
+                    player_dict['RPG'] = round(player_dict['Rebounds'] / player_dict['Games'], 1)
+                else:
+                    player_dict['RPG'] = 0
+            
             # Replace NaN values with None
             player_dict = {k: (None if pd.isna(v) else v) for k, v in player_dict.items()}
             players_list.append(player_dict)

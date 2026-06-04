@@ -44,6 +44,7 @@ export interface Player {
   BPM?: number;
   OBPM?: number;
   DBPM?: number;
+  VORP?: number;
 }
 
 export interface PlayerStats {
@@ -105,7 +106,7 @@ export interface ApiResponse<T> {
 
 // UI state types
 export type SortDirection = "asc" | "desc";
-export type YearType = number | null | "career";
+export type YearType = number | null | "career" | "all";
 
 export interface TableState {
   sort: string;

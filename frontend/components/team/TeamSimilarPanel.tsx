@@ -60,7 +60,6 @@ export default function TeamSimilarPanel({
         const data = await response.json();
         setSimilarTeams(data.similar_teams || []);
       } catch (err) {
-        console.error("Error fetching similar teams:", err);
         setSimilarTeams([]);
       } finally {
         setLoading(false);
