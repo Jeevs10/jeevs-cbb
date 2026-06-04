@@ -97,9 +97,10 @@ def get_team_snapshot(team_id: str, year: Union[int, str, None] = None):
         source_id_str = str(source_id)
         if year is not None:
             year_int = int(year)
+            # Filter by year using Season field (the CSV filename year doesn't match the Season field)
             roster = roster_info_df[
                 (roster_info_df["TeamSourceId"] == source_id_str) &
-                (roster_info_df["Season"] == str(year_int))
+                (roster_info_df["Season"].astype(str) == str(year_int))
             ]
             # Fallback: if no roster for specific year, get latest year
             if roster.empty:
@@ -158,7 +159,14 @@ def get_team_snapshot(team_id: str, year: Union[int, str, None] = None):
             
             # Drop the join key
             roster_enriched = roster_enriched.drop('_join_key', axis=1)
-            
+
+            # Ensure Season field is preserved and properly formatted
+            if 'Season' in roster_enriched.columns:
+                roster_enriched['Season'] = roster_enriched['Season'].astype(str)
+
+            # Deduplicate by player ID (Sourceid or Id) to avoid duplicates from multiple CSV files
+            roster_enriched = roster_enriched.drop_duplicates(subset=['Sourceid'], keep='first')
+
             roster_data = roster_enriched.to_dict("records")
     
     # Combine all data and transform field names to match schema
@@ -195,12 +203,13 @@ def get_team_roster(team_id: str, year: Optional[Union[int, str]] = None):
         return []
     
     source_id_str = str(source_id)
-    
+
     if year is not None:
         year_int = int(year)
+        # Filter by year using Season field (the CSV filename year doesn't match the Season field)
         roster = roster_info_df[
             (roster_info_df["TeamSourceId"] == source_id_str) &
-            (roster_info_df["Season"] == str(year_int))
+            (roster_info_df["Season"].astype(str) == str(year_int))
         ]
     else:
         roster = roster_info_df[roster_info_df["TeamSourceId"] == source_id_str]
@@ -245,7 +254,14 @@ def get_team_roster(team_id: str, year: Optional[Union[int, str]] = None):
     
     # Drop the join key
     roster_enriched = roster_enriched.drop('_join_key', axis=1)
-    
+
+    # Ensure Season field is preserved and properly formatted
+    if 'Season' in roster_enriched.columns:
+        roster_enriched['Season'] = roster_enriched['Season'].astype(str)
+
+    # Deduplicate by player ID (Sourceid or Id) to avoid duplicates from multiple CSV files
+    roster_enriched = roster_enriched.drop_duplicates(subset=['Sourceid'], keep='first')
+
     return roster_enriched.to_dict("records")
 
 

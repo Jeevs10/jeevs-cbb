@@ -110,20 +110,35 @@ class TeamService:
             
             for team in teams:
                 team_id = team.get('id')
-                
+
                 # Get SourceId from TEAM_LOOKUP to match with CSV _id
                 source_id = None
                 if team_id in TEAM_LOOKUP:
                     source_id = TEAM_LOOKUP[team_id].get('SourceId')
                     if source_id is not None and not pd.isna(source_id):
                         source_id = str(source_id)
-                
+
                 if source_id and source_id in analytics_map:
                     # Create a copy of the analytics to avoid reference sharing
                     team['analytics'] = analytics_map[source_id].copy()
+                    # Also populate mini_stats from analytics
+                    analytics = analytics_map[source_id]
+                    team['mini_stats'] = {
+                        'wins': analytics.get('wins'),
+                        'losses': analytics.get('losses'),
+                        'adj_net': analytics.get('adj_net'),
+                        'off_adj_ppp': analytics.get('off_adj_ppp'),
+                        'def_adj_ppp': analytics.get('def_adj_ppp'),
+                        'wab': analytics.get('wab'),
+                        'rank_adj_net': analytics.get('rank_adj_net'),
+                        'rank_off_adj_ppp': analytics.get('rank_off_adj_ppp'),
+                        'rank_def_adj_ppp': analytics.get('rank_def_adj_ppp'),
+                        'rank_wab': analytics.get('rank_wab'),
+                    }
                     teams_with_analytics_count += 1
                 else:
                     team['analytics'] = None
+                    team['mini_stats'] = None
                 teams_with_analytics.append(team)
             
             logger.info(f"Retrieved {len(teams_with_analytics)} teams total, {teams_with_analytics_count} with analytics attached")

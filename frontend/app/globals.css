@@ -146,3 +146,35 @@ th, td {
 .card-flip-back {
   transform: rotateY(180deg);
 }
+
+/* smooth fade transition for content changes */
+@keyframes smoothFade {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.smooth-fade {
+  animation: smoothFade 0.3s ease-out;
+}
+
+/* fade out animation */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.fade-out {
+  animation: fadeOut 0.2s ease-in forwards;
+}

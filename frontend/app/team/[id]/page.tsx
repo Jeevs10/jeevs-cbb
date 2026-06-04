@@ -75,7 +75,7 @@ export default function TeamPage() {
               const value = e.target.value;
               setYear(value === "" ? null : Number(value));
             }}
-            className="bg-white border-2 border-black px-2 py-1 font-mono text-black"
+            className="bg-white border-2 border-black px-2 py-1 font-mono text-black transition-all duration-200"
           >
             <option value="">Latest</option>
             {availableYears.map((y) => (

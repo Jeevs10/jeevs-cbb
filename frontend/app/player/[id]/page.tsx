@@ -157,12 +157,12 @@ export default function PlayerPage() {
   return (
     <div className="p-3 space-y-6">
       <PlayerHeader player={player} />
-      
+
       {/* YEAR TOGGLE */}
       {availableYears.length > 0 && (
         <YearToggle availableYears={availableYears} />
       )}
-      
+
       <div className="text-xs font-bold">
         Viewing: {year ?? "Latest Season"}
       </div>
@@ -180,7 +180,7 @@ export default function PlayerPage() {
         state={player.HometownState || player.roster?.hometown_state}
         primaryColor="#000000"
       />
-      
+
       {/* DATA TIER INDICATOR */}
       <div className="text-xs font-bold mb-4">
         Data Tier: <span className={player.data_tier === 'enriched' ? 'text-green-600' : 'text-orange-600'}>

@@ -72,13 +72,13 @@ export default function TeamRankingsPage() {
           rank_def_adj_ppp: team.mini_stats?.rank_def_adj_ppp || null,
           rank_wab: team.mini_stats?.rank_wab || null,
         }));
-        
+
         setTeams(teamsData);
-        
+
         // Extract unique conferences
         const conferences = Array.from(new Set(teamsData.map((t: TeamRanking) => t.conference).filter(Boolean))) as string[];
         setAvailableConferences(conferences.sort());
-        
+
         setLoading(false);
       })
       .catch((err: any) => {
@@ -169,7 +169,7 @@ export default function TeamRankingsPage() {
                 const value = e.target.value;
                 setYear(value === "" ? null : Number(value));
               }}
-              className="bg-[#E7E8D1] border-2 border-black px-2 py-1 font-mono text-black shadow-[3px_3px_0px_black]"
+              className="bg-[#E7E8D1] border-2 border-black px-2 py-1 font-mono text-black shadow-[3px_3px_0px_black] transition-all duration-200"
             >
               <option value="">Latest</option>
               {availableYears.map((y) => (
@@ -220,8 +220,14 @@ export default function TeamRankingsPage() {
               </tr>
             </thead>
             <tbody>
-              {filteredAndSortedTeams.map((team) => (
-                <tr key={team.id} className="border-b-2 border-black hover:bg-[#B8C0A8]">
+              {filteredAndSortedTeams.map((team, index) => (
+                <tr
+                  key={team.id}
+                  className="border-b-2 border-black hover:bg-[#B8C0A8]"
+                  style={{
+                    animation: `fadeIn 0.3s ease-out ${index * 0.03}s both`
+                  }}
+                >
                   <td className="px-4 py-2 font-bold text-center">
                     {(team as any).official_rank}
                   </td>

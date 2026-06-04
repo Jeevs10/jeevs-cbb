@@ -298,11 +298,22 @@ class NilService:
             # Get team roster
             from app.core.team_resolver import get_team_roster
             roster = get_team_roster(team_id, year)
-            
+
             if not roster:
                 logger.warning(f"No roster found for team {team_id}")
                 raise ValueError("No roster found for this team")
-            
+
+            # Deduplicate roster by player ID (Sourceid or Id) to avoid duplicates
+            unique_roster = []
+            seen_ids = set()
+            for player in roster:
+                player_id = player.get('AthleteSourceId') or player.get('Sourceid') or player.get('Id')
+                if player_id and str(player_id) not in seen_ids:
+                    seen_ids.add(str(player_id))
+                    unique_roster.append(player)
+
+            roster = unique_roster
+
             # Get team name
             team_name = roster[0].get('Team', 'Unknown') if roster else 'Unknown'
             
