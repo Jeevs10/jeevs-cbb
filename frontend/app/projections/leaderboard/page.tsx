@@ -3,6 +3,8 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+
 interface LeaderboardEntry {
   player_key: string;
   player_name: string;
@@ -40,7 +42,7 @@ export default function ProjectionsLeaderboard() {
       setLoading(true);
       setError(null);
       const response = await fetch(
-        `http://localhost:8000/api/v1/projections/leaderboard?sort_by=${sort}&order=${order}&limit=${limit}&offset=${page * limit}`
+        `${BASE_URL}/api/v1/projections/leaderboard?sort_by=${sort}&order=${order}&limit=${limit}&offset=${page * limit}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch leaderboard data");

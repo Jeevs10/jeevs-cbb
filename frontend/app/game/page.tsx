@@ -3,6 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 import { TEAM_COLORS } from "./teamColors";
 
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+
 interface Player {
   id?: string | number;
   AthleteSourceId?: string | number;
@@ -98,7 +100,7 @@ export default function GamePage() {
     const fetchFilters = async () => {
       try {
         // Fetch available years
-        const yearsRes = await fetch("http://localhost:8000/api/v1/years");
+        const yearsRes = await fetch(`${BASE_URL}/api/v1/years`);
         const yearsData = await yearsRes.json();
         setAvailableYears(yearsData.years || [2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]);
         
@@ -119,7 +121,7 @@ export default function GamePage() {
   const reloadGraph = async () => {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:8000/api/v1/game/reload-graph", {
+      const res = await fetch(`${BASE_URL}/api/v1/game/reload-graph`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -144,7 +146,7 @@ export default function GamePage() {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch(`http://localhost:8000/api/v1/game/random-pair?min_distance=${targetDistance}&max_distance=${targetDistance}`);
+      const res = await fetch(`${BASE_URL}/api/v1/game/random-pair?min_distance=${targetDistance}&max_distance=${targetDistance}`);
       if (!res.ok) throw new Error("Failed to fetch game pair");
       const data = await res.json();
       setGamePair(data);
@@ -181,7 +183,7 @@ export default function GamePage() {
     setGameStarted(false);
 
     try {
-      const res = await fetch("http://localhost:8000/api/v1/game/shortest-path", {
+      const res = await fetch(`${BASE_URL}/api/v1/game/shortest-path`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -206,7 +208,7 @@ export default function GamePage() {
     }
 
     try {
-      const res = await fetch(`http://localhost:8000/api/v1/players?search=${query}&limit=50`);
+      const res = await fetch(`${BASE_URL}/api/v1/players?search=${query}&limit=50`);
       if (!res.ok) throw new Error("Failed to search players");
       const data = await res.json();
       const results = data.results || [];
@@ -233,7 +235,7 @@ export default function GamePage() {
     const currentLastPlayer = playerChain[playerChain.length - 1];
     
     // Check if selected player is a teammate of current player
-    fetch("http://localhost:8000/api/v1/game/check-teammates", {
+    fetch(`${BASE_URL}/api/v1/game/check-teammates`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -246,7 +248,7 @@ export default function GamePage() {
         if (data.are_teammates) {
           const newIndex = playerChain.length;
           // Fetch full player info from graph to ensure we have teams/years arrays
-          fetch(`http://localhost:8000/api/v1/game/player/${getPlayerId(player)}`)
+          fetch(`${BASE_URL}/api/v1/game/player/${getPlayerId(player)}`)
             .then(res => res.json())
             .then(playerData => {
               setPlayerChain([...playerChain, playerData]);

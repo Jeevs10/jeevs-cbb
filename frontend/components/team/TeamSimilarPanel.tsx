@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useState, useEffect } from 'react';
 import Panel, { PanelHeader } from "@/components/ui/Panel";
 
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+
 interface SimilarTeam {
   team: string;
   team_id: string;
@@ -50,7 +52,7 @@ export default function TeamSimilarPanel({
       try {
         setLoading(true);
         const response = await fetch(
-          `http://localhost:8000/api/v1/teams/${currentTeam.id}/similar?style_weight=${styleWeight}&limit=10`
+          `${BASE_URL}/api/v1/teams/${currentTeam.id}/similar?style_weight=${styleWeight}&limit=10`
         );
 
         if (!response.ok) {

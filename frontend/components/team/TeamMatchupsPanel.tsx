@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Panel, { PanelHeader } from "@/components/ui/Panel";
 
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+
 interface Matchup {
   team: string;
   team_id: string;
@@ -51,7 +53,7 @@ export default function TeamMatchupsPanel({ currentTeam, allTeams }: { currentTe
       try {
         setLoading(true);
         
-        const response = await fetch(`http://localhost:8000/api/v1/teams/${currentTeam.id}/matchups?filter_type=${filterType}`);
+        const response = await fetch(`${BASE_URL}/api/v1/teams/${currentTeam.id}/matchups?filter_type=${filterType}`);
         
         if (!response.ok) {
           throw new Error(`Failed to fetch matchups: ${response.status}`);
@@ -82,7 +84,7 @@ export default function TeamMatchupsPanel({ currentTeam, allTeams }: { currentTe
       try {
         setLoading(true);
 
-        const response = await fetch(`http://localhost:8000/api/v1/teams/${currentTeam.id}/matchup/${selectedOpponentId}`);
+        const response = await fetch(`${BASE_URL}/api/v1/teams/${currentTeam.id}/matchup/${selectedOpponentId}`);
 
         if (!response.ok) {
           throw new Error(`Failed to fetch matchup: ${response.status}`);
