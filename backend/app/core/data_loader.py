@@ -44,7 +44,7 @@ def load_enriched_players():
     df["year"] = pd.to_numeric(df["year"], errors="coerce").fillna(0).astype(int)
     
     # Mark as enriched data
-    df["data_tier"] = "enriched"
+    df = pd.concat([df, pd.DataFrame({"data_tier": "enriched"}, index=df.index)], axis=1)
     
     return df
 
@@ -223,16 +223,16 @@ def load_all_players():
     # Combine datasets, enriched data takes precedence
     # Use roster.ncaa_id/AthleteSourceId as the key
     # Normalize both to remove .0 suffix to avoid duplicates
-    basic_df['player_key'] = basic_df['AthleteSourceId'].astype(str).str.replace('.0', '', regex=False)
-    enriched_df['player_key'] = enriched_df['roster.ncaa_id'].astype(str).str.replace('.0', '', regex=False)
+    basic_df = pd.concat([basic_df, pd.DataFrame({'player_key': basic_df['AthleteSourceId'].astype(str).str.replace('.0', '', regex=False)}, index=basic_df.index)], axis=1)
+    enriched_df = pd.concat([enriched_df, pd.DataFrame({'player_key': enriched_df['roster.ncaa_id'].astype(str).str.replace('.0', '', regex=False)}, index=enriched_df.index)], axis=1)
     
     # Preserve Position from basic data before combining
     # Use composite key (player_key, year) to preserve year-specific values
     basic_position_map = basic_df.set_index('player_key')['Position'].to_dict()
     
     # Mark enriched rows to prioritize them
-    enriched_df['_is_enriched'] = True
-    basic_df['_is_enriched'] = False
+    enriched_df = pd.concat([enriched_df, pd.DataFrame({'_is_enriched': True}, index=enriched_df.index)], axis=1)
+    basic_df = pd.concat([basic_df, pd.DataFrame({'_is_enriched': False}, index=basic_df.index)], axis=1)
     
     # Combine datasets
     combined = pd.concat([basic_df, enriched_df], ignore_index=True)
