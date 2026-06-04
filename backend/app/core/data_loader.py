@@ -316,10 +316,10 @@ if all_time_df.empty:
 
 # Merge Height and Position from main df into all_time_df
 if not all_time_df.empty and not df.empty and 'Height' in df.columns and 'Position' in df.columns:
-    # Create join keys
-    all_time_df['_join_key'] = all_time_df['roster.ncaa_id'].str.replace('.0', '', regex=False)
+    # Create join keys using concat to avoid fragmentation
+    all_time_df = pd.concat([all_time_df, pd.DataFrame({'_join_key': all_time_df['roster.ncaa_id'].str.replace('.0', '', regex=False)}, index=all_time_df.index)], axis=1)
     df_copy = df.copy()
-    df_copy['_join_key'] = df_copy['player_key']
+    df_copy = pd.concat([df_copy, pd.DataFrame({'_join_key': df_copy['player_key']}, index=df_copy.index)], axis=1)
     
     # Get Height and Position from main df (first non-null value per player)
     # Sort by year to prefer more recent data, but take first non-null
