@@ -77,20 +77,11 @@ export function Header() {
         <div className="flex justify-between items-center h-12">
           {/* Logo/Title */}
           <Link href="/" className="text-xs font-bold text-black hover:underline uppercase tracking-wide">
-            CBB Stats
+            Jeevs CBB
           </Link>
 
           {/* Navigation */}
-          <nav className="flex space-x-6">
-            <Link
-              href="/"
-              className={`text-xs font-medium transition-colors hover:underline ${
-                pathname === "/" ? "text-black" : "text-black"
-              }`}
-            >
-              Home
-            </Link>
-
+          <nav className="flex space-x-6 items-center">
             {/* Player Dropdown */}
             <div
               className="relative"
@@ -157,16 +148,24 @@ export function Header() {
               )}
             </div>
 
-            <Link
-              href="/game"
-              className={`text-xs font-medium transition-colors hover:underline ${
-                pathname === "/game" ? "text-black" : "text-black"
-              }`}
+            {/* Game Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => {}}
+              onMouseLeave={() => {}}
             >
-              Game
-            </Link>
-
-
+              <button className="text-xs font-medium transition-colors hover:underline text-black">
+                Game
+              </button>
+              <div className="absolute top-full left-0 mt-1 bg-[#E7E8D1] border-2 border-black shadow-[3px_3px_0px_black] z-10 hidden">
+                <Link
+                  href="/game"
+                  className="block px-4 py-2 text-xs hover:bg-[#B8C0A8]"
+                >
+                  Game
+                </Link>
+              </div>
+            </div>
 
             {/* Projections Dropdown */}
             <div
