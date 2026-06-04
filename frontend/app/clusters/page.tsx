@@ -9,8 +9,6 @@ import { AnimatePresence } from "framer-motion";
 import Panel from "@/components/ui/Panel";
 import { PanelHeader } from "@/components/ui/Panel";
 import {
-  ScatterChart,
-  Scatter,
   XAxis,
   YAxis,
   CartesianGrid,
