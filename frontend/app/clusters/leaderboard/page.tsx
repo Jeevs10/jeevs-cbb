@@ -51,8 +51,13 @@ export default function ClusterLeaderboard() {
       if (response.ok) {
         const data = await response.json();
         setClusterDescriptions(data);
+        // Trigger rankings fetch after descriptions load
+        if (data.length > 0) {
+          fetchClusterRankings();
+        }
       } else {
-        setError("Failed to load cluster descriptions");
+        const errorData = await response.json();
+        setError(errorData.error || "Failed to load cluster descriptions");
       }
     } catch (err) {
       setError("Failed to load cluster descriptions");
@@ -166,11 +171,12 @@ export default function ClusterLeaderboard() {
           </label>
           <select
             value={year || ""}
-            onChange={(e) => handleYearChange(e.target.value ? parseInt(e.target.value) : null)}
+            onChange={(e) => handleYearChange(e.target.value === "all" ? "all" : (e.target.value ? parseInt(e.target.value) : null))}
             className="w-full px-3 py-2 border-2 border-black bg-[#E7E8D1] text-xs"
             disabled={loading}
           >
             <option value="">Latest Year</option>
+            <option value="all">ALL</option>
             <option value="2026">2026</option>
             <option value="2025">2025</option>
             <option value="2024">2024</option>
@@ -232,7 +238,7 @@ export default function ClusterLeaderboard() {
             order={order}
             onSort={handleSort}
             loading={loading}
-            dataTier="enriched"
+            dataTier="basic"
           />
         )}
 

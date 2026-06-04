@@ -55,7 +55,6 @@ export default function PlayerLatestGamesPanel({
         setGames(data.games || []);
       } catch (err) {
         setError(err instanceof Error ? err.message : "Failed to load games");
-        console.error("Error fetching games:", err);
       } finally {
         setLoading(false);
       }

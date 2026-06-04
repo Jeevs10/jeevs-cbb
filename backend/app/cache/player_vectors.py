@@ -107,12 +107,10 @@ def is_cache_valid():
                 return False
             if current_time > cached_time:
                 # File has been modified, cache is invalid
-                print(f"[CACHE] Data file modified since cache: {file_path}")
                 return False
         
         return True
     except Exception as e:
-        print(f"[CACHE] Error checking cache validity: {e}")
         return False
 
 def save_cache():
@@ -144,7 +142,6 @@ def save_cache():
     with open(CACHE_METADATA_FILE, 'w') as f:
         json.dump(metadata, f, indent=2)
     
-    print(f"[CACHE] Saved to {CACHE_FILE} with metadata")
 
 def load_cache():
     """Load the cache from disk if available."""
@@ -164,10 +161,8 @@ def load_cache():
         ALL_BPM_VALUES = cache_data.get("ALL_BPM_VALUES", [])
         ALL_VORP_VALUES = cache_data.get("ALL_VORP_VALUES", [])
         
-        print(f"[CACHE] Loaded from {CACHE_FILE}")
         return True
     except Exception as e:
-        print(f"[CACHE] Failed to load cache: {e}")
         return False
 
 def build_cache(force_rebuild=False):
@@ -175,11 +170,10 @@ def build_cache(force_rebuild=False):
 
     # Try to load from cache first, but only if cache is valid
     if not force_rebuild and is_cache_valid() and load_cache():
-        print(f"[CACHE] Using cached vectors ({len(PLAYER_VECTORS)} players)")
         return
     
     if not force_rebuild and not is_cache_valid():
-        print("[CACHE] Cache is invalid (data files modified), rebuilding...")
+        pass
 
     PLAYER_VECTORS.clear()
     PLAYER_INDEX.clear()
@@ -188,7 +182,6 @@ def build_cache(force_rebuild=False):
     ALL_BPM_VALUES = []
     ALL_VORP_VALUES = []
 
-    print("[CACHE] building player vectors...")
 
     # -------------------------
     # PASS 1: BUILD RAW + COLLECT METRICS
@@ -256,7 +249,6 @@ def build_cache(force_rebuild=False):
     # -------------------------
     # PASS 2: BUILD STRUCTURES
     # -------------------------
-    print(f"[CACHE] Processed {len(raw_rows)} player-year vectors from {total_rows} total rows (skipped {skipped_count})")
     
     for player, ncaa_id, year, composite_rapm_pct, bpm, vorp in raw_rows:
 
@@ -303,7 +295,6 @@ def build_cache(force_rebuild=False):
 
         PLAYER_INDEX.append((ncaa_id, year))
 
-    print("[CACHE DONE]", len(PLAYER_VECTORS))
     
     # Save to disk for future startups
     save_cache()

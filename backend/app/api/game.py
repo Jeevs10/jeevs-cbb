@@ -68,11 +68,9 @@ def get_random_pair(
 def reload_graph(request: ReloadGraphRequest):
     """Reload the player graph with new conference and year filters"""
     try:
-        print(f"Reload graph request: conferences={request.conferences}, years={request.years}")
         player_graph.reload_with_filters(conferences=request.conferences, years=request.years)
         return {"message": "Graph reloaded successfully", "nodes": player_graph.graph.number_of_nodes(), "edges": player_graph.graph.number_of_edges()}
     except Exception as e:
-        print(f"Error reloading graph: {str(e)}")
         import traceback
         traceback.print_exc()
         raise HTTPException(status_code=500, detail=f"Failed to reload graph: {str(e)}")
@@ -96,24 +94,17 @@ def get_game_player_info(player_id: str):
 def check_teammates(request: TeammateCheckRequest):
     """Check if two players were teammates"""
     try:
-        print(f"Checking teammates: {request.player_id1} and {request.player_id2}")
-        print(f"Graph has {player_graph.graph.number_of_nodes()} nodes")
-        print(f"Player 1 in graph: {player_graph.graph.has_node(str(request.player_id1))}")
-        print(f"Player 2 in graph: {player_graph.graph.has_node(str(request.player_id2))}")
-        
         are_teammates = player_graph.are_teammates(request.player_id1, request.player_id2)
         teammate_info = None
         
         if are_teammates:
             teammate_info = player_graph.get_teammate_info(request.player_id1, request.player_id2)
         
-        print(f"Are teammates: {are_teammates}")
         return TeammateCheckResponse(
             are_teammates=are_teammates,
             teammate_info=teammate_info
         )
     except Exception as e:
-        print(f"Error checking teammates: {str(e)}")
         import traceback
         traceback.print_exc()
         raise HTTPException(status_code=500, detail="Internal server error")

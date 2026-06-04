@@ -36,8 +36,6 @@ export function useMovesRankings({ moveType, year, limit = 50, offset = 0, posit
       setError(null);
 
       try {
-        console.log("Fetching moves rankings with params:", { moveType, year, limit, offset, position, conference, highMajor, search, sortBy, sortOrder });
-
         const yearParam = year === "career" ? "career" : (typeof year === "number" ? year : (year ? parseInt(year) : undefined));
 
         const result = await apiClient.getMovesRankings(
@@ -53,7 +51,6 @@ export function useMovesRankings({ moveType, year, limit = 50, offset = 0, posit
           sortOrder
         );
 
-        console.log("Moves rankings result:", result);
 
         if (result.error) {
           throw new Error(result.error);
@@ -61,7 +58,6 @@ export function useMovesRankings({ moveType, year, limit = 50, offset = 0, posit
 
         setData(result);
       } catch (err) {
-        console.error("Error fetching moves rankings:", err);
         setError(err instanceof Error ? err.message : "An error occurred");
       } finally {
         setLoading(false);

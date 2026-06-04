@@ -35,20 +35,15 @@ setup_logging()
 async def lifespan(app: FastAPI):
     # 🚀 startup
     build_cache()
-    print("✅ Player vector cache built")
 
     # Temporarily disabled player graph loading due to performance issues
     # from app.core.player_graph import player_graph
     # player_graph.load_from_roster_data()
-    # print("✅ Player graph loaded")
-    print("⚠️  Player graph disabled (performance)")
-
-    print(f"🚀 Server starting on {settings.host}:{settings.port}")
 
     yield
 
     # 🧹 shutdown
-    print("👋 Shutting down backend")
+    pass
 
 # -------------------------
 # APP INITIALIZATION

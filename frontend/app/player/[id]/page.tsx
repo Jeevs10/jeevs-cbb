@@ -90,7 +90,7 @@ export default function PlayerPage() {
         setPlayer(data.player);
         setAvailableYears(data.available_years || []);
       })
-      .catch(console.error);
+      .catch(() => {});
   }, [id, year]);
 
   // -------------------------
@@ -103,7 +103,7 @@ export default function PlayerPage() {
       .then((data) => {
         setPlayerHistory(data.history || []);
       })
-      .catch(console.error);
+      .catch(() => {});
   }, [playerCode]);
 
   // -------------------------
@@ -133,7 +133,7 @@ export default function PlayerPage() {
             setEvolution(evolutionRes || null);
           }
         )
-        .catch(console.error);
+        .catch(() => {});
     } else {
       // For basic players, set empty states
       setMoves([]);

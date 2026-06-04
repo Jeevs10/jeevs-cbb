@@ -62,7 +62,7 @@ export default function TeamMatchupsPanel({ currentTeam, allTeams }: { currentTe
         setMostEffective(data.matchups?.most_effective_against || []);
         setLeastEffective(data.matchups?.least_effective_against || []);
       } catch (err) {
-        console.error("Error fetching matchups:", err);
+        // Handle error silently
       } finally {
         setLoading(false);
       }
@@ -91,7 +91,6 @@ export default function TeamMatchupsPanel({ currentTeam, allTeams }: { currentTe
         const data = await response.json();
         setSingleMatchup(data.matchup || null);
       } catch (err) {
-        console.error("Error fetching single matchup:", err);
         setSingleMatchup(null);
       } finally {
         setLoading(false);

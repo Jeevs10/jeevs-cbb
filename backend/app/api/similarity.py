@@ -110,14 +110,10 @@ def get_precomputed_positions():
     # Go up from app/api/similarity.py to backend directory
     csv_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "data", "similarity_positions.csv")
     
-    print(f"[DEBUG] Looking for positions file at: {csv_path}")
-    print(f"[DEBUG] File exists: {os.path.exists(csv_path)}")
-    
     if not os.path.exists(csv_path):
         return {"positions": [], "error": "Positions file not found. Run precompute_similarity_positions.py"}
     
     df = pd.read_csv(csv_path)
-    print(f"[DEBUG] Loaded {len(df)} positions from CSV")
     
     # Fill numeric columns with 0, string columns with empty string
     numeric_cols = ['ncaa_id', 'year', 'x', 'y', 'z']
@@ -137,7 +133,6 @@ def get_precomputed_positions():
             "team": row.get("team") if row.get("team") != 0 else None,
         })
     
-    print(f"[DEBUG] Returning {len(positions)} positions")
     return {"positions": positions}
 
 

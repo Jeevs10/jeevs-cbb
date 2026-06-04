@@ -27,13 +27,11 @@ export default function TeamPage() {
 
     fetchTeam(id as string, year)
       .then((data: any) => {
-        console.log("Team data received:", data);
         setTeam(data.team);
         setAvailableYears(data.available_years || []);
         setLoading(false);
       })
       .catch((err: any) => {
-        console.error("Error fetching team:", err);
         setError("Failed to load team data");
         setLoading(false);
       });
