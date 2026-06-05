@@ -183,7 +183,7 @@ class PlayerGraph:
                 continue
         
         # If we couldn't find a pair within the requested distance range, raise an error
-        raise ValueError(f"No pair found with distance between {min_distance} and {max_distance}. Try a wider range.")
+        raise ValueError(f"No pair found with those settings. Try a wider range.")
     
     def get_player_info(self, player_id):
         """Get player info from the graph (including all teams and years)"""

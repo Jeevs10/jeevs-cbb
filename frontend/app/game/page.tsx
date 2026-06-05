@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { TEAM_COLORS } from "./teamColors";
+import { domToPng } from "modern-screenshot";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
@@ -69,6 +70,8 @@ export default function GamePage() {
   const [shake, setShake] = useState(false);
   const [newNodeIndex, setNewNodeIndex] = useState<number | null>(null);
   const [flippedCards, setFlippedCards] = useState<Set<string | number>>(new Set());
+  const [isGeneratingImage, setIsGeneratingImage] = useState(false);
+  const shareRef = useRef<HTMLDivElement>(null);
 
   const toggleCardFlip = (index: string | number) => {
     setFlippedCards(prev => {
@@ -80,6 +83,63 @@ export default function GamePage() {
       }
       return newSet;
     });
+  };
+
+  const handleShare = async () => {
+    if (!shareRef.current) return;
+    setIsGeneratingImage(true);
+
+    // Store current flipped state
+    const previouslyFlipped = new Set(flippedCards);
+    
+    // Temporarily unflip all cards by setting state
+    setFlippedCards(new Set());
+    
+    // Wait for React to re-render with unflipped cards
+    await new Promise(resolve => setTimeout(resolve, 500));
+
+    try {
+      const element = shareRef.current;
+      
+      // Inject a style tag to override flip CSS
+      const style = document.createElement('style');
+      style.textContent = `
+        .card-flip-inner {
+          transform: none !important;
+          transform-style: flat !important;
+        }
+        .card-flip-inner.flipped {
+          transform: none !important;
+        }
+        .card-flip-front {
+          transform: none !important;
+          backface-visibility: visible !important;
+        }
+        .card-flip-back {
+          display: none !important;
+        }
+      `;
+      element.appendChild(style);
+      
+      const dataUrl = await domToPng(element, {
+        backgroundColor: '#C7D0B8',
+        scale: 1,
+      });
+
+      // Remove the injected style
+      element.removeChild(style);
+
+      const link = document.createElement('a');
+      link.download = `jeevs-cbb-game-${Date.now()}.png`;
+      link.href = dataUrl;
+      link.click();
+    } catch (error) {
+      console.error('Error generating image:', error);
+    } finally {
+      // Restore flipped state
+      setFlippedCards(previouslyFlipped);
+      setIsGeneratingImage(false);
+    }
   };
   
   // Filter states
@@ -147,7 +207,10 @@ export default function GamePage() {
     setError(null);
     try {
       const res = await fetch(`${BASE_URL}/api/v1/game/random-pair?min_distance=${targetDistance}&max_distance=${targetDistance}`);
-      if (!res.ok) throw new Error("Failed to fetch game pair");
+      if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.detail || "Failed to fetch game pair");
+      }
       const data = await res.json();
       setGamePair(data);
       setPlayerChain([data.start_player]);
@@ -157,8 +220,9 @@ export default function GamePage() {
       setShortestPath(null);
       setCurrentInput("");
       setNewNodeIndex(null);
-    } catch (err) {
-      setError("Failed to start game. Please try again.");
+    } catch (err: any) {
+      const errorMessage = err.message || "Failed to start game. Please try again.";
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }
@@ -344,7 +408,7 @@ export default function GamePage() {
     <div className="min-h-screen bg-[#E7E8D1] p-4 font-mono text-xs">
       <div className="max-w-4xl mx-auto">
         <div className="flex justify-between items-center mb-4">
-          <h1 className="text-xs font-bold uppercase tracking-wide">CBB Wikirace</h1>
+          <h1 className="text-xs font-bold uppercase tracking-wide">PORTALMANIA</h1>
           <button
             onClick={fetchGamePair}
             className="px-4 py-2 bg-black text-white font-bold border-2 border-black hover:bg-gray-800 shadow-[3px_3px_0px_black]"
@@ -522,7 +586,15 @@ export default function GamePage() {
             )}
 
             {/* Player Chain Visualization with Collectible Cards */}
-            <div className="bg-[#E7E8D1] border-2 border-black p-6 shadow-[3px_3px_0px_black]">
+            <div ref={shareRef} className="bg-[#E7E8D1] border-2 border-black p-6 shadow-[3px_3px_0px_black]">
+              {gameEnded && playerChain[playerChain.length - 1].id === gamePair.end_player.id && (
+                <>
+                  <div className="font-bold text-center uppercase tracking-wide mb-2">Congratulations! You completed the path!</div>
+                  <div className="text-center mb-2">Time: {formatTime(timeElapsed)}</div>
+                  <div className="text-center mb-2">Your Path: {playerChain.length - 1} steps</div>
+                  <div className="text-center mb-4">Optimal Length: {gamePair.distance} steps</div>
+                </>
+              )}
               <h2 className="font-bold mb-4 text-center uppercase tracking-wide">Your Path:</h2>
               <div className="flex flex-wrap justify-center items-center gap-4">
                 {playerChain.map((player, index) => (
@@ -677,7 +749,7 @@ export default function GamePage() {
                     {index < playerChain.length - 1 && <div className="text-xs font-bold text-black">→</div>}
                   </div>
                 ))}
-                
+
                 {/* Target Card */}
                 {!gameEnded && (
                   <>
@@ -703,219 +775,226 @@ export default function GamePage() {
                   </>
                 )}
               </div>
+
+              {/* Site name for share image */}
+              {gameEnded && playerChain[playerChain.length - 1].id === gamePair.end_player.id && (
+                <div className="text-center mt-4 text-xs font-bold text-black">Jeevs CBB</div>
+              )}
             </div>
 
-            {/* Input */}
-            {gameStarted && (
-              <div ref={searchInputRef} className="relative">
-                <input
-                  type="text"
-                  value={currentInput}
-                  onChange={handleInputChange}
-                  placeholder="Enter a teammate of the current player..."
-                  className="w-full border-2 border-black p-3 font-mono bg-[#E7E8D1] focus:shadow-[3px_3px_0px_black]"
-                  autoFocus
-                />
-
-                {showSearchResults && searchResults.length > 0 && (
-                  <div className="absolute top-full left-0 right-0 bg-[#E7E8D1] border-2 border-black border-t-0 max-h-60 overflow-y-auto z-10 shadow-[3px_3px_0px_black]">
-                    {searchResults.map((player, index) => (
-                      <div
-                        key={getPlayerId(player)}
-                        onClick={() => selectPlayer(player)}
-                        className="p-3 hover:bg-[#B8C0A8] cursor-pointer border-b-2 border-black last:border-b-0"
-                      >
-                        <div className="font-bold">{getPlayerName(player)}</div>
-                        {getPlayerTeams(player).length > 0 && (
-                          <div className="text-xs text-black">{getPlayerTeams(player).slice(0, 3).join(', ')}{getPlayerTeams(player).length > 3 ? '...' : ''}</div>
-                        )}
-                        {getPlayerYears(player).length > 0 && (
-                          <div className="text-xs text-black">{getPlayerYears(player).join(', ')}</div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            )}
-
-            {/* Error message */}
-            {error && (
-              <div className="bg-[#E7E8D1] border-2 border-black p-3 shadow-[3px_3px_0px_black]">
-                {error}
-              </div>
-            )}
-
-            {/* Success message */}
+            {/* Share button (separate from captured area) */}
             {gameEnded && playerChain[playerChain.length - 1].id === gamePair.end_player.id && (
-              <div className="bg-[#E7E8D1] border-2 border-black p-4 shadow-[3px_3px_0px_black]">
-                <div className="font-bold text-center uppercase tracking-wide">Congratulations! You completed the path!</div>
-                <div className="text-center mt-2">Time: {formatTime(timeElapsed)}</div>
-                <div className="text-center">Steps: {playerChain.length - 1}</div>
+              <button
+                onClick={handleShare}
+                disabled={isGeneratingImage}
+                className="mt-4 w-full bg-black text-white border-2 border-black py-2 font-bold hover:bg-gray-800 disabled:opacity-50 shadow-[3px_3px_0px_black]"
+              >
+                {isGeneratingImage ? 'Generating Image...' : 'Share as Image'}
+              </button>
+            )}
+          </div>
+        )}
+
+        {/* Input */}
+        {gameStarted && (
+          <div ref={searchInputRef} className="relative">
+            <input
+              type="text"
+              value={currentInput}
+              onChange={handleInputChange}
+              placeholder="Enter a teammate of the current player..."
+              className="w-full border-2 border-black p-3 font-mono bg-[#E7E8D1] focus:shadow-[3px_3px_0px_black]"
+              autoFocus
+            />
+
+            {showSearchResults && searchResults.length > 0 && (
+              <div className="absolute top-full left-0 right-0 bg-[#E7E8D1] border-2 border-black border-t-0 max-h-60 overflow-y-auto z-10 shadow-[3px_3px_0px_black]">
+                {searchResults.map((player) => (
+                  <div
+                    key={getPlayerId(player)}
+                    onClick={() => selectPlayer(player)}
+                    className="p-3 hover:bg-[#B8C0A8] cursor-pointer border-b-2 border-black last:border-b-0"
+                  >
+                    <div className="font-bold">{getPlayerName(player)}</div>
+                    {getPlayerTeams(player).length > 0 && (
+                      <div className="text-xs text-black">{getPlayerTeams(player).slice(0, 3).join(', ')}{getPlayerTeams(player).length > 3 ? '...' : ''}</div>
+                    )}
+                    {getPlayerYears(player).length > 0 && (
+                      <div className="text-xs text-black">{getPlayerYears(player).join(', ')}</div>
+                    )}
+                  </div>
+                ))}
               </div>
             )}
+          </div>
+        )}
 
-            {/* Shortest path (when gave up) */}
-            {shortestPath && (
-              <div className="bg-[#E7E8D1] border-2 border-black p-4 shadow-[3px_3px_0px_black]">
-                <h2 className="font-bold mb-3 text-center uppercase tracking-wide">Shortest Path:</h2>
-                <div className="flex flex-wrap justify-center items-center gap-4">
-                  {shortestPath.map((player, index) => (
-                    <div key={getPlayerId(player)} className="flex items-center gap-4">
-                      {/* Collectible Card */}
+        {/* Error message */}
+        {error && (
+          <div className="bg-[#E7E8D1] border-2 border-black p-3 shadow-[3px_3px_0px_black]">
+            {error}
+          </div>
+        )}
+
+        {/* Shortest path (when gave up) */}
+        {shortestPath && (
+          <div className="bg-[#E7E8D1] border-2 border-black p-4 shadow-[3px_3px_0px_black]">
+            <h2 className="font-bold mb-3 text-center uppercase tracking-wide">Shortest Path:</h2>
+            <div className="flex flex-wrap justify-center items-center gap-4">
+              {shortestPath.map((player, index) => (
+                <div key={getPlayerId(player)} className="flex items-center gap-4">
+                  {/* Collectible Card */}
+                  <div
+                    className={`
+                      relative group cursor-pointer card-flip-container
+                      transition-all duration-300
+                    `}
+                    style={{
+                      width: '144px',
+                      height: '192px'
+                    }}
+                    onClick={() => toggleCardFlip(`shortest-${index}`)}
+                  >
+                    <div className={`card-flip-inner ${flippedCards.has(`shortest-${index}`) ? 'flipped' : ''}`}>
+                      {/* Front of card */}
                       <div
-                        className={`
-                          relative group cursor-pointer card-flip-container
-                          transition-all duration-300
-                        `}
-                        style={{
-                          width: '144px',
-                          height: '192px'
-                        }}
-                        onClick={() => toggleCardFlip(`shortest-${index}`)}
+                        className="card-flip-front relative w-36 h-48 border-2 border-black shadow-[3px_3px_0px_black] hover:shadow-[3px_3px_0px_black] transition-all duration-300 overflow-hidden bg-[#E7E8D1]"
                       >
-                        <div className={`card-flip-inner ${flippedCards.has(`shortest-${index}`) ? 'flipped' : ''}`}>
-                          {/* Front of card */}
-                          <div
-                            className="card-flip-front relative w-36 h-48 border-2 border-black shadow-[3px_3px_0px_black] hover:shadow-[3px_3px_0px_black] transition-all duration-300 overflow-hidden bg-[#E7E8D1]"
-                          >
-                            {/* Card header with team primary color */}
-                            <div
-                              className="text-white p-2 text-center"
-                              style={{
-                                backgroundColor: getTeamColor(getPlayerTeams(player)[0] || '').primary
-                              }}
-                            >
-                              <div className="text-xs font-bold tracking-wider truncate uppercase">
-                                {getPlayerTeams(player)[0] || 'Unknown'}
-                              </div>
-                            </div>
-
-                            {/* Player info */}
-                            <div className="p-3 flex flex-col items-center text-center bg-[#E7E8D1]">
-                              {/* Player name */}
-                              <div className="font-bold text-xs text-black mb-1 line-clamp-2 leading-tight">
-                                {getPlayerName(player)}
-                              </div>
-
-                              {/* Position */}
-                              {player.Position && (
-                                <div className="text-xs text-black font-bold mb-1">
-                                  {player.Position}
-                                </div>
-                              )}
-
-                              {/* Team */}
-                              {getPlayerTeams(player).length > 0 && (
-                                <div className="text-xs text-black font-medium mb-1 truncate">
-                                  {getPlayerTeams(player)[0]}
-                                </div>
-                              )}
-
-                              {/* Year */}
-                              {getPlayerYears(player).length > 0 && (
-                                <div className="text-xs text-black font-bold">
-                                  {getPlayerYears(player)[0]}
-                                </div>
-                              )}
-
-                              <div className="text-xs text-black mt-2 italic">
-                                Click for more info
-                              </div>
-                            </div>
-
-                            {/* Card footer with team secondary color */}
-                            <div
-                              className="absolute bottom-0 left-0 right-0 h-2"
-                              style={{
-                                backgroundColor: getTeamColor(getPlayerTeams(player)[0] || '').secondary
-                              }}
-                            ></div>
-
-                            {/* Step number badge */}
-                            <div className="absolute -top-2 -right-2 w-7 h-7 bg-black text-white text-xs font-bold flex items-center justify-center border-2 border-white shadow-[3px_3px_0px_black]">
-                              {index + 1}
-                            </div>
-                          </div>
-
-                          {/* Back of card */}
-                          <div
-                            className="card-flip-back relative w-36 h-48 border-2 border-black shadow-[3px_3px_0px_black] overflow-hidden bg-[#E7E8D1]"
-                          >
-                            {/* Card header with team primary color */}
-                            <div
-                              className="text-white p-2 text-center"
-                              style={{
-                                backgroundColor: getTeamColor(getPlayerTeams(player)[0] || '').primary
-                              }}
-                            >
-                              <div className="text-xs font-bold tracking-wider truncate uppercase">
-                                {getPlayerName(player)}
-                              </div>
-                            </div>
-
-                            {/* Player details */}
-                            <div className="p-3 flex flex-col items-center text-center bg-[#E7E8D1]">
-                              {/* Height */}
-                              {player.roster_height && (
-                                <div className="text-xs text-black mb-1">
-                                  <span className="font-bold">Height:</span> {player.roster_height}
-                                </div>
-                              )}
-                              {/* Hometown */}
-                              {player.hometown && (
-                                <div className="text-xs text-black mb-1 truncate">
-                                  <span className="font-bold">From:</span> {player.hometown}
-                                </div>
-                              )}
-                              {/* Conference */}
-                              {player.conf && (
-                                <div className="text-xs text-black mb-1 truncate">
-                                  <span className="font-bold">Conf:</span> {player.conf}
-                                </div>
-                              )}
-                              {/* Additional teams */}
-                              {getPlayerTeams(player).length > 1 && (
-                                <div className="text-xs text-black truncate mt-2">
-                                  <span className="font-bold">Also:</span> {getPlayerTeams(player).slice(1).join(', ')}
-                                </div>
-                              )}
-                              {/* Additional years */}
-                              {getPlayerYears(player).length > 1 && (
-                                <div className="text-xs text-black">
-                                  <span className="font-bold">Years:</span> {getPlayerYears(player).join(', ')}
-                                </div>
-                              )}
-
-                              <div className="text-xs text-black mt-2 italic">
-                                Click to flip back
-                              </div>
-                            </div>
-
-                            {/* Card footer with team secondary color */}
-                            <div
-                              className="absolute bottom-0 left-0 right-0 h-2"
-                              style={{
-                                backgroundColor: getTeamColor(getPlayerTeams(player)[0] || '').secondary
-                              }}
-                            ></div>
-
-                            {/* Step number badge */}
-                            <div className="absolute -top-2 -right-2 w-7 h-7 bg-black text-white text-xs font-bold flex items-center justify-center border-2 border-white shadow-[3px_3px_0px_black]">
-                              {index + 1}
-                            </div>
+                        {/* Card header with team primary color */}
+                        <div
+                          className="text-white p-2 text-center"
+                          style={{
+                            backgroundColor: getTeamColor(getPlayerTeams(player)[0] || '').primary
+                          }}
+                        >
+                          <div className="text-xs font-bold tracking-wider truncate uppercase">
+                            {getPlayerTeams(player)[0] || 'Unknown'}
                           </div>
                         </div>
+
+                        {/* Player info */}
+                        <div className="p-3 flex flex-col items-center text-center bg-[#E7E8D1]">
+                          {/* Player name */}
+                          <div className="font-bold text-xs text-black mb-1 line-clamp-2 leading-tight">
+                            {getPlayerName(player)}
+                          </div>
+
+                          {/* Position */}
+                          {player.Position && (
+                            <div className="text-xs text-black font-bold mb-1">
+                              {player.Position}
+                            </div>
+                          )}
+
+                          {/* Team */}
+                          {getPlayerTeams(player).length > 0 && (
+                            <div className="text-xs text-black font-medium mb-1 truncate">
+                              {getPlayerTeams(player)[0]}
+                            </div>
+                          )}
+
+                          {/* Year */}
+                          {getPlayerYears(player).length > 0 && (
+                            <div className="text-xs text-black font-bold">
+                              {getPlayerYears(player)[0]}
+                            </div>
+                          )}
+
+                          <div className="text-xs text-black mt-2 italic">
+                            Click for more info
+                          </div>
+                        </div>
+
+                        {/* Card footer with team secondary color */}
+                        <div
+                          className="absolute bottom-0 left-0 right-0 h-2"
+                          style={{
+                            backgroundColor: getTeamColor(getPlayerTeams(player)[0] || '').secondary
+                          }}
+                        ></div>
+
+                        {/* Step number badge */}
+                        <div className="absolute -top-2 -right-2 w-7 h-7 bg-black text-white text-xs font-bold flex items-center justify-center border-2 border-white shadow-[3px_3px_0px_black]">
+                          {index + 1}
+                        </div>
                       </div>
-                      {index < shortestPath.length - 1 && <div className="text-xs font-bold text-black">→</div>}
+
+                      {/* Back of card */}
+                      <div
+                        className="card-flip-back relative w-36 h-48 border-2 border-black shadow-[3px_3px_0px_black] overflow-hidden bg-[#E7E8D1]"
+                      >
+                        {/* Card header with team primary color */}
+                        <div
+                          className="text-white p-2 text-center"
+                          style={{
+                            backgroundColor: getTeamColor(getPlayerTeams(player)[0] || '').primary
+                          }}
+                        >
+                          <div className="text-xs font-bold tracking-wider truncate uppercase">
+                            {getPlayerName(player)}
+                          </div>
+                        </div>
+
+                        {/* Player details */}
+                        <div className="p-3 flex flex-col items-center text-center bg-[#E7E8D1]">
+                          {/* Height */}
+                          {player.roster_height && (
+                            <div className="text-xs text-black mb-1">
+                              <span className="font-bold">Height:</span> {player.roster_height}
+                            </div>
+                          )}
+                          {/* Hometown */}
+                          {player.hometown && (
+                            <div className="text-xs text-black mb-1 truncate">
+                              <span className="font-bold">From:</span> {player.hometown}
+                            </div>
+                          )}
+                          {/* Conference */}
+                          {player.conf && (
+                            <div className="text-xs text-black mb-1 truncate">
+                              <span className="font-bold">Conf:</span> {player.conf}
+                            </div>
+                          )}
+                          {/* Additional teams */}
+                          {getPlayerTeams(player).length > 1 && (
+                            <div className="text-xs text-black truncate mt-2">
+                              <span className="font-bold">Also:</span> {getPlayerTeams(player).slice(1).join(', ')}
+                            </div>
+                          )}
+                          {/* Additional years */}
+                          {getPlayerYears(player).length > 1 && (
+                            <div className="text-xs text-black">
+                              <span className="font-bold">Years:</span> {getPlayerYears(player).join(', ')}
+                            </div>
+                          )}
+
+                          <div className="text-xs text-black mt-2 italic">
+                            Click to flip back
+                          </div>
+                        </div>
+
+                        {/* Card footer with team secondary color */}
+                        <div
+                          className="absolute bottom-0 left-0 right-0 h-2"
+                          style={{
+                            backgroundColor: getTeamColor(getPlayerTeams(player)[0] || '').secondary
+                          }}
+                        ></div>
+
+                        {/* Step number badge */}
+                        <div className="absolute -top-2 -right-2 w-7 h-7 bg-black text-white text-xs font-bold flex items-center justify-center border-2 border-white shadow-[3px_3px_0px_black]">
+                          {index + 1}
+                        </div>
+                      </div>
                     </div>
-                  ))}
+                  </div>
+                  {index < shortestPath.length - 1 && <div className="text-xs font-bold text-black">→</div>}
                 </div>
-                <div className="mt-3 font-bold text-center uppercase tracking-wide">
-                  Optimal steps: {shortestPath.length - 1}
-                </div>
-              </div>
-            )}
+              ))}
+            </div>
+            <div className="mt-3 font-bold text-center uppercase tracking-wide">
+              Optimal steps: {shortestPath.length - 1}
+            </div>
           </div>
         )}
       </div>

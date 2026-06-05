@@ -148,21 +148,24 @@ export function Header() {
               )}
             </div>
 
-            {/* Game Dropdown */}
+            {/* Game */}
             <div
               className="relative"
               onMouseEnter={() => {}}
               onMouseLeave={() => {}}
             >
-              <button className="text-xs font-medium transition-colors hover:underline text-black">
-                Game
+              <button
+                onClick={() => window.location.href = '/game'}
+                className="text-xs font-medium transition-colors hover:underline text-black"
+              >
+                PORTALMANIA
               </button>
               <div className="absolute top-full left-0 mt-1 bg-[#E7E8D1] border-2 border-black shadow-[3px_3px_0px_black] z-10 hidden">
                 <Link
                   href="/game"
                   className="block px-4 py-2 text-xs hover:bg-[#B8C0A8]"
                 >
-                  Game
+                  PORTALMANIA
                 </Link>
               </div>
             </div>

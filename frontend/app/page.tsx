@@ -13,7 +13,7 @@ export default function HomePage() {
             CBB Stats
           </h1>
           <p className="text-xs text-black mb-8 max-w-2xl mx-auto">
-            College basketball analytics with Pokemon-style player cards. Explore player stats, clusters, and projections.
+            Explore player stats, clusters, and projections.
           </p>
         </div>
         
