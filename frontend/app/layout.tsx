@@ -10,10 +10,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-[#E7E8D1] font-mono text-black flex justify-center items-start min-h-screen py-6">
+      <body className="bg-[#E7E8D1] font-mono text-black flex justify-center items-start min-h-screen py-6 px-2 sm:px-4">
         
         <YearProvider>
-          <div className="w-[900px] border-4 border-black bg-[#C7D0B8] shadow-[6px_6px_0px_black]">
+          <div className="w-full max-w-[900px] border-4 border-black bg-[#C7D0B8] shadow-[6px_6px_0px_black]">
 
             {/* HEADER */}
             <Header />

@@ -76,14 +76,14 @@ export default function ProjectionsLeaderboard() {
   };
 
   return (
-    <div className="p-4 font-mono text-xs">
+    <div className="p-2 sm:p-4 font-mono text-xs">
       {/* HEADER */}
-      <div className="mb-4">
-        <h1 className="text-xs font-bold uppercase tracking-wide">2027 BPM Projection Leaderboard</h1>
+      <div className="mb-2 sm:mb-4">
+        <h1 className="text-xs sm:text-sm font-bold uppercase tracking-wide">2027 BPM Projection Leaderboard</h1>
       </div>
 
       {/* COUNT */}
-      <div className="mb-2 text-xs opacity-70">
+      <div className="mb-2 text-[10px] sm:text-xs opacity-70">
         Showing {data?.results.length || 0} players (of {data?.total_count || 0} total)
       </div>
 
@@ -91,15 +91,15 @@ export default function ProjectionsLeaderboard() {
         <div className="flex justify-center items-center h-64">
           <div className="text-center">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-black mx-auto"></div>
-            <p className="mt-2 text-xs">Loading leaderboard...</p>
+            <p className="mt-2 text-[10px] sm:text-xs">Loading leaderboard...</p>
           </div>
         </div>
       )}
 
       {error && (
         <div className="text-center py-12">
-          <h3 className="text-xs font-bold text-black uppercase tracking-wide">Error</h3>
-          <p className="mt-2 text-xs text-black">{error}</p>
+          <h3 className="text-[10px] sm:text-xs font-bold text-black uppercase tracking-wide">Error</h3>
+          <p className="mt-2 text-[10px] sm:text-xs text-black">{error}</p>
         </div>
       )}
 
@@ -109,42 +109,42 @@ export default function ProjectionsLeaderboard() {
             <thead>
               <tr className="border-b-2 border-black">
                 <th
-                  className="text-left py-2 px-3 font-bold text-xs cursor-pointer hover:bg-[#B7C4A5] transition-colors"
+                  className="text-left py-2 px-2 sm:px-3 font-bold text-[10px] sm:text-xs cursor-pointer hover:bg-[#B7C4A5] transition-colors"
                   onClick={() => handleSort("projected_bpm")}
                 >
                   Rank{getSortIcon("projected_bpm")}
                 </th>
                 <th
-                  className="text-left py-2 px-3 font-bold text-xs cursor-pointer hover:bg-[#B7C4A5] transition-colors"
+                  className="text-left py-2 px-2 sm:px-3 font-bold text-[10px] sm:text-xs cursor-pointer hover:bg-[#B7C4A5] transition-colors"
                   onClick={() => handleSort("player_name")}
                 >
                   Player{getSortIcon("player_name")}
                 </th>
                 <th
-                  className="text-left py-2 px-3 font-bold text-xs cursor-pointer hover:bg-[#B7C4A5] transition-colors"
+                  className="text-left py-2 px-2 sm:px-3 font-bold text-[10px] sm:text-xs cursor-pointer hover:bg-[#B7C4A5] transition-colors"
                   onClick={() => handleSort("team")}
                 >
                   Team{getSortIcon("team")}
                 </th>
                 <th
-                  className="text-right py-2 px-3 font-bold text-xs cursor-pointer hover:bg-[#B7C4A5] transition-colors"
+                  className="text-right py-2 px-2 sm:px-3 font-bold text-[10px] sm:text-xs cursor-pointer hover:bg-[#B7C4A5] transition-colors"
                   onClick={() => handleSort("current_bpm")}
                 >
                   Current BPM{getSortIcon("current_bpm")}
                 </th>
                 <th
-                  className="text-right py-2 px-3 font-bold text-xs cursor-pointer hover:bg-[#B7C4A5] transition-colors"
+                  className="text-right py-2 px-2 sm:px-3 font-bold text-[10px] sm:text-xs cursor-pointer hover:bg-[#B7C4A5] transition-colors"
                   onClick={() => handleSort("bpm_change")}
                 >
                   Projected Change{getSortIcon("bpm_change")}
                 </th>
                 <th
-                  className="text-right py-2 px-3 font-bold text-xs cursor-pointer hover:bg-[#B7C4A5] transition-colors"
+                  className="text-right py-2 px-2 sm:px-3 font-bold text-[10px] sm:text-xs cursor-pointer hover:bg-[#B7C4A5] transition-colors"
                   onClick={() => handleSort("projected_bpm")}
                 >
                   2027 Projected BPM{getSortIcon("projected_bpm")}
                 </th>
-                <th className="text-right py-2 px-3 font-bold text-xs">80% CI</th>
+                <th className="text-right py-2 px-2 sm:px-3 font-bold text-[10px] sm:text-xs">80% CI</th>
               </tr>
             </thead>
             <tbody>
@@ -153,10 +153,10 @@ export default function ProjectionsLeaderboard() {
                   key={entry.player_key}
                   className="border-b-2 border-black hover:bg-[#B8C0A8] transition-colors cursor-pointer"
                 >
-                  <td className="py-2 px-3 text-xs font-medium">
+                  <td className="py-2 px-2 sm:px-3 text-[10px] sm:text-xs font-medium">
                     {page * limit + index + 1}
                   </td>
-                  <td className="py-2 px-3 text-xs font-medium">
+                  <td className="py-2 px-2 sm:px-3 text-[10px] sm:text-xs font-medium">
                     <Link
                       href={`/projections/2027?player=${entry.player_key}`}
                       className="hover:underline"
@@ -164,11 +164,11 @@ export default function ProjectionsLeaderboard() {
                       {entry.player_name}
                     </Link>
                   </td>
-                  <td className="py-2 px-3 text-xs">{entry.team}</td>
-                  <td className="py-2 px-3 text-right text-xs">
+                  <td className="py-2 px-2 sm:px-3 text-[10px] sm:text-xs">{entry.team}</td>
+                  <td className="py-2 px-2 sm:px-3 text-right text-[10px] sm:text-xs">
                     {entry.current_bpm !== null ? entry.current_bpm.toFixed(2) : "N/A"}
                   </td>
-                  <td className="py-2 px-3 text-right text-xs">
+                  <td className="py-2 px-2 sm:px-3 text-right text-[10px] sm:text-xs">
                     {entry.bpm_change_predicted !== null ? (
                       <span
                         className={
@@ -187,10 +187,10 @@ export default function ProjectionsLeaderboard() {
                       "N/A"
                     )}
                   </td>
-                  <td className="py-2 px-3 text-right text-xs font-bold">
+                  <td className="py-2 px-2 sm:px-3 text-right text-[10px] sm:text-xs font-bold">
                     {entry.projected_bpm !== null ? entry.projected_bpm.toFixed(2) : "N/A"}
                   </td>
-                  <td className="py-2 px-3 text-right text-xs text-black">
+                  <td className="py-2 px-2 sm:px-3 text-right text-[10px] sm:text-xs text-black">
                     {entry.projected_bpm_lower_90 !== null && entry.projected_bpm_upper_90 !== null
                       ? `${entry.projected_bpm_lower_90.toFixed(1)} to ${entry.projected_bpm_upper_90.toFixed(1)}`
                       : "N/A"}
@@ -205,14 +205,14 @@ export default function ProjectionsLeaderboard() {
             <button
               onClick={() => setPage(Math.max(0, page - 1))}
               disabled={page === 0}
-              className="px-4 py-2 border border-black bg-[#E7E8D1] hover:bg-[#dfe2c6] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="px-3 py-2 sm:px-4 sm:py-2 border border-black bg-[#E7E8D1] hover:bg-[#dfe2c6] disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-[10px] sm:text-xs"
             >
               Prev
             </button>
             <button
               onClick={() => setPage(page + 1)}
               disabled={(page + 1) * limit >= data.total_count}
-              className="px-4 py-2 border border-black bg-[#E7E8D1] hover:bg-[#dfe2c6] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="px-3 py-2 sm:px-4 sm:py-2 border border-black bg-[#E7E8D1] hover:bg-[#dfe2c6] disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-[10px] sm:text-xs"
             >
               Next
             </button>

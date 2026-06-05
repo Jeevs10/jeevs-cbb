@@ -83,12 +83,12 @@ export default function AdvancedLeaderboard() {
 
   return (
     <ErrorBoundary>
-      <div className="p-4 font-mono text-xs">
+      <div className="p-2 sm:p-4 font-mono text-xs">
 
         {/* YEAR FILTER */}
         {yearsError ? (
-          <ErrorMessage 
-            message={yearsError} 
+          <ErrorMessage
+            message={yearsError}
             onRetry={handleRetryYears}
           />
         ) : (
@@ -116,8 +116,8 @@ export default function AdvancedLeaderboard() {
 
         {/* TABLE */}
         {playersError ? (
-          <ErrorMessage 
-            message={playersError} 
+          <ErrorMessage
+            message={playersError}
             onRetry={handleRetryPlayers}
           />
         ) : (
@@ -138,14 +138,14 @@ export default function AdvancedLeaderboard() {
             <button
               onClick={handlePrevPage}
               disabled={page === 0}
-              className="px-4 py-2 border border-black bg-[#E7E8D1] hover:bg-[#dfe2c6] disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-3 py-2 sm:px-4 sm:py-2 border border-black bg-[#E7E8D1] hover:bg-[#dfe2c6] disabled:opacity-50 disabled:cursor-not-allowed text-xs"
             >
               Prev
             </button>
             <button
               onClick={handleNextPage}
               disabled={players.length < DEFAULT_PAGE_SIZE}
-              className="px-4 py-2 border border-black bg-[#E7E8D1] hover:bg-[#dfe2c6] disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-3 py-2 sm:px-4 sm:py-2 border border-black bg-[#E7E8D1] hover:bg-[#dfe2c6] disabled:opacity-50 disabled:cursor-not-allowed text-xs"
             >
               Next
             </button>

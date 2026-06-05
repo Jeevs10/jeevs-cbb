@@ -261,12 +261,12 @@ export default function ClusterAnalysis() {
 
   return (
     <ErrorBoundary>
-      <div className="p-3 font-mono text-xs bg-[#E7E8D1] text-black min-h-screen">
-        <div className="max-w-7xl mx-auto space-y-6">
+      <div className="p-2 sm:p-3 font-mono text-xs bg-[#E7E8D1] text-black min-h-screen">
+        <div className="max-w-7xl mx-auto space-y-4 sm:space-y-6">
         {/* Title */}
-        <div className="border-b-2 border-black pb-4">
-          <h1 className="text-xs font-bold uppercase tracking-wide mb-2">Cluster Analysis</h1>
-          <p className="text-xs text-black">
+        <div className="border-b-2 border-black pb-2 sm:pb-4">
+          <h1 className="text-xs sm:text-sm font-bold uppercase tracking-wide mb-2">Cluster Analysis</h1>
+          <p className="text-[10px] sm:text-xs text-black">
             Explore player playstyle clusters and their characteristics
           </p>
         </div>
@@ -274,16 +274,16 @@ export default function ClusterAnalysis() {
         {/* Key Insights */}
         <Panel>
           <PanelHeader>KEY INSIGHTS</PanelHeader>
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4">
             {[
               { label: "Total Players", value: clusterPlayers.length },
               { label: "Clusters", value: clusterDescriptions.length },
               { label: "Playstyle Features", value: 18 },
               { label: "Avg BPM Range", value: "-6 to +5" },
             ].map((stat, i) => (
-              <div key={i} className="border-2 border-black bg-[#E7E8D1] p-4 shadow-[3px_3px_0px_black]">
-                <div className="text-xs font-bold uppercase tracking-wide mb-2 text-black">{stat.label}</div>
-                <div className="text-xs font-bold">{stat.value}</div>
+              <div key={i} className="border-2 border-black bg-[#E7E8D1] p-2 sm:p-4 shadow-[3px_3px_0px_black]">
+                <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wide mb-1 sm:mb-2 text-black">{stat.label}</div>
+                <div className="text-[10px] sm:text-xs font-bold">{stat.value}</div>
               </div>
             ))}
           </div>
@@ -292,11 +292,11 @@ export default function ClusterAnalysis() {
         {/* Cluster Selector Dropdown */}
         <Panel>
           <PanelHeader>SELECT CLUSTER</PanelHeader>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
             <select
               value={selectedCluster || ''}
               onChange={(e) => handleClusterClick(parseInt(e.target.value))}
-              className="flex-1 border-2 border-black bg-[#E7E8D1] p-3 font-mono text-xs shadow-[3px_3px_0px_black] focus:outline-none focus:shadow-[3px_3px_0px_black]"
+              className="flex-1 border-2 border-black bg-[#E7E8D1] p-2 sm:p-3 font-mono text-[10px] sm:text-xs shadow-[3px_3px_0px_black] focus:outline-none focus:shadow-[3px_3px_0px-black]"
             >
               <option value="">-- Select a Cluster --</option>
               {clusterDescriptions
@@ -310,7 +310,7 @@ export default function ClusterAnalysis() {
             {selectedCluster !== null && (
               <button
                 onClick={() => handleClusterClick(selectedCluster)}
-                className="px-4 py-3 border-2 border-black bg-black text-white font-bold hover:bg-black/80 transition-all shadow-[3px_3px_0px_black]"
+                className="px-3 py-2 sm:px-4 sm:py-3 border-2 border-black bg-black text-white font-bold hover:bg-black/80 transition-all shadow-[3px_3px_0px_black] text-[10px] sm:text-xs"
               >
                 CLEAR
               </button>
@@ -321,27 +321,27 @@ export default function ClusterAnalysis() {
         {/* 3D Solar System */}
         <Panel>
           <PanelHeader>3D PLAYSTYLE SIMILARITY MAP</PanelHeader>
-          <p className="text-xs mb-4 text-black">
+          <p className="text-[10px] sm:text-xs mb-2 sm:mb-4 text-black">
             Interactive 3D visualization of top 30 players per cluster. Select a cluster from the dropdown to view its system. Drag to rotate, scroll to zoom.
           </p>
 
           {selectedCluster !== null && (
             <button
               onClick={() => setSelectedCluster(null)}
-              className="mb-4 px-4 py-2 border-2 border-black bg-black text-white text-xs font-bold hover:bg-black/80 transition-all shadow-[3px_3px_0px_black]"
+              className="mb-2 sm:mb-4 px-3 py-2 sm:px-4 sm:py-2 border-2 border-black bg-black text-white text-[10px] sm:text-xs font-bold hover:bg-black/80 transition-all shadow-[3px_3px_0px_black]"
             >
               FULL VIEW
             </button>
           )}
 
-          <div className="h-[700px] border-2 border-black bg-black relative overflow-hidden">
+          <div className="h-[400px] sm:h-[700px] border-2 border-black bg-black relative overflow-hidden">
             {/* Player Tooltip */}
             {hoveredPlayer && (
-              <div className="absolute top-4 left-4 border-2 border-black bg-[#C7D0B8] shadow-[3px_3px_0px_black] p-4 z-10 min-w-[200px]">
-                <div className="font-bold text-black text-xs mb-1">{hoveredPlayer.Name}</div>
-                <div className="text-xs text-black mb-1">Team: {hoveredPlayer.Team}</div>
-                <div className="text-xs text-black mb-1">BPM: <span className={hoveredPlayer.BPM > 0 ? 'text-green-600 font-bold' : 'text-red-600 font-bold'}>{hoveredPlayer.BPM?.toFixed(2) || 'N/A'}</span></div>
-                <div className="text-xs text-black">Cluster: {hoveredPlayer.cluster}</div>
+              <div className="absolute top-2 sm:top-4 left-2 sm:left-4 border-2 border-black bg-[#C7D0B8] shadow-[3px_3px_0px_black] p-2 sm:p-4 z-10 min-w-[180px] sm:min-w-[200px]">
+                <div className="font-bold text-black text-[10px] sm:text-xs mb-1">{hoveredPlayer.Name}</div>
+                <div className="text-[10px] sm:text-xs text-black mb-1">Team: {hoveredPlayer.Team}</div>
+                <div className="text-[10px] sm:text-xs text-black mb-1">BPM: <span className={hoveredPlayer.BPM > 0 ? 'text-green-600 font-bold' : 'text-red-600 font-bold'}>{hoveredPlayer.BPM?.toFixed(2) || 'N/A'}</span></div>
+                <div className="text-[10px] sm:text-xs text-black">Cluster: {hoveredPlayer.cluster}</div>
               </div>
             )}
             
@@ -436,17 +436,17 @@ export default function ClusterAnalysis() {
         {/* Cluster Statistics */}
         <Panel>
           <PanelHeader>CLUSTER STATISTICS</PanelHeader>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="border-2 border-black bg-[#E7E8D1] p-4">
-              <div className="border-b-2 border-black mb-3 pb-1 text-xs font-bold uppercase tracking-wide">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4">
+            <div className="border-2 border-black bg-[#E7E8D1] p-2 sm:p-4">
+              <div className="border-b-2 border-black mb-2 sm:mb-3 pb-1 text-[10px] sm:text-xs font-bold uppercase tracking-wide">
                 Cluster Distribution
               </div>
-              <div className="h-64">
+              <div className="h-48 sm:h-64">
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={clusterSizeData}>
                     <CartesianGrid strokeDasharray="3 3" stroke="black" />
-                    <XAxis dataKey="cluster" tick={{ fontSize: 10, fill: 'black' }} />
-                    <YAxis tick={{ fontSize: 10, fill: 'black' }} />
+                    <XAxis dataKey="cluster" tick={{ fontSize: 8, fill: 'black' }} />
+                    <YAxis tick={{ fontSize: 8, fill: 'black' }} />
                     <Tooltip
                       contentStyle={{
                         backgroundColor: '#C7D0B8',
@@ -459,16 +459,16 @@ export default function ClusterAnalysis() {
                 </ResponsiveContainer>
               </div>
             </div>
-            <div className="border-2 border-black bg-[#E7E8D1] p-4">
-              <div className="border-b-2 border-black mb-3 pb-1 text-xs font-bold uppercase tracking-wide">
+            <div className="border-2 border-black bg-[#E7E8D1] p-2 sm:p-4">
+              <div className="border-b-2 border-black mb-2 sm:mb-3 pb-1 text-[10px] sm:text-xs font-bold uppercase tracking-wide">
                 Height by Cluster
               </div>
-              <div className="h-64">
+              <div className="h-48 sm:h-64">
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={clusterComparisonData}>
                     <CartesianGrid strokeDasharray="3 3" stroke="black" />
-                    <XAxis dataKey="cluster" tick={{ fontSize: 10, fill: 'black' }} />
-                    <YAxis tick={{ fontSize: 10, fill: 'black' }} />
+                    <XAxis dataKey="cluster" tick={{ fontSize: 8, fill: 'black' }} />
+                    <YAxis tick={{ fontSize: 8, fill: 'black' }} />
                     <Tooltip
                       contentStyle={{
                         backgroundColor: '#C7D0B8',
@@ -494,33 +494,33 @@ export default function ClusterAnalysis() {
                 if (!desc) return null;
                 return (
                   <>
-                    <div className="border-b-2 border-black pb-3 mb-4">
-                      <h3 className="text-xs font-bold mb-1 uppercase tracking-wide">{desc.name || 'Unnamed Cluster'}</h3>
-                      <p className="text-xs text-black">{desc.count} players in this cluster</p>
+                    <div className="border-b-2 border-black pb-2 sm:pb-3 mb-3 sm:mb-4">
+                      <h3 className="text-[10px] sm:text-xs font-bold mb-1 uppercase tracking-wide">{desc.name || 'Unnamed Cluster'}</h3>
+                      <p className="text-[10px] sm:text-xs text-black">{desc.count} players in this cluster</p>
                     </div>
 
                     {/* Key Statistics */}
-                    <div className="grid grid-cols-4 gap-3 mb-4">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mb-3 sm:mb-4">
                       {[
                         { label: "Players", value: desc.count },
                         { label: "Avg Height", value: `${desc.avg_height.toFixed(1)}` },
                         { label: "Avg Usage", value: `${desc.avg_usage.toFixed(1)}%` },
                         { label: "Avg BPM", value: desc.avg_bpm.toFixed(1) },
                       ].map((stat, i) => (
-                        <div key={i} className="border-2 border-black bg-[#E7E8D1] p-3 shadow-[3px_3px_0px_black]">
-                          <div className="text-xs font-bold uppercase tracking-wide mb-1 text-black">{stat.label}</div>
-                          <div className="text-xs font-bold">{stat.value}</div>
+                        <div key={i} className="border-2 border-black bg-[#E7E8D1] p-2 sm:p-3 shadow-[3px_3px_0px_black]">
+                          <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wide mb-1 text-black">{stat.label}</div>
+                          <div className="text-[10px] sm:text-xs font-bold">{stat.value}</div>
                         </div>
                       ))}
                     </div>
 
                     {/* Detailed Statistics */}
-                    <div className="grid grid-cols-2 gap-4 mb-4">
-                      <div className="border-2 border-black bg-[#E7E8D1] p-4 shadow-[3px_3px_0px_black]">
-                        <div className="border-b-2 border-black mb-3 pb-1 text-xs font-bold uppercase tracking-wide">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 mb-3 sm:mb-4">
+                      <div className="border-2 border-black bg-[#E7E8D1] p-2 sm:p-4 shadow-[3px_3px_0px_black]">
+                        <div className="border-b-2 border-black mb-2 sm:mb-3 pb-1 text-[10px] sm:text-xs font-bold uppercase tracking-wide">
                           Offensive Profile
                         </div>
-                        <div className="space-y-2 text-xs">
+                        <div className="space-y-1 sm:space-y-2 text-[10px] sm:text-xs">
                           <div className="flex justify-between">
                             <span className="text-black">3PT Attempt Rate:</span>
                             <span className="font-bold">{desc.avg_3pt_pct.toFixed(1)}%</span>
@@ -535,11 +535,11 @@ export default function ClusterAnalysis() {
                           </div>
                         </div>
                       </div>
-                      <div className="border-2 border-black bg-[#E7E8D1] p-4 shadow-[3px_3px_0px_black]">
-                        <div className="border-b-2 border-black mb-3 pb-1 text-xs font-bold uppercase tracking-wide">
+                      <div className="border-2 border-black bg-[#E7E8D1] p-2 sm:p-4 shadow-[3px_3px_0px_black]">
+                        <div className="border-b-2 border-black mb-2 sm:mb-3 pb-1 text-[10px] sm:text-xs font-bold uppercase tracking-wide">
                           Defensive Profile
                         </div>
-                        <div className="space-y-2 text-xs">
+                        <div className="space-y-1 sm:space-y-2 text-[10px] sm:text-xs">
                           <div className="flex justify-between">
                             <span className="text-black">DBPM:</span>
                             <span className={`font-bold ${(desc.avg_dbpm || 0) > 0 ? 'text-green-600' : 'text-red-600'}`}>{desc.avg_dbpm?.toFixed(2) || 'N/A'}</span>
@@ -553,11 +553,11 @@ export default function ClusterAnalysis() {
                     </div>
 
                     {/* Top 5 Players */}
-                    <div className="border-2 border-black bg-[#E7E8D1] p-4 shadow-[3px_3px_0px_black]">
-                      <div className="border-b-2 border-black mb-3 pb-1 text-xs font-bold uppercase tracking-wide">
+                    <div className="border-2 border-black bg-[#E7E8D1] p-2 sm:p-4 shadow-[3px_3px_0px-black]">
+                      <div className="border-b-2 border-black mb-2 sm:mb-3 pb-1 text-[10px] sm:text-xs font-bold uppercase tracking-wide">
                         Top 5 Players by BPM
                       </div>
-                      <div className="space-y-2">
+                      <div className="space-y-1 sm:space-y-2">
                         {selectedClusterPlayers
                           .sort((a, b) => (b.BPM || 0) - (a.BPM || 0))
                           .slice(0, 5)
@@ -565,16 +565,16 @@ export default function ClusterAnalysis() {
                             <a
                               key={player.Name}
                               href={`/player/${player.Name.toLowerCase().replace(/\s+/g, '-')}`}
-                              className="flex items-center gap-3 p-2 border-2 border-black bg-[#C7D0B8] hover:bg-[#B8C0A8] transition-all shadow-[3px_3px_0px_black]"
+                              className="flex items-center gap-2 sm:gap-3 p-2 border-2 border-black bg-[#C7D0B8] hover:bg-[#B8C0A8] transition-all shadow-[3px_3px_0px-black]"
                             >
-                              <div className="w-8 h-8 border-2 border-black bg-[#E7E8D1] flex items-center justify-center font-bold text-xs">
+                              <div className="w-6 h-6 sm:w-8 sm:h-8 border-2 border-black bg-[#E7E8D1] flex items-center justify-center font-bold text-[10px] sm:text-xs">
                                 {i + 1}
                               </div>
                               <div className="flex-1">
-                                <div className="font-bold text-xs">{player.Name}</div>
-                                <div className="text-xs text-black">{player.Team}</div>
+                                <div className="font-bold text-[10px] sm:text-xs">{player.Name}</div>
+                                <div className="text-[10px] sm:text-xs text-black">{player.Team}</div>
                               </div>
-                              <div className="font-bold text-xs">
+                              <div className="font-bold text-[10px] sm:text-xs">
                                 {player.BPM > 0 ? (
                                   <span className="text-green-600">+{player.BPM?.toFixed(1)}</span>
                                 ) : (

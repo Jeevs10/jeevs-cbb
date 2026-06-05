@@ -132,12 +132,12 @@ export default function MovesPage() {
 
   return (
     <ErrorBoundary>
-      <div className="p-4 font-mono text-xs">
+      <div className="p-2 sm:p-4 font-mono text-xs">
 
         {/* YEAR FILTER */}
         {yearsError ? (
-          <ErrorMessage 
-            message={yearsError} 
+          <ErrorMessage
+            message={yearsError}
             onRetry={handleRetryYears}
           />
         ) : (
@@ -152,12 +152,12 @@ export default function MovesPage() {
         {/* MOVE FILTER */}
         <div className="mb-6">
           <label className="block text-xs font-bold mb-3 text-black uppercase tracking-wide">MOVE TYPE</label>
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
             {MOVE_TYPES.map((moveType) => (
               <button
                 key={moveType.value}
                 onClick={() => handleMoveChange(moveType.value)}
-                className={`px-4 py-3 border-2 border-black text-xs font-bold transition-all ${
+                className={`px-3 py-2 sm:px-4 sm:py-3 border-2 border-black text-[10px] sm:text-xs font-bold transition-all ${
                   move === moveType.value
                     ? `${moveType.color} shadow-[3px_3px_0px_black]`
                     : 'bg-[#E7E8D1] hover:bg-[#B8C0A8] shadow-[3px_3px_0px_black]'
@@ -234,7 +234,7 @@ export default function MovesPage() {
         </div>
 
         {/* MOVE RANKINGS */}
-        <div key={`rankings-${move}`} className="border-2 border-black bg-[#C7D0B8] p-3 shadow-[3px_3px_0px_black]">
+        <div key={`rankings-${move}`} className="border-2 border-black bg-[#C7D0B8] p-2 sm:p-3 shadow-[3px_3px_0px-black] overflow-x-auto">
           <div className="text-xs font-bold border-b-2 border-black pb-1 mb-2 uppercase tracking-wide">
             {MOVE_TYPES.find(m => m.value === move)?.label} RANKINGS
           </div>
@@ -245,9 +245,9 @@ export default function MovesPage() {
               onRetry={handleRetryRankings}
             />
           ) : rankings && rankings.results.length > 0 ? (
-            <div className="space-y-1">
+            <div className="space-y-1 min-w-[600px]">
               {/* Table Header */}
-              <div className={`grid gap-2 text-xs font-bold border-b-2 border-black pb-1 ${year ? "grid-cols-9" : "grid-cols-10"}`}>
+              <div className={`grid gap-2 text-[10px] sm:text-xs font-bold border-b-2 border-black pb-1 ${year ? "grid-cols-9" : "grid-cols-10"}`}>
                 <div>PLAYER</div>
                 <div>TEAM</div>
                 <div>POS</div>
@@ -284,24 +284,24 @@ export default function MovesPage() {
                     href={`/player/${playerId}?year=${player.year}`}
                     className={`grid gap-2 items-center border-2 border-black p-2 bg-[#E7E8D1] hover:bg-[#B8C0A8] transition-colors ${year ? "grid-cols-9" : "grid-cols-10"}`}
                   >
-                    <div className="font-bold">{player.rank || index + 1}. {player.player_name}</div>
-                    <div className="text-xs text-black">{player.team}</div>
-                    <div className="text-xs text-black">{player.Position || '-'}</div>
-                    <div className="text-xs text-black">{player.Height || '-'}</div>
-                    {!year && <div className="text-xs text-black">{player.year}</div>}
-                    <div className="text-right text-xs">
+                    <div className="font-bold text-[10px] sm:text-xs">{player.rank || index + 1}. {player.player_name}</div>
+                    <div className="text-[10px] sm:text-xs text-black">{player.team}</div>
+                    <div className="text-[10px] sm:text-xs text-black">{player.Position || '-'}</div>
+                    <div className="text-[10px] sm:text-xs text-black">{player.Height || '-'}</div>
+                    {!year && <div className="text-[10px] sm:text-xs text-black">{player.year}</div>}
+                    <div className="text-right text-[10px] sm:text-xs">
                       {(player.move_frequency_pctile * 100).toFixed(0)}th %
                     </div>
-                    <div className="text-right font-bold">
+                    <div className="text-right font-bold text-[10px] sm:text-xs">
                       {player.move_efficiency?.toFixed(2)}
                     </div>
-                    <div className="text-right text-xs">
+                    <div className="text-right text-[10px] sm:text-xs">
                       {(player.move_efficiency_pctile * 100).toFixed(0)}th %
                     </div>
-                    <div className="text-right font-bold">
+                    <div className="text-right font-bold text-[10px] sm:text-xs">
                       {player.grade}
                     </div>
-                    <div className="text-right text-xs">
+                    <div className="text-right text-[10px] sm:text-xs">
                       {player.grade_score?.toFixed(3)}
                     </div>
                   </Link>
@@ -318,14 +318,14 @@ export default function MovesPage() {
               <button
                 onClick={handlePrevPage}
                 disabled={page === 0}
-                className="px-4 py-2 border-2 border-black bg-[#E7E8D1] hover:bg-[#B8C0A8] disabled:opacity-50 disabled:cursor-not-allowed text-xs shadow-[3px_3px_0px_black]"
+                className="px-3 py-2 sm:px-4 sm:py-2 border-2 border-black bg-[#E7E8D1] hover:bg-[#B8C0A8] disabled:opacity-50 disabled:cursor-not-allowed text-xs shadow-[3px_3px_0px-black]"
               >
                 Prev
               </button>
               <button
                 onClick={handleNextPage}
                 disabled={rankings.results.length < DEFAULT_PAGE_SIZE}
-                className="px-4 py-2 border-2 border-black bg-[#E7E8D1] hover:bg-[#B8C0A8] disabled:opacity-50 disabled:cursor-not-allowed text-xs shadow-[3px_3px_0px_black]"
+                className="px-3 py-2 sm:px-4 sm:py-2 border-2 border-black bg-[#E7E8D1] hover:bg-[#B8C0A8] disabled:opacity-50 disabled:cursor-not-allowed text-xs shadow-[3px_3px_0px-black]"
               >
                 Next
               </button>

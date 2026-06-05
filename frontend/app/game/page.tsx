@@ -405,13 +405,13 @@ export default function GamePage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#E7E8D1] p-4 font-mono text-xs">
+    <div className="min-h-screen bg-[#E7E8D1] p-2 sm:p-4 font-mono text-xs">
       <div className="max-w-4xl mx-auto">
         <div className="flex justify-between items-center mb-4">
-          <h1 className="text-xs font-bold uppercase tracking-wide">PORTALMANIA</h1>
+          <h1 className="text-xs sm:text-sm font-bold uppercase tracking-wide">PORTALMANIA</h1>
           <button
             onClick={fetchGamePair}
-            className="px-4 py-2 bg-black text-white font-bold border-2 border-black hover:bg-gray-800 shadow-[3px_3px_0px_black]"
+            className="px-3 py-2 sm:px-4 sm:py-2 bg-black text-white font-bold border-2 border-black hover:bg-gray-800 shadow-[3px_3px_0px_black] text-xs"
           >
             Refresh
           </button>
@@ -421,7 +421,7 @@ export default function GamePage() {
         </p>
 
         {/* Filters Section */}
-        <div className="bg-[#E7E8D1] border-2 border-black p-4 mb-4 shadow-[3px_3px_0px_black]">
+        <div className="bg-[#E7E8D1] border-2 border-black p-3 sm:p-4 mb-4 shadow-[3px_3px_0px_black]">
           <button
             onClick={() => setShowFilters(!showFilters)}
             className="w-full flex justify-between items-center font-bold mb-2 uppercase tracking-wide"
@@ -446,7 +446,7 @@ export default function GamePage() {
                             : [...prev, conf]
                         );
                       }}
-                      className={`px-3 py-1 text-xs border-2 border-black ${
+                      className={`px-2 py-1 sm:px-3 sm:py-1 text-xs border-2 border-black ${
                         selectedConferences.includes(conf)
                           ? 'bg-black text-white'
                           : 'bg-[#E7E8D1]'
@@ -586,19 +586,19 @@ export default function GamePage() {
             )}
 
             {/* Player Chain Visualization with Collectible Cards */}
-            <div ref={shareRef} className="bg-[#E7E8D1] border-2 border-black p-6 shadow-[3px_3px_0px_black]">
+            <div ref={shareRef} className="bg-[#E7E8D1] border-2 border-black p-4 sm:p-6 shadow-[3px_3px_0px_black]">
               {gameEnded && playerChain[playerChain.length - 1].id === gamePair.end_player.id && (
                 <>
-                  <div className="font-bold text-center uppercase tracking-wide mb-2">Congratulations! You completed the path!</div>
-                  <div className="text-center mb-2">Time: {formatTime(timeElapsed)}</div>
-                  <div className="text-center mb-2">Your Path: {playerChain.length - 1} steps</div>
-                  <div className="text-center mb-4">Optimal Length: {gamePair.distance} steps</div>
+                  <div className="font-bold text-center uppercase tracking-wide mb-2 text-xs sm:text-sm">Congratulations! You completed the path!</div>
+                  <div className="text-center mb-2 text-xs sm:text-sm">Time: {formatTime(timeElapsed)}</div>
+                  <div className="text-center mb-2 text-xs sm:text-sm">Your Path: {playerChain.length - 1} steps</div>
+                  <div className="text-center mb-4 text-xs sm:text-sm">Optimal Length: {gamePair.distance} steps</div>
                 </>
               )}
-              <h2 className="font-bold mb-4 text-center uppercase tracking-wide">Your Path:</h2>
-              <div className="flex flex-wrap justify-center items-center gap-4">
+              <h2 className="font-bold mb-4 text-center uppercase tracking-wide text-xs sm:text-sm">Your Path:</h2>
+              <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-4">
                 {playerChain.map((player, index) => (
-                  <div key={getPlayerId(player)} className="flex items-center gap-4">
+                  <div key={getPlayerId(player)} className="flex items-center gap-2 sm:gap-4">
                     {/* Collectible Card */}
                     <div
                       className={`
@@ -608,15 +608,15 @@ export default function GamePage() {
                         transition-all duration-300
                       `}
                       style={{
-                        width: '144px',
-                        height: '192px'
+                        width: '100px',
+                        height: '133px'
                       }}
                       onClick={() => toggleCardFlip(index)}
                     >
                       <div className={`card-flip-inner ${flippedCards.has(index) ? 'flipped' : ''}`}>
                         {/* Front of card */}
                         <div
-                          className="card-flip-front relative w-36 h-48 border-2 border-black shadow-[3px_3px_0px_black] hover:shadow-[3px_3px_0px_black] transition-all duration-300 overflow-hidden bg-[#E7E8D1]"
+                          className="card-flip-front relative w-24 h-32 sm:w-36 sm:h-48 border-2 border-black shadow-[3px_3px_0px_black] hover:shadow-[3px_3px_0px_black] transition-all duration-300 overflow-hidden bg-[#E7E8D1]"
                         >
                           {/* Card header with team primary color */}
                           <div
@@ -631,34 +631,34 @@ export default function GamePage() {
                           </div>
 
                           {/* Player info */}
-                          <div className="p-3 flex flex-col items-center text-center bg-[#E7E8D1]">
+                          <div className="p-2 sm:p-3 flex flex-col items-center text-center bg-[#E7E8D1]">
                             {/* Player name */}
-                            <div className="font-bold text-xs text-black mb-1 line-clamp-2 leading-tight">
+                            <div className="font-bold text-[10px] sm:text-xs text-black mb-1 line-clamp-2 leading-tight">
                               {getPlayerName(player)}
                             </div>
 
                             {/* Position */}
                             {player.Position && (
-                              <div className="text-xs text-black font-bold mb-1">
+                              <div className="text-[10px] sm:text-xs text-black font-bold mb-1">
                                 {player.Position}
                               </div>
                             )}
 
                             {/* Team */}
                             {getPlayerTeams(player).length > 0 && (
-                              <div className="text-xs text-black font-medium mb-1 truncate">
+                              <div className="text-[10px] sm:text-xs text-black font-medium mb-1 truncate">
                                 {getPlayerTeams(player)[0]}
                               </div>
                             )}
 
                             {/* Year */}
                             {getPlayerYears(player).length > 0 && (
-                              <div className="text-xs text-black font-bold">
+                              <div className="text-[10px] sm:text-xs text-black font-bold">
                                 {getPlayerYears(player)[0]}
                               </div>
                             )}
 
-                            <div className="text-xs text-black mt-2 italic">
+                            <div className="text-[10px] sm:text-xs text-black mt-1 sm:mt-2 italic">
                               Click for more info
                             </div>
                           </div>
@@ -672,14 +672,14 @@ export default function GamePage() {
                           ></div>
 
                           {/* Step number badge */}
-                          <div className="absolute -top-2 -right-2 w-7 h-7 bg-black text-white text-xs font-bold flex items-center justify-center border-2 border-white shadow-[3px_3px_0px_black]">
+                          <div className="absolute -top-2 -right-2 w-6 h-6 sm:w-7 sm:h-7 bg-black text-white text-[10px] sm:text-xs font-bold flex items-center justify-center border-2 border-white shadow-[3px_3px_0px_black]">
                             {index + 1}
                           </div>
                         </div>
 
                         {/* Back of card */}
                         <div
-                          className="card-flip-back relative w-36 h-48 border-2 border-black shadow-[3px_3px_0px_black] overflow-hidden bg-[#E7E8D1]"
+                          className="card-flip-back relative w-24 h-32 sm:w-36 sm:h-48 border-2 border-black shadow-[3px_3px_0px_black] overflow-hidden bg-[#E7E8D1]"
                         >
                           {/* Card header with team primary color */}
                           <div
@@ -688,45 +688,45 @@ export default function GamePage() {
                               backgroundColor: getTeamColor(getPlayerTeams(player)[0] || '').primary
                             }}
                           >
-                            <div className="text-xs font-bold tracking-wider truncate uppercase">
+                            <div className="text-[10px] sm:text-xs font-bold tracking-wider truncate uppercase">
                               {getPlayerName(player)}
                             </div>
                           </div>
 
                           {/* Player details */}
-                          <div className="p-3 flex flex-col items-center text-center bg-[#E7E8D1]">
+                          <div className="p-2 sm:p-3 flex flex-col items-center text-center bg-[#E7E8D1]">
                             {/* Height */}
                             {player.roster_height && (
-                              <div className="text-xs text-black mb-1">
+                              <div className="text-[10px] sm:text-xs text-black mb-1">
                                 <span className="font-bold">Height:</span> {player.roster_height}
                               </div>
                             )}
                             {/* Hometown */}
                             {player.hometown && (
-                              <div className="text-xs text-black mb-1 truncate">
+                              <div className="text-[10px] sm:text-xs text-black mb-1 truncate">
                                 <span className="font-bold">From:</span> {player.hometown}
                               </div>
                             )}
                             {/* Conference */}
                             {player.conf && (
-                              <div className="text-xs text-black mb-1 truncate">
+                              <div className="text-[10px] sm:text-xs text-black mb-1 truncate">
                                 <span className="font-bold">Conf:</span> {player.conf}
                               </div>
                             )}
                             {/* Additional teams */}
                             {getPlayerTeams(player).length > 1 && (
-                              <div className="text-xs text-black truncate mt-2">
+                              <div className="text-[10px] sm:text-xs text-black truncate mt-2">
                                 <span className="font-bold">Also:</span> {getPlayerTeams(player).slice(1).join(', ')}
                               </div>
                             )}
                             {/* Additional years */}
                             {getPlayerYears(player).length > 1 && (
-                              <div className="text-xs text-black">
+                              <div className="text-[10px] sm:text-xs text-black">
                                 <span className="font-bold">Years:</span> {getPlayerYears(player).join(', ')}
                               </div>
                             )}
 
-                            <div className="text-xs text-black mt-2 italic">
+                            <div className="text-[10px] sm:text-xs text-black mt-2 italic">
                               Click to flip back
                             </div>
                           </div>
@@ -740,34 +740,34 @@ export default function GamePage() {
                           ></div>
 
                           {/* Step number badge */}
-                          <div className="absolute -top-2 -right-2 w-7 h-7 bg-black text-white text-xs font-bold flex items-center justify-center border-2 border-white shadow-[3px_3px_0px_black]">
+                          <div className="absolute -top-2 -right-2 w-6 h-6 sm:w-7 sm:h-7 bg-black text-white text-[10px] sm:text-xs font-bold flex items-center justify-center border-2 border-white shadow-[3px_3px_0px_black]">
                             {index + 1}
                           </div>
                         </div>
                       </div>
                     </div>
-                    {index < playerChain.length - 1 && <div className="text-xs font-bold text-black">→</div>}
+                    {index < playerChain.length - 1 && <div className="text-xs sm:text-sm font-bold text-black">→</div>}
                   </div>
                 ))}
 
                 {/* Target Card */}
                 {!gameEnded && (
                   <>
-                    <div className="text-xs font-bold text-black">→</div>
+                    <div className="text-xs sm:text-sm font-bold text-black">→</div>
                     <div
-                      className="relative w-36 h-48 border-2 border-dashed border-red-500 shadow-[3px_3px_0px_black] opacity-70 flex flex-col items-center justify-center p-2 bg-[#E7E8D1]"
+                      className="relative w-24 h-32 sm:w-36 sm:h-48 border-2 border-dashed border-red-500 shadow-[3px_3px_0px_black] opacity-70 flex flex-col items-center justify-center p-2 bg-[#E7E8D1]"
                     >
-                      <div className="text-xs font-bold text-red-600 mb-2 uppercase tracking-wide">TARGET</div>
-                      <div className="font-bold text-xs text-black mb-1 line-clamp-2 leading-tight text-center">
+                      <div className="text-[10px] sm:text-xs font-bold text-red-600 mb-2 uppercase tracking-wide">TARGET</div>
+                      <div className="font-bold text-[10px] sm:text-xs text-black mb-1 line-clamp-2 leading-tight text-center">
                         {getPlayerName(gamePair.end_player)}
                       </div>
                       {getPlayerTeams(gamePair.end_player).length > 0 && (
-                        <div className="text-xs text-black truncate text-center">
+                        <div className="text-[10px] sm:text-xs text-black truncate text-center">
                           {getPlayerTeams(gamePair.end_player)[0]}
                         </div>
                       )}
                       {getPlayerYears(gamePair.end_player).length > 0 && (
-                        <div className="text-xs text-black font-bold text-center">
+                        <div className="text-[10px] sm:text-xs text-black font-bold text-center">
                           {getPlayerYears(gamePair.end_player)[0]}
                         </div>
                       )}

@@ -64,8 +64,8 @@ export default function Projections2027() {
   const currentBpm = selectedPlayer?.BPM || 0;
 
   return (
-    <div className="p-6 font-mono text-xs">
-      <h1 className="text-xs font-bold mb-6 uppercase tracking-wide">Cluster-Based Player Projections</h1>
+    <div className="p-2 sm:p-6 font-mono text-xs">
+      <h1 className="text-xs sm:text-sm font-bold mb-4 sm:mb-6 uppercase tracking-wide">Cluster-Based Player Projections</h1>
 
       {/* Player Search */}
       <Panel>
@@ -93,10 +93,10 @@ export default function Projections2027() {
                   <button
                     key={player.AthleteSourceId || player.id}
                     onClick={() => handlePlayerSelect(player)}
-                    className="w-full text-left px-3 py-2 hover:bg-[#B8C0A8] border-b-2 border-black last:border-b-0 text-xs"
+                    className="w-full text-left px-2 sm:px-3 py-2 hover:bg-[#B8C0A8] border-b-2 border-black last:border-b-0 text-[10px] sm:text-xs"
                   >
-                    <div className="font-bold">{player.player_name || player.Name || 'Unknown'}</div>
-                    <div className="text-xs text-black">{player.team || player.Team || 'Unknown'} - {player.Position || player.position || 'N/A'}</div>
+                    <div className="font-bold text-[10px] sm:text-xs">{player.player_name || player.Name || 'Unknown'}</div>
+                    <div className="text-[10px] sm:text-xs text-black">{player.team || player.Team || 'Unknown'} - {player.Position || player.position || 'N/A'}</div>
                   </button>
                 ))}
               </div>
@@ -109,14 +109,14 @@ export default function Projections2027() {
 
         {/* Selected Player Display */}
         {selectedPlayer && (
-          <div className="mt-4 p-3 border-2 border-black bg-[#E7E8D1]">
-            <div className="font-bold text-xs">{selectedPlayer.player_name || selectedPlayer.Name}</div>
-            <div className="text-xs text-black">
+          <div className="mt-4 p-2 sm:p-3 border-2 border-black bg-[#E7E8D1]">
+            <div className="font-bold text-[10px] sm:text-xs">{selectedPlayer.player_name || selectedPlayer.Name}</div>
+            <div className="text-[10px] sm:text-xs text-black">
               {selectedPlayer.team || selectedPlayer.Team} - {selectedPlayer.Position} | Current BPM: {currentBpm.toFixed(2)}
             </div>
             <button
               onClick={() => setSelectedPlayer(null)}
-              className="mt-2 text-xs text-black hover:underline"
+              className="mt-2 text-[10px] sm:text-xs text-black hover:underline"
             >
               Clear selection
             </button>
@@ -127,10 +127,10 @@ export default function Projections2027() {
       {/* Methodology Info */}
       <Panel>
         <PanelHeader>HOW IT WORKS</PanelHeader>
-        <p className="text-xs text-black mb-2">
+        <p className="text-[10px] sm:text-xs text-black mb-2">
           This system uses historical year-over-year BPM changes from players in the same cluster to predict a target player's growth, weighted by feature similarity.
         </p>
-        <ul className="text-xs text-black list-disc list-inside space-y-1">
+        <ul className="text-[10px] sm:text-xs text-black list-disc list-inside space-y-1">
           <li>Players are grouped into clusters based on playing style and physical attributes</li>
           <li>Historical BPM changes from similar players are weighted by feature similarity</li>
           <li>Confidence intervals show the range of likely outcomes</li>
@@ -140,21 +140,21 @@ export default function Projections2027() {
 
       {/* Projection Results */}
       {loading && selectedPlayer && (
-        <div className="p-4 text-center text-black">Loading projections...</div>
+        <div className="p-2 sm:p-4 text-center text-black text-[10px] sm:text-xs">Loading projections...</div>
       )}
 
       {error && (
-        <div className="p-4 text-center text-black border-2 border-black bg-[#E7E8D1]">
+        <div className="p-2 sm:p-4 text-center text-black border-2 border-black bg-[#E7E8D1] text-[10px] sm:text-xs">
           {error}
         </div>
       )}
 
       {projectionData && (
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6">
           {/* Cluster Info */}
           <Panel>
             <PanelHeader>CLUSTER INFORMATION</PanelHeader>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 text-[10px] sm:text-xs">
               <div>
                 <span className="text-black">Cluster:</span>
                 <span className="ml-2 font-bold">
@@ -215,11 +215,11 @@ export default function Projections2027() {
               )}
             </div>
             {projectionData.cluster_description && projectionData.cluster_description.top_players && projectionData.cluster_description.top_players.length > 0 && (
-              <div className="mt-3 text-xs">
+              <div className="mt-3 text-[10px] sm:text-xs">
                 <span className="text-black font-bold">Top Players in Cluster:</span>
                 <div className="mt-1 text-black">
                   {projectionData.cluster_description.top_players.slice(0, 5).map((player: any, idx: number) => (
-                    <span key={idx} className="inline-block mr-3">
+                    <span key={idx} className="inline-block mr-2 sm:mr-3">
                       {player.Name} ({player.BPM !== null && player.BPM !== undefined ? player.BPM.toFixed(1) : 'N/A'})
                     </span>
                   ))}
@@ -272,9 +272,9 @@ export default function Projections2027() {
       )}
 
       {!selectedPlayer && !projectionData && (
-        <div className="p-8 text-center text-black border-2 border-black bg-[#E7E8D1]">
-          <p className="text-xs font-bold mb-2 uppercase tracking-wide">Search for a player above to view their 2027 projection</p>
-          <p className="text-xs">Type a player name to search and select from the results</p>
+        <div className="p-4 sm:p-8 text-center text-black border-2 border-black bg-[#E7E8D1]">
+          <p className="text-[10px] sm:text-xs font-bold mb-2 uppercase tracking-wide">Search for a player above to view their 2027 projection</p>
+          <p className="text-[10px] sm:text-xs">Type a player name to search and select from the results</p>
         </div>
       )}
     </div>

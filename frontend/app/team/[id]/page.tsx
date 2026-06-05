@@ -62,7 +62,7 @@ export default function TeamPage() {
   }
 
   return (
-    <div className="p-3 space-y-6">
+    <div className="p-2 sm:p-3 space-y-6">
       <TeamHeader team={team} />
 
       {/* YEAR SELECTOR */}
@@ -75,7 +75,7 @@ export default function TeamPage() {
               const value = e.target.value;
               setYear(value === "" ? null : Number(value));
             }}
-            className="bg-white border-2 border-black px-2 py-1 font-mono text-black transition-all duration-200"
+            className="bg-white border-2 border-black px-2 py-1 font-mono text-black transition-all duration-200 text-xs"
           >
             <option value="">Latest</option>
             {availableYears.map((y) => (
@@ -96,7 +96,7 @@ export default function TeamPage() {
       </div>
 
       {/* MAIN GRID */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
         {/* RESUME */}
         <TeamResumePanel analytics={team.analytics} />
 

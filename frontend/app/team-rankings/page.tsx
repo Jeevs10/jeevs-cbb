@@ -129,12 +129,12 @@ export default function TeamRankingsPage() {
   const SortHeader = ({ column, label }: { column: string; label: string }) => (
     <th
       onClick={() => handleSort(column)}
-      className="px-4 py-2 text-left cursor-pointer hover:bg-black/5 border-b-2 border-black"
+      className="px-2 sm:px-4 py-2 text-left cursor-pointer hover:bg-black/5 border-b-2 border-black text-[10px] sm:text-xs"
     >
       <div className="flex items-center gap-1">
         {label}
         {sort === column && (
-          <span className="text-xs">{order === "asc" ? "↑" : "↓"}</span>
+          <span className="text-[10px] sm:text-xs">{order === "asc" ? "↑" : "↓"}</span>
         )}
       </div>
     </th>
@@ -157,7 +157,7 @@ export default function TeamRankingsPage() {
   }
 
   return (
-    <div className="p-4 font-mono text-xs">
+    <div className="p-2 sm:p-4 font-mono text-xs">
       <div className="mt-4 space-y-4">
         {/* Year Dropdown */}
         {availableYears.length > 0 && (
@@ -169,7 +169,7 @@ export default function TeamRankingsPage() {
                 const value = e.target.value;
                 setYear(value === "" ? null : Number(value));
               }}
-              className="bg-[#E7E8D1] border-2 border-black px-2 py-1 font-mono text-black shadow-[3px_3px_0px_black] transition-all duration-200"
+              className="bg-[#E7E8D1] border-2 border-black px-2 py-1 font-mono text-black shadow-[3px_3px_0px-black] transition-all duration-200 text-xs"
             >
               <option value="">Latest</option>
               {availableYears.map((y) => (
@@ -187,7 +187,7 @@ export default function TeamRankingsPage() {
           <select
             value={conferenceFilter}
             onChange={(e) => setConferenceFilter(e.target.value)}
-            className="bg-[#E7E8D1] border-2 border-black px-2 py-1 font-mono text-black shadow-[3px_3px_0px_black]"
+            className="bg-[#E7E8D1] border-2 border-black px-2 py-1 font-mono text-black shadow-[3px_3px_0px-black] text-xs"
           >
             <option value="all">All Conferences</option>
             {availableConferences.map((conf) => (
@@ -205,11 +205,11 @@ export default function TeamRankingsPage() {
         </div>
 
         {/* Table */}
-        <div className="border-2 border-black bg-[#C7D0B8] shadow-[3px_3px_0px_black] overflow-hidden">
-          <table className="w-full">
+        <div className="border-2 border-black bg-[#C7D0B8] shadow-[3px_3px_0px-black] overflow-x-auto">
+          <table className="w-full min-w-[800px]">
             <thead className="bg-[#B8C0A8]">
               <tr>
-                <th className="px-4 py-2 text-left border-b-2 border-black">Rank</th>
+                <th className="px-2 sm:px-4 py-2 text-left border-b-2 border-black text-[10px] sm:text-xs">Rank</th>
                 <SortHeader column="school" label="Team" />
                 <SortHeader column="conference" label="Conference" />
                 <SortHeader column="wins" label="W-L" />
@@ -228,10 +228,10 @@ export default function TeamRankingsPage() {
                     animation: `fadeIn 0.3s ease-out ${index * 0.03}s both`
                   }}
                 >
-                  <td className="px-4 py-2 font-bold text-center">
+                  <td className="px-2 sm:px-4 py-2 font-bold text-center text-[10px] sm:text-xs">
                     {(team as any).official_rank}
                   </td>
-                  <td className="px-4 py-2">
+                  <td className="px-2 sm:px-4 py-2 text-[10px] sm:text-xs">
                     <Link
                       href={`/team/${team.id}`}
                       className="font-bold hover:underline"
@@ -239,55 +239,55 @@ export default function TeamRankingsPage() {
                       {team.display_name || team.school}
                     </Link>
                   </td>
-                  <td className="px-4 py-2">{team.conference || "—"}</td>
-                  <td className="px-4 py-2">
+                  <td className="px-2 sm:px-4 py-2 text-[10px] sm:text-xs">{team.conference || "—"}</td>
+                  <td className="px-2 sm:px-4 py-2 text-[10px] sm:text-xs">
                     {team.wins !== null && team.losses !== null
                       ? `${team.wins}-${team.losses}`
                       : "—"}
                   </td>
-                  <td className="px-4 py-2">
-                    <div className="flex items-center gap-2">
+                  <td className="px-2 sm:px-4 py-2 text-[10px] sm:text-xs">
+                    <div className="flex items-center gap-1 sm:gap-2">
                       <span className="font-mono">
                         {team.adj_net !== null ? team.adj_net.toFixed(1) : "—"}
                       </span>
                       {team.rank_adj_net && (
-                        <span className="text-xs text-black">
+                        <span className="text-[10px] sm:text-xs text-black">
                           #{team.rank_adj_net}
                         </span>
                       )}
                     </div>
                   </td>
-                  <td className="px-4 py-2">
-                    <div className="flex items-center gap-2">
+                  <td className="px-2 sm:px-4 py-2 text-[10px] sm:text-xs">
+                    <div className="flex items-center gap-1 sm:gap-2">
                       <span className="font-mono">
                         {team.off_adj_ppp !== null ? team.off_adj_ppp.toFixed(1) : "—"}
                       </span>
                       {team.rank_off_adj_ppp && (
-                        <span className="text-xs text-black">
+                        <span className="text-[10px] sm:text-xs text-black">
                           #{team.rank_off_adj_ppp}
                         </span>
                       )}
                     </div>
                   </td>
-                  <td className="px-4 py-2">
-                    <div className="flex items-center gap-2">
+                  <td className="px-2 sm:px-4 py-2 text-[10px] sm:text-xs">
+                    <div className="flex items-center gap-1 sm:gap-2">
                       <span className="font-mono">
                         {team.def_adj_ppp !== null ? team.def_adj_ppp.toFixed(1) : "—"}
                       </span>
                       {team.rank_def_adj_ppp && (
-                        <span className="text-xs text-black">
+                        <span className="text-[10px] sm:text-xs text-black">
                           #{team.rank_def_adj_ppp}
                         </span>
                       )}
                     </div>
                   </td>
-                  <td className="px-4 py-2">
-                    <div className="flex items-center gap-2">
+                  <td className="px-2 sm:px-4 py-2 text-[10px] sm:text-xs">
+                    <div className="flex items-center gap-1 sm:gap-2">
                       <span className="font-mono">
                         {team.wab !== null && team.wab !== undefined ? team.wab.toFixed(1) : "—"}
                       </span>
                       {team.rank_wab && team.rank_wab !== null && (
-                        <span className="text-xs text-black">
+                        <span className="text-[10px] sm:text-xs text-black">
                           #{team.rank_wab}
                         </span>
                       )}

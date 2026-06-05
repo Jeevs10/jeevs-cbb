@@ -6,6 +6,7 @@ import { useState, useRef } from "react";
 
 export function Header() {
   const pathname = usePathname();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [playerDropdownOpen, setPlayerDropdownOpen] = useState(false);
   const [teamDropdownOpen, setTeamDropdownOpen] = useState(false);
   const [projectionsDropdownOpen, setProjectionsDropdownOpen] = useState(false);
@@ -71,17 +72,29 @@ export function Header() {
     }, 200);
   };
 
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
   return (
     <header className="border-b-2 border-black bg-[#C7D0B8]">
-      <div className="px-4">
+      <div className="px-2 sm:px-4">
         <div className="flex justify-between items-center h-12">
           {/* Logo/Title */}
-          <Link href="/" className="text-xs font-bold text-black hover:underline uppercase tracking-wide">
-            Jeevs CBB
+          <Link href="/" className="text-xs sm:text-sm font-bold text-black hover:underline uppercase tracking-wide">
+            PORTALMANIA
           </Link>
 
-          {/* Navigation */}
-          <nav className="flex space-x-6 items-center">
+          {/* Mobile Menu Button */}
+          <button
+            onClick={toggleMobileMenu}
+            className="sm:hidden text-black font-bold text-xs border-2 border-black px-2 py-1 bg-[#E7E8D1]"
+          >
+            {mobileMenuOpen ? '✕' : '☰'}
+          </button>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden sm:flex space-x-4 sm:space-x-6 items-center">
             {/* Player Dropdown */}
             <div
               className="relative"
@@ -225,6 +238,91 @@ export function Header() {
             </div>
           </nav>
         </div>
+
+        {/* Mobile Navigation */}
+        {mobileMenuOpen && (
+          <nav className="sm:hidden py-2 border-t-2 border-black">
+            <div className="flex flex-col space-y-2">
+              <Link
+                href="/leaderboard/basic"
+                className="block px-2 py-2 text-xs hover:bg-[#B8C0A8]"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Basic Leaderboard
+              </Link>
+              <Link
+                href="/leaderboard/advanced"
+                className="block px-2 py-2 text-xs hover:bg-[#B8C0A8]"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Advanced Leaderboard
+              </Link>
+              <Link
+                href="/moves"
+                className="block px-2 py-2 text-xs hover:bg-[#B8C0A8]"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Moves Rankings
+              </Link>
+              <Link
+                href="/similarity"
+                className="block px-2 py-2 text-xs hover:bg-[#B8C0A8]"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Similarity Map
+              </Link>
+              <Link
+                href="/team-rankings"
+                className="block px-2 py-2 text-xs hover:bg-[#B8C0A8]"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Team Rankings
+              </Link>
+              <Link
+                href="/teams"
+                className="block px-2 py-2 text-xs hover:bg-[#B8C0A8]"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Team Catalog
+              </Link>
+              <Link
+                href="/game"
+                className="block px-2 py-2 text-xs hover:bg-[#B8C0A8]"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                PORTALMANIA
+              </Link>
+              <Link
+                href="/projections/2027"
+                className="block px-2 py-2 text-xs hover:bg-[#B8C0A8]"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                2027 Projections
+              </Link>
+              <Link
+                href="/projections/leaderboard"
+                className="block px-2 py-2 text-xs hover:bg-[#B8C0A8]"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Projection Leaderboard
+              </Link>
+              <Link
+                href="/clusters"
+                className="block px-2 py-2 text-xs hover:bg-[#B8C0A8]"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Cluster Analysis
+              </Link>
+              <Link
+                href="/clusters/leaderboard"
+                className="block px-2 py-2 text-xs hover:bg-[#B8C0A8]"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Cluster Leaderboard
+              </Link>
+            </div>
+          </nav>
+        )}
       </div>
     </header>
   );

@@ -98,8 +98,8 @@ export function PlayerTable({ players, sort, order, onSort, loading, dataTier = 
   }
 
   return (
-    <div className="overflow-x-auto border-2 border-black bg-[#C7D0B8] shadow-[3px_3px_0px_black]">
-      <table className={`border-collapse ${dataTier === "basic" ? "min-w-[600px]" : "min-w-[1800px]"}`}>
+    <div className="overflow-x-auto border-2 border-black bg-[#C7D0B8] shadow-[3px_3px_0px-black]">
+      <table className={`border-collapse text-[10px] sm:text-xs ${dataTier === "basic" ? "min-w-[600px]" : "min-w-[1800px]"}`}>
         <thead>
           <tr>
             {dataTier === "basic" ? (

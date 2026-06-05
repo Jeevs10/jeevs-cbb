@@ -140,20 +140,20 @@ export default function ClusterLeaderboard() {
 
   return (
     <ErrorBoundary>
-      <div className="p-4 font-mono text-xs">
-        <h1 className="text-sm font-bold text-black mb-4 uppercase tracking-wide">
+      <div className="p-2 sm:p-4 font-mono text-xs">
+        <h1 className="text-xs sm:text-sm font-bold text-black mb-2 sm:mb-4 uppercase tracking-wide">
           Cluster Leaderboard
         </h1>
 
         {/* CLUSTER SELECTOR */}
-        <div className="mb-4">
+        <div className="mb-2 sm:mb-4">
           <label className="block text-[10px] font-bold text-black mb-1 uppercase">
             Select Cluster
           </label>
           <select
             value={clusterId}
             onChange={(e) => handleClusterChange(parseInt(e.target.value))}
-            className="w-full px-3 py-2 border-2 border-black bg-[#E7E8D1] text-xs"
+            className="w-full px-2 sm:px-3 py-2 border-2 border-black bg-[#E7E8D1] text-[10px] sm:text-xs"
             disabled={loading}
           >
             {clusterDescriptions.map((cluster) => (
@@ -165,14 +165,14 @@ export default function ClusterLeaderboard() {
         </div>
 
         {/* YEAR SELECTOR */}
-        <div className="mb-4">
+        <div className="mb-2 sm:mb-4">
           <label className="block text-[10px] font-bold text-black mb-1 uppercase">
             Year
           </label>
           <select
             value={year || ""}
             onChange={(e) => handleYearChange(e.target.value === "all" ? "all" : (e.target.value ? parseInt(e.target.value) : null))}
-            className="w-full px-3 py-2 border-2 border-black bg-[#E7E8D1] text-xs"
+            className="w-full px-2 sm:px-3 py-2 border-2 border-black bg-[#E7E8D1] text-[10px] sm:text-xs"
             disabled={loading}
           >
             <option value="">Latest Year</option>
@@ -190,11 +190,11 @@ export default function ClusterLeaderboard() {
 
         {/* CLUSTER INFO */}
         {clusterInfo && (
-          <div className="mb-4 p-3 border-2 border-black bg-[#C7D0B8]">
-            <h2 className="text-xs font-bold text-black mb-2 uppercase">
+          <div className="mb-2 sm:mb-4 p-2 sm:p-3 border-2 border-black bg-[#C7D0B8]">
+            <h2 className="text-[10px] sm:text-xs font-bold text-black mb-2 uppercase">
               {clusterInfo.name}
             </h2>
-            <div className="grid grid-cols-2 gap-2 text-[10px]">
+            <div className="grid grid-cols-2 gap-2 text-[10px] sm:text-xs">
               <div>
                 <span className="opacity-70">Total Players:</span> {clusterInfo.count}
               </div>
@@ -208,7 +208,7 @@ export default function ClusterLeaderboard() {
                 <span className="opacity-70">Avg BPM:</span> {clusterInfo.avg_bpm.toFixed(2)}
               </div>
             </div>
-            <div className="mt-2 text-[10px]">
+            <div className="mt-2 text-[10px] sm:text-xs">
               <span className="opacity-70">Top Players:</span>
               <ul className="list-disc list-inside mt-1">
                 {clusterInfo.top_players.slice(0, 3).map((player, idx) => (
@@ -220,7 +220,7 @@ export default function ClusterLeaderboard() {
         )}
 
         {/* COUNT */}
-        <div className="mb-2 text-[10px] opacity-70">
+        <div className="mb-2 text-[10px] sm:text-xs opacity-70">
           Showing {players.length} players
           {filteredCount > 0 && ` (of ${filteredCount} in cluster)`}
         </div>
@@ -244,18 +244,18 @@ export default function ClusterLeaderboard() {
 
         {/* PAGINATION */}
         {players.length > 0 && (
-          <div className="mt-4 flex gap-2">
+          <div className="mt-2 sm:mt-4 flex gap-2">
             <button
               onClick={handlePrevPage}
               disabled={page === 0}
-              className="px-4 py-2 border border-black bg-[#E7E8D1] hover:bg-[#dfe2c6] disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-3 py-2 sm:px-4 sm:py-2 border border-black bg-[#E7E8D1] hover:bg-[#dfe2c6] disabled:opacity-50 disabled:cursor-not-allowed text-[10px] sm:text-xs"
             >
               Prev
             </button>
             <button
               onClick={handleNextPage}
               disabled={players.length < DEFAULT_PAGE_SIZE}
-              className="px-4 py-2 border border-black bg-[#E7E8D1] hover:bg-[#dfe2c6] disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-3 py-2 sm:px-4 sm:py-2 border border-black bg-[#E7E8D1] hover:bg-[#dfe2c6] disabled:opacity-50 disabled:cursor-not-allowed text-[10px] sm:text-xs"
             >
               Next
             </button>

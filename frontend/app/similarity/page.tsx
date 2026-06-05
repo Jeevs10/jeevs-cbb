@@ -218,10 +218,10 @@ export default function SimilarityPage() {
   if (loading) {
     return (
       <ErrorBoundary>
-        <div className="p-3 font-mono text-xs bg-[#E7E8D1] text-black min-h-screen">
+        <div className="p-2 sm:p-3 font-mono text-xs bg-[#E7E8D1] text-black min-h-screen">
           <div className="max-w-7xl mx-auto">
             <div className="border-b-2 border-black pb-4 mb-6">
-              <h1 className="text-xs font-bold uppercase tracking-wide mb-2">Player Similarity Map</h1>
+              <h1 className="text-xs sm:text-sm font-bold uppercase tracking-wide mb-2">Player Similarity Map</h1>
               <p className="text-xs text-black">Loading players... (Debug: {players.length} players, {positions.length} positions)</p>
             </div>
           </div>
@@ -233,7 +233,7 @@ export default function SimilarityPage() {
   if (error) {
     return (
       <ErrorBoundary>
-        <div className="p-3 font-mono text-xs bg-[#E7E8D1] text-black min-h-screen">
+        <div className="p-2 sm:p-3 font-mono text-xs bg-[#E7E8D1] text-black min-h-screen">
           <ErrorMessage message={error} onRetry={fetchPlayers} />
         </div>
       </ErrorBoundary>
@@ -242,11 +242,11 @@ export default function SimilarityPage() {
 
   return (
     <ErrorBoundary>
-      <div className="p-3 font-mono text-xs bg-[#E7E8D1] text-black min-h-screen">
+      <div className="p-2 sm:p-3 font-mono text-xs bg-[#E7E8D1] text-black min-h-screen">
         <div className="max-w-7xl mx-auto space-y-6">
           {/* Title */}
           <div className="border-b-2 border-black pb-4">
-            <h1 className="text-xs font-bold uppercase tracking-wide mb-2">Player Similarity Map</h1>
+            <h1 className="text-xs sm:text-sm font-bold uppercase tracking-wide mb-2">Player Similarity Map</h1>
             <p className="text-xs text-black">
               3D visualization of all enriched players. Search for a player to zoom in and find similar players.
             </p>
@@ -255,18 +255,18 @@ export default function SimilarityPage() {
           {/* Search Panel */}
           <Panel>
             <PanelHeader>SEARCH PLAYER</PanelHeader>
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search by name or team..."
-                className="flex-1 border-2 border-black bg-[#E7E8D1] p-3 font-mono text-xs shadow-[3px_3px_0px_black] focus:outline-none focus:shadow-[3px_3px_0px_black]"
+                className="flex-1 border-2 border-black bg-[#E7E8D1] p-2 sm:p-3 font-mono text-xs shadow-[3px_3px_0px-black] focus:outline-none focus:shadow-[3px_3px_0px-black]"
               />
               {selectedPlayer && (
                 <button
                   onClick={handleResetView}
-                  className="px-4 py-3 border-2 border-black bg-black text-white font-bold hover:bg-black/80 transition-all shadow-[3px_3px_0px_black]"
+                  className="px-3 py-2 sm:px-4 sm:py-3 border-2 border-black bg-black text-white font-bold hover:bg-black/80 transition-all shadow-[3px_3px_0px-black] text-xs"
                 >
                   RESET VIEW
                 </button>
@@ -275,15 +275,15 @@ export default function SimilarityPage() {
 
             {/* Search Results Dropdown */}
             {searchResults.length > 0 && (
-              <div className="mt-2 border-2 border-black bg-[#E7E8D1] shadow-[3px_3px_0px_black] max-h-60 overflow-y-auto">
+              <div className="mt-2 border-2 border-black bg-[#E7E8D1] shadow-[3px_3px_0px-black] max-h-60 overflow-y-auto">
                 {searchResults.map((player) => (
                   <div
                     key={player.AthleteSourceId}
                     onClick={() => handlePlayerSelect(player)}
-                    className="p-3 border-b-2 border-black hover:bg-[#B8C0A8] cursor-pointer transition-all"
+                    className="p-2 sm:p-3 border-b-2 border-black hover:bg-[#B8C0A8] cursor-pointer transition-all"
                   >
-                    <div className="font-bold">{player.player_name}</div>
-                    <div className="text-xs text-black">{player.team} • {player.year || 'N/A'} • RAPM: {player.adj_rapm_margin?.toFixed(2) || 'N/A'}</div>
+                    <div className="font-bold text-[10px] sm:text-xs">{player.player_name}</div>
+                    <div className="text-[10px] sm:text-xs text-black">{player.team} • {player.year || 'N/A'} • RAPM: {player.adj_rapm_margin?.toFixed(2) || 'N/A'}</div>
                   </div>
                 ))}
               </div>
@@ -294,33 +294,33 @@ export default function SimilarityPage() {
           {selectedPlayer && (
             <Panel>
               <PanelHeader>SELECTED PLAYER</PanelHeader>
-              <div className="grid grid-cols-4 gap-4 mb-4">
-                <div className="border-2 border-black bg-[#E7E8D1] p-3 shadow-[3px_3px_0px_black]">
-                  <div className="text-xs font-bold uppercase tracking-wide mb-1 text-black">Name</div>
-                  <div className="text-xs font-bold">{selectedPlayer.player_name}</div>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 mb-4">
+                <div className="border-2 border-black bg-[#E7E8D1] p-2 sm:p-3 shadow-[3px_3px_0px-black]">
+                  <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wide mb-1 text-black">Name</div>
+                  <div className="text-[10px] sm:text-xs font-bold">{selectedPlayer.player_name}</div>
                 </div>
-                <div className="border-2 border-black bg-[#E7E8D1] p-3 shadow-[3px_3px_0px_black]">
-                  <div className="text-xs font-bold uppercase tracking-wide mb-1 text-black">Team</div>
-                  <div className="text-xs font-bold">{selectedPlayer.team}</div>
+                <div className="border-2 border-black bg-[#E7E8D1] p-2 sm:p-3 shadow-[3px_3px_0px-black]">
+                  <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wide mb-1 text-black">Team</div>
+                  <div className="text-[10px] sm:text-xs font-bold">{selectedPlayer.team}</div>
                 </div>
-                <div className="border-2 border-black bg-[#E7E8D1] p-3 shadow-[3px_3px_0px_black]">
-                  <div className="text-xs font-bold uppercase tracking-wide mb-1 text-black">RAPM</div>
-                  <div className="text-xs font-bold">{selectedPlayer.adj_rapm_margin?.toFixed(2) || 'N/A'}</div>
+                <div className="border-2 border-black bg-[#E7E8D1] p-2 sm:p-3 shadow-[3px_3px_0px-black]">
+                  <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wide mb-1 text-black">RAPM</div>
+                  <div className="text-[10px] sm:text-xs font-bold">{selectedPlayer.adj_rapm_margin?.toFixed(2) || 'N/A'}</div>
                 </div>
-                <div className="border-2 border-black bg-[#E7E8D1] p-3 shadow-[3px_3px_0px_black]">
-                  <div className="text-xs font-bold uppercase tracking-wide mb-1 text-black">Usage</div>
-                  <div className="text-xs font-bold">{selectedPlayer.usage?.toFixed(1) || 'N/A'}%</div>
+                <div className="border-2 border-black bg-[#E7E8D1] p-2 sm:p-3 shadow-[3px_3px_0px-black]">
+                  <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wide mb-1 text-black">Usage</div>
+                  <div className="text-[10px] sm:text-xs font-bold">{selectedPlayer.usage?.toFixed(1) || 'N/A'}%</div>
                 </div>
               </div>
 
               {/* Nearest Neighbors */}
-              <div className="border-2 border-black bg-[#E7E8D1] p-4 shadow-[3px_3px_0px_black]">
-                <div className="border-b-2 border-black mb-3 pb-1 text-xs font-bold uppercase tracking-wide">
+              <div className="border-2 border-black bg-[#E7E8D1] p-2 sm:p-4 shadow-[3px_3px_0px-black]">
+                <div className="border-b-2 border-black mb-3 pb-1 text-[10px] sm:text-xs font-bold uppercase tracking-wide">
                   {loadingSimilar ? "Loading similar players..." : "Similar Players (from API)"}
                 </div>
                 <div className="space-y-2">
                   {nearestNeighbors.length === 0 && !loadingSimilar && (
-                    <div className="text-xs text-black">No similar players found</div>
+                    <div className="text-[10px] sm:text-xs text-black">No similar players found</div>
                   )}
                   {nearestNeighbors.map((item, i) => {
                     if (!item) return null;
@@ -328,17 +328,17 @@ export default function SimilarityPage() {
                     return (
                       <div
                         key={item.ncaa_id}
-                        className="flex items-center gap-3 p-2 border-2 border-black bg-[#C7D0B8] hover:bg-[#B8C0A8] transition-all shadow-[3px_3px_0px_black] cursor-pointer"
+                        className="flex items-center gap-2 sm:gap-3 p-2 border-2 border-black bg-[#C7D0B8] hover:bg-[#B8C0A8] transition-all shadow-[3px_3px_0px-black] cursor-pointer"
                         onClick={() => item.player?.player_name && router.push(`/player/${item.ncaa_id}`)}
                       >
-                        <div className="w-8 h-8 border-2 border-black bg-[#E7E8D1] flex items-center justify-center font-bold text-xs">
+                        <div className="w-6 h-6 sm:w-8 sm:h-8 border-2 border-black bg-[#E7E8D1] flex items-center justify-center font-bold text-[10px] sm:text-xs">
                           {i + 1}
                         </div>
                         <div className="flex-1">
-                          <div className="font-bold text-xs">{item.player?.player_name || `Player ${item.ncaa_id}`}</div>
-                          <div className="text-xs text-black">{item.player?.team || 'N/A'}</div>
+                          <div className="font-bold text-[10px] sm:text-xs">{item.player?.player_name || `Player ${item.ncaa_id}`}</div>
+                          <div className="text-[10px] sm:text-xs text-black">{item.player?.team || 'N/A'}</div>
                         </div>
-                        <div className="font-bold text-xs">
+                        <div className="font-bold text-[10px] sm:text-xs">
                           {item.year || 'N/A'}
                         </div>
                       </div>
@@ -352,7 +352,7 @@ export default function SimilarityPage() {
           {/* 3D Visualization */}
           <Panel>
             <PanelHeader>3D SIMILARITY MAP</PanelHeader>
-            <div className="text-xs mb-2 text-black space-y-2">
+            <div className="text-[10px] sm:text-xs mb-2 text-black space-y-2">
               {selectedPlayer
                 ? (
                   <>
@@ -370,17 +370,17 @@ export default function SimilarityPage() {
                 )
               }
             </div>
-            <p className="text-xs mb-4 text-black font-mono">
+            <p className="text-[10px] sm:text-xs mb-4 text-black font-mono">
               Debug: {players.length} players loaded, {positions.length} positions available, {playerPositions.length} matched
             </p>
 
-            <div className="h-[700px] border-2 border-black bg-black relative overflow-hidden">
+            <div className="h-[400px] sm:h-[700px] border-2 border-black bg-black relative overflow-hidden">
               {/* Player Tooltip */}
               {hoveredPlayer && (
-                <div className="absolute top-4 left-4 border-2 border-black bg-[#C7D0B8] shadow-[3px_3px_0px_black] p-4 z-10 min-w-[200px]">
-                  <div className="font-bold text-black text-xs mb-1">{hoveredPlayer.player_name}</div>
-                  <div className="text-xs text-black mb-1">Team: {hoveredPlayer.team}</div>
-                  <div className="text-xs text-black mb-1">RAPM: <span className={hoveredPlayer.adj_rapm_margin > 0 ? 'text-green-600 font-bold' : 'text-red-600 font-bold'}>{hoveredPlayer.adj_rapm_margin?.toFixed(2) || 'N/A'}</span></div>
+                <div className="absolute top-4 left-4 border-2 border-black bg-[#C7D0B8] shadow-[3px_3px_0px-black] p-2 sm:p-4 z-10 min-w-[150px] sm:min-w-[200px]">
+                  <div className="font-bold text-black text-[10px] sm:text-xs mb-1">{hoveredPlayer.player_name}</div>
+                  <div className="text-[10px] sm:text-xs text-black mb-1">Team: {hoveredPlayer.team}</div>
+                  <div className="text-[10px] sm:text-xs text-black mb-1">RAPM: <span className={hoveredPlayer.adj_rapm_margin > 0 ? 'text-green-600 font-bold' : 'text-red-600 font-bold'}>{hoveredPlayer.adj_rapm_margin?.toFixed(2) || 'N/A'}</span></div>
                 </div>
               )}
 
