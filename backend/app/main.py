@@ -31,31 +31,13 @@ from app.cache.player_vectors import build_cache
 # Setup logging
 setup_logging()
 
-# -------------------------
-# LIFESPAN HANDLER
-# -------------------------
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # 🚀 startup
     build_cache()
-
-    # Temporarily disabled player graph loading due to performance issues
-    # from app.core.player_graph import player_graph
-    # player_graph.load_from_roster_data()
-
     yield
 
-    # 🧹 shutdown
-    pass
-
-# -------------------------
-# RATE LIMITING
-# -------------------------
 limiter = Limiter(key_func=get_remote_address)
 
-# -------------------------
-# APP INITIALIZATION
-# -------------------------
 app = FastAPI(
     title=settings.api_title,
     description=settings.api_description,
@@ -67,16 +49,8 @@ app = FastAPI(
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
-# -------------------------
-# MIDDLEWARE
-# -------------------------
-# Error handling middleware (should be first)
 app.add_middleware(ErrorHandlerMiddleware)
-
-# Logging middleware
 app.add_middleware(LoggingMiddleware)
-
-# CORS middleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origins,
@@ -84,10 +58,6 @@ app.add_middleware(
     allow_methods=settings.cors_allow_methods,
     allow_headers=settings.cors_allow_headers,
 )
-
-# -------------------------
-# ROUTES
-# -------------------------
 app.include_router(players_router, prefix="/api/v1", tags=["players"])
 app.include_router(teams_router, prefix="/api/v1", tags=["teams"])
 app.include_router(moves_router, prefix="/api/v1", tags=["moves"])
@@ -102,16 +72,10 @@ app.include_router(utilization_router, prefix="/api/v1", tags=["utilization"])
 app.include_router(nil_router, prefix="/api/v1", tags=["nil"])
 app.include_router(projections_router, prefix="/api/v1", tags=["projections"])
 app.include_router(clusters_router, prefix="/api/v1", tags=["clusters"])
-
-# -------------------------
-# HEALTH CHECK
-# -------------------------
 @app.get("/health")
 @limiter.limit("100/minute")
 async def health_check(request: Request):
-    """Health check endpoint."""
     from datetime import datetime
-    
     return {
         "status": "healthy",
         "version": settings.api_version,

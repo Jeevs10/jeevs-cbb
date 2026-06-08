@@ -27,22 +27,26 @@ interface PlayerProjectionGraphProps {
 }
 
 export default function PlayerProjectionGraph({ currentBpm, currentYear, projections, historicalBpm }: PlayerProjectionGraphProps) {
-  // Prepare data for the chart - include historical BPM if available
+  // Prepare data for the chart - include all historical BPM if available
   const historicalData = historicalBpm
-    ?.filter((h) => h.BPM !== null && h.year < currentYear)
+    ?.filter((h) => h.BPM !== null)
     .map((h) => ({
       year: h.year,
       bpm: h.BPM,
-      type: "Historical",
+      type: h.year === currentYear ? "Current" : "Historical",
     })) || [];
+
+  // Add current year if not already in historical data
+  const hasCurrentYear = historicalData.some((h) => h.year === currentYear);
+  const currentYearData = hasCurrentYear ? [] : [{
+    year: currentYear,
+    bpm: currentBpm,
+    type: "Current",
+  }];
 
   const chartData = [
     ...historicalData,
-    {
-      year: currentYear,
-      bpm: currentBpm,
-      type: "Current",
-    },
+    ...currentYearData,
     ...projections
       .filter((p) => !p.error && p.projected_bpm !== undefined)
       .map((p) => ({
@@ -94,7 +98,7 @@ export default function PlayerProjectionGraph({ currentBpm, currentYear, project
             }}
           />
           <Legend />
-          
+
           {/* Confidence interval area */}
           <Area
             type="monotone"
@@ -116,7 +120,7 @@ export default function PlayerProjectionGraph({ currentBpm, currentYear, project
             name="95% Confidence Interval"
             hide
           />
-          
+
           {/* Main projection line */}
           <Line
             type="monotone"
@@ -129,7 +133,7 @@ export default function PlayerProjectionGraph({ currentBpm, currentYear, project
           />
         </AreaChart>
       </ResponsiveContainer>
-      
+
       {/* Custom confidence interval visualization */}
       {projections.some((p) => p.confidence_interval) && (
         <div className="mt-4 space-y-2">

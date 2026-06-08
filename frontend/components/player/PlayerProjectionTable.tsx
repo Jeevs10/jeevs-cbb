@@ -63,9 +63,9 @@ export default function PlayerProjectionTable({
   const [showGraph, setShowGraph] = useState(false);
 
   const getChangeColor = (change: number) => {
-    if (change > 0) return "text-green-600";
-    if (change < 0) return "text-red-600";
-    return "text-gray-600";
+    if (change > 0) return "text-black";
+    if (change < 0) return "text-black";
+    return "text-black";
   };
 
   const getChangeIcon = (change: number) => {
@@ -78,30 +78,30 @@ export default function PlayerProjectionTable({
     <div className="space-y-6">
       {/* Cluster Information */}
       {clusterDescription && (
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-          <h3 className="text-lg font-semibold text-blue-900 mb-2">
+        <div className="border-2 border-black bg-[#C7D0B8] p-3">
+          <h3 className="text-xs font-bold text-black mb-2 uppercase tracking-wide">
             Cluster Analysis
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs">
             <div>
-              <span className="text-gray-600">Cluster ID:</span>
-              <span className="ml-2 font-medium">{clusterDescription.cluster_id}</span>
+              <span className="text-black">Cluster ID:</span>
+              <span className="ml-2 font-bold">{clusterDescription.cluster_id}</span>
             </div>
             <div>
-              <span className="text-gray-600">Players in Cluster:</span>
-              <span className="ml-2 font-medium">{clusterDescription.count}</span>
+              <span className="text-black">Players in Cluster:</span>
+              <span className="ml-2 font-bold">{clusterDescription.count}</span>
             </div>
             <div>
-              <span className="text-gray-600">Avg BPM:</span>
-              <span className="ml-2 font-medium">
+              <span className="text-black">Avg BPM:</span>
+              <span className="ml-2 font-bold">
                 {clusterDescription.avg_bpm !== null && clusterDescription.avg_bpm !== undefined
                   ? clusterDescription.avg_bpm.toFixed(2)
                   : 'N/A'}
               </span>
             </div>
             <div>
-              <span className="text-gray-600">Historical Samples:</span>
-              <span className="ml-2 font-medium">{historicalSamples}</span>
+              <span className="text-black">Historical Samples:</span>
+              <span className="ml-2 font-bold">{historicalSamples}</span>
             </div>
           </div>
         </div>
@@ -109,88 +109,83 @@ export default function PlayerProjectionTable({
 
       {/* Projection Table */}
       <div className="overflow-x-auto">
-        <table className="w-full border-collapse">
+        <table className="w-full border-collapse border-2 border-black">
           <thead>
-            <tr className="border-b-2 border-gray-200">
-              <th className="text-left py-3 px-4 font-semibold text-gray-700">Year</th>
-              <th className="text-left py-3 px-4 font-semibold text-gray-700">Status</th>
-              <th className="text-right py-3 px-4 font-semibold text-gray-700">BPM</th>
-              <th className="text-right py-3 px-4 font-semibold text-gray-700">Change</th>
-              <th className="text-right py-3 px-4 font-semibold text-gray-700">95% CI</th>
-              <th className="text-right py-3 px-4 font-semibold text-gray-700">Growth Percentile</th>
-              <th className="text-right py-3 px-4 font-semibold text-gray-700">Sample Size</th>
+            <tr className="border-b-2 border-black bg-[#B8C0A8]">
+              <th className="text-left py-2 px-3 font-bold text-black text-xs uppercase tracking-wide">Year</th>
+              <th className="text-left py-2 px-3 font-bold text-black text-xs uppercase tracking-wide">Status</th>
+              <th className="text-right py-2 px-3 font-bold text-black text-xs uppercase tracking-wide">BPM</th>
+              <th className="text-right py-2 px-3 font-bold text-black text-xs uppercase tracking-wide">Change</th>
+              <th className="text-right py-2 px-3 font-bold text-black text-xs uppercase tracking-wide">95% CI</th>
+              <th className="text-right py-2 px-3 font-bold text-black text-xs uppercase tracking-wide">Growth Percentile</th>
+              <th className="text-right py-2 px-3 font-bold text-black text-xs uppercase tracking-wide">Sample Size</th>
             </tr>
           </thead>
           <tbody>
             {/* Current Year */}
-            <tr className="border-b border-gray-100 bg-gray-50">
-              <td className="py-3 px-4 font-medium">{currentYear}</td>
-              <td className="py-3 px-4">
-                <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-200 text-gray-800">
+            <tr className="border-b-2 border-black bg-[#E7E8D1]">
+              <td className="py-2 px-3 font-bold text-black text-xs">{currentYear}</td>
+              <td className="py-2 px-3">
+                <span className="inline-flex items-center px-2 py-1 border-2 border-black bg-[#C7D0B8] text-black text-xs font-bold uppercase tracking-wide">
                   Actual
                 </span>
               </td>
-              <td className="py-3 px-4 text-right font-medium">{currentBpm.toFixed(2)}</td>
-              <td className="py-3 px-4 text-right text-gray-400">—</td>
-              <td className="py-3 px-4 text-right text-gray-400">—</td>
-              <td className="py-3 px-4 text-right text-gray-400">—</td>
-              <td className="py-3 px-4 text-right text-gray-400">—</td>
+              <td className="py-2 px-3 text-right font-bold text-black text-xs">{currentBpm.toFixed(2)}</td>
+              <td className="py-2 px-3 text-right text-black text-xs">—</td>
+              <td className="py-2 px-3 text-right text-black text-xs">—</td>
+              <td className="py-2 px-3 text-right text-black text-xs">—</td>
+              <td className="py-2 px-3 text-right text-black text-xs">—</td>
             </tr>
-            
+
             {/* Projection Years */}
             {projections.map((projection) => (
-              <tr key={projection.year} className="border-b border-gray-100 hover:bg-gray-50">
-                <td className="py-3 px-4 font-medium">{projection.year}</td>
-                <td className="py-3 px-4">
+              <tr key={projection.year} className="border-b-2 border-black hover:bg-[#B8C0A8]">
+                <td className="py-2 px-3 font-bold text-black text-xs">{projection.year}</td>
+                <td className="py-2 px-3">
                   {projection.error ? (
-                    <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                    <span className="inline-flex items-center px-2 py-1 border-2 border-black bg-[#E7E8D1] text-black text-xs font-bold uppercase tracking-wide">
                       Error
                     </span>
                   ) : (
-                    <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                    <span className="inline-flex items-center px-2 py-1 border-2 border-black bg-[#C7D0B8] text-black text-xs font-bold uppercase tracking-wide">
                       Projected
                     </span>
                   )}
                 </td>
-                <td className="py-3 px-4 text-right font-medium">
+                <td className="py-2 px-3 text-right font-bold text-black text-xs">
                   {projection.projected_bpm !== undefined ? (
                     projection.projected_bpm.toFixed(2)
                   ) : (
-                    <span className="text-gray-400">—</span>
+                    <span className="text-black text-xs">—</span>
                   )}
                 </td>
-                <td className={`py-3 px-4 text-right font-medium ${getChangeColor(projection.bpm_change || 0)}`}>
+                <td className={`py-2 px-3 text-right font-bold text-black text-xs ${getChangeColor(projection.bpm_change || 0)}`}>
                   {projection.bpm_change !== undefined ? (
                     <span>
                       {getChangeIcon(projection.bpm_change)} {Math.abs(projection.bpm_change).toFixed(2)}
                     </span>
                   ) : (
-                    <span className="text-gray-400">—</span>
+                    <span className="text-black text-xs">—</span>
                   )}
                 </td>
-                <td className="py-3 px-4 text-right text-sm text-gray-600">
+                <td className="py-2 px-3 text-right text-xs text-black">
                   {projection.confidence_interval ? (
                     `${projection.confidence_interval[0].toFixed(1)} - ${projection.confidence_interval[1].toFixed(1)}`
                   ) : (
-                    <span className="text-gray-400">—</span>
+                    <span className="text-black text-xs">—</span>
                   )}
                 </td>
-                <td className="py-3 px-4 text-right text-sm">
+                <td className="py-2 px-3 text-right text-xs text-black">
                   {projection.percentile_rank !== undefined ? (
-                    <span className={`font-medium ${
-                      projection.percentile_rank >= 0.75 ? 'text-green-600' :
-                      projection.percentile_rank >= 0.5 ? 'text-blue-600' :
-                      projection.percentile_rank >= 0.25 ? 'text-yellow-600' :
-                      'text-red-600'
-                    }`}>
+                    <span className="font-bold text-black text-xs">
                       {(projection.percentile_rank * 100).toFixed(0)}%
                     </span>
                   ) : (
-                    <span className="text-gray-400">—</span>
+                    <span className="text-black text-xs">—</span>
                   )}
                 </td>
-                <td className="py-3 px-4 text-right text-sm text-gray-600">
-                  {projection.sample_size !== undefined ? projection.sample_size : <span className="text-gray-400">—</span>}
+                <td className="py-2 px-3 text-right text-xs text-black">
+                  {projection.sample_size !== undefined ? projection.sample_size : <span className="text-black text-xs">—</span>}
                 </td>
               </tr>
             ))}
@@ -202,19 +197,19 @@ export default function PlayerProjectionTable({
       {similarPlayers.length > 0 && (
         <div>
           <div className="flex items-center justify-between mb-3">
-            <h3 className="text-lg font-semibold text-gray-900">
+            <h3 className="text-xs font-bold text-black uppercase tracking-wide">
               Most Similar Historical Players
             </h3>
             <button
               onClick={() => setShowGraph(!showGraph)}
-              className="text-xs px-3 py-1 border border-gray-300 rounded hover:bg-gray-50"
+              className="text-xs px-3 py-1 border-2 border-black bg-[#C7D0B8] text-black font-bold uppercase tracking-wide hover:bg-[#B8C0A8]"
             >
               {showGraph ? "Show Table" : "Show Graph"}
             </button>
           </div>
 
           {showGraph ? (
-            <div className="border border-gray-200 rounded-lg p-4">
+            <div className="border-2 border-black bg-[#C7D0B8] p-3">
               <div className="h-72 relative mb-4">
                 <svg viewBox="0 0 550 280" className="w-full h-full">
                   {(() => {
@@ -236,13 +231,13 @@ export default function PlayerProjectionTable({
 
                     // Get all BPM values across all players for scaling
                     const allBpms = sortedPlayers.flatMap((p: any) => p.career_bpm.map((d: any) => d.bpm));
-                    
+
                     // Add current player's BPM and projection
                     allBpms.push(currentBpm);
                     if (projections.length > 0 && projections[0].projected_bpm) {
                       allBpms.push(projections[0].projected_bpm);
                     }
-                    
+
                     const minBpm = Math.min(...allBpms, 0);
                     const maxBpm = Math.max(...allBpms, 15);
                     const range = maxBpm - minBpm || 1;
@@ -279,7 +274,7 @@ export default function PlayerProjectionTable({
                       <>
                         {/* Background */}
                         <rect x={padding} y={padding} width={width - 2 * padding} height={height - 2 * padding} fill="#f9fafb" rx="4" />
-                        
+
                         {/* Grid lines */}
                         {[0, 0.25, 0.5, 0.75, 1].map((frac) => (
                           <line
@@ -362,7 +357,7 @@ export default function PlayerProjectionTable({
                         {/* Lines for each similar player */}
                         {sortedPlayers.map((player: any, playerIdx: number) => {
                           if (!player.career_bpm || player.career_bpm.length === 0) return null;
-                          
+
                           const color = colors[playerIdx % colors.length];
                           const points = player.career_bpm.map((d: any) => {
                             const x = padding + ((d.year - allYears[0]) / (allYears[allYears.length - 1] - allYears[0] || 1)) * (width - 2 * padding);
@@ -499,8 +494,8 @@ export default function PlayerProjectionTable({
       )}
 
       {/* Methodology Note */}
-      <div className="text-xs text-gray-500 mt-4 p-3 bg-gray-50 rounded-lg">
-        <strong>Methodology:</strong> Projections are based on historical year-over-year BPM changes from players in the same cluster, weighted by feature similarity (Usage, BPM, Height, offensive/defensive ratings). Confidence intervals represent 95% statistical confidence bounds.
+      <div className="text-xs text-black mt-4 p-3 border-2 border-black bg-[#E7E8D1]">
+        <span className="font-bold uppercase tracking-wide">Methodology:</span> Projections are based on historical year-over-year BPM changes from players in the same cluster, weighted by feature similarity (Usage, BPM, Height, offensive/defensive ratings). Confidence intervals represent 95% statistical confidence bounds.
       </div>
     </div>
   );

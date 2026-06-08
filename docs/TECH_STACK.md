@@ -1,0 +1,277 @@
+# Technology Stack
+
+Complete list of technologies, packages, and tools used in JEEVS CBB.
+
+---
+
+## Languages
+
+### Backend
+- **Python 3.11+** - Primary backend language
+- **Type** - Type hints for Python (PEP 484)
+
+### Frontend
+- **TypeScript 6.0.3** - Type-safe JavaScript
+- **JavaScript** - Runtime language
+
+---
+
+## Frameworks & Libraries
+
+### Backend Frameworks
+
+**Core:**
+- **FastAPI** - Modern, fast web framework for building APIs
+- **Uvicorn** - ASGI server for running FastAPI
+
+**Data Processing:**
+- **Pandas** - Data manipulation and analysis
+- **NumPy** - Numerical computing
+- **Scikit-learn** - Machine learning library (clustering, regression)
+
+**Validation & Configuration:**
+- **Pydantic** - Data validation using Python type annotations
+- **Pydantic Settings** - Settings management for Pydantic
+- **python-dotenv** - Read environment variables from .env files
+
+**API & Networking:**
+- **python-multipart** - Multipart form data support
+- **SlowAPI** - Rate limiting for FastAPI
+
+**Graph & Algorithms:**
+- **NetworkX** - Graph algorithms and network analysis
+
+**Utilities:**
+- **Joblib** - Parallel processing and caching
+
+---
+
+### Frontend Frameworks
+
+**Core:**
+- **Next.js 14.0.0** - React framework for production
+- **React 18.2.0** - UI library
+- **React DOM 18.2.0** - React DOM renderer
+
+**3D & Visualization:**
+- **Three.js 0.160.0** - 3D graphics library
+- **@react-three/fiber 8.16.8** - React renderer for Three.js
+- **@react-three/drei 9.105.4** - Helpers for react-three-fiber
+
+**Charts & Data Visualization:**
+- **Recharts 3.8.1** - Composable charting library
+- **Victory** (via Recharts) - Chart components
+
+**Maps:**
+- **Leaflet 1.9.4** - Open-source JavaScript library for mobile-friendly interactive maps
+- **React Leaflet 4.2.1** - React components for Leaflet
+- **React Simple Maps 3.0.0** - SVG map components for React
+
+**UI & Styling:**
+- **Tailwind CSS 3.4.19** - Utility-first CSS framework
+- **Framer Motion 12.40.0** - Animation library for React
+- **Lucide React 1.14.0** - Icon library
+- **clsx 2.1.1** - Utility for constructing className strings
+
+**Utilities:**
+- **dom-to-image 2.6.0** - Convert DOM node to image
+- **html2canvas 1.4.1** - Screenshots with JavaScript
+- **modern-screenshot 4.7.0** - Modern screenshot library
+
+---
+
+## Development Tools
+
+### Backend Development
+
+**Testing:**
+- **pytest** - Testing framework for Python
+- **pytest-cov** - Coverage plugin for pytest
+
+**Code Quality:**
+- **black** - Code formatter (optional)
+- **flake8** - Linter (optional)
+- **mypy** - Static type checker (optional)
+
+**Environment:**
+- **venv** - Python virtual environment
+- **pip** - Package installer
+
+---
+
+### Frontend Development
+
+**Testing:**
+- **Jest 29.0.0** - JavaScript testing framework
+- **@testing-library/react 13.0.0** - React testing utilities
+- **@testing-library/jest-dom 6.0.0** - Custom Jest matchers
+- **@testing-library/user-event 14.0.0** - User event simulation
+- **jest-environment-jsdom 29.0.0** - JSDOM environment for Jest
+- **jest-fetch-mock 3.0.0** - Fetch API mocking for Jest
+
+**Code Quality:**
+- **ESLint 8.0.0** - JavaScript linter
+- **@typescript-eslint/eslint-plugin 6.0.0** - TypeScript ESLint plugin
+- **@typescript-eslint/parser 6.0.0** - TypeScript parser for ESLint
+- **eslint-config-next 14.0.0** - ESLint config for Next.js
+- **eslint-config-prettier 9.0.0** - ESLint config for Prettier
+- **Prettier 3.0.0** - Code formatter
+- **TypeScript 6.0.3** - TypeScript compiler
+
+**Build Tools:**
+- **PostCSS 8.5.13** - CSS transformation
+- **Autoprefixer 10.5.0** - Parse CSS and add vendor prefixes
+
+**Type Definitions:**
+- **@types/node 25.6.0** - TypeScript definitions for Node.js
+- **@types/react 19.2.14** - TypeScript definitions for React
+- **@types/jest 29.0.0** - TypeScript definitions for Jest
+- **@types/leaflet 1.9.21** - TypeScript definitions for Leaflet
+- **@types/dom-to-image 2.6.7** - TypeScript definitions for dom-to-image
+
+---
+
+## Deployment & Infrastructure
+
+### Deployment Platforms
+- **Vercel** - Frontend deployment (recommended)
+- **Railway** - Backend deployment (recommended)
+
+### Version Control
+- **Git** - Version control system
+- **GitHub** - Git hosting and CI/CD
+
+### Environment
+- **Node.js 18+** - JavaScript runtime
+- **Python 3.11+** - Python runtime
+
+---
+
+## Data Storage
+
+### File-Based Storage
+- **CSV** - Player and team statistics (compressed with gzip)
+- **JSON** - Game data and metadata (compressed with gzip)
+- **Pickle** - Cached similarity vectors
+
+### Compression
+- **gzip** - File compression for data files
+
+---
+
+## IDE & Editors
+
+**Recommended:**
+- **VS Code** - Code editor with extensions
+- **WebStorm** - JetBrains IDE for JavaScript/TypeScript
+- **PyCharm** - JetBrains IDE for Python
+
+**VS Code Extensions:**
+- ESLint
+- Prettier
+- Tailwind CSS IntelliSense
+- Python
+- TypeScript and JavaScript Language Features
+
+---
+
+## Documentation Tools
+
+- **Markdown** - Documentation format
+- **Swagger/OpenAPI** - API documentation (auto-generated by FastAPI)
+- **ReDoc** - Alternative API documentation UI
+
+---
+
+## APIs & External Services
+
+### Data Sources
+- **Bart Torvik API** - College basketball statistics
+- **Hoop Explorer** - Roster and biographical data
+
+### (Optional Future Integrations)
+- **OpenAI API** - AI-powered features
+- **Roboflow** - Computer vision (if needed)
+
+---
+
+## Performance Monitoring
+
+**Current:**
+- Custom logging middleware
+- Health check endpoints
+
+**Future:**
+- **Sentry** - Error tracking
+- **Datadog** - Application monitoring
+- **New Relic** - Performance monitoring
+
+---
+
+## Security
+
+**Current:**
+- CORS middleware
+- Rate limiting (SlowAPI)
+- Input validation (Pydantic)
+
+**Future:**
+- **JWT** - Authentication tokens
+- **OAuth** - Third-party authentication
+- **Helmet** - Security headers
+
+---
+
+## Browser Support
+
+**Target Browsers:**
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+**Mobile:**
+- iOS Safari (latest)
+- Chrome Mobile (latest)
+
+---
+
+## Package Managers
+
+### Backend
+- **pip** - Python package manager
+- **venv** - Python virtual environment manager
+
+### Frontend
+- **npm** - Node package manager
+- **Yarn** - Alternative package manager (optional)
+
+---
+
+## CI/CD
+
+**GitHub Actions** (recommended):
+- Automated testing
+- Linting checks
+- Type checking
+- Deployment triggers
+
+---
+
+## Summary
+
+### Core Technologies
+- **Backend:** Python 3.11+, FastAPI, Pandas, Scikit-learn
+- **Frontend:** Next.js 14, React 18, TypeScript, Tailwind CSS
+- **Data:** CSV, JSON (gzip compressed)
+- **Deployment:** Vercel (frontend), Railway (backend)
+
+### Key Libraries by Category
+
+**Data Processing:** Pandas, NumPy, Scikit-learn
+**Web Framework:** FastAPI, Next.js, React
+**UI Components:** Tailwind CSS, Framer Motion, Lucide React
+**Visualization:** Recharts, React Simple Maps, Leaflet
+**3D Graphics:** Three.js, @react-three/fiber
+**Testing:** Jest, pytest, Testing Library
+**Code Quality:** ESLint, Prettier, TypeScript

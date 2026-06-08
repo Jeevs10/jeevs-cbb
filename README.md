@@ -1,14 +1,21 @@
-# Jeevs CBB - College Basketball Analytics
+# JEEVS CBB - College Basketball Analytics
 
-A clean, modern full-stack application for college basketball player analytics, built with React/Next.js frontend and FastAPI backend.
+A comprehensive full-stack application for college basketball analytics, featuring advanced player statistics, machine learning models, and interactive visualizations.
+
+**GitHub Repository:** [https://github.com/Jeevs10/jeevs-cbb](https://github.com/Jeevs10/jeevs-cbb)
 
 ## 🏀 Features
 
-- **Player Analytics**: Advanced statistics including RAPM, offensive/defensive ratings
-- **Interactive Tables**: Sortable, searchable, paginated player leaderboards
-- **Player Profiles**: Detailed player cards with badges, radar charts, and evolution data
+- **Player Analytics**: Advanced statistics including BPM, usage rates, efficiency metrics
+- **Player Clustering**: ML-derived player archetypes (18 clusters based on statistical profiles)
+- **Similarity Analysis**: Find similar players using cosine similarity on feature vectors
+- **BPM Projections**: Machine learning projections for future season performance
+- **Interactive Leaderboards**: Sortable, searchable, paginated player and team rankings
+- **Player Profiles**: Detailed cards with badges, radar charts, evolution data, and game logs
+- **Cluster Analysis**: Explore player archetypes and cluster transitions
+- **PORTALMANIA Game**: Interactive game connecting players through teammate relationships
 - **Modern UI**: Clean, responsive design with Tailwind CSS
-- **Type Safety**: Full TypeScript implementation across frontend and backend
+- **Type Safety**: Full TypeScript implementation
 - **Clean Architecture**: Modular components and service-oriented backend
 
 ## 🚀 Quick Start
@@ -60,26 +67,46 @@ Access the application at:
 
 ## 📊 API Documentation
 
+For complete API documentation, see [docs/API_DOCUMENTATION.md](./docs/API_DOCUMENTATION.md)
+
 ### Main Endpoints
 
+**Players:**
 - `GET /api/v1/players` - List players with filtering and pagination
 - `GET /api/v1/players/{ncaa_id}` - Get specific player details
+- `GET /api/v1/players/{ncaa_id}/games` - Get player game log
 - `GET /api/v1/players/{ncaa_id}/badges` - Player achievement badges
 - `GET /api/v1/players/{ncaa_id}/radar` - Player radar chart data
 - `GET /api/v1/players/{ncaa_id}/evolution` - Player career evolution
+- `GET /api/v1/players/{ncaa_id}/history` - Player history
+- `GET /api/v1/players/{ncaa_id}/similar` - Similar players
+- `GET /api/v1/players/{ncaa_id}/moves` - Transfer/moves data
+
+**Teams:**
+- `GET /api/v1/teams` - List teams
+- `GET /api/v1/teams/{team_id}` - Get specific team details
+
+**Analytics:**
+- `GET /api/v1/clusters` - Get cluster analysis
+- `GET /api/v1/clusters/{cluster_id}/bpm-distribution` - Get cluster BPM distribution
+- `GET /api/v1/similarity/nearest/{ncaa_id}` - Get nearest neighbors
+- `GET /api/v1/projections/2027` - Get 2027 BPM projections
 - `GET /api/v1/years` - Available years
+
+**Game (PORTALMANIA):**
+- `GET /api/v1/game/random-pair` - Get random player pair
+- `GET /api/v1/game/player/{player_id}` - Get game player info
+- `POST /api/v1/game/check-teammates` - Check if players were teammates
+- `POST /api/v1/game/shortest-path` - Get shortest path between players
+
+**System:**
 - `GET /health` - Health check
 
-### Query Parameters
+### Interactive API Docs
 
-**Players List:**
-- `limit` (int): Number of results (default: 50, max: 100)
-- `offset` (int): Pagination offset (default: 0)
-- `sort` (string): Sort column (default: adj_rapm_margin)
-- `order` (string): Sort order "asc" or "desc" (default: desc)
-- `year` (int|string): Filter by year or "career"
-- `search` (string): Search players/teams
-- `conf` (string): Filter by conference
+When running in development mode:
+- Swagger UI: http://localhost:8000/docs
+- ReDoc: http://localhost:8000/redoc
 
 ## 🧪 Development Tools
 
@@ -133,12 +160,24 @@ frontend/
 backend/
 ├── app/
 │   ├── api/               # API route handlers
-│   ├── core/              # Core business logic
-│   ├── features/          # Feature-specific logic
+│   ├── services/          # Business logic layer
+│   ├── core/              # Core functionality (data loading, resolvers)
+│   ├── features/          # Feature calculations (badges, moves, vectors)
 │   ├── models/            # Data models and schemas
-│   ├── services/          # Service layer
-│   └── utils/             # Utility functions
-├── data/                 # Data files
+│   ├── cache/             # Caching layer
+│   ├── middleware/       # Custom middleware
+│   ├── utils/             # Utility functions
+│   └── main.py            # Application entry point
+├── data/                 # Data files (CSV, JSON)
+│   ├── players/           # Player statistics
+│   ├── teams/             # Team statistics
+│   ├── games/             # Game-by-game data
+│   └── aggregate/         # Aggregated historical data
+├── scripts/              # Data processing scripts
+│   ├── data_processing/   # Data ingestion and enrichment
+│   ├── analysis/          # Analysis scripts
+│   ├── modeling/          # ML model training
+│   └── utilities/         # Utility scripts
 ├── tests/                # Test files
 └── requirements.txt       # Python dependencies
 ```
@@ -160,8 +199,13 @@ backend/
 
 ## 🎯 Key Improvements Made
 
+### ✅ Code Cleanup
+- **Backend main.py**: Removed emoji comments, improved code clarity
+- **Script organization**: Organized backend scripts into `scripts/` directory with subdirectories
+- **File structure**: Improved backend structure with clear separation of concerns
+
 ### ✅ Frontend Refactoring
-- **Broke down monolithic components**: 354-line page split into focused pieces
+- **Broke down monolithic components**: Split large pages into focused components
 - **Added custom hooks**: Extracted data fetching logic into reusable hooks
 - **Improved error handling**: Added error boundaries and proper error states
 - **Type safety**: Comprehensive TypeScript with strict mode
@@ -178,7 +222,7 @@ backend/
 - **Linting**: ESLint and Prettier configuration
 - **TypeScript**: Strict mode, no `any` types
 - **Testing**: Jest and pytest setup with examples
-- **Documentation**: Comprehensive README and API docs
+- **Documentation**: Comprehensive documentation suite
 
 ## 📝 Development Workflow
 
@@ -190,8 +234,48 @@ backend/
 
 ---
 
-## 📖 Detailed Development Guide
+## 📖 Documentation
 
-See [DEVELOPMENT.md](./DEVELOPMENT.md) for detailed setup and debugging tips.
+Comprehensive documentation is available in the `docs/` directory:
 
-Built with ❤️ for college basketball analytics
+- **[API Documentation](./docs/API_DOCUMENTATION.md)** - Complete API reference with all endpoints, parameters, and response formats
+- **[Data Sources](./docs/DATA_SOURCES.md)** - Information about data providers, data processing, and data quality
+- **[System Architecture](./docs/SYSTEM_ARCHITECTURE.md)** - Technical architecture, technology stack, and system design
+- **[Analytics and Models](./docs/ANALYTICS_AND_MODELS.md)** - In-depth explanations of analytics, metrics, and machine learning models
+- **[Technology Stack](./docs/TECH_STACK.md)** - Complete list of technologies, packages, and tools used
+
+### In-App Documentation
+
+Documentation is also available in the application at `/docs` with pages for:
+- API Documentation
+- Data Sources
+- System Architecture
+- Analytics and Models
+
+## 📖 Additional Guides
+
+- **[DEVELOPMENT.md](./DEVELOPMENT.md)** - Detailed setup and debugging tips
+- **[DEPLOYMENT.md](./DEPLOYMENT.md)** - Deployment guide for production
+- **[DESIGN.md](./DESIGN.md)** - Design principles and decisions
+- **[PRODUCT.md](./PRODUCT.md)** - Product vision and features
+
+## 📊 Data Coverage
+
+- **Years:** 2019-2026 (8 seasons)
+- **Players:** ~15,000+ unique players
+- **Teams:** 350+ D1 teams
+- **Games:** ~50,000+ game records
+
+## 🔬 Analytics & Models
+
+### Key Metrics
+- **Box Plus Minus (BPM):** Estimates player contribution per 100 possessions
+- **Usage Rate:** Percentage of team possessions used by a player
+- **eFG%:** Effective field goal percentage
+- **Player Clusters:** 18 ML-derived player archetypes
+
+### Machine Learning Models
+- **Player Clustering:** K-means clustering (18 clusters)
+- **BPM Projections:** Random Forest regression (R² = 0.45, RMSE = 1.8 BPM)
+- **Similarity Scoring:** Cosine similarity on normalized feature vectors
+- **NIL Valuation:** Multiple linear regression for market value estimation

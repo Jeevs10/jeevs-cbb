@@ -1,11 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState, useRef } from "react";
 
 export function Header() {
-  const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [playerDropdownOpen, setPlayerDropdownOpen] = useState(false);
   const [teamDropdownOpen, setTeamDropdownOpen] = useState(false);
@@ -82,7 +80,7 @@ export function Header() {
         <div className="flex justify-between items-center h-12">
           {/* Logo/Title */}
           <Link href="/" className="text-xs sm:text-sm font-bold text-black hover:underline uppercase tracking-wide">
-            PORTALMANIA
+            JEEVS CBB
           </Link>
 
           {/* Mobile Menu Button */}
@@ -164,8 +162,8 @@ export function Header() {
             {/* Game */}
             <div
               className="relative"
-              onMouseEnter={() => {}}
-              onMouseLeave={() => {}}
+              onMouseEnter={() => { }}
+              onMouseLeave={() => { }}
             >
               <button
                 onClick={() => window.location.href = '/game'}
@@ -194,18 +192,18 @@ export function Header() {
               </button>
               {projectionsDropdownOpen && (
                 <div className="absolute top-full left-0 mt-1 bg-[#E7E8D1] border-2 border-black shadow-[3px_3px_0px_black] z-10">
-            <Link
-              href="/projections/2027"
+                  <Link
+                    href="/projections/2027"
                     className="block px-4 py-2 text-xs hover:bg-[#B8C0A8]"
-            >
-              2027 Projections
-            </Link>
-            <Link
-              href="/projections/leaderboard"
+                  >
+                    2027 Projections
+                  </Link>
+                  <Link
+                    href="/projections/leaderboard"
                     className="block px-4 py-2 text-xs hover:bg-[#B8C0A8]"
-            >
-              Projection Leaderboard
-            </Link>
+                  >
+                    Projection Leaderboard
+                  </Link>
                 </div>
               )}
             </div>
@@ -236,6 +234,14 @@ export function Header() {
                 </div>
               )}
             </div>
+
+            {/* Docs */}
+            <Link
+              href="/docs"
+              className="text-xs font-medium transition-colors hover:underline text-black"
+            >
+              Docs
+            </Link>
           </nav>
         </div>
 
@@ -319,6 +325,13 @@ export function Header() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Cluster Leaderboard
+              </Link>
+              <Link
+                href="/docs"
+                className="block px-2 py-2 text-xs hover:bg-[#B8C0A8]"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Documentation
               </Link>
             </div>
           </nav>

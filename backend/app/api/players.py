@@ -188,6 +188,9 @@ def get_player_historical_bpm(ncaa_id: str):
         base_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
         historical_bpm = []
 
+        # Clean the ncaa_id - remove .0 suffix if present
+        ncaa_id_clean = str(ncaa_id).replace('.0', '')
+
         # Check each year from 2019 to 2026
         for year in range(2019, 2027):
             players_file = os.path.join(base_dir, "data", "players", f"{year}-players_basic.csv")
@@ -196,10 +199,16 @@ def get_player_historical_bpm(ncaa_id: str):
 
             try:
                 df = pd.read_csv(players_file)
-                # Try to find player by AthleteSourceId or AthleteId
+                # Clean AthleteSourceId in dataframe for comparison
+                if 'AthleteSourceId' in df.columns:
+                    df['AthleteSourceId_clean'] = df['AthleteSourceId'].astype(str).str.replace('.0', '')
+                else:
+                    df['AthleteSourceId_clean'] = None
+
+                # Try to find player by AthleteSourceId (cleaned) or AthleteId
                 player_row = df[
-                    (df['AthleteSourceId'].astype(str) == str(ncaa_id)) |
-                    (df['AthleteId'].astype(str) == str(ncaa_id))
+                    (df['AthleteSourceId_clean'] == ncaa_id_clean) |
+                    (df['AthleteId'].astype(str) == ncaa_id_clean)
                 ]
 
                 if not player_row.empty:
@@ -210,15 +219,18 @@ def get_player_historical_bpm(ncaa_id: str):
                         'Name': player_data.get('Name'),
                         'Team': player_data.get('Team')
                     })
+                    logger.info(f"Found player {ncaa_id_clean} in year {year}: BPM={player_data.get('BPM')}")
             except Exception as e:
                 logger.warning(f"Error reading {year} player data: {e}")
                 continue
 
         if not historical_bpm:
+            logger.warning(f"No historical BPM data found for player {ncaa_id_clean}")
             raise HTTPException(status_code=404, detail="No historical BPM data found for this player")
 
         # Sort by year
         historical_bpm.sort(key=lambda x: x['year'])
+        logger.info(f"Returning {len(historical_bpm)} historical BPM records for player {ncaa_id_clean}")
 
         return {
             "player_id": ncaa_id,

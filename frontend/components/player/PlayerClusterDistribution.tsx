@@ -60,29 +60,29 @@ export default function PlayerClusterDistribution({
     const smoothPoints = [];
     const numPoints = 200;
     const bandwidth = (maxBpm - minBpm) / 8; // Bandwidth for smoothing
-    
+
     for (let i = 0; i <= numPoints; i++) {
       const x = minBpm + (i * (maxBpm - minBpm) / numPoints);
-      
+
       // Gaussian kernel density estimation
       let y = 0;
-      
+
       for (const bpm of distribution) {
         const diff = x - bpm;
         const weight = Math.exp(-(diff * diff) / (2 * bandwidth * bandwidth));
         y += weight;
       }
-      
+
       y = y / (distribution.length * bandwidth * Math.sqrt(2 * Math.PI));
       smoothPoints.push({ x, y });
     }
-    
+
     // Normalize y values to 0-1 range
     const maxYVal = Math.max(...smoothPoints.map(p => p.y));
     if (maxYVal > 0) {
       smoothPoints.forEach(p => p.y = p.y / maxYVal);
     }
-    
+
     return smoothPoints;
   }, [distribution, clusterDescription.avg_bpm]);
 
@@ -90,13 +90,13 @@ export default function PlayerClusterDistribution({
   const allX = useMemo(() => distributionCurve.map(p => p.x), [distributionCurve]);
   const dataMinX = useMemo(() => Math.min(...allX), [allX]);
   const dataMaxX = useMemo(() => Math.max(...allX), [allX]);
-  
+
   // Find the peak of the distribution
   const peakPoint = useMemo(() => {
     const peakIndex = distributionCurve.findIndex(p => p.y === Math.max(...distributionCurve.map(p => p.y)));
     return distributionCurve[peakIndex] || { x: clusterDescription.avg_bpm };
   }, [distributionCurve, clusterDescription.avg_bpm]);
-  
+
   // Calculate range needed to include current and projected BPM
   const maxDistanceFromPeak = useMemo(() => {
     const currentDist = Math.abs(currentBpm - peakPoint.x);
@@ -104,7 +104,7 @@ export default function PlayerClusterDistribution({
     const dataDist = Math.max(Math.abs(dataMinX - peakPoint.x), Math.abs(dataMaxX - peakPoint.x));
     return Math.max(currentDist, projectedDist, dataDist);
   }, [currentBpm, projectedBpm, dataMinX, dataMaxX, peakPoint.x]);
-  
+
   // Add some padding (20% on each side)
   const paddingFactor = 1.2;
   const range = maxDistanceFromPeak * paddingFactor;
@@ -122,30 +122,30 @@ export default function PlayerClusterDistribution({
   // Create smooth curve path
   const curvePath = useMemo(() => {
     if (distributionCurve.length === 0) return '';
-    
+
     const points = distributionCurve.map((point, index) => {
       const x = padding.left + ((point.x - minX) / xRange) * plotWidth;
       const y = padding.top + plotHeight - ((point.y / maxY) * plotHeight);
       return `${index === 0 ? 'M' : 'L'} ${x} ${y}`;
     });
-    
+
     return points.join(' ');
   }, [distributionCurve, minX, xRange, maxY, plotWidth, plotHeight, padding]);
 
   // Create area under curve
   const areaPath = useMemo(() => {
     if (distributionCurve.length === 0) return '';
-    
+
     const points = distributionCurve.map((point, index) => {
       const x = padding.left + ((point.x - minX) / xRange) * plotWidth;
       const y = padding.top + plotHeight - ((point.y / maxY) * plotHeight);
       return `${index === 0 ? 'M' : 'L'} ${x} ${y}`;
     });
-    
+
     const firstX = padding.left + ((distributionCurve[0].x - minX) / xRange) * plotWidth;
     const lastX = padding.left + ((distributionCurve[distributionCurve.length - 1].x - minX) / xRange) * plotWidth;
     const bottomY = padding.top + plotHeight;
-    
+
     return `${points.join(' ')} L ${lastX} ${bottomY} L ${firstX} ${bottomY} Z`;
   }, [distributionCurve, minX, xRange, maxY, plotWidth, plotHeight, padding]);
 
@@ -248,53 +248,53 @@ export default function PlayerClusterDistribution({
         {/* Legend */}
         <div className="mt-3 flex justify-center gap-6 text-xs">
           <div className="flex items-center gap-2">
-            <div className="h-3 w-3 rounded-full bg-black" />
-            <span className="font-medium">Current: {currentBpm.toFixed(1)} BPM</span>
+            <div className="h-3 w-3 bg-black" />
+            <span className="font-bold text-black uppercase tracking-wide">Current: {currentBpm.toFixed(1)} BPM</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="h-3 w-3 rounded-full bg-white border-2 border-black" />
-            <span className="font-medium">Projected: {projectedBpm.toFixed(1)} BPM</span>
+            <div className="h-3 w-3 bg-white border-2 border-black" />
+            <span className="font-bold text-black uppercase tracking-wide">Projected: {projectedBpm.toFixed(1)} BPM</span>
           </div>
         </div>
       </div>
 
       {/* Stats */}
       <div className="grid grid-cols-2 gap-3 text-xs">
-        <div className="border border-black bg-white p-3">
-          <div className="mb-1 font-bold">CURRENT POSITION</div>
-          <div className="text-sm font-bold">{(currentPercentile * 100).toFixed(0)}th percentile</div>
-          <div className="text-gray-600">
+        <div className="border-2 border-black bg-[#C7D0B8] p-3">
+          <div className="mb-1 font-bold text-black uppercase tracking-wide">CURRENT POSITION</div>
+          <div className="text-sm font-bold text-black">{(currentPercentile * 100).toFixed(0)}th percentile</div>
+          <div className="text-black">
             {currentBpm.toFixed(1)} BPM in cluster
           </div>
         </div>
-        <div className="border border-black bg-white p-3">
-          <div className="mb-1 font-bold">PROJECTED POSITION</div>
-          <div className="text-sm font-bold">{(projectedPercentile * 100).toFixed(0)}th percentile</div>
-          <div className="text-gray-600">
+        <div className="border-2 border-black bg-[#C7D0B8] p-3">
+          <div className="mb-1 font-bold text-black uppercase tracking-wide">PROJECTED POSITION</div>
+          <div className="text-sm font-bold text-black">{(projectedPercentile * 100).toFixed(0)}th percentile</div>
+          <div className="text-black">
             {projectedBpm.toFixed(1)} BPM in cluster
           </div>
         </div>
       </div>
 
       {/* Cluster Context */}
-      <div className="mt-3 border border-black bg-white p-3 text-xs">
-        <div className="mb-2 font-bold">CLUSTER CONTEXT (CLUSTER {clusterDescription.cluster_id})</div>
+      <div className="mt-3 border-2 border-black bg-[#E7E8D1] p-3 text-xs">
+        <div className="mb-2 font-bold text-black uppercase tracking-wide">CLUSTER CONTEXT (CLUSTER {clusterDescription.cluster_id})</div>
         <div className="grid grid-cols-3 gap-3">
           <div>
-            <span className="text-gray-600">Avg BPM:</span>{' '}
-            <span className="font-bold">
+            <span className="text-black">Avg BPM:</span>{' '}
+            <span className="font-bold text-black">
               {clusterDescription.avg_bpm !== null && clusterDescription.avg_bpm !== undefined ? clusterDescription.avg_bpm.toFixed(1) : 'N/A'}
             </span>
           </div>
           <div>
-            <span className="text-gray-600">Avg Usage:</span>{' '}
-            <span className="font-bold">
+            <span className="text-black">Avg Usage:</span>{' '}
+            <span className="font-bold text-black">
               {clusterDescription.avg_usage !== null && clusterDescription.avg_usage !== undefined ? clusterDescription.avg_usage.toFixed(1) : 'N/A'}%
             </span>
           </div>
           <div>
-            <span className="text-gray-600">Avg Height:</span>{' '}
-            <span className="font-bold">
+            <span className="text-black">Avg Height:</span>{' '}
+            <span className="font-bold text-black">
               {clusterDescription.avg_height !== null && clusterDescription.avg_height !== undefined ? clusterDescription.avg_height.toFixed(1) : 'N/A'}"
             </span>
           </div>

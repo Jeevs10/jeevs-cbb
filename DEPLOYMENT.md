@@ -10,7 +10,7 @@ This guide covers deploying the CBB Stats application to production.
 
 ## Deployment Options
 
-### Option 1: Vercel (Frontend) + Render (Backend) - Recommended
+### Option 1: Vercel (Frontend) + Railway (Backend) - Recommended
 
 **Pros**: Easy setup, free tiers available, good for MVP
 **Cons**: May hit limits on free tiers, data file size constraints
@@ -30,7 +30,7 @@ This guide covers deploying the CBB Stats application to production.
 
 3. **Configure Environment Variables in Vercel Dashboard**
    - Go to Project Settings → Environment Variables
-   - Add: `NEXT_PUBLIC_API_URL` = `https://your-backend-url.onrender.com`
+   - Add: `NEXT_PUBLIC_API_URL` = `https://your-backend-url.railway.app`
 
 4. **Update `next.config.js` for production**
    ```javascript
@@ -48,41 +48,39 @@ This guide covers deploying the CBB Stats application to production.
    };
    ```
 
-#### Backend (Render)
+#### Backend (Railway)
 
-1. **Create `render.yaml` in backend directory**
-   ```yaml
-   services:
-     - type: web
-       name: jeevs-cbb-api
-       runtime: python
-       buildCommand: pip install -r requirements.txt
-       startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
-       envVars:
-         - key: PORT
-           value: 8000
-         - key: CORS_ORIGINS
-           value: '["https://your-frontend-url.vercel.app"]'
+1. **Create `railway.json` in backend directory**
+   ```json
+   {
+     "build": {
+       "builder": "NIXPACKS"
+     },
+     "deploy": {
+       "healthcheckPath": "/health",
+       "healthcheckTimeout": 300,
+       "restartPolicyType": "ON_FAILURE"
+     }
+   }
    ```
 
-2. **Push to GitHub and connect to Render**
+2. **Push to GitHub and connect to Railway**
    - Create a GitHub repository
-   - Connect Render to your GitHub repo
-   - Render will auto-deploy on push
+   - Connect Railway to your GitHub repo
+   - Railway will auto-deploy on push
 
-3. **Configure Environment Variables in Render Dashboard**
+3. **Configure Environment Variables in Railway Dashboard**
    - `HOST`: `0.0.0.0`
    - `PORT`: `8000`
    - `DEBUG`: `false`
    - `CORS_ORIGINS`: `["https://your-frontend-url.vercel.app"]`
 
 4. **Handle Data Files**
-   - Render has a 100MB disk limit on free tier
+   - Railway has generous disk limits on paid tiers
+   - Your data files are compressed with .csv.gz to reduce size
    - Options:
-     - Compress CSV files
-     - Use Render Disk (paid tier)
+     - Use Railway's storage add-on for larger datasets
      - Host data files on S3 and load from URL
-     - Use a database instead of CSV files
 
 ### Option 2: Self-Hosted (VPS)
 
@@ -340,9 +338,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Deploy to Render
+      - name: Deploy to Railway
         run: |
-          # Add render deploy command
+          # Add railway deploy command
           
   deploy-frontend:
     runs-on: ubuntu-latest

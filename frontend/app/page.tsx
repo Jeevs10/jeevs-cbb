@@ -6,7 +6,7 @@ import Panel from "@/components/ui/Panel";
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-[#E7E8D1]">
-      
+
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12">
           <h1 className="text-2xl font-bold text-black mb-4 uppercase tracking-wide">
@@ -16,58 +16,58 @@ export default function HomePage() {
             Explore player stats, clusters, and projections.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
           <Panel className="hover:bg-[#B8C0A8] transition cursor-pointer">
             <h2 className="text-xs font-bold text-black mb-4 uppercase tracking-wide border-b-2 border-black pb-2">
-                All Players
-              </h2>
+              All Players
+            </h2>
             <p className="text-xs text-black mb-4">
               Browse the complete player database with fundamental statistics.
-              </p>
-              <Link
-                href="/leaderboard/basic"
+            </p>
+            <Link
+              href="/leaderboard/basic"
               className="inline-block px-4 py-2 border-2 border-black bg-[#C7D0B8] hover:bg-[#B8C0A8] text-xs font-bold text-black uppercase tracking-wide"
-              >
+            >
               View Players
-              </Link>
-          </Panel>
-          
-          <Panel className="hover:bg-[#B8C0A8] transition cursor-pointer">
-            <h2 className="text-xs font-bold text-black mb-4 uppercase tracking-wide border-b-2 border-black pb-2">
-              Advanced Leaderboard
-              </h2>
-            <p className="text-xs text-black mb-4">
-              RAPM analysis and advanced metrics for deeper evaluation.
-              </p>
-              <Link
-              href="/leaderboard/advanced"
-              className="inline-block px-4 py-2 border-2 border-black bg-[#C7D0B8] hover:bg-[#B8C0A8] text-xs font-bold text-black uppercase tracking-wide"
-              >
-              View Advanced
-              </Link>
+            </Link>
           </Panel>
 
           <Panel className="hover:bg-[#B8C0A8] transition cursor-pointer">
             <h2 className="text-xs font-bold text-black mb-4 uppercase tracking-wide border-b-2 border-black pb-2">
-                Teams
-              </h2>
+              Advanced Leaderboard
+            </h2>
+            <p className="text-xs text-black mb-4">
+              RAPM analysis and advanced metrics for deeper evaluation.
+            </p>
+            <Link
+              href="/leaderboard/advanced"
+              className="inline-block px-4 py-2 border-2 border-black bg-[#C7D0B8] hover:bg-[#B8C0A8] text-xs font-bold text-black uppercase tracking-wide"
+            >
+              View Advanced
+            </Link>
+          </Panel>
+
+          <Panel className="hover:bg-[#B8C0A8] transition cursor-pointer">
+            <h2 className="text-xs font-bold text-black mb-4 uppercase tracking-wide border-b-2 border-black pb-2">
+              Teams
+            </h2>
             <p className="text-xs text-black mb-4">
               Team analytics, rosters, and performance statistics.
-              </p>
-              <Link
-                href="/teams"
+            </p>
+            <Link
+              href="/teams"
               className="inline-block px-4 py-2 border-2 border-black bg-[#C7D0B8] hover:bg-[#B8C0A8] text-xs font-bold text-black uppercase tracking-wide"
-              >
-                View Teams
-              </Link>
+            >
+              View Teams
+            </Link>
           </Panel>
-          </div>
-          
+        </div>
+
         <div className="max-w-4xl mx-auto">
           <h2 className="text-xs font-bold text-black mb-6 uppercase tracking-wide">
-              Additional Features
-            </h2>
+            Additional Features
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Panel className="hover:bg-[#B8C0A8] transition cursor-pointer">
               <h3 className="text-xs font-bold text-black mb-2 uppercase tracking-wide">
@@ -77,7 +77,7 @@ export default function HomePage() {
                 Find players with similar playing styles and statistical profiles.
               </p>
             </Panel>
-            
+
             <Panel className="hover:bg-[#B8C0A8] transition cursor-pointer">
               <h3 className="text-xs font-bold text-black mb-2 uppercase tracking-wide">
                 2027 Projections
@@ -90,7 +90,7 @@ export default function HomePage() {
             <Panel className="hover:bg-[#B8C0A8] transition cursor-pointer">
               <h3 className="text-xs font-bold text-black mb-2 uppercase tracking-wide">
                 Cluster Analysis
-                </h3>
+              </h3>
               <p className="text-xs text-black">
                 Explore player archetypes and cluster compositions.
               </p>
@@ -99,10 +99,25 @@ export default function HomePage() {
             <Panel className="hover:bg-[#B8C0A8] transition cursor-pointer">
               <h3 className="text-xs font-bold text-black mb-2 uppercase tracking-wide">
                 Moves Rankings
-                </h3>
+              </h3>
               <p className="text-xs text-black">
                 Player efficiency by offensive move type.
-                </p>
+              </p>
+            </Panel>
+
+            <Panel className="hover:bg-[#B8C0A8] transition cursor-pointer">
+              <h3 className="text-xs font-bold text-black mb-2 uppercase tracking-wide">
+                Documentation
+              </h3>
+              <p className="text-xs text-black">
+                API docs, data sources, architecture, and analytics explanations.
+              </p>
+              <Link
+                href="/docs"
+                className="inline-block mt-2 text-xs font-bold text-black hover:underline"
+              >
+                View Docs →
+              </Link>
             </Panel>
           </div>
         </div>
