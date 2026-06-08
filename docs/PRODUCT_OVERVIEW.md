@@ -16,7 +16,7 @@ This site addresses several critical challenges in college basketball analytics 
 
 **Output:** Estimated dollar range ($0 - $5M) with percentile rankings across all players and by position.
 
-![Player Example](./images/player_example.png)
+<img src="./images/player_example.png" alt="Player Example" width="600" />
 
 *[View Player Stats & Playstyle](https://jeevs-cbb.vercel.app/player/4432847/year=2024)*
 
@@ -34,7 +34,7 @@ This site addresses several critical challenges in college basketball analytics 
 
 **Output:** Projected BPM for future seasons (1-3 years ahead) with confidence intervals.
 
-![Projections](./images/projections.png)
+<img src="./images/projections.png" alt="Projections" width="600" />
 
 *[View 2027 Projections](https://jeevs-cbb.vercel.app/projections/2027)*
 
@@ -50,9 +50,9 @@ This site addresses several critical challenges in college basketball analytics 
 
 **Output:** List of most similar players with similarity scores, cluster membership, and visual positioning on similarity map.
 
-![Similarity Map](./images/similarity.png)
+<img src="./images/similarity.png" alt="Similarity Map" width="600" />
 
-![Clusters](./images/clusters.png)
+<img src="./images/clusters.png" alt="Clusters" width="600" />
 
 *[View Similarity Analysis](https://jeevs-cbb.vercel.app/similarity)*
 
@@ -69,7 +69,7 @@ This site addresses several critical challenges in college basketball analytics 
 
 **Output:** Team style profiles, matchup insights, composition analysis, and NIL valuations.
 
-![Team Example](./images/team_example.png)
+<img src="./images/team_example.png" alt="Team Example" width="600" />
 
 *[View Team Analysis](https://jeevs-cbb.vercel.app/team/72)*
 
