@@ -91,16 +91,16 @@ export default function GamePage() {
 
     // Store current flipped state
     const previouslyFlipped = new Set(flippedCards);
-    
+
     // Temporarily unflip all cards by setting state
     setFlippedCards(new Set());
-    
+
     // Wait for React to re-render with unflipped cards
     await new Promise(resolve => setTimeout(resolve, 500));
 
     try {
       const element = shareRef.current;
-      
+
       // Inject a style tag to override flip CSS
       const style = document.createElement('style');
       style.textContent = `
@@ -120,7 +120,7 @@ export default function GamePage() {
         }
       `;
       element.appendChild(style);
-      
+
       const dataUrl = await domToPng(element, {
         backgroundColor: '#C7D0B8',
         scale: 1,
@@ -141,17 +141,17 @@ export default function GamePage() {
       setIsGeneratingImage(false);
     }
   };
-  
+
   // Filter states
   const [selectedConferences, setSelectedConferences] = useState<string[]>([]);
   const [selectedYears, setSelectedYears] = useState<number[]>([]);
   const [showFilters, setShowFilters] = useState(false);
   const [targetDistance, setTargetDistance] = useState(6);
-  
+
   // Available conferences and years
   const [availableConferences, setAvailableConferences] = useState<string[]>([]);
   const [availableYears, setAvailableYears] = useState<number[]>([]);
-  
+
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
@@ -163,7 +163,7 @@ export default function GamePage() {
         const yearsRes = await fetch(`${BASE_URL}/api/v1/years`);
         const yearsData = await yearsRes.json();
         setAvailableYears(yearsData.years || [2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]);
-        
+
         // Set common conferences (can be expanded or fetched from API)
         setAvailableConferences([
           "ACC", "Big 12", "Big East", "Big Ten", "Pac-12", "SEC",
@@ -239,7 +239,7 @@ export default function GamePage() {
   // Give up and show shortest path
   const giveUp = async () => {
     if (!gamePair) return;
-    
+
     if (timerRef.current) {
       clearInterval(timerRef.current);
     }
@@ -276,7 +276,7 @@ export default function GamePage() {
       if (!res.ok) throw new Error("Failed to search players");
       const data = await res.json();
       const results = data.results || [];
-      
+
       // Deduplicate by player ID to avoid showing multiple versions of the same player
       // But keep different players with the same name (different IDs)
       const uniqueResults = results.filter((player, index, self) => {
@@ -284,7 +284,7 @@ export default function GamePage() {
         const firstIndex = self.findIndex(p => getPlayerId(p) === playerId);
         return index === firstIndex;
       });
-      
+
       setSearchResults(uniqueResults);
       setShowSearchResults(true);
     } catch (err) {
@@ -297,7 +297,7 @@ export default function GamePage() {
     if (!gamePair || !gameStarted) return;
 
     const currentLastPlayer = playerChain[playerChain.length - 1];
-    
+
     // Check if selected player is a teammate of current player
     fetch(`${BASE_URL}/api/v1/game/check-teammates`, {
       method: "POST",
@@ -320,7 +320,7 @@ export default function GamePage() {
               setShowSearchResults(false);
               setSearchResults([]);
               setNewNodeIndex(newIndex);
-              
+
               // Remove animation after it plays
               setTimeout(() => setNewNodeIndex(null), 500);
 
@@ -340,7 +340,7 @@ export default function GamePage() {
               setShowSearchResults(false);
               setSearchResults([]);
               setNewNodeIndex(newIndex);
-              
+
               setTimeout(() => setNewNodeIndex(null), 500);
 
               if (getPlayerId(player) === getPlayerId(gamePair.end_player)) {
@@ -382,7 +382,7 @@ export default function GamePage() {
   // Load game pair on mount
   useEffect(() => {
     fetchGamePair();
-    
+
     return () => {
       if (timerRef.current) {
         clearInterval(timerRef.current);
@@ -429,7 +429,7 @@ export default function GamePage() {
             <span>Filters</span>
             <span>{showFilters ? '▼' : '▶'}</span>
           </button>
-          
+
           {showFilters && (
             <div className="space-y-4">
               {/* Conference Filter */}
@@ -446,11 +446,10 @@ export default function GamePage() {
                             : [...prev, conf]
                         );
                       }}
-                      className={`px-2 py-1 sm:px-3 sm:py-1 text-xs border-2 border-black ${
-                        selectedConferences.includes(conf)
-                          ? 'bg-black text-white'
-                          : 'bg-[#E7E8D1]'
-                      }`}
+                      className={`px-2 py-1 sm:px-3 sm:py-1 text-xs border-2 border-black ${selectedConferences.includes(conf)
+                        ? 'bg-black text-white'
+                        : 'bg-[#E7E8D1]'
+                        }`}
                     >
                       {conf}
                     </button>
@@ -472,11 +471,10 @@ export default function GamePage() {
                             : [...prev, year]
                         );
                       }}
-                      className={`px-3 py-1 text-xs border-2 border-black ${
-                        selectedYears.includes(year)
-                          ? 'bg-black text-white'
-                          : 'bg-[#E7E8D1]'
-                      }`}
+                      className={`px-3 py-1 text-xs border-2 border-black ${selectedYears.includes(year)
+                        ? 'bg-black text-white'
+                        : 'bg-[#E7E8D1]'
+                        }`}
                     >
                       {year}
                     </button>
@@ -492,11 +490,10 @@ export default function GamePage() {
                     <button
                       key={distance}
                       onClick={() => setTargetDistance(distance)}
-                      className={`px-3 py-1 text-xs border-2 border-black ${
-                        targetDistance === distance
-                          ? 'bg-black text-white'
-                          : 'bg-[#E7E8D1]'
-                      }`}
+                      className={`px-3 py-1 text-xs border-2 border-black ${targetDistance === distance
+                        ? 'bg-black text-white'
+                        : 'bg-[#E7E8D1]'
+                        }`}
                     >
                       {distance}
                     </button>
@@ -596,9 +593,9 @@ export default function GamePage() {
                 </>
               )}
               <h2 className="font-bold mb-4 text-center uppercase tracking-wide text-xs sm:text-sm">Your Path:</h2>
-              <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-4">
+              <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 pt-2">
                 {playerChain.map((player, index) => (
-                  <div key={getPlayerId(player)} className="flex items-center gap-2 sm:gap-4">
+                  <div key={getPlayerId(player)} className="flex items-center gap-4 sm:gap-6">
                     {/* Collectible Card */}
                     <div
                       className={`
@@ -607,10 +604,6 @@ export default function GamePage() {
                         ${newNodeIndex === index ? 'animate-pop' : ''}
                         transition-all duration-300
                       `}
-                      style={{
-                        width: '100px',
-                        height: '133px'
-                      }}
                       onClick={() => toggleCardFlip(index)}
                     >
                       <div className={`card-flip-inner ${flippedCards.has(index) ? 'flipped' : ''}`}>
@@ -746,14 +739,14 @@ export default function GamePage() {
                         </div>
                       </div>
                     </div>
-                    {index < playerChain.length - 1 && <div className="text-xs sm:text-sm font-bold text-black">→</div>}
+                    {index < playerChain.length - 1 && <div className="flex items-center justify-center w-8 h-32 sm:h-48 text-2xl sm:text-3xl font-bold text-black">→</div>}
                   </div>
                 ))}
 
                 {/* Target Card */}
                 {!gameEnded && (
                   <>
-                    <div className="text-xs sm:text-sm font-bold text-black">→</div>
+                    <div className="flex items-center justify-center text-2xl sm:text-3xl font-bold text-black">→</div>
                     <div
                       className="relative w-24 h-32 sm:w-36 sm:h-48 border-2 border-dashed border-red-500 shadow-[3px_3px_0px_black] opacity-70 flex flex-col items-center justify-center p-2 bg-[#E7E8D1]"
                     >
@@ -998,7 +991,7 @@ export default function GamePage() {
           </div>
         )}
       </div>
-      
+
       <style jsx global>{`
         @keyframes shake {
           0%, 100% { transform: translateX(0); }
