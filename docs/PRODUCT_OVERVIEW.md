@@ -5,9 +5,9 @@
 JEEVS CBB addresses several critical challenges in college basketball analytics and decision-making:
 
 ### 1. Player NIL Evaluation
-**Challenge:** Determining fair market value for Name, Image, and Likeness (NIL) deals is complex, with no standardized methodology. Traditional metrics like points per game don't capture true player value.
+**Challenge:** Determining fair market value for NIL deals is complex, with no standardized methodology. Traditional metrics like points per game don't capture true player value.
 
-**Solution:** Our NIL Valuation Model uses a weighted scoring approach combining:
+**Solution:** The NIL Valuation Model uses a weighted scoring approach combining:
 - Position rank within player's archetype cluster (18 clusters, IDs 0-17)
 - Win Shares and BPM percentiles vs all players
 - Team success (adjusted net rating)
@@ -25,7 +25,7 @@ JEEVS CBB addresses several critical challenges in college basketball analytics 
 ### 2. Player Projected Growth
 **Challenge:** Predicting how a player will develop over time is difficult for scouting and roster planning. Coaches and GMs need to identify players with growth potential and anticipate future performance.
 
-**Solution:** Our BPM Projection Model uses:
+**Solution:** The BPM Projection Model uses:
 - Historical BPM trends across seasons (2019-2026)
 - Cluster transition analysis (how players move between archetypes)
 - Age-based development curves
@@ -43,7 +43,7 @@ JEEVS CBB addresses several critical challenges in college basketball analytics 
 ### 3. Similar Player Analysis
 **Challenge:** Identifying players with similar playing styles is crucial for both roster construction and opponent preparation. Manual comparison is time-consuming and subjective.
 
-**Solution:** Our Similarity System combines:
+**Solution:** The Similarity System combines:
 - **Player Clustering:** 18 archetype clusters based on statistical profiles (scoring, playmaking, rebounding, defense, efficiency)
 - **Vector Similarity:** High-dimensional feature vectors capturing nuanced playing styles
 - **Visual Similarity Map:** 3D visualization showing player relationships
@@ -61,7 +61,7 @@ JEEVS CBB addresses several critical challenges in college basketball analytics 
 ### 4. Team Style Analysis
 **Challenge:** Understanding team playing styles and strengths/weaknesses is essential for game planning and roster construction. Traditional stats don't capture team identity.
 
-**Solution:** Our Team Analysis provides:
+**Solution:** The Team Analysis provides:
 - **Archetype Composition:** Shows distribution of player types on each team
 - **Usage Patterns:** Analyzes how teams distribute usage among players
 - **Efficiency Metrics:** Team offensive/defensive efficiency and context
@@ -77,7 +77,7 @@ JEEVS CBB addresses several critical challenges in college basketball analytics 
 
 ## Data Sources & Sourcing
 
-We aggregate data from three primary sources, covering the 2019-2026 seasons (8 seasons, ~15,000+ players, 350+ D1 teams, 50,000+ games):
+Data is aggregated  from three primary sources, covering the 2019-2026 seasons (8 seasons, ~15,000+ players, 350+ D1 teams, 50,000+ games):
 
 ### 1. Bart Torvik (barttorvik.com)
 **What:** BPM, advanced player analytics, team efficiency metrics
@@ -101,7 +101,7 @@ We aggregate data from three primary sources, covering the 2019-2026 seasons (8 
 
 ---
 
-## How We Built It
+## How it is Built
 
 ### Languages
 - **Backend:** Python 3.11+
@@ -137,7 +137,6 @@ We aggregate data from three primary sources, covering the 2019-2026 seasons (8 
   - Frontend component development
   - Data processing scripts
   - Code refactoring and optimization
-  - API endpoint implementation
 
 ---
 
