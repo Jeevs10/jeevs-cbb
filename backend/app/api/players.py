@@ -2,6 +2,7 @@ from fastapi import APIRouter, HTTPException, Query
 from typing import Optional
 import json
 import os
+import gzip
 import pandas as pd
 import numpy as np
 from pathlib import Path
@@ -106,19 +107,24 @@ def get_player_games(
         # Use year from query param or default to 2026
         year_to_load = year if year else "2026"
 
-        # Load game data file
+        # Load game data file (try compressed first)
         base_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
         game_data_file = os.path.join(base_dir, "data", "games", f"{year_to_load}_player_game_data.json")
-
-        if not os.path.exists(game_data_file):
-            raise HTTPException(status_code=404, detail=f"Game data not found for year {year_to_load}")
+        game_data_file_gz = os.path.join(base_dir, "data", "games", f"{year_to_load}_player_game_data.json.gz")
 
         # Check cache first (historical data, no expiration)
         if year_to_load in _game_data_cache:
             game_data = _game_data_cache[year_to_load]
         else:
-            with open(game_data_file, 'r', encoding='utf-8') as f:
-                game_data = json.load(f)
+            # Try compressed file first
+            if os.path.exists(game_data_file_gz):
+                with gzip.open(game_data_file_gz, 'rt', encoding='utf-8') as f:
+                    game_data = json.load(f)
+            elif os.path.exists(game_data_file):
+                with open(game_data_file, 'r', encoding='utf-8') as f:
+                    game_data = json.load(f)
+            else:
+                raise HTTPException(status_code=404, detail=f"Game data not found for year {year_to_load}")
             _game_data_cache[year_to_load] = game_data
 
         # Filter games for this player (by ncaa_id)
@@ -129,7 +135,18 @@ def get_player_games(
             available_years = []
             for check_year in range(2019, 2027):
                 check_file = os.path.join(base_dir, "data", "games", f"{check_year}_player_game_data.json")
-                if os.path.exists(check_file):
+                check_file_gz = os.path.join(base_dir, "data", "games", f"{check_year}_player_game_data.json.gz")
+                
+                # Try compressed file first
+                if os.path.exists(check_file_gz):
+                    try:
+                        with gzip.open(check_file_gz, 'rt', encoding='utf-8') as f:
+                            check_data = json.load(f)
+                        if any(g.get('ncaa_id') == ncaa_id for g in check_data):
+                            available_years.append(check_year)
+                    except:
+                        pass
+                elif os.path.exists(check_file):
                     try:
                         with open(check_file, 'r', encoding='utf-8') as f:
                             check_data = json.load(f)

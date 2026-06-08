@@ -10,7 +10,7 @@ __pycache__/
 .env
 backend/venv/
 
-# large data files - uncompressed CSVs (use .gz versions instead)
+# large data files - uncompressed CSVs and JSONs (use .gz versions instead)
 backend/data/aggregate/all_players.csv
 backend/data/player_clusters.csv
 backend/data/player_clusters_unified.csv
