@@ -2,7 +2,7 @@
 
 ## Problems We're Solving
 
-JEEVS CBB addresses several critical challenges in college basketball analytics and decision-making:
+This site addresses several critical challenges in college basketball analytics and decision-making:
 
 ### 1. Player NIL Evaluation
 **Challenge:** Determining fair market value for NIL deals is complex, with no standardized methodology. Traditional metrics like points per game don't capture true player value.
