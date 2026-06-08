@@ -81,10 +81,11 @@ pytest tests/ -v
 - **Type errors**: Run `npm run type-check` for details
 - **Build issues**: Clear `.next` folder: `rm -rf .next`
 
-### Backend Issues  
+### Backend Issues
 - **Import errors**: Check virtual environment is activated
 - **Data issues**: Verify CSV files exist in `data/` folder
 - **API errors**: Check browser network tab for response details
+- **Roboflow errors**: Ensure `ROBOFLOW_API_KEY` is set in `.env` (get from app.roboflow.com/settings/api)
 
 ## 📦 Optional Enhancements (When Ready)
 

@@ -68,6 +68,8 @@ Access the application at:
 - `GET /api/v1/players/{ncaa_id}/radar` - Player radar chart data
 - `GET /api/v1/players/{ncaa_id}/evolution` - Player career evolution
 - `GET /api/v1/years` - Available years
+- `POST /api/v1/segmentation` - Image segmentation via Roboflow workflow
+- `GET /api/v1/segmentation/health` - Segmentation service health check
 - `GET /health` - Health check
 
 ### Query Parameters
@@ -153,6 +155,7 @@ backend/
 - `DEBUG`: Debug mode (default: false)
 - `CORS_ORIGINS`: Allowed CORS origins
 - `LOG_LEVEL`: Logging level (default: INFO)
+- `ROBOFLOW_API_KEY`: Roboflow API key for segmentation workflow (get from app.roboflow.com/settings/api)
 
 **Frontend (.env.local):**
 - `NEXT_PUBLIC_API_URL`: Backend API URL

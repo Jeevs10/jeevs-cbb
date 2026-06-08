@@ -21,6 +21,7 @@ from app.api.utilization import router as utilization_router
 from app.api.nil import router as nil_router
 from app.api.projections import router as projections_router
 from app.api.clusters import router as clusters_router
+from app.api.segmentation import router as segmentation_router
 
 # Cache
 from app.cache.player_vectors import build_cache
@@ -92,6 +93,7 @@ app.include_router(utilization_router, prefix="/api/v1", tags=["utilization"])
 app.include_router(nil_router, prefix="/api/v1", tags=["nil"])
 app.include_router(projections_router, prefix="/api/v1", tags=["projections"])
 app.include_router(clusters_router, prefix="/api/v1", tags=["clusters"])
+app.include_router(segmentation_router, prefix="/api/v1", tags=["segmentation"])
 
 # -------------------------
 # HEALTH CHECK

@@ -1,6 +1,8 @@
 import os
+import json
 from typing import List
 from pydantic_settings import BaseSettings
+from pydantic import field_validator
 
 class Settings(BaseSettings):
     # API Configuration
@@ -31,6 +33,22 @@ class Settings(BaseSettings):
     
     # Logging Configuration
     log_level: str = "INFO"
+    
+    # Roboflow Configuration
+    roboflow_api_key: str = ""
+    
+    @field_validator('cors_origins', mode='before')
+    @classmethod
+    def parse_cors_origins(cls, v):
+        if isinstance(v, str):
+            if v.strip() == "":
+                return ["http://localhost:3000", "http://127.0.0.1:3000"]
+            try:
+                return json.loads(v)
+            except json.JSONDecodeError:
+                # If not valid JSON, treat as comma-separated string
+                return [origin.strip() for origin in v.split(",")]
+        return v
     
     class Config:
         env_file = ".env"

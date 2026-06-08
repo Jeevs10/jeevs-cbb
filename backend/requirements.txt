@@ -8,3 +8,6 @@ python-multipart
 networkx
 scikit-learn
 joblib
+slowapi
+inference-sdk
+httpx
