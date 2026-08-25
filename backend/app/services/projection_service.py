@@ -18,7 +18,6 @@ logger = get_logger(__name__)
 class ProjectionService:
     """Service for cluster-based player projections."""
     
-    # Feature weights for similarity calculation
     FEATURE_WEIGHTS = {
         'Usage_from': 0.25,
         'BPM_from': 0.20,
@@ -28,8 +27,7 @@ class ProjectionService:
         'eFG_from': 0.10,
         'TS_per_from': 0.10,
     }
-    
-    # Alternative features available in BPM change data
+
     BPM_CHANGE_FEATURES = {
         'Usage_from': 0.25,
         'PPG_from': 0.20,
@@ -38,8 +36,7 @@ class ProjectionService:
         'eFG_from': 0.15,
         'TS_per_from': 0.10,
     }
-    
-    # Key features for clustering
+
     CLUSTER_FEATURES = [
         'Usage', 'BPM', 'Height', 'off_rtg', 'def_rtg',
         'off_efg', 'TrueShootingPct', 'Usage'
@@ -55,7 +52,7 @@ class ProjectionService:
         self._player_key_to_name = {}
         self._transition_matrix = None
         self._cluster_development = None
-        self._projection_cache = None  # Cache for pre-calculated projections
+        self._projection_cache = None
         self._data_loaded = False
     
     def _ensure_data_loaded(self):
@@ -66,13 +63,11 @@ class ProjectionService:
         try:
             base_dir = Path(__file__).parent.parent.parent
 
-            # Load cluster descriptions first (small JSON file)
             cluster_desc_path = base_dir / "data" / "cluster_descriptions.json"
             if cluster_desc_path.exists():
                 import json
                 with open(cluster_desc_path, 'r') as f:
                     cluster_desc_array = json.load(f)
-                # Convert array to dictionary keyed by cluster_id for easier lookup
                 self._cluster_descriptions = {
                     str(desc['cluster_id']): desc for desc in cluster_desc_array
                 }
@@ -80,7 +75,6 @@ class ProjectionService:
             else:
                 logger.warning(f"Cluster descriptions not found: {cluster_desc_path}")
 
-            # Load player clusters
             clusters_path = base_dir / "data" / "player_clusters.csv"
             if clusters_path.exists():
                 self._clusters_df = pd.read_csv(clusters_path)
@@ -88,7 +82,6 @@ class ProjectionService:
             else:
                 logger.warning(f"Clusters file not found: {clusters_path}")
 
-            # Load players data to create ID mapping
             players_path = base_dir / "data" / "players" / "2026-players_basic.csv"
             if players_path.exists():
                 self._players_df = pd.read_csv(players_path)
@@ -96,8 +89,6 @@ class ProjectionService:
                 self._build_player_id_mapping(base_dir)
             else:
                 logger.warning(f"Players file not found: {players_path}")
-
-            # Load BPM change modeling data (largest file, load last)
             bpm_change_path = base_dir / "data" / "bpm_change_modeling_data.csv"
             if bpm_change_path.exists():
                 self._bpm_change_df = pd.read_csv(bpm_change_path)

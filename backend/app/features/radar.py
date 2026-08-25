@@ -45,7 +45,6 @@ def compute_player_radar(player: dict, preset: str = "overview", custom_fields: 
         "ORB%": (0.02, 0.12),
         "DRB%": (0.15, 0.35),
         "TRB%": (0.05, 0.20),
-        # Percentage stats for enriched data
         "off_assist": (0.1, 0.4),
         "off_to": (0.08, 0.25),  # Smaller is better
         "off_usage": (0.15, 0.35),
@@ -61,10 +60,9 @@ def compute_player_radar(player: dict, preset: str = "overview", custom_fields: 
         "def_reb": (0.15, 0.35),
         "def_stl": (0.01, 0.05),
         "def_blk": (0.01, 0.08),
-        "def_fc": (0.02, 0.08),  # Smaller is better
+        "def_fc": (0.02, 0.08),
     }
 
-    # Get basic stats with fallbacks for different naming conventions
     get_stat = lambda *keys: next((safe(player.get(k)) for k in keys if player.get(k) is not None), 0)
 
     PPG = get_stat("PPG", "Points") / get_stat("Games", 1) if get_stat("Games", 1) > 0 else 0
@@ -84,8 +82,7 @@ def compute_player_radar(player: dict, preset: str = "overview", custom_fields: 
     USG = get_stat("off_usage", "Usage", "USG%")
     ORB = get_stat("off_orb", "OffensiveReboundingPct", "ORB%")
     DRB = get_stat("def_orb", "DefensiveReboundingPct", "DRB%")
-    
-    # Percentage stats for enriched data
+
     off_assist = get_stat("off_assist")
     off_to_pct = get_stat("off_to")
     off_usage_pct = get_stat("off_usage")
@@ -121,7 +118,6 @@ def compute_player_radar(player: dict, preset: str = "overview", custom_fields: 
         "USG%": USG,
         "ORB%": ORB,
         "DRB%": DRB,
-        # Percentage stats for enriched data
         "off_assist": off_assist,
         "off_to": off_to_pct,
         "off_usage": off_usage_pct,
@@ -140,7 +136,6 @@ def compute_player_radar(player: dict, preset: str = "overview", custom_fields: 
         "def_fc": def_fc_pct,
     }
 
-    # Define presets with their field sets
     presets = {
         "overview": [
             {"stat": "off_assist", "value": normalize_stat(off_assist, *stat_ranges["off_assist"]), "raw": off_assist},
@@ -158,7 +153,7 @@ def compute_player_radar(player: dict, preset: str = "overview", custom_fields: 
         ],
         "playmaking": [
             {"stat": "off_assist", "value": normalize_stat(off_assist, *stat_ranges["off_assist"]), "raw": off_assist},
-            {"stat": "off_to", "value": invert_normalize(off_to_pct, *stat_ranges["off_to"]), "raw": off_to_pct},  # Inverted - smaller is better
+            {"stat": "off_to", "value": invert_normalize(off_to_pct, *stat_ranges["off_to"]), "raw": off_to_pct},
             {"stat": "off_usage", "value": normalize_stat(off_usage_pct, *stat_ranges["off_usage"]), "raw": off_usage_pct},
         ],
         "defense": [
@@ -166,12 +161,12 @@ def compute_player_radar(player: dict, preset: str = "overview", custom_fields: 
             {"stat": "def_blk", "value": normalize_stat(def_blk_pct, *stat_ranges["def_blk"]), "raw": def_blk_pct},
             {"stat": "def_orb", "value": normalize_stat(def_orb_pct, *stat_ranges["def_orb"]), "raw": def_orb_pct},
             {"stat": "def_reb", "value": normalize_stat(def_reb_pct, *stat_ranges["def_reb"]), "raw": def_reb_pct},
-            {"stat": "def_fc", "value": invert_normalize(def_fc_pct, *stat_ranges["def_fc"]), "raw": def_fc_pct},  # Inverted - smaller is better
+            {"stat": "def_fc", "value": invert_normalize(def_fc_pct, *stat_ranges["def_fc"]), "raw": def_fc_pct},
         ],
         "efficiency": [
             {"stat": "off_efg", "value": normalize_stat(off_efg_pct, *stat_ranges["off_efg"]), "raw": off_efg_pct},
             {"stat": "off_ftr", "value": normalize_stat(off_ftr_pct, *stat_ranges["off_ftr"]), "raw": off_ftr_pct},
-            {"stat": "off_to", "value": invert_normalize(off_to_pct, *stat_ranges["off_to"]), "raw": off_to_pct},  # Inverted - smaller is better
+            {"stat": "off_to", "value": invert_normalize(off_to_pct, *stat_ranges["off_to"]), "raw": off_to_pct},
             {"stat": "off_orb", "value": normalize_stat(off_orb_pct, *stat_ranges["off_orb"]), "raw": off_orb_pct},
             {"stat": "def_reb", "value": normalize_stat(def_reb_pct, *stat_ranges["def_reb"]), "raw": def_reb_pct},
         ],
@@ -185,12 +180,10 @@ def compute_player_radar(player: dict, preset: str = "overview", custom_fields: 
         ],
     }
 
-    # Handle custom field selection
     if custom_fields:
         result = []
         for field in custom_fields:
             if field in stat_values and field in stat_ranges:
-                # Stats where smaller is better
                 if field in ["TO%", "off_to", "def_fc"]:
                     value = invert_normalize(stat_values[field], *stat_ranges[field])
                 else:

@@ -9,7 +9,6 @@ export const config: AppConfig = {
   },
 };
 
-// API endpoints
 export const API_ENDPOINTS = {
   players: "/api/v1/players",
   player: (id: string) => `/api/v1/players/${id}`,
@@ -24,13 +23,11 @@ export const API_ENDPOINTS = {
   movesRankings: "/api/v1/moves/rankings",
 } as const;
 
-// Pagination defaults
 export const PAGINATION = {
   DEFAULT_LIMIT: 50,
   DEFAULT_PAGE: 0,
 } as const;
 
-// Table configuration
 export const TABLE_CONFIG = {
   SORTABLE_COLUMNS: new Set([
     "year",

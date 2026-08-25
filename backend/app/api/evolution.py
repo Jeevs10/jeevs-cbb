@@ -7,9 +7,8 @@ import time
 
 router = APIRouter()
 
-# Simple in-memory cache with TTL
 _evolution_cache = {}
-_evolution_cache_ttl = 300  # 5 minutes
+_evolution_cache_ttl = 300
 
 def get_cache_key(ncaa_id, year, metric):
     key_str = f"{ncaa_id}_{year}_{metric}"
@@ -21,18 +20,14 @@ def player_evolution(
     year: Union[int, str, None] = None,
     metric: Optional[str] = Query("rapm", description="Metric to use for tiering: rapm, bpm, vorp, or combined")
 ):
-    # Check cache
     cache_key = get_cache_key(ncaa_id, year, metric)
     cached_data, cached_time = _evolution_cache.get(cache_key, (None, 0))
-    
+
     if cached_data and (time.time() - cached_time) < _evolution_cache_ttl:
         return cached_data
-    
+
     result = get_player_evolution(float(ncaa_id), year, metric=metric)
 
-    # -------------------------
-    # SAFETY NORMALIZATION
-    # -------------------------
     if not result:
         return {
             "player_tier": None,
@@ -44,7 +39,6 @@ def player_evolution(
             "all_american": []
         }
 
-    # ensure all keys exist even if service omits something
     normalized = {
         "player_tier": result.get("player_tier"),
         "metric": result.get("metric", "rapm"),
@@ -55,7 +49,6 @@ def player_evolution(
         "all_american": result.get("all_american", []),
     }
 
-    # Store in cache
     _evolution_cache[cache_key] = (normalized, time.time())
 
     return normalized

@@ -13,9 +13,7 @@ from app.utils.logger import get_logger
 
 logger = get_logger(__name__)
 
-# Conference prestige mapping
 CONFERENCE_PRESTIGE = {
-    # High Major
     "ACC": 1.0,
     "Atlantic Coast Conference": 1.0,
     "Big 12": 1.0,
@@ -31,7 +29,6 @@ CONFERENCE_PRESTIGE = {
     "Pac 12": 1.0,
     "Pac 12 Conference": 1.0,
     "West Coast Conference": 1.0,
-    # Mid Major
     "AAC": 0.7,
     "American": 0.7,
     "American Athletic Conference": 0.7,
@@ -49,11 +46,9 @@ CONFERENCE_PRESTIGE = {
     "Big West Conference": 0.7,
     "Conference USA": 0.7,
     "CUSA": 0.7,
-    # Low Major (default)
     "default": 0.4,
 }
 
-# Position mapping for consistent grouping
 POSITION_GROUPS = {
     "PG": "Guard",
     "CG": "Guard",
@@ -67,32 +62,28 @@ POSITION_GROUPS = {
     "G": "Guard",
 }
 
-# Cluster quality mapping based on average BPM per cluster (18 clusters with BPM, OBPM, DBPM, 3p/100 features)
-# Updated based on actual cluster averages from player_clusters_unified.csv
 CLUSTER_QUALITY = {
-    # Star clusters (high BPM) - give these the highest boosts
-    2: 1.0,  # Elite Bigs (BPM 5.04) - highest BPM cluster
-    0: 0.95,  # High-Usage Guards (BPM 4.79) - second highest
-    6: 0.9,  # 3PT Wings (BPM 2.52) - strong shooters
-    11: 0.85,  # Stretch Bigs (BPM 2.41) - versatile bigs
-    13: 0.8,  # Versatile Forwards (BPM 2.37) - well-rounded forwards
-    9: 0.75,  # High-Usage Guards (BPM 2.16) - high usage guards
-    12: 0.7,  # Playmakers (BPM 1.95) - playmaking guards
-    15: 0.65,  # Rim Protectors (BPM 0.02) - defensive specialists
-    3: 0.6,  # Wings (BPM -0.29) - average wings
-    14: 0.55,  # Low BPM Guards (BPM -0.41) - below average guards
-    8: 0.5,  # 3PT Specialists (BPM -0.80) - specialists
-    1: 0.45,  # Low BPM Forwards (BPM -2.10) - role player forwards
-    17: 0.4,  # Low BPM Bigs (BPM -2.49) - role player bigs
-    5: 0.35,  # Traditional Bigs (BPM -3.21) - low impact bigs
-    16: 0.3,  # High-Usage Low BPM (BPM -3.22) - inefficient high usage
-    10: 0.25,  # Empty Calorie (BPM -3.44) - low efficiency
-    7: 0.2,  # Low BPM Wings (BPM -3.89) - below replacement wings
-    4: 0.15,  # Very Low BPM (BPM -6.45) - lowest BPM cluster
+    2: 1.0,
+    0: 0.95,
+    6: 0.9,
+    11: 0.85,
+    13: 0.8,
+    9: 0.75,
+    12: 0.7,
+    15: 0.65,
+    3: 0.6,
+    14: 0.55,
+    8: 0.5,
+    1: 0.45,
+    17: 0.4,
+    5: 0.35,
+    16: 0.3,
+    10: 0.25,
+    7: 0.2,
+    4: 0.15,
     "default": 0.5,
 }
 
-# Cluster description mapping based on cluster_descriptions.json
 CLUSTER_DESCRIPTIONS = {
     0: "Elite Rim-Protecting Bigs",
     1: "High-Usage Shooting Guards",

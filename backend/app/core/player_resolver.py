@@ -3,10 +3,6 @@ from app.core.data_loader import df, all_time_df
 import pandas as pd
 import numpy as np
 
-# -------------------------
-# CONFIG
-# -------------------------
-
 WEIGHT_COLUMN = "off_poss"
 
 CATEGORICAL_FIELDS = {
@@ -23,17 +19,11 @@ CATEGORICAL_FIELDS = {
     "Position",
 }
 
-# 🚨 CRITICAL: NEVER AGGREGATE THESE
 EXCLUDE_FROM_CAREER_AGG = {
     "year",
 }
 
-# -------------------------
-# CORE SNAPSHOT
-# -------------------------
-
 def get_player_snapshot(ncaa_id: str, year: Union[int, str, None] = None):
-    # Convert to float to match dataframe dtype
     try:
         ncaa_id_float = float(ncaa_id)
     except (ValueError, TypeError):
@@ -44,11 +34,11 @@ def get_player_snapshot(ncaa_id: str, year: Union[int, str, None] = None):
     if player.empty:
         return None
 
-    # CAREER MODE
+    # Career mode
     if year == "career":
         return build_career_snapshot(player)
 
-    # YEAR MODE
+    # Year mode
     if year is not None:
         filtered = player[player["year"] == year]
         if not filtered.empty:
@@ -60,7 +50,6 @@ def get_player_snapshot(ncaa_id: str, year: Union[int, str, None] = None):
     player = player.sort_values("year")
     snapshot = player.iloc[-1].to_dict()
 
-    # Ensure MPG is calculated for single-year snapshots
     if "MPG" not in snapshot or pd.isna(snapshot.get("MPG")):
         games = snapshot.get("Games", 1)
         minutes = snapshot.get("Minutes", 0)
@@ -77,14 +66,12 @@ def get_player_all_time_percentiles(ncaa_id: str, year: Union[int, str, None] = 
     if all_time_df.empty:
         return None
 
-    # Normalize both sides for comparison - handle ".0" suffix
     ncaa_id_normalized = str(ncaa_id).replace('.0', '')
     player = all_time_df[all_time_df["roster.ncaa_id"].astype(str).str.replace('.0', '', regex=False) == ncaa_id_normalized]
 
     if player.empty:
         return None
 
-    # If a specific year is requested, filter to that year
     if year is not None and year != "career":
         try:
             year_int = int(year)
@@ -98,10 +85,6 @@ def get_player_all_time_percentiles(ncaa_id: str, year: Union[int, str, None] = 
     return player.iloc[-1].to_dict()
 
 
-# -------------------------
-# CAREER SNAPSHOT BUILDER
-# -------------------------
-
 def build_career_snapshot(player_df: pd.DataFrame):
     player_df = player_df.copy()
 
@@ -109,14 +92,13 @@ def build_career_snapshot(player_df: pd.DataFrame):
 
     out = {}
 
-    # Determine data_tier: if any year has enriched data, career should be enriched
     is_enriched = False
     if "data_tier" in player_df.columns:
         has_enriched = (player_df["data_tier"] == "enriched").any()
         out["data_tier"] = "enriched" if has_enriched else "basic"
         is_enriched = has_enriched
 
-    # keep categorical fields
+    # Keep categorical fields
     for col in CATEGORICAL_FIELDS:
         if col in player_df.columns:
             out[col] = latest.get(col)
@@ -170,10 +152,10 @@ def build_career_snapshot(player_df: pd.DataFrame):
             total_stat = player_df[total_col].fillna(0).values.sum()
             out[per_game_col] = float(total_stat / total_games) if total_games > 0 else 0
 
-    # ✅ FIX: explicit mode flag
+    # Explicit mode flag
     years = sorted(player_df["year"].dropna().astype(int).unique().tolist())
 
-    out["year"] = "career"   # 🔥 CRITICAL FIX
+    out["year"] = "career"
     out["is_career"] = True
 
     if len(years) == 1:
@@ -183,10 +165,6 @@ def build_career_snapshot(player_df: pd.DataFrame):
 
     return out
 
-
-# -------------------------
-# HISTORY
-# -------------------------
 
 def get_player_history(ncaa_id: str):
     # Use player_key instead of roster.ncaa_id to support both basic and enriched players

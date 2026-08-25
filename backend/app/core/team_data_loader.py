@@ -1,6 +1,8 @@
 import os
 import pandas as pd
 
+from app.core.roster_data import get_roster_data
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 
 def load_team_analytics():
@@ -32,28 +34,15 @@ def load_team_analytics():
 def load_roster_info():
     """Load roster info for teams"""
     try:
-        dfs = []
-        
-        # Load all available years (2019-2026)
-        for year in range(2019, 2027):
-            csv_path = os.path.join(BASE_DIR, "data", "players", f"{year}-roster-info.csv")
-            if os.path.exists(csv_path):
-                df_year = pd.read_csv(csv_path)
-                df_year["Season"] = df_year["Season"].astype(str)
-                # Convert Season to year (e.g., "2025" -> 2025)
-                df_year["year"] = pd.to_numeric(df_year["Season"], errors='coerce')
-                if 'TeamSourceId' in df_year.columns:
-                    df_year['TeamSourceId'] = df_year['TeamSourceId'].astype(str)
-                dfs.append(df_year)
-        
-        if not dfs:
+        df = get_roster_data()
+        if df.empty:
             return pd.DataFrame()
-        
-        # Combine all years
-        df_combined = pd.concat(dfs, ignore_index=True)
-        
-        
-        return df_combined
+
+        df = df.copy()
+        if 'TeamSourceId' in df.columns:
+            df['TeamSourceId'] = df['TeamSourceId'].astype(str)
+
+        return df
     except Exception as e:
         return pd.DataFrame()
 

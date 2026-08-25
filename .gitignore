@@ -21,3 +21,4 @@ backend/data/players/*-players.csv
 backend/data/players/*_torvik.csv
 backend/data/teams/*-hoop-explorer-teams.csv
 backend/data/games/*.json
+backend/data/games/*.db

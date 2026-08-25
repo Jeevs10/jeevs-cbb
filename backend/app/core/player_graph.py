@@ -4,6 +4,8 @@ from collections import defaultdict
 import networkx as nx
 import random
 
+from app.core.roster_data import get_roster_data
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 
 
@@ -12,12 +14,12 @@ class PlayerGraph:
     
     def __init__(self):
         self.graph = nx.Graph()
-        self.player_info = {}  # player_id -> {name, team, year, etc.}
+        self.player_info = {}
         self._loaded = False
     
     def load_from_roster_data(self, conferences=None, years=None):
         """Build graph from roster data - players connected if they were ever teammates
-        
+
         Args:
             conferences: Optional list of conference names to filter by
             years: Optional list of years to include
@@ -26,14 +28,12 @@ class PlayerGraph:
             pass
         if years:
             pass
-        
-        # Load roster info with filters
+
         roster_df = self._load_roster_data(conferences=conferences, years=years)
         
         if roster_df.empty:
             return
-        
-        # Group by player ID to collect all their teams, years, and other info
+
         player_data = {}
         for _, row in roster_df.iterrows():
             player_id = str(row['Sourceid'])
@@ -62,7 +62,6 @@ class PlayerGraph:
             if pd.notna(row.get('Conference')):
                 player_data[player_id]['conferences'].add(row.get('Conference'))
 
-        # Store player info (generic, not year-specific)
         for player_id, info in player_data.items():
             self.player_info[player_id] = {
                 'id': player_id,
@@ -74,21 +73,16 @@ class PlayerGraph:
                 'hometown': list(info['hometowns'])[0] if info['hometowns'] else None,
                 'conf': list(info['conferences'])[0] if info['conferences'] else None
             }
-        
-        # Group by team and year to find teammates
+
         grouped = roster_df.groupby(['Team', 'year'])
-        
-        # For each team/year, connect all players on that roster
-        # This creates edges between players who were teammates at any point
+
         for (team, year), group in grouped:
             player_ids = group['Sourceid'].tolist()
-            
-            # Connect all players on this roster
+
             for i in range(len(player_ids)):
                 for j in range(i + 1, len(player_ids)):
                     pid1 = str(player_ids[i])
                     pid2 = str(player_ids[j])
-                    # Add edge if not already exists
                     if not self.graph.has_edge(pid1, pid2):
                         self.graph.add_edge(pid1, pid2)
         
@@ -96,37 +90,25 @@ class PlayerGraph:
     
     def _load_roster_data(self, conferences=None, years=None):
         """Load roster info from all available years, with optional filters
-        
+
         Args:
             conferences: Optional list of conference names to filter by
             years: Optional list of years to include
         """
-        dfs = []
-        
-        # Determine which years to load
-        years_to_load = years if years else list(range(2019, 2027))
-        
-        for year in years_to_load:
-            csv_path = os.path.join(BASE_DIR, "data", "players", f"{year}-roster-info.csv")
-            if os.path.exists(csv_path):
-                df_year = pd.read_csv(csv_path)
-                df_year["Season"] = df_year["Season"].astype(str)
-                df_year["year"] = pd.to_numeric(df_year["Season"], errors='coerce')
-                # Filter out players without conferences to reduce graph size
-                df_year = df_year[df_year['Conference'].notna() & (df_year['Conference'] != '')]
-                
-                # Filter by conference if specified
-                if conferences:
-                    df_year = df_year[df_year['Conference'].isin(conferences)]
-                
-                if 'Sourceid' in df_year.columns:
-                    df_year['Sourceid'] = df_year['Sourceid'].astype(str)
-                dfs.append(df_year)
-        
-        if not dfs:
+        df = get_roster_data(years=years)
+        if df.empty:
             return pd.DataFrame()
-        
-        df = pd.concat(dfs, ignore_index=True)
+
+        # Filter out players without conferences to reduce graph size
+        df = df[df['Conference'].notna() & (df['Conference'] != '')].copy()
+
+        # Filter by conference if specified
+        if conferences:
+            df = df[df['Conference'].isin(conferences)]
+
+        if 'Sourceid' in df.columns:
+            df['Sourceid'] = df['Sourceid'].astype(str)
+
         return df
     
     def reload_with_filters(self, conferences=None, years=None):

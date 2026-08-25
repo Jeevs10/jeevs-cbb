@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { Player, SortDirection } from "@/types";
-import { 
-  formatYear, 
-  formatNumber, 
+import {
+  formatYear,
+  formatNumber,
   formatHeight,
   getSortIcon,
   getTableCellClasses,
@@ -63,19 +63,15 @@ export function PlayerTable({ players, sort, order, onSort, loading, dataTier = 
     }
   };
 
-  // Go to player detail page with year parameter if available
   const getPlayerHref = (player: Player) => {
     const yearToUse = selectedYear && selectedYear !== "career" ? selectedYear : (player.year ?? "2024");
     return `/player/${player.AthleteSourceId}?year=${yearToUse}`;
   };
 
-  // Format derived stats to 1 decimal place
   const formatDerivedStat = (value: any): string => {
     if (value === null || value === undefined || isNaN(value)) return "—";
     return value.toFixed(1);
   };
-
-  // Determine which columns to show based on data tier
 
   if (loading) {
     return (
@@ -150,7 +146,7 @@ export function PlayerTable({ players, sort, order, onSort, loading, dataTier = 
                 // Basic player row
                 <>
                   <td className={getTableCellClasses(true)}>
-                    <Link 
+                    <Link
                       href={getPlayerHref(player)}
                       className="underline hover:no-underline"
                     >
@@ -192,7 +188,7 @@ export function PlayerTable({ players, sort, order, onSort, loading, dataTier = 
                 // Enriched player row
                 <>
                   <td className={getTableCellClasses(true)}>
-                    <Link 
+                    <Link
                       href={getPlayerHref(player)}
                       className="underline hover:no-underline"
                     >

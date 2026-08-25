@@ -1,4 +1,3 @@
-// components/ui/Stat.tsx
 export default function Stat({ label, value, max = 100 }) {
   const pct = Math.max(0, Math.min(100, (value / max) * 100));
 

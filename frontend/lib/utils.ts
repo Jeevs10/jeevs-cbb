@@ -1,11 +1,9 @@
 import { clsx, type ClassValue } from "clsx";
 
-// Utility for combining Tailwind classes
 export function cn(...inputs: ClassValue[]) {
   return clsx(inputs);
 }
 
-// Format utilities
 export function formatYear(player: { year?: number | string | null; is_career?: boolean }): string {
   if (player.is_career || player.year === "career") return "Career";
   if (typeof player.year === "number") return player.year.toString();
@@ -32,7 +30,6 @@ export function formatPercentage(value: number, decimals: number = 1): string {
   return `${value.toFixed(decimals)}%`;
 }
 
-// Validation utilities
 export function isValidId(id: string): boolean {
   return typeof id === "string" && id.trim().length > 0;
 }
@@ -45,7 +42,6 @@ export function isValidYear(year: any): year is number | "career" | null {
   );
 }
 
-// Search utilities
 export function createSearchQuery(search: string): string {
   return search.trim().toLowerCase();
 }
@@ -61,7 +57,6 @@ export function debounce<T extends (...args: any[]) => any>(
   };
 }
 
-// Error handling utilities
 export function handleApiError(error: unknown): string {
   if (error instanceof Error) {
     return error.message;
@@ -73,7 +68,6 @@ export function isNetworkError(error: unknown): boolean {
   return error instanceof Error && error.message.includes("Network Error");
 }
 
-// Table utilities
 export function getSortIcon(
   currentSort: string,
   column: string,
@@ -97,14 +91,12 @@ export function getTableHeaderClasses(isSortable = false): string {
   );
 }
 
-// Data transformation utilities
 export function normalizePlayerData(player: any): any {
   if (!player) return null;
-  
-  // Ensure numeric fields are numbers
+
   const numericFields = [
     "adj_rapm_margin",
-    "off_rtg", 
+    "off_rtg",
     "def_rtg",
     "off_usage",
     "off_orb",
@@ -119,7 +111,7 @@ export function normalizePlayerData(player: any): any {
   ];
 
   const normalized = { ...player };
-  
+
   numericFields.forEach(field => {
     if (normalized[field] !== null && normalized[field] !== undefined) {
       normalized[field] = Number(normalized[field]);
@@ -129,7 +121,6 @@ export function normalizePlayerData(player: any): any {
   return normalized;
 }
 
-// Constants
 export const DEFAULT_PAGE_SIZE = 50;
 export const MAX_SEARCH_LENGTH = 100;
 export const DEBOUNCE_DELAY = 600;

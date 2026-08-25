@@ -25,7 +25,6 @@ export function useMovesRankings({ moveType, year, limit = 50, offset = 0, posit
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Clear data when moveType changes to ensure fresh data
   useEffect(() => {
     setData(null);
   }, [moveType]);
@@ -71,8 +70,6 @@ export function useMovesRankings({ moveType, year, limit = 50, offset = 0, posit
     data,
     loading,
     error,
-    refetch: () => {
-      // Trigger re-render by changing params
-    },
+    refetch: () => { },
   };
 }

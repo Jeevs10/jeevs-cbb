@@ -22,17 +22,15 @@ export default function Badge({
     5: "Mythic",
   };
 
-    const variantStyles = {
-      default: "bg-[#E7E8D1] text-black border-2 border-black shadow-[3px_3px_0px_black]",
-      offense: "bg-[#E7E8D1] text-black border-2 border-black shadow-[3px_3px_0px_black]",
-      defense: "bg-[#E7E8D1] text-black border-2 border-black shadow-[3px_3px_0px_black]",
-      meta: "bg-[#E7E8D1] text-black border-2 border-black shadow-[3px_3px_0px_black]",
-    };
+  const variantStyles = {
+    default: "bg-[#E7E8D1] text-black border-2 border-black shadow-[3px_3px_0px_black]",
+    offense: "bg-[#E7E8D1] text-black border-2 border-black shadow-[3px_3px_0px_black]",
+    defense: "bg-[#E7E8D1] text-black border-2 border-black shadow-[3px_3px_0px_black]",
+    meta: "bg-[#E7E8D1] text-black border-2 border-black shadow-[3px_3px_0px_black]",
+  };
 
-  // 🧠 detect icon
   const Icon = badgeIcons[children];
 
-  // ✅ Skill badge (with level)
   if (level) {
     const safeLevel = Math.min(Math.max(level, 1), 5);
 
@@ -47,7 +45,6 @@ export default function Badge({
     );
   }
 
-  // ✅ Meta badge (no level)
   return (
     <div
       className={`px-2 py-1 text-xs font-mono border-2 border-black ${variantStyles[variant]}`}

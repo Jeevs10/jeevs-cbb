@@ -10,23 +10,14 @@ PLAYER_VECTORS = {}
 PLAYER_INDEX = []
 PLAYER_INFO = {}
 
-# -------------------------
-# GLOBAL METRIC STORAGE
-# -------------------------
 ALL_RAPM_VALUES = []
 ALL_BPM_VALUES = []
 ALL_VORP_VALUES = []
 
-# -------------------------
-# CACHE FILE PATH
-# -------------------------
 CACHE_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "cache")
 CACHE_FILE = os.path.join(CACHE_DIR, "player_vectors_cache.pkl")
 CACHE_METADATA_FILE = os.path.join(CACHE_DIR, "player_vectors_cache_metadata.json")
 
-# -------------------------
-# DATA FILES TO TRACK FOR CACHE INVALIDATION
-# -------------------------
 DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
 DATA_FILES_TO_TRACK = [
     os.path.join(DATA_DIR, "players", "2019-PlayerData.csv"),
@@ -183,9 +174,7 @@ def build_cache(force_rebuild=False):
     ALL_VORP_VALUES = []
 
 
-    # -------------------------
-    # PASS 1: BUILD RAW + COLLECT METRICS
-    # -------------------------
+    # Pass 1: Build raw data and collect metrics
     raw_rows = []
     skipped_count = 0
     total_rows = 0
@@ -194,7 +183,7 @@ def build_cache(force_rebuild=False):
         total_rows += 1
         player = row.to_dict()
 
-        # Try to get ncaa_id from roster.ncaa_id first, fallback to AthleteSourceId
+        # Get ncaa_id from roster.ncaa_id first, fallback to AthleteSourceId
         ncaa_id = player.get("roster.ncaa_id") or player.get("AthleteSourceId")
         year = safe_year(player.get("year"))
 
@@ -246,9 +235,7 @@ def build_cache(force_rebuild=False):
 
         raw_rows.append((player, ncaa_id, year, composite_rapm_pct, bpm, vorp))
 
-    # -------------------------
-    # PASS 2: BUILD STRUCTURES
-    # -------------------------
+    # Pass 2: Build structures
     
     for player, ncaa_id, year, composite_rapm_pct, bpm, vorp in raw_rows:
 
@@ -273,7 +260,6 @@ def build_cache(force_rebuild=False):
             "style": style_vec,
             "impact": impact_vec,
 
-            # 🔥 CLEAN SINGLE SOURCE OF TRUTH
             "rapm": composite_rapm_pct,
             "rapm_pct": rapm_pct,
             "bpm": bpm,

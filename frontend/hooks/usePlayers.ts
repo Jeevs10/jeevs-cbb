@@ -25,7 +25,6 @@ export function usePlayers(params: FetchPlayersParams = {}): UsePlayersState & U
     filteredCount: 0,
   });
 
-  // Memoize params to prevent infinite re-renders
   const memoizedParams = useMemo(() => params, [
     params.limit,
     params.offset,

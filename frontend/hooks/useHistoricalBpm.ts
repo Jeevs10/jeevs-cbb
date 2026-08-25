@@ -31,7 +31,6 @@ export function useHistoricalBpm(
     setState((prev) => ({ ...prev, loading: true, error: null }));
 
     try {
-      // Use the history endpoint which returns all years for a player
       const response = await fetch(`/api/v1/players/${ncaaId}/history`);
 
       if (!response.ok) {
@@ -41,7 +40,6 @@ export function useHistoricalBpm(
 
       const result = await response.json();
 
-      // Transform history data to match the expected format
       const historicalBpm = result.history.map((h: any) => ({
         year: h.year,
         BPM: h.BPM,

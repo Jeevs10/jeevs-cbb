@@ -14,9 +14,6 @@ def log(level, msg):
         getattr(logger, level)(msg)
 
 
-# -------------------------
-# META
-# -------------------------
 def get_player_name(ncaa_id):
     info = PLAYER_INFO.get(ncaa_id, {})
     name = info.get("player_name")
@@ -28,9 +25,6 @@ def get_player_meta(ncaa_id):
     return info.get("team"), (info.get("pos") or info.get("position"))
 
 
-# -------------------------
-# POOL
-# -------------------------
 def build_pool(year=None, metric="rapm"):
     pool = []
 
@@ -47,7 +41,6 @@ def build_pool(year=None, metric="rapm"):
             "year": used_year,
             "style": vec["style"],
 
-            # CLEAN SIGNALS
             "rapm": vec.get("rapm", 0.0),
             "rapm_pct": vec.get("rapm_pct", 0.0),
             "bpm": vec.get("bpm", 0.0),
@@ -59,9 +52,6 @@ def build_pool(year=None, metric="rapm"):
     return pool
 
 
-# -------------------------
-# 5-TIER SYSTEM
-# -------------------------
 def assign_tier(p):
     if p < 0.15:
         return "bench_unit"
@@ -75,9 +65,6 @@ def assign_tier(p):
         return "all_american"
 
 
-# -------------------------
-# EVOLUTION ENGINE
-# -------------------------
 def get_player_evolution(ncaa_id, year=None, top_k=3, metric="rapm"):
 
     if ncaa_id not in PLAYER_VECTORS:
@@ -88,19 +75,17 @@ def get_player_evolution(ncaa_id, year=None, top_k=3, metric="rapm"):
         return empty()
 
     target_style = target_vec["style"]
-    
-    # Get target percentile based on selected metric
+
     if metric == "bpm":
         target_pct = target_vec.get("bpm_pct", 0.0)
     elif metric == "vorp":
         target_pct = target_vec.get("vorp_pct", 0.0)
     elif metric == "combined":
-        # Combined: average of rapm, bpm, and vorp percentiles
         rapm_pct = target_vec.get("rapm_pct", 0.0)
         bpm_pct = target_vec.get("bpm_pct", 0.0)
         vorp_pct = target_vec.get("vorp_pct", 0.0)
         target_pct = (rapm_pct + bpm_pct + vorp_pct) / 3
-    else:  # default to rapm
+    else:
         target_pct = target_vec.get("rapm_pct", 0.0)
 
     pool = [
@@ -108,28 +93,20 @@ def get_player_evolution(ncaa_id, year=None, top_k=3, metric="rapm"):
         if p["ncaa_id"] != ncaa_id
     ]
 
-    # -------------------------
-    # TIERING (GLOBAL PERCENTILE — NO NOISE)
-    # -------------------------
     for p in pool:
         if metric == "bpm":
             p["tier"] = assign_tier(p["bpm_pct"])
         elif metric == "vorp":
             p["tier"] = assign_tier(p["vorp_pct"])
         elif metric == "combined":
-            # Combined: average of rapm, bpm, and vorp percentiles
             combined_pct = (p["rapm_pct"] + p["bpm_pct"] + p["vorp_pct"]) / 3
             p["tier"] = assign_tier(combined_pct)
-        else:  # default to rapm
+        else:
             p["tier"] = assign_tier(p["rapm_pct"])
 
-    # -------------------------
-    # SIMILARITY WITH TIER BALANCING
-    # -------------------------
     for p in pool:
         p["sim"] = cosine_similarity(target_style, p["style"])
 
-    # Ensure we have players from all tiers by sampling from each tier
     tier_samples = {
         "bench_unit": [],
         "rotation_piece": [],
@@ -137,26 +114,20 @@ def get_player_evolution(ncaa_id, year=None, top_k=3, metric="rapm"):
         "all_conference": [],
         "all_american": []
     }
-    
-    # Sample up to 20 players from each tier, sorted by similarity
+
     for tier in tier_samples:
         tier_players = [p for p in pool if p["tier"] == tier]
         tier_players.sort(key=lambda x: -x["sim"])
         tier_samples[tier] = tier_players[:20]
-    
-    # Combine samples from all tiers
+
     balanced_pool = []
     for tier_players in tier_samples.values():
         balanced_pool.extend(tier_players)
-    
-    # Use the balanced pool instead of the top 100 most similar
+
     pool = balanced_pool
 
     player_tier = assign_tier(target_pct)
 
-    # -------------------------
-    # BUCKETS
-    # -------------------------
     buckets = {
         "bench_unit": [],
         "rotation_piece": [],

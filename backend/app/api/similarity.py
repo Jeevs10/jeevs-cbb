@@ -8,9 +8,8 @@ import time
 
 router = APIRouter()
 
-# Simple in-memory cache with TTL
 _similarity_cache = {}
-_similarity_cache_ttl = 300  # 5 minutes
+_similarity_cache_ttl = 300
 
 def get_cache_key(ncaa_id, year, top_k, style_weight):
     key_str = f"{ncaa_id}_{year}_{top_k}_{style_weight}"
@@ -22,7 +21,6 @@ def enrich(results):
         out = []
 
         for item in lst:
-            # Normalize the ID to match player_key format (remove .0 suffix)
             code = str(item["AthleteSourceId"]).replace('.0', '')
             meta = PLAYER_LOOKUP.get(code, {})
 
@@ -31,10 +29,7 @@ def enrich(results):
                 "player_name": meta.get("player_name"),
                 "team": meta.get("team"),
                 "pos": meta.get("Position", meta.get("posClass")),
-
-                # IMPORTANT: snapshot year used in comparison
                 "year": item.get("year"),
-
                 "similarity": item.get("similarity", 0),
                 "reasons": item.get("reasons", []),
             })
@@ -55,10 +50,9 @@ def similar_players(
     top_k: int = 10,
     style_weight: float = 0.7
 ):
-    # Check cache
     cache_key = get_cache_key(ncaa_id, year, top_k, style_weight)
     cached_data, cached_time = _similarity_cache.get(cache_key, (None, 0))
-    
+
     if cached_data and (time.time() - cached_time) < _similarity_cache_ttl:
         return cached_data
 
@@ -72,8 +66,7 @@ def similar_players(
     )
 
     enriched = enrich(results)
-    
-    # Store in cache
+
     _similarity_cache[cache_key] = (enriched, time.time())
 
     return enriched
@@ -87,7 +80,6 @@ def get_all_vectors():
     
     vectors = []
     for ncaa_id, year_map in PLAYER_VECTORS.items():
-        # Get latest year vector
         latest_year = max(year_map.keys(), key=lambda x: int(x))
         vec = year_map[latest_year]
         

@@ -15,7 +15,7 @@ class ApiClient {
     options: RequestInit = {}
   ): Promise<T> {
     const url = `${this.baseUrl}${endpoint}`;
-    
+
     const defaultHeaders = {
       "Content-Type": "application/json",
     };
@@ -43,10 +43,9 @@ class ApiClient {
     }
   }
 
-  // Player endpoints
   async getPlayer(id: string, year?: YearParam): Promise<PlayerResponse> {
     const url = new URL(API_ENDPOINTS.player(id), this.baseUrl);
-    
+
     if (year !== undefined && year !== null) {
       url.searchParams.append("year", String(year));
     }
@@ -69,7 +68,7 @@ class ApiClient {
     } = params;
 
     const url = new URL(API_ENDPOINTS.players, this.baseUrl);
-    
+
     url.searchParams.append("limit", String(limit));
     url.searchParams.append("offset", String(offset));
     url.searchParams.append("sort", sort);
@@ -82,7 +81,7 @@ class ApiClient {
     if (search && search.trim()) {
       url.searchParams.append("search", search.trim());
     }
-    
+
     if (dataTier) {
       url.searchParams.append("dataTier", dataTier);
     }
@@ -98,13 +97,13 @@ class ApiClient {
     if (conf) {
       url.searchParams.append("conf", conf);
     }
-    
+
     return this.request<PlayerStats>(url.pathname + url.search);
   }
 
   async getPlayerMoves(id: string, year?: YearParam): Promise<PlayerMove[]> {
     const url = new URL(API_ENDPOINTS.playerMoves(id), this.baseUrl);
-    
+
     if (year !== undefined && year !== null) {
       url.searchParams.append("year", String(year));
     }
@@ -114,7 +113,7 @@ class ApiClient {
 
   async getPlayerBadges(id: string, year?: YearParam): Promise<Badge[]> {
     const url = new URL(API_ENDPOINTS.playerBadges(id), this.baseUrl);
-    
+
     if (year !== undefined && year !== null) {
       url.searchParams.append("year", String(year));
     }
@@ -128,7 +127,7 @@ class ApiClient {
     year?: YearParam
   ): Promise<SimilarPlayer[]> {
     const url = new URL(API_ENDPOINTS.playerSimilar(id), this.baseUrl);
-    
+
     url.searchParams.append("style_weight", String(styleWeight));
 
     if (year !== undefined && year !== null) {
@@ -140,7 +139,7 @@ class ApiClient {
 
   async getPlayerRadar(id: string, year?: YearParam): Promise<RadarData> {
     const url = new URL(API_ENDPOINTS.playerRadar(id), this.baseUrl);
-    
+
     if (year !== undefined && year !== null) {
       url.searchParams.append("year", String(year));
     }
@@ -150,7 +149,7 @@ class ApiClient {
 
   async getPlayerEvolution(id: string, year?: YearParam): Promise<EvolutionData> {
     const url = new URL(API_ENDPOINTS.playerEvolution(id), this.baseUrl);
-    
+
     if (year !== undefined && year !== null) {
       url.searchParams.append("year", String(year));
     }
@@ -200,10 +199,9 @@ class ApiClient {
     return this.request<any>(url.pathname + url.search);
   }
 
-  // Team endpoints
   async getAllTeams(year?: YearParam): Promise<any> {
     const url = new URL(API_ENDPOINTS.teams, this.baseUrl);
-    
+
     if (year !== undefined && year !== null) {
       url.searchParams.append("year", String(year));
     }
@@ -213,7 +211,7 @@ class ApiClient {
 
   async getTeam(id: string, year?: YearParam): Promise<any> {
     const url = new URL(API_ENDPOINTS.team(id), this.baseUrl);
-    
+
     if (year !== undefined && year !== null) {
       url.searchParams.append("year", String(year));
     }
@@ -222,10 +220,8 @@ class ApiClient {
   }
 }
 
-// Export singleton instance
 export const apiClient = new ApiClient();
 
-// Export individual functions for backward compatibility
 export const fetchPlayer = apiClient.getPlayer.bind(apiClient);
 export const fetchAllPlayers = apiClient.getAllPlayers.bind(apiClient);
 export const fetchPlayerMoves = apiClient.getPlayerMoves.bind(apiClient);

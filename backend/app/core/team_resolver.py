@@ -8,34 +8,22 @@ from app.core.team_data_loader import (
 from app.core.data_loader import df as players_df
 import pandas as pd
 
-# -------------------------
-# CONFIG
-# -------------------------
-
 CATEGORICAL_FIELDS = {
     "team_name",
     "conf",
     "conf_nick",
 }
 
-# -------------------------
-# CORE SNAPSHOT
-# -------------------------
-
 def get_team_snapshot(team_id: str, year: Union[int, str, None] = None):
     """Get team snapshot by team ID and optional year"""
-    # Convert to string for consistent lookup
     team_id_str = str(team_id)
-    
-    # Get historical team info
+
     historical_info = TEAM_LOOKUP.get(team_id_str)
     if not historical_info:
         return None
-    
-    # Get SourceId for analytics lookup (linking key between historical and analytics data)
+
     source_id = historical_info.get("SourceId")
     if source_id is None or pd.isna(source_id):
-        # Return historical info only if no SourceId found
         return {
             "id": team_id_str,
             "school": historical_info.get("School"),
@@ -54,22 +42,19 @@ def get_team_snapshot(team_id: str, year: Union[int, str, None] = None):
         }
     
     source_id_str = str(source_id)
-    
-    # Get team analytics for the specified year using SourceId
+
     if year is not None:
         year_int = int(year)
         analytics = team_analytics_df[
-            (team_analytics_df["_id"] == source_id_str) & 
+            (team_analytics_df["_id"] == source_id_str) &
             (team_analytics_df["year"] == year_int)
         ]
     else:
-        # Get latest year
         analytics = team_analytics_df[team_analytics_df["_id"] == source_id_str]
         if not analytics.empty:
             analytics = analytics.sort_values("year").tail(1)
-    
+
     if analytics.empty:
-        # Return historical info only if no analytics found
         return {
             "id": team_id_str,
             "school": historical_info.get("School"),
@@ -88,8 +73,7 @@ def get_team_snapshot(team_id: str, year: Union[int, str, None] = None):
         }
     
     analytics_data = analytics.iloc[-1].to_dict()
-    
-    # Get roster info for the team and year using TeamSourceId for linking
+
     source_id = historical_info.get("SourceId")
     if source_id is None or pd.isna(source_id):
         roster_data = []
@@ -97,12 +81,10 @@ def get_team_snapshot(team_id: str, year: Union[int, str, None] = None):
         source_id_str = str(source_id)
         if year is not None:
             year_int = int(year)
-            # Filter by year using Season field (the CSV filename year doesn't match the Season field)
             roster = roster_info_df[
                 (roster_info_df["TeamSourceId"] == source_id_str) &
                 (roster_info_df["Season"].astype(str) == str(year_int))
             ]
-            # Fallback: if no roster for specific year, get latest year
             if roster.empty:
                 roster = roster_info_df[roster_info_df["TeamSourceId"] == source_id_str]
                 if not roster.empty:
@@ -111,7 +93,6 @@ def get_team_snapshot(team_id: str, year: Union[int, str, None] = None):
                     latest_season = roster["Season"].iloc[-1]
                     roster = roster[roster["Season"] == latest_season]
         else:
-            # Get latest year roster
             roster = roster_info_df[roster_info_df["TeamSourceId"] == source_id_str]
             if not roster.empty:
                 # Get all players from the latest season
@@ -137,7 +118,6 @@ def get_team_snapshot(team_id: str, year: Union[int, str, None] = None):
                 players_filtered = players_df.copy()
             
             # Use AthleteSourceId for joining (both basic and enriched have this field)
-            # This matches the Sourceid in roster-info
             if 'AthleteSourceId' in players_filtered.columns:
                 players_filtered['_join_key'] = players_filtered['AthleteSourceId'].astype(str)
             else:
@@ -232,7 +212,6 @@ def get_team_roster(team_id: str, year: Optional[Union[int, str]] = None):
         players_filtered = players_df.copy()
     
     # Use AthleteSourceId for joining (both basic and enriched have this field)
-    # This matches the Sourceid in roster-info
     if 'AthleteSourceId' in players_filtered.columns:
         players_filtered['_join_key'] = players_filtered['AthleteSourceId'].astype(str)
     else:

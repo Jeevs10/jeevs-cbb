@@ -1,13 +1,7 @@
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
-// -------------------------
-// TYPE (IMPORTANT)
-// -------------------------
 type YearParam = number | null | "career";
 
-// -------------------------
-// PLAYER
-// -------------------------
 export async function fetchPlayer(id: string, year?: YearParam) {
   const url = new URL(`${BASE_URL}/api/v1/players/${id}`);
 
@@ -24,9 +18,6 @@ export async function fetchPlayer(id: string, year?: YearParam) {
   return res.json();
 }
 
-// -------------------------
-// ALL PLAYERS
-// -------------------------
 export async function fetchAllPlayers({
   limit = 50,
   offset = 0,
@@ -117,9 +108,6 @@ export async function fetchPlayerMoves(id: string, year?: YearParam) {
   return res.json();
 }
 
-// -------------------------
-// BADGES
-// -------------------------
 export async function fetchPlayerBadges(id: string, year?: YearParam) {
   const url = new URL(`${BASE_URL}/api/v1/players/${id}/badges`);
 
@@ -134,9 +122,6 @@ export async function fetchPlayerBadges(id: string, year?: YearParam) {
   return res.json();
 }
 
-// -------------------------
-// SIMILAR PLAYERS
-// -------------------------
 export async function fetchPlayerSimilar(id: string, styleWeight = 0.7, year?: YearParam) {
   const url = new URL(`${BASE_URL}/api/v1/players/${id}/similar`);
 
@@ -153,9 +138,6 @@ export async function fetchPlayerSimilar(id: string, styleWeight = 0.7, year?: Y
   return res.json();
 }
 
-// -------------------------
-// RADAR
-// -------------------------
 export async function fetchPlayerRadar(id: string, year?: YearParam, preset?: string, custom_fields?: string[]) {
   const url = new URL(`${BASE_URL}/api/v1/players/${id}/radar`);
 
@@ -185,8 +167,6 @@ export async function fetchPlayerEvolution(
 ) {
   const url = new URL(`${BASE_URL}/api/v1/players/${id}/evolution`);
 
-  // 🔥 OPTIONAL: decide behavior
-  // If you want cross-era ALWAYS → comment this out
   if (year !== undefined && year !== null) {
     url.searchParams.append("year", String(year));
   }
@@ -204,9 +184,6 @@ export async function fetchPlayerEvolution(
   return res.json();
 }
 
-// -------------------------
-// HISTORY
-// -------------------------
 export async function fetchPlayerHistory(id: string) {
   const url = new URL(`${BASE_URL}/api/v1/players/${id}/history`);
 
@@ -219,24 +196,18 @@ export async function fetchPlayerHistory(id: string) {
   return res.json();
 }
 
-// -------------------------
-// YEARS
-// -------------------------
 export async function fetchYears() {
   const url = new URL(`${BASE_URL}/api/v1/years`);
-  
+
   const res = await fetch(url.toString());
-  
+
   if (!res.ok) {
     throw new Error("Failed to fetch years");
   }
-  
+
   return res.json();
 }
 
-// -------------------------
-// TEAMS
-// -------------------------
 export async function fetchTeam(id: string, year?: YearParam) {
   const url = new URL(`${BASE_URL}/api/v1/teams/${id}`);
 
@@ -269,9 +240,6 @@ export async function fetchAllTeams(year?: YearParam) {
   return res.json();
 }
 
-// -------------------------
-// PLAYER GAMES
-// -------------------------
 export async function fetchPlayerGames(id: string, year?: YearParam, limit: number = 5) {
   const url = new URL(`${BASE_URL}/api/v1/players/${id}/games`);
 

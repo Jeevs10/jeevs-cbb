@@ -19,12 +19,9 @@ def player_moves(ncaa_id: str, year: Union[int, str, None] = None):
     if not player:
         return {"error": "Player not found"}
 
-    # Get all-time percentiles for the player
     all_time_percentiles = get_player_all_time_percentiles(ncaa_id, year)
 
-    # Merge all-time percentiles into player data
     if all_time_percentiles:
-        # Only override percentile columns with all-time values
         for key, value in all_time_percentiles.items():
             if key.startswith('pctile_'):
                 player[key] = value
@@ -47,7 +44,6 @@ def move_rankings(
 ):
     """Get rankings of players by a specific move type."""
     try:
-        # Map move types to the corresponding data columns
         move_mapping = {
             "rim_attack": "off_style_rim_attack_ppp",
             "sniper": "off_style_perimeter_sniper_ppp",
@@ -64,30 +60,25 @@ def move_rankings(
         ppp_pctile_column = f"pctile_{ppp_column}"
         frequency_pctile_column = f"pctile_{ppp_column.replace('_ppp', '_pct')}"
 
-        # Determine sort column based on sort_by parameter
         if sort_by == "move_efficiency":
             sort_column = ppp_column
         elif sort_by == "move_frequency_pctile":
             sort_column = frequency_pctile_column
         elif sort_by == "grade_score":
-            # Use pre-calculated grade score column
             sort_column = f"move_{move_type}_grade_score"
         else:
             sort_column = ppp_column
 
-        # Use all-time data when no year is selected, otherwise use year-specific data
         use_all_time = year is None or year == ""
 
         if use_all_time:
-            # Use all-time data from all_players.csv
             if all_time_df.empty:
                 return {"error": "All-time data not available"}
             source_df = all_time_df.copy()
         else:
-            # Use year-specific data
             params = PlayerQueryParams(
                 limit=limit,
-                offset=0,  # Get all data first for filtering
+                offset=0,
                 sort=sort_column,
                 order=sort_order or "desc",
                 year=year if year != "career" else None,
@@ -95,16 +86,12 @@ def move_rankings(
                 search=search,
             )
             result = PlayerService.get_players(params)
-            # Convert Player objects to dictionaries before creating DataFrame
             source_df = pd.DataFrame([r.model_dump() if hasattr(r, 'model_dump') else r for r in result.results])
 
-        # Apply position filter
         if position:
             source_df = source_df[source_df.get('Position') == position]
 
-        # Apply conference filter
         if conference:
-            # Map short conference names to full names
             conference_mapping = {
                 'ACC': 'Atlantic Coast Conference',
                 'Big 12': 'Big 12 Conference',
@@ -124,9 +111,7 @@ def move_rankings(
             full_conference = conference_mapping.get(conference, conference)
             source_df = source_df[source_df.get('conf') == full_conference]
 
-        # Apply high major filter
         if high_major:
-            # High major conferences (full names)
             high_major_conferences = [
                 'Atlantic Coast Conference',
                 'Big 12 Conference',
@@ -137,7 +122,6 @@ def move_rankings(
             ]
             source_df = source_df[source_df.get('conf').isin(high_major_conferences)]
 
-        # Apply search filter if provided (for all-time data)
         if use_all_time and search:
             search_lower = search.lower()
             source_df = source_df[
@@ -145,53 +129,40 @@ def move_rankings(
                 source_df.get('team', '').str.lower().str.contains(search_lower, na=False)
             ]
 
-        # Sort by the specified column
         reverse = sort_order != "asc"
-        # Ensure the sort column exists in the dataframe
         if sort_column in source_df.columns:
             source_df = source_df.sort_values(by=sort_column, ascending=not reverse)
         else:
-            # Fallback to PPP column if grade_score column doesn't exist
             source_df = source_df.sort_values(by=ppp_column, ascending=not reverse)
 
-        # Add ranking before pagination
         source_df = source_df.reset_index(drop=True)
         source_df['rank'] = source_df.index + 1
 
-        # Apply pagination
         total_filtered = len(source_df)
         source_df = source_df.iloc[offset:offset + limit]
 
-        # Convert to dictionaries and add move-specific metadata
         players_with_moves = []
         for _, player in source_df.iterrows():
             player_dict = player.to_dict()
             player_dict['rank'] = int(player['rank'])
-            # Replace NaN values with None to avoid JSON serialization errors
             player_dict = {k: (None if pd.isna(v) else v) for k, v in player_dict.items()}
             player_dict["move_type"] = move_type
             player_dict["move_efficiency"] = player_dict.get(ppp_column, 0) or 0
             player_dict["move_usage"] = player_dict.get(f"{ppp_column.replace('_ppp', '_usg')}", 0) or 0
-            # Get frequency percentile (usage percentile)
             player_dict["move_frequency_pctile"] = player_dict.get(frequency_pctile_column, 0) or 0
-            # Get PPP percentile
             ppp_pctile = player_dict.get(ppp_pctile_column, 0) or 0
             player_dict["move_efficiency_pctile"] = ppp_pctile
 
-            # Use pre-calculated grade_score and grade from data
             precalc_score_column = f"move_{move_type}_grade_score"
             precalc_grade_column = f"move_{move_type}_grade"
             player_dict["grade_score"] = player_dict.get(precalc_score_column, 0) or 0
             player_dict["grade"] = player_dict.get(precalc_grade_column, "F") or "F"
 
-            # Ensure year is not None/0 when using all-time data
             if player_dict.get("year") is None or player_dict.get("year") == 0:
-                # Try to get year from the original data if available
                 player_dict["year"] = player.get("year", None)
             
             players_with_moves.append(player_dict)
-        
-        # Return as plain dictionary to avoid Pydantic serialization issues
+
         return {
             "results": players_with_moves,
             "count": len(all_time_df) if use_all_time else result.count,

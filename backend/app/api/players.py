@@ -1,8 +1,10 @@
 from fastapi import APIRouter, HTTPException, Query
 from typing import Optional
+from collections import OrderedDict
 import json
 import os
 import gzip
+import sqlite3
 import pandas as pd
 import numpy as np
 from pathlib import Path
@@ -14,8 +16,40 @@ from app.utils.logger import get_logger
 router = APIRouter()
 logger = get_logger(__name__)
 
-# In-memory cache for game data files (historical data, no expiration needed)
-_game_data_cache = {}
+_BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+GAMES_DB_PATH = os.path.join(_BASE_DIR, "data", "games", "games.db")
+
+# Legacy fallback only, used if games.db hasn't been built yet (see
+# scripts/data_processing/build_games_db.py). Bounded so it can never hold
+# more than a couple of full years' worth of decompressed game JSON at once
+# (each year is ~500-600MB once parsed) — the old unbounded cache here was
+# the single largest driver of memory growth in this service.
+_GAME_DATA_CACHE_MAX_YEARS = 2
+_game_data_cache = OrderedDict()
+
+
+def _load_year_game_data(year_to_load: str, base_dir: str):
+    """Legacy fallback: load and LRU-cache a full year's game JSON."""
+    if year_to_load in _game_data_cache:
+        _game_data_cache.move_to_end(year_to_load)
+        return _game_data_cache[year_to_load]
+
+    game_data_file = os.path.join(base_dir, "data", "games", f"{year_to_load}_player_game_data.json")
+    game_data_file_gz = os.path.join(base_dir, "data", "games", f"{year_to_load}_player_game_data.json.gz")
+
+    if os.path.exists(game_data_file_gz):
+        with gzip.open(game_data_file_gz, 'rt', encoding='utf-8') as f:
+            game_data = json.load(f)
+    elif os.path.exists(game_data_file):
+        with open(game_data_file, 'r', encoding='utf-8') as f:
+            game_data = json.load(f)
+    else:
+        return None
+
+    _game_data_cache[year_to_load] = game_data
+    if len(_game_data_cache) > _GAME_DATA_CACHE_MAX_YEARS:
+        _game_data_cache.popitem(last=False)
+    return game_data
 
 @router.get("/players", response_model=PlayerListResponse)
 def get_players(
@@ -61,11 +95,9 @@ def get_2027_projections():
             raise HTTPException(status_code=404, detail="Projections file not found")
         
         df = pd.read_csv(projections_path)
-        
-        # Replace NaN values with None for JSON compatibility
+
         df = df.replace({float('nan'): None})
-        
-        # Convert to list of dicts
+
         projections = df.to_dict(orient="records")
         
         return projections
@@ -106,71 +138,50 @@ def get_player_games(
     try:
         # Use year from query param or default to 2026
         year_to_load = year if year else "2026"
+        base_dir = _BASE_DIR
 
-        # Load game data file (try compressed first)
-        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
-        game_data_file = os.path.join(base_dir, "data", "games", f"{year_to_load}_player_game_data.json")
-        game_data_file_gz = os.path.join(base_dir, "data", "games", f"{year_to_load}_player_game_data.json.gz")
+        if os.path.exists(GAMES_DB_PATH):
+            recent_games, total_games, available_years = _get_player_games_from_db(ncaa_id, year_to_load, limit)
 
-        # Check cache first (historical data, no expiration)
-        if year_to_load in _game_data_cache:
-            game_data = _game_data_cache[year_to_load]
-        else:
-            # Try compressed file first
-            if os.path.exists(game_data_file_gz):
-                with gzip.open(game_data_file_gz, 'rt', encoding='utf-8') as f:
-                    game_data = json.load(f)
-            elif os.path.exists(game_data_file):
-                with open(game_data_file, 'r', encoding='utf-8') as f:
-                    game_data = json.load(f)
-            else:
-                raise HTTPException(status_code=404, detail=f"Game data not found for year {year_to_load}")
-            _game_data_cache[year_to_load] = game_data
-
-        # Filter games for this player (by ncaa_id)
-        player_games = [game for game in game_data if game.get('ncaa_id') == ncaa_id]
-
-        if not player_games:
-            # Check which years have data for this player
-            available_years = []
-            for check_year in range(2019, 2027):
-                check_file = os.path.join(base_dir, "data", "games", f"{check_year}_player_game_data.json")
-                check_file_gz = os.path.join(base_dir, "data", "games", f"{check_year}_player_game_data.json.gz")
-                
-                # Try compressed file first
-                if os.path.exists(check_file_gz):
-                    try:
-                        with gzip.open(check_file_gz, 'rt', encoding='utf-8') as f:
-                            check_data = json.load(f)
-                        if any(g.get('ncaa_id') == ncaa_id for g in check_data):
-                            available_years.append(check_year)
-                    except:
-                        pass
-                elif os.path.exists(check_file):
-                    try:
-                        with open(check_file, 'r', encoding='utf-8') as f:
-                            check_data = json.load(f)
-                        if any(g.get('ncaa_id') == ncaa_id for g in check_data):
-                            available_years.append(check_year)
-                    except:
-                        pass
-
-            if available_years:
-                raise HTTPException(
-                    status_code=404,
-                    detail=f"No games found for player {ncaa_id} in year {year_to_load}. Available years: {available_years}"
-                )
-            else:
+            if total_games == 0:
+                if available_years:
+                    raise HTTPException(
+                        status_code=404,
+                        detail=f"No games found for player {ncaa_id} in year {year_to_load}. Available years: {available_years}"
+                    )
                 raise HTTPException(status_code=404, detail="No games found for this player")
+        else:
+            # Fallback for environments where games.db hasn't been built yet
+            # (run scripts/data_processing/build_games_db.py to generate it).
+            game_data = _load_year_game_data(year_to_load, base_dir)
+            if game_data is None:
+                raise HTTPException(status_code=404, detail=f"Game data not found for year {year_to_load}")
 
-        # Sort by date (numdate) descending and take the most recent
-        player_games.sort(key=lambda x: x.get('numdate', ''), reverse=True)
-        recent_games = player_games[:limit]
+            player_games = [game for game in game_data if game.get('ncaa_id') == ncaa_id]
+
+            if not player_games:
+                available_years = []
+                for check_year in range(2019, 2027):
+                    check_data = _load_year_game_data(str(check_year), base_dir)
+                    if check_data and any(g.get('ncaa_id') == ncaa_id for g in check_data):
+                        available_years.append(check_year)
+
+                if available_years:
+                    raise HTTPException(
+                        status_code=404,
+                        detail=f"No games found for player {ncaa_id} in year {year_to_load}. Available years: {available_years}"
+                    )
+                else:
+                    raise HTTPException(status_code=404, detail="No games found for this player")
+
+            player_games.sort(key=lambda x: x.get('numdate', ''), reverse=True)
+            recent_games = player_games[:limit]
+            total_games = len(player_games)
 
         return {
             "player_id": ncaa_id,
             "year": year_to_load,
-            "total_games": len(player_games),
+            "total_games": total_games,
             "games": recent_games
         }
 
@@ -181,48 +192,100 @@ def get_player_games(
         raise HTTPException(status_code=500, detail="Internal server error")
 
 
+def _get_player_games_from_db(ncaa_id: str, year_to_load: str, limit: int):
+    """Query the games SQLite DB for one player/year. Only the matching rows
+    are ever pulled into memory, instead of an entire year's JSON."""
+    try:
+        year_int = int(year_to_load)
+    except (TypeError, ValueError):
+        return [], 0, []
+
+    conn = sqlite3.connect(GAMES_DB_PATH)
+    conn.row_factory = sqlite3.Row
+    try:
+        cur = conn.cursor()
+        cur.execute(
+            "SELECT * FROM games WHERE ncaa_id = ? AND year = ? ORDER BY numdate DESC LIMIT ?",
+            (ncaa_id, year_int, limit)
+        )
+        recent_games = [dict(row) for row in cur.fetchall()]
+
+        cur.execute("SELECT COUNT(*) FROM games WHERE ncaa_id = ? AND year = ?", (ncaa_id, year_int))
+        total_games = cur.fetchone()[0]
+
+        available_years = []
+        if total_games == 0:
+            cur.execute("SELECT DISTINCT year FROM games WHERE ncaa_id = ? ORDER BY year", (ncaa_id,))
+            available_years = [row[0] for row in cur.fetchall()]
+
+        return recent_games, total_games, available_years
+    finally:
+        conn.close()
+
+
+_basic_players_by_year_cache = None
+
+
+def _load_basic_players_all_years():
+    """Load and cache each year's players_basic.csv once, instead of
+    re-reading and re-parsing all 8 files from disk on every request to
+    /players/{ncaa_id}/historical-bpm."""
+    global _basic_players_by_year_cache
+    if _basic_players_by_year_cache is not None:
+        return _basic_players_by_year_cache
+
+    frames = {}
+    for year in range(2019, 2027):
+        players_file = os.path.join(_BASE_DIR, "data", "players", f"{year}-players_basic.csv")
+        if not os.path.exists(players_file):
+            continue
+
+        try:
+            year_df = pd.read_csv(players_file)
+            if 'AthleteSourceId' in year_df.columns:
+                year_df['AthleteSourceId_clean'] = year_df['AthleteSourceId'].astype(str).str.replace('.0', '')
+            else:
+                year_df['AthleteSourceId_clean'] = None
+
+            if 'AthleteId' in year_df.columns:
+                year_df['AthleteId_clean'] = year_df['AthleteId'].astype(str)
+            else:
+                year_df['AthleteId_clean'] = None
+
+            frames[year] = year_df
+        except Exception as e:
+            logger.warning(f"Error reading {year} player data: {e}")
+
+    _basic_players_by_year_cache = frames
+    return frames
+
+
 @router.get("/players/{ncaa_id}/historical-bpm")
 def get_player_historical_bpm(ncaa_id: str):
     """Get a player's historical BPM data across all available years."""
     try:
-        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
         historical_bpm = []
 
         # Clean the ncaa_id - remove .0 suffix if present
         ncaa_id_clean = str(ncaa_id).replace('.0', '')
 
-        # Check each year from 2019 to 2026
-        for year in range(2019, 2027):
-            players_file = os.path.join(base_dir, "data", "players", f"{year}-players_basic.csv")
-            if not os.path.exists(players_file):
-                continue
+        frames = _load_basic_players_all_years()
+        for year, year_df in frames.items():
+            # Try to find player by AthleteSourceId (cleaned) or AthleteId
+            player_row = year_df[
+                (year_df['AthleteSourceId_clean'] == ncaa_id_clean) |
+                (year_df['AthleteId_clean'] == ncaa_id_clean)
+            ]
 
-            try:
-                df = pd.read_csv(players_file)
-                # Clean AthleteSourceId in dataframe for comparison
-                if 'AthleteSourceId' in df.columns:
-                    df['AthleteSourceId_clean'] = df['AthleteSourceId'].astype(str).str.replace('.0', '')
-                else:
-                    df['AthleteSourceId_clean'] = None
-
-                # Try to find player by AthleteSourceId (cleaned) or AthleteId
-                player_row = df[
-                    (df['AthleteSourceId_clean'] == ncaa_id_clean) |
-                    (df['AthleteId'].astype(str) == ncaa_id_clean)
-                ]
-
-                if not player_row.empty:
-                    player_data = player_row.iloc[0]
-                    historical_bpm.append({
-                        'year': year,
-                        'BPM': player_data.get('BPM'),
-                        'Name': player_data.get('Name'),
-                        'Team': player_data.get('Team')
-                    })
-                    logger.info(f"Found player {ncaa_id_clean} in year {year}: BPM={player_data.get('BPM')}")
-            except Exception as e:
-                logger.warning(f"Error reading {year} player data: {e}")
-                continue
+            if not player_row.empty:
+                player_data = player_row.iloc[0]
+                historical_bpm.append({
+                    'year': year,
+                    'BPM': player_data.get('BPM'),
+                    'Name': player_data.get('Name'),
+                    'Team': player_data.get('Team')
+                })
+                logger.info(f"Found player {ncaa_id_clean} in year {year}: BPM={player_data.get('BPM')}")
 
         if not historical_bpm:
             logger.warning(f"No historical BPM data found for player {ncaa_id_clean}")

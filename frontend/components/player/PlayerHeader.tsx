@@ -34,7 +34,7 @@ export default function PlayerHeader({ player }) {
 
     fetchPlayerBadges(playerCode)
       .then(setBadges)
-      .catch(() => {});
+      .catch(() => { });
   }, [playerCode]);
 
   const isBasicPlayer = player?.data_tier === "basic";
@@ -60,11 +60,9 @@ export default function PlayerHeader({ player }) {
             : player.year}
         </div>
 
-        {/* CORE INFO BADGES */}
         <div className="flex gap-2 flex-wrap mt-2">
 
           {isBasicPlayer ? (
-            // Basic players now have Position, Height, Weight, Hometown from roster join
             <>
               <div className="px-2 py-1 text-xs font-mono border-2 border-black bg-[#E7E8D1] text-black shadow-[3px_3px_0px_black]">
                 POS: {player.Position ?? "—"}
@@ -86,7 +84,6 @@ export default function PlayerHeader({ player }) {
               )}
             </>
           ) : (
-            // Enriched players have full roster info
             <>
               <Badge variant="meta">
                 CLASS: {classMap[player.roster?.pos] ?? "—"}
@@ -117,14 +114,14 @@ export default function PlayerHeader({ player }) {
                 player.HometownState || player.roster?.hometown_state,
                 player.HometownCountry || player.roster?.hometown_country
               ) !== "—" && (
-                <Badge variant="meta">
-                  {formatHometown(
-                    player.HometownCity || player.roster?.hometown_city,
-                    player.HometownState || player.roster?.hometown_state,
-                    player.HometownCountry || player.roster?.hometown_country
-                  )}
-                </Badge>
-              )}
+                  <Badge variant="meta">
+                    {formatHometown(
+                      player.HometownCity || player.roster?.hometown_city,
+                      player.HometownState || player.roster?.hometown_state,
+                      player.HometownCountry || player.roster?.hometown_country
+                    )}
+                  </Badge>
+                )}
             </>
           )}
 

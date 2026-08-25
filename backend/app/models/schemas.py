@@ -1,18 +1,15 @@
 from typing import List, Optional, Union, Dict, Any
 from pydantic import BaseModel, Field, field_validator
 
-# Base response model
 class BaseResponse(BaseModel):
     success: bool = True
     message: Optional[str] = None
 
-# Error response model
 class ErrorResponse(BaseModel):
     success: bool = False
     error: str
     message: Optional[str] = None
 
-# Player-related models
 class PlayerBase(BaseModel):
     player_name: str
     team: str
@@ -44,7 +41,6 @@ class Player(PlayerBase):
     is_career: Optional[bool] = False
     data_tier: Optional[str] = None
     Position: Optional[str] = None
-    # Basic stats fields
     Games: Optional[float] = None
     Minutes: Optional[float] = None
     Points: Optional[float] = None
@@ -54,7 +50,6 @@ class Player(PlayerBase):
     Rebounds_Defensive: Optional[float] = Field(None, alias="Rebounds Defensive")
     Steals: Optional[float] = None
     Blocks: Optional[float] = None
-    # Derived stats fields
     PPG: Optional[float] = None
     APG: Optional[float] = None
     RPG: Optional[float] = None
@@ -65,15 +60,12 @@ class Player(PlayerBase):
     DBPM: Optional[float] = None
     VORP: Optional[float] = None
     MPG: Optional[float] = None
-    # Shooting and usage fields
     off_efg: Optional[float] = None
     TrueShootingPct: Optional[float] = None
     Usage: Optional[float] = None
-    # Additional stats fields
     NetRating: Optional[float] = None
     adj_prod_margin: Optional[float] = None
     FreeThrows_Pct: Optional[float] = Field(None, alias="FreeThrows Pct")
-    # Move-specific fields
     off_style_rim_attack_ppp: Optional[float] = None
     off_style_rim_attack_pct: Optional[float] = None
     off_style_rim_attack_usg: Optional[float] = None
@@ -92,7 +84,6 @@ class Player(PlayerBase):
     off_style_post_up_ppp: Optional[float] = None
     off_style_post_up_pct: Optional[float] = None
     off_style_post_up_usg: Optional[float] = None
-    # Move percentile fields
     pctile_off_style_rim_attack_pct: Optional[float] = None
     pctile_off_style_rim_attack_ppp: Optional[float] = None
     pctile_off_style_perimeter_sniper_pct: Optional[float] = None
@@ -115,7 +106,6 @@ class PlayerResponse(BaseResponse):
     player: Player
     available_years: List[int]
 
-# Query parameter models
 class PlayerQueryParams(BaseModel):
     limit: int = Field(default=50, ge=1, le=5000)
     offset: int = Field(default=0, ge=0)
@@ -150,7 +140,6 @@ class PlayerQueryParams(BaseModel):
                 raise ValueError('Year must be a valid integer or "career"')
         return v
 
-# Badge models
 class Badge(BaseModel):
     name: str
     level: int
@@ -159,7 +148,6 @@ class Badge(BaseModel):
 class BadgeResponse(BaseResponse):
     badges: List[Badge]
 
-# Team-related models
 class MiniStats(BaseModel):
     wins: Optional[float] = None
     losses: Optional[float] = None
@@ -199,7 +187,6 @@ class TeamResponse(BaseResponse):
     team: Team
     available_years: List[int]
 
-# NIL valuation models
 class NilBreakdown(BaseModel):
     position_rank: Optional[float] = None
     win_shares: Optional[float] = None
@@ -239,13 +226,11 @@ class NilListResponse(BaseResponse):
     filtered_count: int
     results: List[NilValuation]
 
-# Health check model
 class HealthResponse(BaseModel):
     status: str
     version: str
     timestamp: str
 
-# Projection models
 class ClusterDescription(BaseModel):
     cluster_id: int
     name: Optional[str] = None

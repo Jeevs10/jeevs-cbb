@@ -9,11 +9,11 @@ const YearContext = createContext<{
   setYear: (y: YearType) => void;
 }>({
   year: null,
-  setYear: () => {},
+  setYear: () => { },
 });
 
 export function YearProvider({ children }: { children: React.ReactNode }) {
-  const [year, setYear] = useState<YearType>(2026); // Default to 2026 for BPM support
+  const [year, setYear] = useState<YearType>(2026);
 
   return (
     <YearContext.Provider value={{ year, setYear }}>

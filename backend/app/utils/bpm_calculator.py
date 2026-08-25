@@ -48,53 +48,43 @@ class BPMCalculator:
         Returns:
             Dictionary with training metrics
         """
-        # Prepare training data
         training_data = self._prepare_training_data(enriched_df)
         
         if training_data is None or len(training_data['features']) < 100:
             raise ValueError("Insufficient enriched data for training (need at least 100 samples)")
         
         X = training_data['features']
-        y = training_data['target']  # Use adj_rapm_margin as target
-        
-        # Split data
+        y = training_data['target']
+
         X_train, X_test, y_train, y_test = train_test_split(
             X, y, test_size=0.2, random_state=42
         )
-        
-        # Scale features
+
         self.scaler = StandardScaler()
         X_train_scaled = self.scaler.fit_transform(X_train)
         X_test_scaled = self.scaler.transform(X_test)
-        
-        # Train ridge regression manually (compatible with older numpy/scipy)
-        # Ridge regression: (X'X + αI)^(-1) X'y
+
         n_features = X_train_scaled.shape[1]
         identity = np.eye(n_features)
-        
-        # Compute ridge coefficients
+
         XtX = X_train_scaled.T @ X_train_scaled
         Xty = X_train_scaled.T @ y_train
         ridge_coefficients = np.linalg.solve(XtX + alpha * identity, Xty)
-        
-        # Store model as a simple dict with coefficients
+
         self.model = {
             'coefficients': ridge_coefficients,
             'intercept': np.mean(y_train - X_train_scaled @ ridge_coefficients)
         }
-        
-        # Evaluate
+
         train_predictions = X_train_scaled @ ridge_coefficients + self.model['intercept']
         test_predictions = X_test_scaled @ ridge_coefficients + self.model['intercept']
-        
+
         train_score = 1 - np.sum((y_train - train_predictions)**2) / np.sum((y_train - np.mean(y_train))**2)
         test_score = 1 - np.sum((y_test - test_predictions)**2) / np.sum((y_test - np.mean(y_test))**2)
-        
-        # Store feature names
+
         self.feature_names = training_data['feature_names']
         self.is_trained = True
-        
-        # Get feature coefficients
+
         coefficients = dict(zip(self.feature_names, self.model['coefficients']))
         
         return {
@@ -115,7 +105,6 @@ class BPMCalculator:
         Returns:
             Dictionary with features, target, and feature names
         """
-        # Check if RAPM target exists
         rapm_target = None
         for target in self.RAPM_TARGETS:
             if target in df.columns:
@@ -124,8 +113,7 @@ class BPMCalculator:
         
         if rapm_target is None:
             return None
-        
-        # Filter to players with valid RAPM data and minimum playing time
+
         df_filtered = df[
             (df[rapm_target].notna()) &
             (df['Minutes'].notna()) &
@@ -136,25 +124,18 @@ class BPMCalculator:
         
         if len(df_filtered) == 0:
             return None
-        
-        # Map column names from enriched to basic format
-        # The enriched data has basic stats at the end with the same names
+
         column_mapping = {
-            # No mapping needed - enriched data has the same column names
         }
-        
-        # Create feature matrix
+
         features = []
         feature_names = []
         
         for col in self.FEATURE_COLUMNS:
-            # Check if column exists directly
             if col in df_filtered.columns:
-                # Fill NaN values with 0
                 feature_values = df_filtered[col].fillna(0).values
                 features.append(feature_values)
                 feature_names.append(col)
-            # Check mapped name
             elif col in column_mapping and column_mapping[col] in df_filtered.columns:
                 feature_values = df_filtered[column_mapping[col]].fillna(0).values
                 features.append(feature_values)
@@ -183,13 +164,11 @@ class BPMCalculator:
         """
         if not self.is_trained:
             return None
-        
-        # Prepare features
+
         features = self._prepare_features(player_stats)
         if features is None:
             return None
-        
-        # Scale and predict
+
         features_scaled = self.scaler.transform(features.reshape(1, -1))
         bpm = features_scaled @ self.model['coefficients'] + self.model['intercept']
         bpm = bpm[0]
@@ -205,14 +184,12 @@ class BPMCalculator:
         Returns:
             Feature vector or None if insufficient data
         """
-        # Check minimum requirements
         minutes = player_stats.get('Minutes', 0)
         games = player_stats.get('Games', 0)
         
         if minutes < 100 or games < 10:
             return None
-        
-        # Extract features in the same order as training
+
         features = []
         for col in self.FEATURE_COLUMNS:
             value = player_stats.get(col, 0)
@@ -249,7 +226,7 @@ class BPMCalculator:
             DataFrame with VORP column added
         """
         df = df.copy()
-        
+
         vorp_values = []
         for _, row in df.iterrows():
             player_dict = row.to_dict()
@@ -278,9 +255,7 @@ class BPMCalculator:
             
             if minutes < 100 or games < 10:
                 return None
-            
-            # VORP formula: BPM * (Minutes / (Games * 36))
-            # 36 is roughly the minutes per game for a starter
+
             vorp = bpm * (minutes / (games * 36))
             
             return round(vorp, 2)
@@ -291,8 +266,7 @@ class BPMCalculator:
     def _predict_heuristic_bpm(self, df: pd.DataFrame) -> pd.DataFrame:
         """Fallback heuristic BPM prediction when model is not trained."""
         df = df.copy()
-        
-        # BPM calculation disabled - returning DataFrame without BPM
+
         return df
     
     def _calculate_heuristic_bpm(self, player_stats: Dict[str, Any]) -> Optional[float]:
@@ -310,7 +284,7 @@ class BPMCalculator:
             
             if minutes < 100 or games < 10:
                 return None
-            
+
             estimated_possessions = minutes * 0.85
             if estimated_possessions <= 0:
                 return None
@@ -324,16 +298,14 @@ class BPMCalculator:
             turnovers = player_stats.get('Turnovers', 0)
             usage_rate = player_stats.get('Usage', 0)
             ts_pct = player_stats.get('TrueShootingPct', 0)
-            
-            # Per-100 stats
+
             points_per_100 = (points / estimated_possessions) * 100
             rebounds_per_100 = (rebounds_total / estimated_possessions) * 100
             assists_per_100 = (assists / estimated_possessions) * 100
             steals_per_100 = (steals / estimated_possessions) * 100
             blocks_per_100 = (blocks / estimated_possessions) * 100
             turnovers_per_100 = (turnovers / estimated_possessions) * 100
-            
-            # Heuristic BPM (scaled coefficients)
+
             bpm = (
                 0.08 * points_per_100 +
                 0.06 * rebounds_per_100 +

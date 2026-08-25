@@ -2,10 +2,6 @@ from app.cache.player_vectors import PLAYER_VECTORS
 from app.models.similarity import cosine_similarity
 import numpy as np
 
-# -------------------------
-# FEATURE LABELS
-# -------------------------
-
 STYLE_FEATURES = [
     "3PT Volume",
     "Rim Pressure",
@@ -22,10 +18,6 @@ IMPACT_FEATURES = [
     "Defense Impact",
     "Efficiency",
 ]
-
-# -------------------------
-# 🔥 FIXED: RELATIVE DIFFERENCE SCORING
-# -------------------------
 
 def extract_reasons(a, b, labels, top_n=3, similar=True, scale=1.0):
     """
@@ -45,14 +37,9 @@ def extract_reasons(a, b, labels, top_n=3, similar=True, scale=1.0):
     diffs = diffs[:n]
     labels = labels[:n]
 
-    # -------------------------
-    # 🔥 KEY FIX: normalize per-vector spread
-    # (prevents everything looking "small")
-    # -------------------------
     spread = np.std(np.concatenate([a[:n], b[:n]])) + 1e-8
     diffs = diffs / spread
 
-    # rank
     idxs = np.argsort(diffs)
 
     if not similar:
@@ -60,14 +47,12 @@ def extract_reasons(a, b, labels, top_n=3, similar=True, scale=1.0):
 
     results = []
     for i in idxs[:top_n]:
-        # Only include if the difference is meaningful
-        if diffs[i] > 0.1 or not similar:  # For differences, include even small ones if they're the largest
+        if diffs[i] > 0.1 or not similar:
             results.append({
                 "feature": labels[i],
                 "delta": float(diffs[i] * scale)
             })
 
-    # If we don't have enough results, add more even if they're small
     if len(results) < top_n:
         for i in idxs[top_n:]:
             if len(results) >= top_n:
@@ -79,10 +64,6 @@ def extract_reasons(a, b, labels, top_n=3, similar=True, scale=1.0):
 
     return results
 
-
-# -------------------------
-# SAFE YEAR
-# -------------------------
 
 def safe_year(y):
     try:
@@ -99,10 +80,6 @@ def get_latest_year(year_map):
     return max(year_map.keys(), key=lambda x: int(x))
 
 
-# -------------------------
-# NORMALIZATION (SIMILARITY ONLY)
-# -------------------------
-
 def normalize(v):
     n = np.linalg.norm(v)
     if n < 1e-8:
@@ -117,10 +94,6 @@ def build_style(vec):
 def build_impact(vec):
     return np.array(vec["impact"], dtype=float)
 
-
-# -------------------------
-# CAREER VECTOR
-# -------------------------
 
 def build_career_vector(year_map):
     if not year_map:
@@ -142,10 +115,6 @@ def build_career_vector(year_map):
     }, "career"
 
 
-# -------------------------
-# VECTOR SELECTOR
-# -------------------------
-
 def get_vector(year_map, year=None):
 
     if not year_map:
@@ -166,10 +135,6 @@ def get_vector(year_map, year=None):
 
     return year_map[latest], latest
 
-
-# -------------------------
-# MAIN SIMILARITY
-# -------------------------
 
 def get_similar_players(ncaa_id, year=None, top_k=10, style_weight=0.7, require_yoy_data=False):
 
@@ -196,7 +161,6 @@ def get_similar_players(ncaa_id, year=None, top_k=10, style_weight=0.7, require_
         if ncaa_id_check == ncaa_id:
             continue
 
-        # Filter for players with year-over-year data if requested
         if require_yoy_data and len(year_map) < 2:
             continue
 
@@ -218,9 +182,6 @@ def get_similar_players(ncaa_id, year=None, top_k=10, style_weight=0.7, require_
             (1 - style_weight) * impact_sim
         )
 
-        # -------------------------
-        # 🔥 SAME STRUCTURE FOR BOTH
-        # -------------------------
 
         style_reasons = extract_reasons(style_raw_a, style_raw_b, STYLE_FEATURES, similar=True)
         impact_reasons = extract_reasons(impact_raw_a, impact_raw_b, IMPACT_FEATURES, similar=True)

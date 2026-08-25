@@ -12,9 +12,8 @@ from app.utils.logger import get_logger
 router = APIRouter()
 logger = get_logger(__name__)
 
-# Simple in-memory cache with TTL
 _projection_cache = {}
-_projection_cache_ttl = 600  # 10 minutes
+_projection_cache_ttl = 600
 
 
 def get_cache_key(ncaa_id, current_year, years_ahead, min_samples):
@@ -47,34 +46,28 @@ def get_player_projections(
         ProjectionResponse with projected BPM, confidence intervals, and similar players
     """
     try:
-        # Check cache
         cache_key = get_cache_key(ncaa_id, current_year, years_ahead, min_samples)
         cached_data, cached_time = _projection_cache.get(cache_key, (None, 0))
-        
+
         if cached_data and (time.time() - cached_time) < _projection_cache_ttl:
             logger.info(f"Returning cached projection for player {ncaa_id}")
             return cached_data
-        
-        # Get projection service
+
         service = get_projection_service()
-        
-        # Calculate projection
+
         result = service.calculate_projection(
             ncaa_id=ncaa_id,
             current_year=current_year,
             years_ahead=years_ahead,
             min_samples=min_samples
         )
-        
-        # Check for errors
+
         if 'error' in result:
             logger.warning(f"Projection error for player {ncaa_id}: {result['error']}")
             raise HTTPException(status_code=404, detail=result['error'])
-        
-        # Convert to response model
+
         response = ProjectionResponse(**result)
-        
-        # Store in cache
+
         _projection_cache[cache_key] = (response, time.time())
         
         logger.info(f"Generated projection for player {ncaa_id} (cluster {result['cluster_id']}, {result['historical_samples']} samples)")

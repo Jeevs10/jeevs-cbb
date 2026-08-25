@@ -14,15 +14,13 @@ def setup_logging(
     log_format = format_string or (
         "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
     )
-    
-    # Configure root logger
+
     logging.basicConfig(
         level=getattr(logging, log_level.upper()),
         format=log_format,
         stream=sys.stdout
     )
-    
-    # Configure specific loggers
+
     logging.getLogger("uvicorn").setLevel(logging.INFO)
     logging.getLogger("uvicorn.access").setLevel(logging.INFO)
     logging.getLogger("fastapi").setLevel(logging.INFO)

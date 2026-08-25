@@ -1,9 +1,5 @@
 import numpy as np
 
-# -------------------------
-# SAFE PARSING
-# -------------------------
-
 def safe(v):
     try:
         if v is None:
@@ -16,20 +12,12 @@ def safe(v):
         return 0.0
 
 
-# -------------------------
-# MAIN ENTRY
-# -------------------------
-
 def build_player_vector(player: dict):
     return {
         "style": build_style_vector(player),
         "impact": build_impact_vector(player),
     }
 
-
-# -------------------------
-# STYLE VECTOR
-# -------------------------
 
 def build_style_vector(player):
     vec = np.array([
@@ -50,11 +38,6 @@ def build_style_vector(player):
 
     return np.nan_to_num(vec, nan=0.0, posinf=0.0, neginf=0.0)
 
-
-# -------------------------
-# IMPACT VECTOR (FOR SIMILARITY ONLY)
-# -------------------------
-# IMPORTANT: DO NOT MIX WITH RTG OR DUPLICATES
 
 def build_impact_vector(player):
     vec = np.array([

@@ -57,9 +57,7 @@ class TeamService:
                             'def_adj_ppp': float(row.get('def_adj_ppp', 0) or 0),
                             'wab': float(row.get('wab', 0) or 0),
                         }
-                        
-                        # Add all style columns if they exist
-                        # Load all off_style and def_style columns
+
                         for key in row.keys():
                             if key.startswith('off_style_') or key.startswith('def_style_') or key.startswith('pctile_') or key.startswith('rank_'):
                                 if row[key]:
@@ -72,12 +70,10 @@ class TeamService:
                     except Exception as e:
                         logger.warning(f"Error processing team {team_id}: {str(e)}")
                         continue
-            
-            # Add analytics data to each team using SourceId mapping
+
             teams_with_analytics = []
             teams_with_analytics_count = 0
-            
-            # Calculate power quartiles (include all power values, not just positive)
+
             power_values = [analytics.get('power', 0) for analytics in analytics_map.values() if analytics.get('power', 0) != 0]
             if power_values:
                 power_values_sorted = sorted(power_values)
@@ -91,8 +87,7 @@ class TeamService:
                     3: power_values_sorted[q3_idx] if q3_idx < n else 0,
                     4: power_values_sorted[-1] if n > 0 else 0
                 }
-                
-                # Assign quartile to each team
+
                 for analytics in analytics_map.values():
                     power = analytics.get('power', 0)
                     if power <= power_quartiles[1]:
@@ -111,7 +106,6 @@ class TeamService:
             for team in teams:
                 team_id = team.get('id')
 
-                # Get SourceId from TEAM_LOOKUP to match with CSV _id
                 source_id = None
                 if team_id in TEAM_LOOKUP:
                     source_id = TEAM_LOOKUP[team_id].get('SourceId')
@@ -119,9 +113,7 @@ class TeamService:
                         source_id = str(source_id)
 
                 if source_id and source_id in analytics_map:
-                    # Create a copy of the analytics to avoid reference sharing
                     team['analytics'] = analytics_map[source_id].copy()
-                    # Also populate mini_stats from analytics
                     analytics = analytics_map[source_id]
                     team['mini_stats'] = {
                         'wins': analytics.get('wins'),
@@ -242,14 +234,12 @@ class TeamService:
             return score, reasons
         
         try:
-            # Rim attack: our strength vs their weakness (weighted by frequency)
             our_rim_ppp = current_analytics.get('off_style_rim_attack_ppp', 0)
-            our_rim_freq = current_analytics.get('off_style_rim_attack_pct', 0) * 100  # Convert decimal to percentage
+            our_rim_freq = current_analytics.get('off_style_rim_attack_pct', 0) * 100
             their_rim_def_ppp = opponent_analytics.get('def_style_rim_attack_ppp', 0)
-            
+
             if our_rim_ppp > 1.0 and their_rim_def_ppp > 1.0:
-                # Weight by frequency - more frequent plays get more weight
-                freq_weight = min(our_rim_freq / 20.0, 1.5)  # Cap at 1.5x weight
+                freq_weight = min(our_rim_freq / 20.0, 1.5)
                 rim_score = 0.12 * freq_weight
                 score += rim_score
                 reasons.append(f"Rim attack ({our_rim_ppp:.2f} PPP, {our_rim_freq:.1f}%) vs rim defense ({their_rim_def_ppp:.2f} PPP allowed)")
@@ -258,12 +248,11 @@ class TeamService:
                 rim_score = -0.12 * freq_weight
                 score += rim_score
                 reasons.append(f"Rim attack ({our_rim_ppp:.2f} PPP, {our_rim_freq:.1f}%) vs strong rim defense ({their_rim_def_ppp:.2f} PPP allowed)")
-            
-            # Transition: our strength vs their weakness (weighted by frequency)
+
             our_trans_ppp = current_analytics.get('off_style_transition_ppp', 0)
-            our_trans_freq = current_analytics.get('off_style_transition_pct', 0) * 100  # Convert decimal to percentage
+            our_trans_freq = current_analytics.get('off_style_transition_pct', 0) * 100
             their_trans_def_ppp = opponent_analytics.get('def_style_transition_ppp', 0)
-            
+
             if our_trans_ppp > 1.1 and their_trans_def_ppp > 1.0:
                 freq_weight = min(our_trans_freq / 15.0, 1.5)
                 trans_score = 0.1 * freq_weight
@@ -274,12 +263,11 @@ class TeamService:
                 trans_score = -0.1 * freq_weight
                 score += trans_score
                 reasons.append(f"Transition offense ({our_trans_ppp:.2f} PPP, {our_trans_freq:.1f}%) stopped by transition defense ({their_trans_def_ppp:.2f} PPP allowed)")
-            
-            # Mid range: our strength vs their weakness (weighted by frequency)
+
             our_mid_ppp = current_analytics.get('off_style_mid_range_ppp', 0)
-            our_mid_freq = current_analytics.get('off_style_mid_range_pct', 0) * 100  # Convert decimal to percentage
+            our_mid_freq = current_analytics.get('off_style_mid_range_pct', 0) * 100
             their_mid_def_ppp = opponent_analytics.get('def_style_mid_range_ppp', 0)
-            
+
             if our_mid_ppp > 0.8 and their_mid_def_ppp > 0.8:
                 freq_weight = min(our_mid_freq / 15.0, 1.5)
                 mid_score = 0.08 * freq_weight
@@ -290,24 +278,21 @@ class TeamService:
                 mid_score = -0.08 * freq_weight
                 score += mid_score
                 reasons.append(f"Mid-range offense ({our_mid_ppp:.2f} PPP, {our_mid_freq:.1f}%) vs mid-range defense ({their_mid_def_ppp:.2f} PPP allowed)")
-            
-            # Turnovers: our turnover rate vs their defensive turnover creation
-            our_to_rate = current_analytics.get('off_to', 0) * 100  # Convert decimal to percentage
-            their_def_to_rate = opponent_analytics.get('def_to', 0) * 100  # Convert decimal to percentage
-            
-            # Low offensive TO rate + high defensive TO creation by opponent = bad for us
+
+            our_to_rate = current_analytics.get('off_to', 0) * 100
+            their_def_to_rate = opponent_analytics.get('def_to', 0) * 100
+
             if our_to_rate < 15.0 and their_def_to_rate > 18.0:
                 score -= 0.06
                 reasons.append(f"Careful offense ({our_to_rate:.1f}% TO) vs turnover-forcing defense ({their_def_to_rate:.1f}% TO created)")
             elif our_to_rate > 18.0 and their_def_to_rate < 15.0:
                 score += 0.06
                 reasons.append(f"Turnover-prone offense ({our_to_rate:.1f}% TO) vs passive defense ({their_def_to_rate:.1f}% TO created)")
-            
-            # Rebounding: offensive rebounding vs defensive rebounding
+
             our_oreb_ppp = current_analytics.get('off_style_reb_scramble_ppp', 0)
-            our_oreb_freq = current_analytics.get('off_style_reb_scramble_pct', 0) * 100  # Convert decimal to percentage
+            our_oreb_freq = current_analytics.get('off_style_reb_scramble_pct', 0) * 100
             their_dreb_ppp = opponent_analytics.get('def_style_reb_scramble_ppp', 0)
-            
+
             if our_oreb_ppp > 1.1 and their_dreb_ppp > 1.1:
                 freq_weight = min(our_oreb_freq / 10.0, 1.5)
                 reb_score = 0.07 * freq_weight

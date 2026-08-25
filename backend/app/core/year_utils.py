@@ -1,5 +1,3 @@
-# app/core/year_utils.py
-
 def normalize_year(year):
     if year is None:
         return None

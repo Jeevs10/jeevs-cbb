@@ -11,9 +11,9 @@ interface PlayerSearchProps {
   disabled?: boolean;
 }
 
-export const PlayerSearch = React.memo(function PlayerSearch({ 
-  value, 
-  onChange, 
+export const PlayerSearch = React.memo(function PlayerSearch({
+  value,
+  onChange,
   onEnter,
   placeholder = "Search players or teams...",
   disabled = false
@@ -22,7 +22,6 @@ export const PlayerSearch = React.memo(function PlayerSearch({
   const inputRef = useRef<HTMLInputElement>(null);
   const isTypingRef = useRef(false);
 
-  // Debounced onChange to prevent excessive API calls
   const debouncedOnChange = useCallback(
     debounce((newValue: string) => {
       onChange(newValue);
@@ -44,7 +43,6 @@ export const PlayerSearch = React.memo(function PlayerSearch({
     }
   };
 
-  // Only initialize from prop on mount, let local state control after that
   useEffect(() => {
     if (!isTypingRef.current) {
       setLocalValue(value);
