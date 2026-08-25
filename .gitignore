@@ -10,6 +10,12 @@ __pycache__/
 .env
 backend/venv/
 
+# data_loader's own on-disk cache - regenerated at process startup, ~650MB+ and
+# never survives a Railway redeploy anyway (no persistent volume), so it must
+# never be committed. Only the much smaller player_vectors cache is committed.
+backend/app/cache/data_loader_cache.pkl
+backend/app/cache/data_loader_cache_metadata.json
+
 # large data files - uncompressed CSVs and JSONs (use .gz versions instead)
 backend/data/aggregate/all_players.csv
 backend/data/player_clusters.csv

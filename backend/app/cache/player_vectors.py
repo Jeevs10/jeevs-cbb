@@ -1,10 +1,11 @@
 from app.core.data_loader import df
-from app.features.vectors import build_style_vector, build_impact_vector
+from app.features.vectors import build_style_vectors_batch, build_impact_vectors_batch
 import numpy as np
 import pandas as pd
 import pickle
 import os
 import json
+import glob
 
 PLAYER_VECTORS = {}
 PLAYER_INDEX = []
@@ -18,29 +19,42 @@ CACHE_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "cache")
 CACHE_FILE = os.path.join(CACHE_DIR, "player_vectors_cache.pkl")
 CACHE_METADATA_FILE = os.path.join(CACHE_DIR, "player_vectors_cache_metadata.json")
 
-DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
-DATA_FILES_TO_TRACK = [
-    os.path.join(DATA_DIR, "players", "2019-PlayerData.csv"),
-    os.path.join(DATA_DIR, "players", "2020-PlayerData.csv"),
-    os.path.join(DATA_DIR, "players", "2021-PlayerData.csv"),
-    os.path.join(DATA_DIR, "players", "2022-PlayerData.csv"),
-    os.path.join(DATA_DIR, "players", "2023-PlayerData.csv"),
-    os.path.join(DATA_DIR, "players", "2024-PlayerData.csv"),
-    os.path.join(DATA_DIR, "players", "2025-PlayerData.csv"),
-    os.path.join(DATA_DIR, "players", "2026-PlayerData.csv"),
-    os.path.join(DATA_DIR, "players", "2025-roster-info.csv"),
-    os.path.join(DATA_DIR, "players", "2026-roster-info.csv"),
-]
+DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "data")
+
+def _tracked_data_files():
+    """Every source file data_loader.py / roster_data.py actually read to build `df`.
+
+    Globs for what's actually on disk rather than guessing per-year filenames -
+    availability (basic vs enriched, .csv vs .csv.gz) varies by year, and a
+    tracked path that never exists makes is_cache_valid() permanently False.
+    """
+    patterns = [
+        os.path.join(DATA_DIR, "players", "*-players_basic.csv*"),
+        os.path.join(DATA_DIR, "players", "*-players_enriched.csv*"),
+        os.path.join(DATA_DIR, "players", "*-players.csv*"),
+        os.path.join(DATA_DIR, "players", "*_torvik.csv"),
+        os.path.join(DATA_DIR, "players", "*-roster-info.csv"),
+        os.path.join(DATA_DIR, "aggregate", "all_players.csv*"),
+    ]
+    files = []
+    for pattern in patterns:
+        files.extend(glob.glob(pattern))
+    return sorted(files)
+
+DATA_FILES_TO_TRACK = _tracked_data_files()
 
 
 def percentile_rank(value, metric_values):
-    """Calculate percentile rank of a value within the provided metric values"""
-    if not metric_values:
+    """Calculate percentile rank of a value within the provided metric values.
+
+    metric_values may be a plain list or an ndarray - pass a pre-built ndarray
+    when calling this in a loop (np.asarray is a no-op on one, unlike np.array
+    which always copies) to avoid rebuilding the array on every call.
+    """
+    if len(metric_values) == 0:
         return 0.5  # Default to middle if no data
-    
-    values = np.array(metric_values)
-    if len(values) == 0:
-        return 0.5
+
+    values = np.asarray(metric_values)
     
     # Calculate percentile: (count of values less than this value) / (total count - 1)
     return (np.sum(values < value) / (len(values) - 1))
@@ -86,7 +100,12 @@ def is_cache_valid():
         
         cached_mod_times = metadata.get("data_file_mod_times", {})
         current_mod_times = get_data_file_mod_times()
-        
+
+        # An empty/missing tracked-files list must not vacuously validate the
+        # cache - require the same set of tracked files on both sides.
+        if not cached_mod_times or set(cached_mod_times) != set(current_mod_times):
+            return False
+
         # Check if any tracked data file has been modified since cache was built
         for file_path, cached_time in cached_mod_times.items():
             current_time = current_mod_times.get(file_path)
@@ -174,14 +193,35 @@ def build_cache(force_rebuild=False):
     ALL_VORP_VALUES = []
 
 
-    # Pass 1: Build raw data and collect metrics
+    # Pre-compute style/impact vectors for every row in one vectorized pass
+    # instead of calling build_style_vector/build_impact_vector per row below -
+    # these only ever read a fixed set of ~10/~7 numeric columns, so the whole
+    # thing is just column-wise cleaning + a column_stack.
+    style_batch = build_style_vectors_batch(df)
+    impact_batch = build_impact_vectors_batch(df)
+
+    # Pass 1: Build raw data and collect metrics.
+    # Only the columns the loop body below actually reads via player.get(...) -
+    # df has 400+ columns total, and materializing all of them into a dict per
+    # row (df.to_dict('records') on the full frame, or df.iterrows()) was doing
+    # ~25x more work than needed here.
+    ROW_FIELDS = [
+        "roster.ncaa_id", "AthleteSourceId", "year",
+        "pctile_off_adj_rapm", "pctile_def_adj_rapm",
+        "pctile_off_adj_rapm_prod", "pctile_def_adj_rapm_prod",
+        "pctile_adj_rapm_margin", "pctile_adj_rapm_prod_margin",
+        "BPM", "VORP",
+        "player_name", "Name", "name", "player", "playerName",
+        "team", "pos", "position",
+    ]
+    row_fields_present = [c for c in ROW_FIELDS if c in df.columns]
+
     raw_rows = []
     skipped_count = 0
     total_rows = 0
 
-    for _, row in df.iterrows():
+    for i, player in enumerate(df[row_fields_present].to_dict('records')):
         total_rows += 1
-        player = row.to_dict()
 
         # Get ncaa_id from roster.ncaa_id first, fallback to AthleteSourceId
         ncaa_id = player.get("roster.ncaa_id") or player.get("AthleteSourceId")
@@ -233,14 +273,20 @@ def build_cache(force_rebuild=False):
             except:
                 pass
 
-        raw_rows.append((player, ncaa_id, year, composite_rapm_pct, bpm, vorp))
+        raw_rows.append((player, ncaa_id, year, composite_rapm_pct, bpm, vorp, i))
 
-    # Pass 2: Build structures
-    
-    for player, ncaa_id, year, composite_rapm_pct, bpm, vorp in raw_rows:
+    # Pass 2: Build structures.
+    # Build these once - percentile_rank(np.asarray(...)) is a no-op on an
+    # ndarray, but ALL_BPM_VALUES/ALL_VORP_VALUES are plain lists, and passing
+    # a list would make every one of the ~2x raw_rows calls below rebuild the
+    # whole array from scratch (O(n) per call => O(n^2) over the full loop).
+    all_bpm_arr = np.array(ALL_BPM_VALUES)
+    all_vorp_arr = np.array(ALL_VORP_VALUES)
 
-        style_vec = np.nan_to_num(build_style_vector(player))
-        impact_vec = np.nan_to_num(build_impact_vector(player))
+    for player, ncaa_id, year, composite_rapm_pct, bpm, vorp, i in raw_rows:
+
+        style_vec = style_batch[i]
+        impact_vec = impact_batch[i]
 
         player_name = get_name_from_row(player)
         team = player.get("team")
@@ -250,8 +296,8 @@ def build_cache(force_rebuild=False):
         rapm_pct = composite_rapm_pct
         
         # Calculate BPM and VORP percentiles
-        bpm_pct = percentile_rank(bpm, ALL_BPM_VALUES) if bpm is not None and not pd.isna(bpm) else 0.5
-        vorp_pct = percentile_rank(vorp, ALL_VORP_VALUES) if vorp is not None and not pd.isna(vorp) else 0.5
+        bpm_pct = percentile_rank(bpm, all_bpm_arr) if bpm is not None and not pd.isna(bpm) else 0.5
+        vorp_pct = percentile_rank(vorp, all_vorp_arr) if vorp is not None and not pd.isna(vorp) else 0.5
 
         if ncaa_id not in PLAYER_VECTORS:
             PLAYER_VECTORS[ncaa_id] = {}

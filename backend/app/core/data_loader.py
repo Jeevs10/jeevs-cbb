@@ -1,6 +1,10 @@
 import os
 import pandas as pd
 import gzip
+import glob
+import pickle
+import json
+import time
 from pathlib import Path
 
 from app.core.roster_data import get_roster_data
@@ -9,6 +13,64 @@ BASE_DIR = Path(__file__).parent.parent.parent
 DATA_DIR = BASE_DIR / "data"
 PLAYERS_DIR = DATA_DIR / "players"
 AGGREGATE_DIR = DATA_DIR / "aggregate"
+
+CACHE_DIR = BASE_DIR / "app" / "cache"
+CACHE_FILE = CACHE_DIR / "data_loader_cache.pkl"
+CACHE_METADATA_FILE = CACHE_DIR / "data_loader_cache_metadata.json"
+
+
+def _tracked_source_files():
+    """Every CSV that load_all_players()/load_all_time_players() actually read."""
+    patterns = [
+        str(PLAYERS_DIR / "*-players_basic.csv*"),
+        str(PLAYERS_DIR / "*-players_enriched.csv*"),
+        str(PLAYERS_DIR / "*-players.csv*"),
+        str(PLAYERS_DIR / "*_torvik.csv"),
+        str(PLAYERS_DIR / "*-roster-info.csv"),
+        str(AGGREGATE_DIR / "all_players.csv*"),
+    ]
+    files = []
+    for pattern in patterns:
+        files.extend(glob.glob(pattern))
+    return sorted(files)
+
+
+def _source_mod_times():
+    return {f: os.path.getmtime(f) for f in _tracked_source_files()}
+
+
+def _cache_valid():
+    if not CACHE_FILE.exists() or not CACHE_METADATA_FILE.exists():
+        return False
+    try:
+        with open(CACHE_METADATA_FILE, 'r') as f:
+            metadata = json.load(f)
+        return metadata.get("source_mod_times") == _source_mod_times()
+    except Exception:
+        return False
+
+
+def _load_cache():
+    with open(CACHE_FILE, 'rb') as f:
+        cached = pickle.load(f)
+    return cached["df"], cached["all_time_df"], cached["players_df"], cached["PLAYER_LOOKUP"]
+
+
+def _save_cache(df, all_time_df, players_df, PLAYER_LOOKUP):
+    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    with open(CACHE_FILE, 'wb') as f:
+        pickle.dump({
+            "df": df,
+            "all_time_df": all_time_df,
+            "players_df": players_df,
+            "PLAYER_LOOKUP": PLAYER_LOOKUP,
+        }, f)
+    with open(CACHE_METADATA_FILE, 'w') as f:
+        json.dump({
+            "built_at": time.time(),
+            "source_mod_times": _source_mod_times(),
+            "num_rows": len(df),
+        }, f, indent=2)
 
 def read_csv_with_compression(csv_path: Path) -> pd.DataFrame:
     """Read CSV file, automatically handling gzip compression."""
@@ -238,35 +300,19 @@ def load_all_players():
         available_torvik_cols = [col for col in torvik_cols_to_merge if col in torvik_df.columns]
         
         if available_torvik_cols:
-            torvik_map = torvik_df.set_index('_bpm_key')[available_torvik_cols].to_dict('index')
-            
+            # Map lowercase torvik columns to uppercase for consistency
+            col_mapping = {'bpm': 'BPM', 'obpm': 'OBPM', 'dbpm': 'DBPM'}
+            torvik_to_merge = torvik_df[['_bpm_key'] + available_torvik_cols].rename(columns=col_mapping)
+
             # Add _bpm_key column using concat to avoid fragmentation
             bpm_key_col = pd.DataFrame({
                 '_bpm_key': combined['player_key'].astype(str) + '_' + combined['year'].astype(str)
             }, index=combined.index)
             combined = pd.concat([combined, bpm_key_col], axis=1)
-            
-            def get_torvik_values(row):
-                key = row['_bpm_key']
-                if key in torvik_map:
-                    values = torvik_map[key]
-                    result = {}
-                    # Map lowercase torvik columns to uppercase for consistency
-                    col_mapping = {'bpm': 'BPM', 'obpm': 'OBPM', 'dbpm': 'DBPM'}
-                    for col in available_torvik_cols:
-                        target_col = col_mapping.get(col, col)
-                        result[target_col] = values[col]
-                    return pd.Series(result)
-                # Return None for all columns if no match
-                result = {}
-                col_mapping = {'bpm': 'BPM', 'obpm': 'OBPM', 'dbpm': 'DBPM'}
-                for col in available_torvik_cols:
-                    target_col = col_mapping.get(col, col)
-                    result[target_col] = None
-                return pd.Series(result)
-            
-            torvik_values = combined.apply(get_torvik_values, axis=1)
-            combined = pd.concat([combined, torvik_values], axis=1)
+
+            # Vectorized left merge instead of a per-row Python apply (was O(n) function
+            # calls + pd.Series construction over the whole player table)
+            combined = combined.merge(torvik_to_merge, on='_bpm_key', how='left')
             combined = combined.drop('_bpm_key', axis=1)
     
     # Add pre-computed lowercase columns for efficient search
@@ -279,46 +325,66 @@ def load_all_players():
     
     return combined
 
-# Load all players (maintains backward compatibility)
-df = load_all_players()
+def _build_all():
+    """Run the full load/merge pipeline from source CSVs. Expensive - only call
+    when the on-disk cache is missing or stale (see _cache_valid)."""
 
-# Load all-time players for historical percentile comparisons
-all_time_df = load_all_time_players()
-if all_time_df.empty:
-    pass
+    # Load all players (maintains backward compatibility)
+    df = load_all_players()
 
-# Merge Height and Position from main df into all_time_df
-if not all_time_df.empty and not df.empty and 'Height' in df.columns and 'Position' in df.columns:
-    # Create join keys using concat to avoid fragmentation
-    all_time_df = pd.concat([all_time_df, pd.DataFrame({'_join_key': all_time_df['roster.ncaa_id'].str.replace('.0', '', regex=False)}, index=all_time_df.index)], axis=1)
-    df_copy = df.copy()
-    df_copy = pd.concat([df_copy, pd.DataFrame({'_join_key': df_copy['player_key']}, index=df_copy.index)], axis=1)
-    
-    # Get Height and Position from main df (first non-null value per player)
-    df_copy = df_copy.sort_values(['player_key', 'year'], ascending=[True, False])
-    
-    # For each player, get the first row with non-null Height and Position
-    def get_first_non_null(group):
-        height_row = group[group['Height'].notna()]
-        if not height_row.empty:
-            return height_row.iloc[0]
-        return group.iloc[0]
-    
-    height_pos = df_copy.groupby('player_key').apply(get_first_non_null)[['_join_key', 'Height', 'Position']].reset_index(drop=True)
-    
-    # Merge Height and Position
-    all_time_df = pd.merge(all_time_df, height_pos, on='_join_key', how='left')
-    all_time_df = all_time_df.drop('_join_key', axis=1)
-    
+    # Load all-time players for historical percentile comparisons
+    all_time_df = load_all_time_players()
 
-# Create player lookup (latest year per player)
-players_df = (
-    df.sort_values(["player_key", "year"])
-      .groupby("player_key")
-      .tail(1)
-)
+    # Merge Height and Position from main df into all_time_df
+    if not all_time_df.empty and not df.empty and 'Height' in df.columns and 'Position' in df.columns:
+        # Create join keys using concat to avoid fragmentation
+        all_time_df = pd.concat([all_time_df, pd.DataFrame({'_join_key': all_time_df['roster.ncaa_id'].str.replace('.0', '', regex=False)}, index=all_time_df.index)], axis=1)
+        df_copy = df.copy()
+        df_copy = pd.concat([df_copy, pd.DataFrame({'_join_key': df_copy['player_key']}, index=df_copy.index)], axis=1)
 
-# Combined lookup, keyed by player_key (only lookup actually used elsewhere;
-# per-tier PLAYER_LOOKUP_BASIC/PLAYER_LOOKUP_ENRICHED were built here but never
-# read anywhere, so they were pure duplicate memory - removed)
-PLAYER_LOOKUP = players_df.set_index("player_key").to_dict("index")
+        # Get Height and Position from main df (first non-null value per player).
+        # Sort so rows with a non-null Height sort first within each player, tie-broken
+        # by year desc, then take each group's literal first row - vectorized equivalent
+        # of the old groupby().apply(get_first_non_null) row-by-row scan.
+        has_height_col = pd.DataFrame({'_has_height': df_copy['Height'].notna()}, index=df_copy.index)
+        df_copy = pd.concat([df_copy, has_height_col], axis=1)
+        df_copy = df_copy.sort_values(
+            ['player_key', '_has_height', 'year'], ascending=[True, False, False]
+        )
+
+        height_pos = (
+            df_copy.groupby('player_key', sort=False)
+            .head(1)[['_join_key', 'Height', 'Position']]
+            .reset_index(drop=True)
+        )
+
+        # Merge Height and Position
+        all_time_df = pd.merge(all_time_df, height_pos, on='_join_key', how='left')
+        all_time_df = all_time_df.drop('_join_key', axis=1)
+
+    # Create player lookup (latest year per player)
+    players_df = (
+        df.sort_values(["player_key", "year"])
+          .groupby("player_key")
+          .tail(1)
+    )
+
+    # Combined lookup, keyed by player_key (only lookup actually used elsewhere;
+    # per-tier PLAYER_LOOKUP_BASIC/PLAYER_LOOKUP_ENRICHED were built here but never
+    # read anywhere, so they were pure duplicate memory - removed)
+    PLAYER_LOOKUP = players_df.set_index("player_key").to_dict("index")
+
+    return df, all_time_df, players_df, PLAYER_LOOKUP
+
+
+# Load from the on-disk cache when the source CSVs haven't changed since it was
+# built, instead of re-running the full load/merge pipeline on every startup.
+if _cache_valid():
+    try:
+        df, all_time_df, players_df, PLAYER_LOOKUP = _load_cache()
+    except Exception:
+        df, all_time_df, players_df, PLAYER_LOOKUP = _build_all()
+        _save_cache(df, all_time_df, players_df, PLAYER_LOOKUP)
+else:
+    df, all_time_df, players_df, PLAYER_LOOKUP = _build_all()
+    _save_cache(df, all_time_df, players_df, PLAYER_LOOKUP)
